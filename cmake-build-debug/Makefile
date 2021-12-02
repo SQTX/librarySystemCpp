@@ -129,6 +129,30 @@ librarySystem/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/librarySystem.dir/build.make CMakeFiles/librarySystem.dir/build
 .PHONY : librarySystem/fast
 
+src/book.o: src/book.cpp.o
+.PHONY : src/book.o
+
+# target to build an object file
+src/book.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/librarySystem.dir/build.make CMakeFiles/librarySystem.dir/src/book.cpp.o
+.PHONY : src/book.cpp.o
+
+src/book.i: src/book.cpp.i
+.PHONY : src/book.i
+
+# target to preprocess a source file
+src/book.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/librarySystem.dir/build.make CMakeFiles/librarySystem.dir/src/book.cpp.i
+.PHONY : src/book.cpp.i
+
+src/book.s: src/book.cpp.s
+.PHONY : src/book.s
+
+# target to generate assembly for a file
+src/book.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/librarySystem.dir/build.make CMakeFiles/librarySystem.dir/src/book.cpp.s
+.PHONY : src/book.cpp.s
+
 src/main.o: src/main.cpp.o
 .PHONY : src/main.o
 
@@ -162,6 +186,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... librarySystem"
+	@echo "... src/book.o"
+	@echo "... src/book.i"
+	@echo "... src/book.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"

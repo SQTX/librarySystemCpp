@@ -78,6 +78,9 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/Users/sqtx/Documents/Programowanie/C++/Projects/librarySystem/src/book.cpp">
+			<Option target="librarySystem"/>
+		</Unit>
 		<Unit filename="/Users/sqtx/Documents/Programowanie/C++/Projects/librarySystem/src/main.cpp">
 			<Option target="librarySystem"/>
 		</Unit>

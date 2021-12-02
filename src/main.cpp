@@ -1,28 +1,31 @@
 //
 // Created by Jakub Sitarczyk on 02/12/2021.
 //
+//Libs
 #include <iostream>
+//Files
+#include "book.cpp"
 
 using namespace std;
 int main() {
-  const string appName = "Biblioteka v0.1";
+  const string appName = "Biblioteka v0.2";
 
-  string title = "W pustyni i w puszczy";
-  string author = "Henryk Sienkiewicz";
-  int releaseDate = 2010;
-  int pages = 296;
-  string publisher = "Greg";
-  string isbn = "9788373271890";
+  Book book;  //New Class
+  book.title = "W pustyni i w puszczy";
+  book.author = "Henryk Sienkiewicz";
+  book.releaseDate = 2010;
+  book.pages = 296;
+  book.publisher = "Greg";
+  book.isbn = "9788373271890";
 
   cout << appName << endl;
   cout << "Książki dostępne w bibliotece:" << endl;
-  cout << title << endl;
-  cout << author << endl;
-  cout << releaseDate << endl;
-  cout << pages << endl;
-  cout << publisher << endl;
-  cout << isbn << endl;
-
+  cout << book.title << endl;
+  cout << book.author << endl;
+  cout << book.releaseDate << endl;
+  cout << book.pages << endl;
+  cout << book.publisher << endl;
+  cout << book.isbn << endl;
 
   return 0;
 }

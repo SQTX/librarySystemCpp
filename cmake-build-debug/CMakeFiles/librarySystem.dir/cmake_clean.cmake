@@ -1,4 +1,5 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/librarySystem.dir/src/book.cpp.o"
   "CMakeFiles/librarySystem.dir/src/main.cpp.o"
   "librarySystem"
   "librarySystem.pdb"

@@ -3,4 +3,4 @@ project(librarySystem)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(librarySystem src/main.cpp)
+add_executable(librarySystem src/main.cpp src/book.cpp)
