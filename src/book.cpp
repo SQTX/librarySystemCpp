@@ -13,7 +13,14 @@ class Book{ //Book class®
     int pages;
     string publisher;
     string isbn;
-    Book(string title, string author, int releaseDate, int pages, string publisher, string isbn){ //Constructor Book
+    Book(string title, string author, int releaseDate, int pages, string publisher) { //Constructor Book
+      this->title = title;
+      this->author = author;
+      this->releaseDate = releaseDate;
+      this->pages = pages;
+      this->publisher = publisher;
+    }
+    Book(string title, string author, int releaseDate, int pages, string publisher, string isbn) { //Constructor Book
       this->title = title;
       this->author = author;
       this->releaseDate = releaseDate;
