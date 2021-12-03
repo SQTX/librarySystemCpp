@@ -129,53 +129,53 @@ librarySystem/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/librarySystem.dir/build.make CMakeFiles/librarySystem.dir/build
 .PHONY : librarySystem/fast
 
-src/book.o: src/book.cpp.o
-.PHONY : src/book.o
+src/pl/sqtx/liblary/app/main.o: src/pl/sqtx/liblary/app/main.cpp.o
+.PHONY : src/pl/sqtx/liblary/app/main.o
 
 # target to build an object file
-src/book.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/librarySystem.dir/build.make CMakeFiles/librarySystem.dir/src/book.cpp.o
-.PHONY : src/book.cpp.o
+src/pl/sqtx/liblary/app/main.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/librarySystem.dir/build.make CMakeFiles/librarySystem.dir/src/pl/sqtx/liblary/app/main.cpp.o
+.PHONY : src/pl/sqtx/liblary/app/main.cpp.o
 
-src/book.i: src/book.cpp.i
-.PHONY : src/book.i
+src/pl/sqtx/liblary/app/main.i: src/pl/sqtx/liblary/app/main.cpp.i
+.PHONY : src/pl/sqtx/liblary/app/main.i
 
 # target to preprocess a source file
-src/book.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/librarySystem.dir/build.make CMakeFiles/librarySystem.dir/src/book.cpp.i
-.PHONY : src/book.cpp.i
+src/pl/sqtx/liblary/app/main.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/librarySystem.dir/build.make CMakeFiles/librarySystem.dir/src/pl/sqtx/liblary/app/main.cpp.i
+.PHONY : src/pl/sqtx/liblary/app/main.cpp.i
 
-src/book.s: src/book.cpp.s
-.PHONY : src/book.s
+src/pl/sqtx/liblary/app/main.s: src/pl/sqtx/liblary/app/main.cpp.s
+.PHONY : src/pl/sqtx/liblary/app/main.s
 
 # target to generate assembly for a file
-src/book.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/librarySystem.dir/build.make CMakeFiles/librarySystem.dir/src/book.cpp.s
-.PHONY : src/book.cpp.s
+src/pl/sqtx/liblary/app/main.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/librarySystem.dir/build.make CMakeFiles/librarySystem.dir/src/pl/sqtx/liblary/app/main.cpp.s
+.PHONY : src/pl/sqtx/liblary/app/main.cpp.s
 
-src/main.o: src/main.cpp.o
-.PHONY : src/main.o
+src/pl/sqtx/liblary/model/book.o: src/pl/sqtx/liblary/model/book.cpp.o
+.PHONY : src/pl/sqtx/liblary/model/book.o
 
 # target to build an object file
-src/main.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/librarySystem.dir/build.make CMakeFiles/librarySystem.dir/src/main.cpp.o
-.PHONY : src/main.cpp.o
+src/pl/sqtx/liblary/model/book.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/librarySystem.dir/build.make CMakeFiles/librarySystem.dir/src/pl/sqtx/liblary/model/book.cpp.o
+.PHONY : src/pl/sqtx/liblary/model/book.cpp.o
 
-src/main.i: src/main.cpp.i
-.PHONY : src/main.i
+src/pl/sqtx/liblary/model/book.i: src/pl/sqtx/liblary/model/book.cpp.i
+.PHONY : src/pl/sqtx/liblary/model/book.i
 
 # target to preprocess a source file
-src/main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/librarySystem.dir/build.make CMakeFiles/librarySystem.dir/src/main.cpp.i
-.PHONY : src/main.cpp.i
+src/pl/sqtx/liblary/model/book.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/librarySystem.dir/build.make CMakeFiles/librarySystem.dir/src/pl/sqtx/liblary/model/book.cpp.i
+.PHONY : src/pl/sqtx/liblary/model/book.cpp.i
 
-src/main.s: src/main.cpp.s
-.PHONY : src/main.s
+src/pl/sqtx/liblary/model/book.s: src/pl/sqtx/liblary/model/book.cpp.s
+.PHONY : src/pl/sqtx/liblary/model/book.s
 
 # target to generate assembly for a file
-src/main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/librarySystem.dir/build.make CMakeFiles/librarySystem.dir/src/main.cpp.s
-.PHONY : src/main.cpp.s
+src/pl/sqtx/liblary/model/book.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/librarySystem.dir/build.make CMakeFiles/librarySystem.dir/src/pl/sqtx/liblary/model/book.cpp.s
+.PHONY : src/pl/sqtx/liblary/model/book.cpp.s
 
 # Help Target
 help:
@@ -186,12 +186,12 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... librarySystem"
-	@echo "... src/book.o"
-	@echo "... src/book.i"
-	@echo "... src/book.s"
-	@echo "... src/main.o"
-	@echo "... src/main.i"
-	@echo "... src/main.s"
+	@echo "... src/pl/sqtx/liblary/app/main.o"
+	@echo "... src/pl/sqtx/liblary/app/main.i"
+	@echo "... src/pl/sqtx/liblary/app/main.s"
+	@echo "... src/pl/sqtx/liblary/model/book.o"
+	@echo "... src/pl/sqtx/liblary/model/book.i"
+	@echo "... src/pl/sqtx/liblary/model/book.s"
 .PHONY : help
 
 

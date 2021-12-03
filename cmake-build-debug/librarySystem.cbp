@@ -78,10 +78,10 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/Users/sqtx/Documents/Programowanie/C++/Projects/librarySystem/src/book.cpp">
+		<Unit filename="/Users/sqtx/Documents/Programowanie/C++/Projects/librarySystem/src/pl/sqtx/liblary/app/main.cpp">
 			<Option target="librarySystem"/>
 		</Unit>
-		<Unit filename="/Users/sqtx/Documents/Programowanie/C++/Projects/librarySystem/src/main.cpp">
+		<Unit filename="/Users/sqtx/Documents/Programowanie/C++/Projects/librarySystem/src/pl/sqtx/liblary/model/book.cpp">
 			<Option target="librarySystem"/>
 		</Unit>
 		<Unit filename="/Users/sqtx/Documents/Programowanie/C++/Projects/librarySystem/CMakeLists.txt">
