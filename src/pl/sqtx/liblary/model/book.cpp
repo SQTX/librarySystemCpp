@@ -70,7 +70,10 @@ public:
 //    Function *****************************************************************************************
     void printInfo(){ //Printer
       string info = title + "; " + author + "; " + to_string(releaseDate) + "; " + to_string(pages) +
-          "; " + publisher + "; " + isbn;
+          "; " + publisher;
+      if(isbn != ""){
+        info.append("; " + isbn);
+      }
       cout << info << endl;
     }
 };
