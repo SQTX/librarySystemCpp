@@ -14,15 +14,9 @@ private:
     string publisher;
     string isbn;
 public:
-//    Constructors  *****************************************************************************************
-    Book(string title, string author, int releaseDate, int pages, string publisher) {
-      this->title = title;
-      this->author = author;
-      this->releaseDate = releaseDate;
-      this->pages = pages;
-      this->publisher = publisher;
-    }
-    Book(string title, string author, int releaseDate, int pages, string publisher, string isbn) {
+//    Constructors  ****************************************************************************************
+    Book(string title = "", string author = "", int releaseDate = 0, int pages = 0, string publisher = "",
+         string isbn = "") {
       this->title = title;
       this->author = author;
       this->releaseDate = releaseDate;
