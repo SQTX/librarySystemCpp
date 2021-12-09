@@ -7,10 +7,16 @@
 #IncludeRegexTransform: 
 
 /Users/sqtx/Documents/Programowanie/C++/Projects/librarySystem/src/pl/sqtx/liblary/app/main.cpp
-../model/book.cpp
-/Users/sqtx/Documents/Programowanie/C++/Projects/librarySystem/src/pl/sqtx/liblary/model/book.cpp
+../io/dataReader.cpp
+/Users/sqtx/Documents/Programowanie/C++/Projects/librarySystem/src/pl/sqtx/liblary/io/dataReader.cpp
 iostream
 -
+
+/Users/sqtx/Documents/Programowanie/C++/Projects/librarySystem/src/pl/sqtx/liblary/io/dataReader.cpp
+iostream
+-
+../model/book.cpp
+/Users/sqtx/Documents/Programowanie/C++/Projects/librarySystem/src/pl/sqtx/liblary/model/book.cpp
 
 /Users/sqtx/Documents/Programowanie/C++/Projects/librarySystem/src/pl/sqtx/liblary/model/book.cpp
 iostream

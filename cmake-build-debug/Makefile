@@ -153,6 +153,30 @@ src/pl/sqtx/liblary/app/main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/librarySystem.dir/build.make CMakeFiles/librarySystem.dir/src/pl/sqtx/liblary/app/main.cpp.s
 .PHONY : src/pl/sqtx/liblary/app/main.cpp.s
 
+src/pl/sqtx/liblary/io/dataReader.o: src/pl/sqtx/liblary/io/dataReader.cpp.o
+.PHONY : src/pl/sqtx/liblary/io/dataReader.o
+
+# target to build an object file
+src/pl/sqtx/liblary/io/dataReader.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/librarySystem.dir/build.make CMakeFiles/librarySystem.dir/src/pl/sqtx/liblary/io/dataReader.cpp.o
+.PHONY : src/pl/sqtx/liblary/io/dataReader.cpp.o
+
+src/pl/sqtx/liblary/io/dataReader.i: src/pl/sqtx/liblary/io/dataReader.cpp.i
+.PHONY : src/pl/sqtx/liblary/io/dataReader.i
+
+# target to preprocess a source file
+src/pl/sqtx/liblary/io/dataReader.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/librarySystem.dir/build.make CMakeFiles/librarySystem.dir/src/pl/sqtx/liblary/io/dataReader.cpp.i
+.PHONY : src/pl/sqtx/liblary/io/dataReader.cpp.i
+
+src/pl/sqtx/liblary/io/dataReader.s: src/pl/sqtx/liblary/io/dataReader.cpp.s
+.PHONY : src/pl/sqtx/liblary/io/dataReader.s
+
+# target to generate assembly for a file
+src/pl/sqtx/liblary/io/dataReader.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/librarySystem.dir/build.make CMakeFiles/librarySystem.dir/src/pl/sqtx/liblary/io/dataReader.cpp.s
+.PHONY : src/pl/sqtx/liblary/io/dataReader.cpp.s
+
 src/pl/sqtx/liblary/model/book.o: src/pl/sqtx/liblary/model/book.cpp.o
 .PHONY : src/pl/sqtx/liblary/model/book.o
 
@@ -189,6 +213,9 @@ help:
 	@echo "... src/pl/sqtx/liblary/app/main.o"
 	@echo "... src/pl/sqtx/liblary/app/main.i"
 	@echo "... src/pl/sqtx/liblary/app/main.s"
+	@echo "... src/pl/sqtx/liblary/io/dataReader.o"
+	@echo "... src/pl/sqtx/liblary/io/dataReader.i"
+	@echo "... src/pl/sqtx/liblary/io/dataReader.s"
 	@echo "... src/pl/sqtx/liblary/model/book.o"
 	@echo "... src/pl/sqtx/liblary/model/book.i"
 	@echo "... src/pl/sqtx/liblary/model/book.s"

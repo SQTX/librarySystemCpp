@@ -3,6 +3,10 @@
 
 CMakeFiles/librarySystem.dir/src/pl/sqtx/liblary/app/main.cpp.o: \
  ../src/pl/sqtx/liblary/app/main.cpp \
+ ../src/pl/sqtx/liblary/io/dataReader.cpp \
+ ../src/pl/sqtx/liblary/model/book.cpp
+CMakeFiles/librarySystem.dir/src/pl/sqtx/liblary/io/dataReader.cpp.o: \
+ ../src/pl/sqtx/liblary/io/dataReader.cpp \
  ../src/pl/sqtx/liblary/model/book.cpp
 CMakeFiles/librarySystem.dir/src/pl/sqtx/liblary/model/book.cpp.o: \
  ../src/pl/sqtx/liblary/model/book.cpp
