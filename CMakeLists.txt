@@ -5,5 +5,12 @@ set(CMAKE_CXX_STANDARD 14)
 set(standardPath src/pl/sqtx/liblary)
 
 #add_executable(librarySystem src/pl/sqtx/liblary/app/main.cpp src/pl/sqtx/liblary/model/book.cpp)
-add_executable(librarySystem ${standardPath}/app/main.cpp ${standardPath}/model/book.cpp
-        ${standardPath}/io/dataReader.cpp)
+add_executable(librarySystem
+#        app file
+        ${standardPath}/app/main.cpp
+        ${standardPath}/app/libraryControl.cpp
+#        io
+        ${standardPath}/io/dataReader.cpp
+#        model
+        ${standardPath}/model/book.cpp
+        ${standardPath}/model/library.cpp)

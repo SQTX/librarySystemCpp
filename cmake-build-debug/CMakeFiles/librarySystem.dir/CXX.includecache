@@ -6,9 +6,15 @@
 
 #IncludeRegexTransform: 
 
-/Users/sqtx/Documents/Programowanie/C++/Projects/librarySystem/src/pl/sqtx/liblary/app/main.cpp
+/Users/sqtx/Documents/Programowanie/C++/Projects/librarySystem/src/pl/sqtx/liblary/app/libraryControl.cpp
 ../io/dataReader.cpp
 /Users/sqtx/Documents/Programowanie/C++/Projects/librarySystem/src/pl/sqtx/liblary/io/dataReader.cpp
+../model/library.cpp
+/Users/sqtx/Documents/Programowanie/C++/Projects/librarySystem/src/pl/sqtx/liblary/model/library.cpp
+
+/Users/sqtx/Documents/Programowanie/C++/Projects/librarySystem/src/pl/sqtx/liblary/app/main.cpp
+libraryControl.cpp
+/Users/sqtx/Documents/Programowanie/C++/Projects/librarySystem/src/pl/sqtx/liblary/app/libraryControl.cpp
 iostream
 -
 
@@ -23,4 +29,10 @@ iostream
 -
 string
 -
+
+/Users/sqtx/Documents/Programowanie/C++/Projects/librarySystem/src/pl/sqtx/liblary/model/library.cpp
+iostream
+-
+../model/book.cpp
+/Users/sqtx/Documents/Programowanie/C++/Projects/librarySystem/src/pl/sqtx/liblary/model/book.cpp
 

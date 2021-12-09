@@ -129,6 +129,30 @@ librarySystem/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/librarySystem.dir/build.make CMakeFiles/librarySystem.dir/build
 .PHONY : librarySystem/fast
 
+src/pl/sqtx/liblary/app/libraryControl.o: src/pl/sqtx/liblary/app/libraryControl.cpp.o
+.PHONY : src/pl/sqtx/liblary/app/libraryControl.o
+
+# target to build an object file
+src/pl/sqtx/liblary/app/libraryControl.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/librarySystem.dir/build.make CMakeFiles/librarySystem.dir/src/pl/sqtx/liblary/app/libraryControl.cpp.o
+.PHONY : src/pl/sqtx/liblary/app/libraryControl.cpp.o
+
+src/pl/sqtx/liblary/app/libraryControl.i: src/pl/sqtx/liblary/app/libraryControl.cpp.i
+.PHONY : src/pl/sqtx/liblary/app/libraryControl.i
+
+# target to preprocess a source file
+src/pl/sqtx/liblary/app/libraryControl.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/librarySystem.dir/build.make CMakeFiles/librarySystem.dir/src/pl/sqtx/liblary/app/libraryControl.cpp.i
+.PHONY : src/pl/sqtx/liblary/app/libraryControl.cpp.i
+
+src/pl/sqtx/liblary/app/libraryControl.s: src/pl/sqtx/liblary/app/libraryControl.cpp.s
+.PHONY : src/pl/sqtx/liblary/app/libraryControl.s
+
+# target to generate assembly for a file
+src/pl/sqtx/liblary/app/libraryControl.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/librarySystem.dir/build.make CMakeFiles/librarySystem.dir/src/pl/sqtx/liblary/app/libraryControl.cpp.s
+.PHONY : src/pl/sqtx/liblary/app/libraryControl.cpp.s
+
 src/pl/sqtx/liblary/app/main.o: src/pl/sqtx/liblary/app/main.cpp.o
 .PHONY : src/pl/sqtx/liblary/app/main.o
 
@@ -201,6 +225,30 @@ src/pl/sqtx/liblary/model/book.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/librarySystem.dir/build.make CMakeFiles/librarySystem.dir/src/pl/sqtx/liblary/model/book.cpp.s
 .PHONY : src/pl/sqtx/liblary/model/book.cpp.s
 
+src/pl/sqtx/liblary/model/library.o: src/pl/sqtx/liblary/model/library.cpp.o
+.PHONY : src/pl/sqtx/liblary/model/library.o
+
+# target to build an object file
+src/pl/sqtx/liblary/model/library.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/librarySystem.dir/build.make CMakeFiles/librarySystem.dir/src/pl/sqtx/liblary/model/library.cpp.o
+.PHONY : src/pl/sqtx/liblary/model/library.cpp.o
+
+src/pl/sqtx/liblary/model/library.i: src/pl/sqtx/liblary/model/library.cpp.i
+.PHONY : src/pl/sqtx/liblary/model/library.i
+
+# target to preprocess a source file
+src/pl/sqtx/liblary/model/library.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/librarySystem.dir/build.make CMakeFiles/librarySystem.dir/src/pl/sqtx/liblary/model/library.cpp.i
+.PHONY : src/pl/sqtx/liblary/model/library.cpp.i
+
+src/pl/sqtx/liblary/model/library.s: src/pl/sqtx/liblary/model/library.cpp.s
+.PHONY : src/pl/sqtx/liblary/model/library.s
+
+# target to generate assembly for a file
+src/pl/sqtx/liblary/model/library.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/librarySystem.dir/build.make CMakeFiles/librarySystem.dir/src/pl/sqtx/liblary/model/library.cpp.s
+.PHONY : src/pl/sqtx/liblary/model/library.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -210,6 +258,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... librarySystem"
+	@echo "... src/pl/sqtx/liblary/app/libraryControl.o"
+	@echo "... src/pl/sqtx/liblary/app/libraryControl.i"
+	@echo "... src/pl/sqtx/liblary/app/libraryControl.s"
 	@echo "... src/pl/sqtx/liblary/app/main.o"
 	@echo "... src/pl/sqtx/liblary/app/main.i"
 	@echo "... src/pl/sqtx/liblary/app/main.s"
@@ -219,6 +270,9 @@ help:
 	@echo "... src/pl/sqtx/liblary/model/book.o"
 	@echo "... src/pl/sqtx/liblary/model/book.i"
 	@echo "... src/pl/sqtx/liblary/model/book.s"
+	@echo "... src/pl/sqtx/liblary/model/library.o"
+	@echo "... src/pl/sqtx/liblary/model/library.i"
+	@echo "... src/pl/sqtx/liblary/model/library.s"
 .PHONY : help
 
 

@@ -8,9 +8,11 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
+  "/Users/sqtx/Documents/Programowanie/C++/Projects/librarySystem/src/pl/sqtx/liblary/app/libraryControl.cpp" "/Users/sqtx/Documents/Programowanie/C++/Projects/librarySystem/cmake-build-debug/CMakeFiles/librarySystem.dir/src/pl/sqtx/liblary/app/libraryControl.cpp.o"
   "/Users/sqtx/Documents/Programowanie/C++/Projects/librarySystem/src/pl/sqtx/liblary/app/main.cpp" "/Users/sqtx/Documents/Programowanie/C++/Projects/librarySystem/cmake-build-debug/CMakeFiles/librarySystem.dir/src/pl/sqtx/liblary/app/main.cpp.o"
   "/Users/sqtx/Documents/Programowanie/C++/Projects/librarySystem/src/pl/sqtx/liblary/io/dataReader.cpp" "/Users/sqtx/Documents/Programowanie/C++/Projects/librarySystem/cmake-build-debug/CMakeFiles/librarySystem.dir/src/pl/sqtx/liblary/io/dataReader.cpp.o"
   "/Users/sqtx/Documents/Programowanie/C++/Projects/librarySystem/src/pl/sqtx/liblary/model/book.cpp" "/Users/sqtx/Documents/Programowanie/C++/Projects/librarySystem/cmake-build-debug/CMakeFiles/librarySystem.dir/src/pl/sqtx/liblary/model/book.cpp.o"
+  "/Users/sqtx/Documents/Programowanie/C++/Projects/librarySystem/src/pl/sqtx/liblary/model/library.cpp" "/Users/sqtx/Documents/Programowanie/C++/Projects/librarySystem/cmake-build-debug/CMakeFiles/librarySystem.dir/src/pl/sqtx/liblary/model/library.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "AppleClang")
 

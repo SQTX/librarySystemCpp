@@ -78,6 +78,9 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/Users/sqtx/Documents/Programowanie/C++/Projects/librarySystem/src/pl/sqtx/liblary/app/libraryControl.cpp">
+			<Option target="librarySystem"/>
+		</Unit>
 		<Unit filename="/Users/sqtx/Documents/Programowanie/C++/Projects/librarySystem/src/pl/sqtx/liblary/app/main.cpp">
 			<Option target="librarySystem"/>
 		</Unit>
@@ -85,6 +88,9 @@
 			<Option target="librarySystem"/>
 		</Unit>
 		<Unit filename="/Users/sqtx/Documents/Programowanie/C++/Projects/librarySystem/src/pl/sqtx/liblary/model/book.cpp">
+			<Option target="librarySystem"/>
+		</Unit>
+		<Unit filename="/Users/sqtx/Documents/Programowanie/C++/Projects/librarySystem/src/pl/sqtx/liblary/model/library.cpp">
 			<Option target="librarySystem"/>
 		</Unit>
 		<Unit filename="/Users/sqtx/Documents/Programowanie/C++/Projects/librarySystem/CMakeLists.txt">
