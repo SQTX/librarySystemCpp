@@ -1,59 +1,38 @@
 //
 // Created by Jakub Sitarczyk on 02/12/2021.
 //
-#include <iostream>
-#include <string>
+//Headers
+#include "../include/publication_h.h"
 
 using namespace std;
-class Book{ //Book class
+class Book : public Publication{ //Book class
 private:
-    string title;
     string author;
-    int releaseDate;
     int pages;
-    string publisher;
     string isbn;
 public:
 //    Constructors  ****************************************************************************************
     Book(string title = "", string author = "", int releaseDate = 0, int pages = 0, string publisher = "",
          string isbn = "") {
-      this->title = title;
+    setTitle(title);  //publication element
+    setReleaseDate(releaseDate);
+    setPublisher(publisher);
       this->author = author;
-      this->releaseDate = releaseDate;
       this->pages = pages;
-      this->publisher = publisher;
       this->isbn = isbn;
     }
 //  Getter and Setter *****************************************************************************************
-    const string &getTitle() const {
-      return title;
-    }
-    void setTitle(const string &title) {
-      Book::title = title;
-    }
     const string &getAuthor() const {
       return author;
     }
     void setAuthor(const string &author) {
       Book::author = author;
     }
-    int getReleaseDate() const {
-      return releaseDate;
-    }
-    void setReleaseDate(int releaseDate) {
-      Book::releaseDate = releaseDate;
-    }
     int getPages() const {
       return pages;
     }
     void setPages(int pages) {
       Book::pages = pages;
-    }
-    const string &getPublisher() const {
-      return publisher;
-    }
-    void setPublisher(const string &publisher) {
-      Book::publisher = publisher;
     }
     const string &getIsbn() const {
       return isbn;
@@ -63,8 +42,8 @@ public:
     }
 //    Function *****************************************************************************************
     void printInfo(){ //Printer
-      string info = title + "; " + author + "; " + to_string(releaseDate) + "; " + to_string(pages) +
-          "; " + publisher;
+      string info = getTitle() + "; " + author + "; " + to_string(getReleaseDate()) + "; " + to_string(pages) +
+          "; " + getPublisher();
       if(isbn != ""){
         info.append("; " + isbn);
       }

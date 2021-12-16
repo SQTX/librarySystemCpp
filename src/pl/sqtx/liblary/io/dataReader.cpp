@@ -1,11 +1,9 @@
 //
 // Created by Jakub Sitarczyk on 09/12/2021.
 //
-#ifndef MY_HEADER_H
-#define MY_HEADER_H //Same in library.cpp
-#include <iostream>
-#include "../model/book.cpp"
-#endif MY_HEADER_H
+//Headers
+#include "../include/main_h.h"
+#include "../include/publicationType_h.h"
 
 class DataReader {
 public:
@@ -37,5 +35,28 @@ public:
     cin >> pages;
 
     return Book(title, author, releaseDate, pages, publisher, isbn);
+  }
+  //  Get informations about new book
+  Magazine readAndCreateMagazine() {
+    cout << "Tytuł: ";
+    string title;
+    cin >> title;
+    cout << "Dzien: ";
+    int day;
+    cin >> day;
+    cout << "Miesiac: ";
+    int month;
+    cin >> month;
+    cout << "Rok wydania: ";
+    int releaseDate;
+    cin >> releaseDate;
+    cout << "Jezyk: ";
+    string language;
+    cin >> language;
+    cout << "Wydawnictwo: ";
+    string publisher;
+    cin >> publisher;
+
+    return Magazine(title, day, month, releaseDate, language, publisher);
   }
 };

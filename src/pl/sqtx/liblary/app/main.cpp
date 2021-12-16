@@ -3,13 +3,11 @@
 //
 //Files
 #include "libraryControl.cpp"
-//Libs
-#include <iostream>
+//Headers
+#include "../include/main_h.h"  //All libs and namespace
 
-using namespace std;
 //App version
-static const string appName = "Biblioteka v1.0";
-
+static const string appName = "Biblioteka v1.1";
 int main() {
   cout << appName << endl;
   LibraryControl libraryControl;

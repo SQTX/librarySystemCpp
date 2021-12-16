@@ -249,6 +249,54 @@ src/pl/sqtx/liblary/model/library.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/librarySystem.dir/build.make CMakeFiles/librarySystem.dir/src/pl/sqtx/liblary/model/library.cpp.s
 .PHONY : src/pl/sqtx/liblary/model/library.cpp.s
 
+src/pl/sqtx/liblary/model/magazine.o: src/pl/sqtx/liblary/model/magazine.cpp.o
+.PHONY : src/pl/sqtx/liblary/model/magazine.o
+
+# target to build an object file
+src/pl/sqtx/liblary/model/magazine.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/librarySystem.dir/build.make CMakeFiles/librarySystem.dir/src/pl/sqtx/liblary/model/magazine.cpp.o
+.PHONY : src/pl/sqtx/liblary/model/magazine.cpp.o
+
+src/pl/sqtx/liblary/model/magazine.i: src/pl/sqtx/liblary/model/magazine.cpp.i
+.PHONY : src/pl/sqtx/liblary/model/magazine.i
+
+# target to preprocess a source file
+src/pl/sqtx/liblary/model/magazine.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/librarySystem.dir/build.make CMakeFiles/librarySystem.dir/src/pl/sqtx/liblary/model/magazine.cpp.i
+.PHONY : src/pl/sqtx/liblary/model/magazine.cpp.i
+
+src/pl/sqtx/liblary/model/magazine.s: src/pl/sqtx/liblary/model/magazine.cpp.s
+.PHONY : src/pl/sqtx/liblary/model/magazine.s
+
+# target to generate assembly for a file
+src/pl/sqtx/liblary/model/magazine.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/librarySystem.dir/build.make CMakeFiles/librarySystem.dir/src/pl/sqtx/liblary/model/magazine.cpp.s
+.PHONY : src/pl/sqtx/liblary/model/magazine.cpp.s
+
+src/pl/sqtx/liblary/model/publication.o: src/pl/sqtx/liblary/model/publication.cpp.o
+.PHONY : src/pl/sqtx/liblary/model/publication.o
+
+# target to build an object file
+src/pl/sqtx/liblary/model/publication.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/librarySystem.dir/build.make CMakeFiles/librarySystem.dir/src/pl/sqtx/liblary/model/publication.cpp.o
+.PHONY : src/pl/sqtx/liblary/model/publication.cpp.o
+
+src/pl/sqtx/liblary/model/publication.i: src/pl/sqtx/liblary/model/publication.cpp.i
+.PHONY : src/pl/sqtx/liblary/model/publication.i
+
+# target to preprocess a source file
+src/pl/sqtx/liblary/model/publication.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/librarySystem.dir/build.make CMakeFiles/librarySystem.dir/src/pl/sqtx/liblary/model/publication.cpp.i
+.PHONY : src/pl/sqtx/liblary/model/publication.cpp.i
+
+src/pl/sqtx/liblary/model/publication.s: src/pl/sqtx/liblary/model/publication.cpp.s
+.PHONY : src/pl/sqtx/liblary/model/publication.s
+
+# target to generate assembly for a file
+src/pl/sqtx/liblary/model/publication.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/librarySystem.dir/build.make CMakeFiles/librarySystem.dir/src/pl/sqtx/liblary/model/publication.cpp.s
+.PHONY : src/pl/sqtx/liblary/model/publication.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -273,6 +321,12 @@ help:
 	@echo "... src/pl/sqtx/liblary/model/library.o"
 	@echo "... src/pl/sqtx/liblary/model/library.i"
 	@echo "... src/pl/sqtx/liblary/model/library.s"
+	@echo "... src/pl/sqtx/liblary/model/magazine.o"
+	@echo "... src/pl/sqtx/liblary/model/magazine.i"
+	@echo "... src/pl/sqtx/liblary/model/magazine.s"
+	@echo "... src/pl/sqtx/liblary/model/publication.o"
+	@echo "... src/pl/sqtx/liblary/model/publication.i"
+	@echo "... src/pl/sqtx/liblary/model/publication.s"
 .PHONY : help
 
 

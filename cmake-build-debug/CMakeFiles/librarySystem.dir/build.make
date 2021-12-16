@@ -118,9 +118,35 @@ CMakeFiles/librarySystem.dir/src/pl/sqtx/liblary/model/book.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/librarySystem.dir/src/pl/sqtx/liblary/model/book.cpp.s"
 	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/sqtx/Documents/Programowanie/C++/Projects/librarySystem/src/pl/sqtx/liblary/model/book.cpp -o CMakeFiles/librarySystem.dir/src/pl/sqtx/liblary/model/book.cpp.s
 
+CMakeFiles/librarySystem.dir/src/pl/sqtx/liblary/model/magazine.cpp.o: CMakeFiles/librarySystem.dir/flags.make
+CMakeFiles/librarySystem.dir/src/pl/sqtx/liblary/model/magazine.cpp.o: ../src/pl/sqtx/liblary/model/magazine.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/sqtx/Documents/Programowanie/C++/Projects/librarySystem/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/librarySystem.dir/src/pl/sqtx/liblary/model/magazine.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/librarySystem.dir/src/pl/sqtx/liblary/model/magazine.cpp.o -c /Users/sqtx/Documents/Programowanie/C++/Projects/librarySystem/src/pl/sqtx/liblary/model/magazine.cpp
+
+CMakeFiles/librarySystem.dir/src/pl/sqtx/liblary/model/magazine.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/librarySystem.dir/src/pl/sqtx/liblary/model/magazine.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/sqtx/Documents/Programowanie/C++/Projects/librarySystem/src/pl/sqtx/liblary/model/magazine.cpp > CMakeFiles/librarySystem.dir/src/pl/sqtx/liblary/model/magazine.cpp.i
+
+CMakeFiles/librarySystem.dir/src/pl/sqtx/liblary/model/magazine.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/librarySystem.dir/src/pl/sqtx/liblary/model/magazine.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/sqtx/Documents/Programowanie/C++/Projects/librarySystem/src/pl/sqtx/liblary/model/magazine.cpp -o CMakeFiles/librarySystem.dir/src/pl/sqtx/liblary/model/magazine.cpp.s
+
+CMakeFiles/librarySystem.dir/src/pl/sqtx/liblary/model/publication.cpp.o: CMakeFiles/librarySystem.dir/flags.make
+CMakeFiles/librarySystem.dir/src/pl/sqtx/liblary/model/publication.cpp.o: ../src/pl/sqtx/liblary/model/publication.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/sqtx/Documents/Programowanie/C++/Projects/librarySystem/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/librarySystem.dir/src/pl/sqtx/liblary/model/publication.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/librarySystem.dir/src/pl/sqtx/liblary/model/publication.cpp.o -c /Users/sqtx/Documents/Programowanie/C++/Projects/librarySystem/src/pl/sqtx/liblary/model/publication.cpp
+
+CMakeFiles/librarySystem.dir/src/pl/sqtx/liblary/model/publication.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/librarySystem.dir/src/pl/sqtx/liblary/model/publication.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/sqtx/Documents/Programowanie/C++/Projects/librarySystem/src/pl/sqtx/liblary/model/publication.cpp > CMakeFiles/librarySystem.dir/src/pl/sqtx/liblary/model/publication.cpp.i
+
+CMakeFiles/librarySystem.dir/src/pl/sqtx/liblary/model/publication.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/librarySystem.dir/src/pl/sqtx/liblary/model/publication.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/sqtx/Documents/Programowanie/C++/Projects/librarySystem/src/pl/sqtx/liblary/model/publication.cpp -o CMakeFiles/librarySystem.dir/src/pl/sqtx/liblary/model/publication.cpp.s
+
 CMakeFiles/librarySystem.dir/src/pl/sqtx/liblary/model/library.cpp.o: CMakeFiles/librarySystem.dir/flags.make
 CMakeFiles/librarySystem.dir/src/pl/sqtx/liblary/model/library.cpp.o: ../src/pl/sqtx/liblary/model/library.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/sqtx/Documents/Programowanie/C++/Projects/librarySystem/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/librarySystem.dir/src/pl/sqtx/liblary/model/library.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/sqtx/Documents/Programowanie/C++/Projects/librarySystem/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/librarySystem.dir/src/pl/sqtx/liblary/model/library.cpp.o"
 	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/librarySystem.dir/src/pl/sqtx/liblary/model/library.cpp.o -c /Users/sqtx/Documents/Programowanie/C++/Projects/librarySystem/src/pl/sqtx/liblary/model/library.cpp
 
 CMakeFiles/librarySystem.dir/src/pl/sqtx/liblary/model/library.cpp.i: cmake_force
@@ -137,6 +163,8 @@ librarySystem_OBJECTS = \
 "CMakeFiles/librarySystem.dir/src/pl/sqtx/liblary/app/libraryControl.cpp.o" \
 "CMakeFiles/librarySystem.dir/src/pl/sqtx/liblary/io/dataReader.cpp.o" \
 "CMakeFiles/librarySystem.dir/src/pl/sqtx/liblary/model/book.cpp.o" \
+"CMakeFiles/librarySystem.dir/src/pl/sqtx/liblary/model/magazine.cpp.o" \
+"CMakeFiles/librarySystem.dir/src/pl/sqtx/liblary/model/publication.cpp.o" \
 "CMakeFiles/librarySystem.dir/src/pl/sqtx/liblary/model/library.cpp.o"
 
 # External object files for target librarySystem
@@ -146,10 +174,12 @@ librarySystem: CMakeFiles/librarySystem.dir/src/pl/sqtx/liblary/app/main.cpp.o
 librarySystem: CMakeFiles/librarySystem.dir/src/pl/sqtx/liblary/app/libraryControl.cpp.o
 librarySystem: CMakeFiles/librarySystem.dir/src/pl/sqtx/liblary/io/dataReader.cpp.o
 librarySystem: CMakeFiles/librarySystem.dir/src/pl/sqtx/liblary/model/book.cpp.o
+librarySystem: CMakeFiles/librarySystem.dir/src/pl/sqtx/liblary/model/magazine.cpp.o
+librarySystem: CMakeFiles/librarySystem.dir/src/pl/sqtx/liblary/model/publication.cpp.o
 librarySystem: CMakeFiles/librarySystem.dir/src/pl/sqtx/liblary/model/library.cpp.o
 librarySystem: CMakeFiles/librarySystem.dir/build.make
 librarySystem: CMakeFiles/librarySystem.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/sqtx/Documents/Programowanie/C++/Projects/librarySystem/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable librarySystem"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/sqtx/Documents/Programowanie/C++/Projects/librarySystem/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable librarySystem"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/librarySystem.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

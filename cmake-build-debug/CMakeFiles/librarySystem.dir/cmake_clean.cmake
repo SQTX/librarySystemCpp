@@ -4,6 +4,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/librarySystem.dir/src/pl/sqtx/liblary/io/dataReader.cpp.o"
   "CMakeFiles/librarySystem.dir/src/pl/sqtx/liblary/model/book.cpp.o"
   "CMakeFiles/librarySystem.dir/src/pl/sqtx/liblary/model/library.cpp.o"
+  "CMakeFiles/librarySystem.dir/src/pl/sqtx/liblary/model/magazine.cpp.o"
+  "CMakeFiles/librarySystem.dir/src/pl/sqtx/liblary/model/publication.cpp.o"
   "librarySystem"
   "librarySystem.pdb"
 )

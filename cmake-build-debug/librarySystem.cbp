@@ -93,6 +93,12 @@
 		<Unit filename="/Users/sqtx/Documents/Programowanie/C++/Projects/librarySystem/src/pl/sqtx/liblary/model/library.cpp">
 			<Option target="librarySystem"/>
 		</Unit>
+		<Unit filename="/Users/sqtx/Documents/Programowanie/C++/Projects/librarySystem/src/pl/sqtx/liblary/model/magazine.cpp">
+			<Option target="librarySystem"/>
+		</Unit>
+		<Unit filename="/Users/sqtx/Documents/Programowanie/C++/Projects/librarySystem/src/pl/sqtx/liblary/model/publication.cpp">
+			<Option target="librarySystem"/>
+		</Unit>
 		<Unit filename="/Users/sqtx/Documents/Programowanie/C++/Projects/librarySystem/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>

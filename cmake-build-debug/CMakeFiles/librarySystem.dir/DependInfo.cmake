@@ -13,6 +13,8 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/Users/sqtx/Documents/Programowanie/C++/Projects/librarySystem/src/pl/sqtx/liblary/io/dataReader.cpp" "/Users/sqtx/Documents/Programowanie/C++/Projects/librarySystem/cmake-build-debug/CMakeFiles/librarySystem.dir/src/pl/sqtx/liblary/io/dataReader.cpp.o"
   "/Users/sqtx/Documents/Programowanie/C++/Projects/librarySystem/src/pl/sqtx/liblary/model/book.cpp" "/Users/sqtx/Documents/Programowanie/C++/Projects/librarySystem/cmake-build-debug/CMakeFiles/librarySystem.dir/src/pl/sqtx/liblary/model/book.cpp.o"
   "/Users/sqtx/Documents/Programowanie/C++/Projects/librarySystem/src/pl/sqtx/liblary/model/library.cpp" "/Users/sqtx/Documents/Programowanie/C++/Projects/librarySystem/cmake-build-debug/CMakeFiles/librarySystem.dir/src/pl/sqtx/liblary/model/library.cpp.o"
+  "/Users/sqtx/Documents/Programowanie/C++/Projects/librarySystem/src/pl/sqtx/liblary/model/magazine.cpp" "/Users/sqtx/Documents/Programowanie/C++/Projects/librarySystem/cmake-build-debug/CMakeFiles/librarySystem.dir/src/pl/sqtx/liblary/model/magazine.cpp.o"
+  "/Users/sqtx/Documents/Programowanie/C++/Projects/librarySystem/src/pl/sqtx/liblary/model/publication.cpp" "/Users/sqtx/Documents/Programowanie/C++/Projects/librarySystem/cmake-build-debug/CMakeFiles/librarySystem.dir/src/pl/sqtx/liblary/model/publication.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "AppleClang")
 

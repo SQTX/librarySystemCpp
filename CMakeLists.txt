@@ -13,4 +13,7 @@ add_executable(librarySystem
         ${standardPath}/io/dataReader.cpp
 #        model
         ${standardPath}/model/book.cpp
-        ${standardPath}/model/library.cpp)
+        ${standardPath}/model/magazine.cpp
+        ${standardPath}/model/publication.cpp
+        ${standardPath}/model/library.cpp
+        )
