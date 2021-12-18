@@ -12,10 +12,8 @@ private:
   string language;
 public:
 //  Constructor
-  Magazine(string title = "", int day = 1, int month = 1, int releaseDate = 0, string language = "", string publisher = ""){
-    setTitle(title);
-    setReleaseDate(releaseDate);
-    setPublisher(publisher);
+  Magazine(string title = "", int day = 1, int month = 1, int releaseDate = 0, string language = "", string publisher = "")
+  : Publication(title, releaseDate, publisher) /*constructor inheritance*/ {
     this -> month = month;
     this -> day = day;
     this -> language = language;

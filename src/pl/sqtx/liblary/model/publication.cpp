@@ -10,8 +10,13 @@ private:
   int releaseDate;
   string publisher;
 
-//  Getter and Setter
 public:
+  Publication(string title = "", int releaseDate = 0, string publisher = ""){
+    this -> title = title;
+    this -> releaseDate = releaseDate;
+    this -> publisher = publisher;
+  }
+//  Getter and Setter
   string getTitle() const {
     return title;
   }

@@ -13,10 +13,7 @@ private:
 public:
 //    Constructors  ****************************************************************************************
     Book(string title = "", string author = "", int releaseDate = 0, int pages = 0, string publisher = "",
-         string isbn = "") {
-    setTitle(title);  //publication element
-    setReleaseDate(releaseDate);
-    setPublisher(publisher);
+         string isbn = "") : Publication(title, releaseDate, publisher) /*constructor inheritance*/ {
       this->author = author;
       this->pages = pages;
       this->isbn = isbn;
