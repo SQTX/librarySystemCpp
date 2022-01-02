@@ -4,6 +4,7 @@
 #include "../io/dataReader.cpp"
 #include "../model/library.cpp"
 
+typedef shared_ptr<Publication> PublicationPtr;
 class LibraryControl{
 private:
 //  Variables to switch
@@ -57,13 +58,13 @@ private:
   }
 
   void addBook(){
-  Book book = dataReader.readAndCreateBook();
+  PublicationPtr book = make_shared<Book>(dataReader.readAndCreateBook());
   library.addBook(book);
   }
 
   void addMagazine(){
-    Magazine magazine = dataReader.readAndCreateMagazine();
-    library.addMagazine(magazine);
+    PublicationPtr magazine = make_shared<Magazine>(dataReader.readAndCreateMagazine());
+        library.addMagazine(magazine);
   }
 
   void printBooks(){

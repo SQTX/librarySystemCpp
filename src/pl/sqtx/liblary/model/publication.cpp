@@ -5,16 +5,21 @@
 #include "../include/main_h.h"
 
 class Publication{
-private:
+protected:
   string title;
   int releaseDate;
   string publisher;
 
 public:
+//  Constructor
   Publication(string title = "", int releaseDate = 0, string publisher = ""){
     this -> title = title;
     this -> releaseDate = releaseDate;
     this -> publisher = publisher;
+  }
+//  Destructor
+  virtual ~Publication() {
+
   }
 //  Getter and Setter
   string getTitle() const {
@@ -40,4 +45,5 @@ public:
   void setPublisher(const string &publisher) {
     Publication::publisher = publisher;
   }
+  virtual void printInfo(){}  //Virtual method
 };

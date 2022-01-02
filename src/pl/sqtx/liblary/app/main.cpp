@@ -7,7 +7,7 @@
 #include "../include/main_h.h"  //All libs and namespace
 
 //App version
-static const string appName = "Biblioteka v1.1";
+static const string appName = "Biblioteka v1.3";
 int main() {
   cout << appName << endl;
   LibraryControl libraryControl;

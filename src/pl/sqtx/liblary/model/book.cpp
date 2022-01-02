@@ -18,6 +18,10 @@ public:
       this->pages = pages;
       this->isbn = isbn;
     }
+//    Destructors  ****************************************************************************************
+  virtual ~Book() {
+
+  }
 //  Getter and Setter *****************************************************************************************
     const string &getAuthor() const {
       return author;

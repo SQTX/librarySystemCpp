@@ -1,3 +1,3 @@
-/Users/sqtx/Documents/Programowanie/C++/Projects/librarySystem/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/Users/sqtx/Documents/Programowanie/C++/Projects/librarySystem/cmake-build-debug/CMakeFiles/edit_cache.dir
-/Users/sqtx/Documents/Programowanie/C++/Projects/librarySystem/cmake-build-debug/CMakeFiles/librarySystem.dir
+/Users/sqtx/Documents/Programowanie/C++/Projekty/librarySystem/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/Users/sqtx/Documents/Programowanie/C++/Projekty/librarySystem/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/sqtx/Documents/Programowanie/C++/Projekty/librarySystem/cmake-build-debug/CMakeFiles/librarySystem.dir

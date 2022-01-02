@@ -11,14 +11,18 @@ private:
   int day;
   string language;
 public:
-//  Constructor
+//  Constructor  ****************************************************************************************
   Magazine(string title = "", int day = 1, int month = 1, int releaseDate = 0, string language = "", string publisher = "")
   : Publication(title, releaseDate, publisher) /*constructor inheritance*/ {
     this -> month = month;
     this -> day = day;
     this -> language = language;
   }
-//  Getter and setter
+//  Destructors  ****************************************************************************************
+  virtual ~Magazine() {
+
+  }
+//  Getter and setter  ****************************************************************************************
   int getMonth() const {
     return month;
   }
@@ -44,8 +48,8 @@ public:
   }
 
   void printInfo() { //Printer
-    string info = getTitle() + "; " + to_string(day) + to_string(month) + "; "+ to_string(getReleaseDate()) + "; " +
-        "; " + language + "; " + getPublisher();
+    string info = getTitle() + "; " + to_string(day) + to_string(month) + "; "+ to_string(getReleaseDate()) + "; "
+        + language + "; " + getPublisher();
     cout << info << endl;
   }
 };
