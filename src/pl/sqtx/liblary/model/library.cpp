@@ -40,7 +40,7 @@ public:
     for(int i =0; i < publicationsNumber; i++){
       PublicationPtr ptr = publications[i];
       if(dynamic_cast<Book*>(ptr.get())){
-        ptr->printInfo();
+        cout << ptr->toString() << endl;
         countBooks++;
       }
     }
@@ -54,7 +54,7 @@ public:
     for(int i =0; i < publicationsNumber; i++){
       PublicationPtr ptr = publications[i];
       if(dynamic_cast<Magazine*>(ptr.get())){
-        ptr->printInfo();
+        cout << ptr->toString() << endl;
         countMagazine++;
       }
     }

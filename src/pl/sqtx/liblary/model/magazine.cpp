@@ -19,9 +19,7 @@ public:
     this -> language = language;
   }
 //  Destructors  ****************************************************************************************
-  virtual ~Magazine() {
-
-  }
+  virtual ~Magazine() {}
 //  Getter and setter  ****************************************************************************************
   int getMonth() const {
     return month;
@@ -46,10 +44,20 @@ public:
   void setLanguage(const string &language) {
     Magazine::language = language;
   }
-
-  void printInfo() { //Printer
+//  Equals ****************************************************************************************
+  bool operator==(const Magazine &rhs) const {
+    return static_cast<const Publication &>(*this) == static_cast<const Publication &>(rhs) &&
+           month == rhs.month &&
+           day == rhs.day &&
+           language == rhs.language;
+  }
+  bool operator!=(const Magazine &rhs) const {
+    return !(rhs == *this);
+  }
+//  Function ****************************************************************************************
+  string toString() { //Printer
     string info = getTitle() + "; " + to_string(day) + to_string(month) + "; "+ to_string(getReleaseDate()) + "; "
         + language + "; " + getPublisher();
-    cout << info << endl;
+    return info;
   }
 };

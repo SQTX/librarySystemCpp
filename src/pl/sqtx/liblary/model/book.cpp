@@ -19,9 +19,7 @@ public:
       this->isbn = isbn;
     }
 //    Destructors  ****************************************************************************************
-  virtual ~Book() {
-
-  }
+  virtual ~Book() {}
 //  Getter and Setter *****************************************************************************************
     const string &getAuthor() const {
       return author;
@@ -41,14 +39,24 @@ public:
     void setIsbn(const string &isbn) {
       Book::isbn = isbn;
     }
+  //  Equals ****************************************************************************************
+  bool operator==(const Book &rhs) const {
+    return static_cast<const Publication &>(*this) == static_cast<const Publication &>(rhs) &&
+           author == rhs.author &&
+           pages == rhs.pages &&
+           isbn == rhs.isbn;
+  }
+  bool operator!=(const Book &rhs) const {
+    return !(rhs == *this);
+  }
 //    Function *****************************************************************************************
-    void printInfo(){ //Printer
+    string toString(){ //Printer
       string info = getTitle() + "; " + author + "; " + to_string(getReleaseDate()) + "; " + to_string(pages) +
           "; " + getPublisher();
       if(isbn != ""){
         info.append("; " + isbn);
       }
-      cout << info << endl;
+      return info;
     }
 };
 

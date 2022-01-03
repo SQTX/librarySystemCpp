@@ -3,7 +3,7 @@
 //
 //Headers
 #include "../include/main_h.h"
-
+//TODO IOstream useless
 class Publication{
 protected:
   string title;
@@ -45,5 +45,15 @@ public:
   void setPublisher(const string &publisher) {
     Publication::publisher = publisher;
   }
-  virtual void printInfo(){}  //Virtual method
+//  Equals ****************************************************************************************
+  bool operator==(const Publication &rhs) const {
+    return title == rhs.title &&
+           releaseDate == rhs.releaseDate &&
+           publisher == rhs.publisher;
+  }
+  bool operator!=(const Publication &rhs) const {
+    return !(rhs == *this);
+  }
+//  Method ****************************************************************************************
+  virtual string toString(){}  //Virtual method
 };

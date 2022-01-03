@@ -2,59 +2,51 @@
 // Created by Jakub Sitarczyk on 09/12/2021.
 //
 #include "../io/dataReader.cpp"
-#include "../model/library.cpp"
+#include "../include/library_h.h"
+#include "option.cpp"
 
 typedef shared_ptr<Publication> PublicationPtr;
 class LibraryControl{
 private:
-//  Variables to switch
-  static const int EXIT = 0;
-  static const int ADD_BOOK = 1;
-  static const int ADD_MAGAZINE = 2;
-  static const int PRINT_BOOKS = 3;
-  static const int PRINT_MAGAZINE = 4;
-//  Create objects
   DataReader dataReader;  //dataReader.cpp
   Library library;  //library.cpp
 
 public:
 //  Main method
   void controlLoop(){
-    int option;
-
+    Option option;
+    int choice;
     do{
-      printOptions();
-      option = dataReader.getInt();
-      switch(option) {
-        case ADD_BOOK:
+      printOptions(option);
+      choice = dataReader.getInt();
+      switch(choice) {
+        case option.ADD_BOOK:
           addBook();
           break;
-        case ADD_MAGAZINE:
+        case option.ADD_MAGAZINE:
           addMagazine();
           break;
-        case PRINT_BOOKS:
+        case option.PRINT_BOOKS:
           printBooks();
           break;
-        case PRINT_MAGAZINE:
+        case option.PRINT_MAGAZINES:
           printMagazines();
           break;
-        case EXIT:
+        case option.EXIT:
           exit();
           break;
         default:
           cout << "Wybrana opcja nie istnieje wprowadz ponownie inna." << endl;
       }
-    }while (option != EXIT);
+    }while (choice != option.EXIT);
   }
 
 private:
-  void printOptions(){
+  void printOptions(Option option){
     cout << "Wybierz opcję: " << endl;
-    cout << EXIT << " - wyjście z programu" << endl;
-    cout << ADD_BOOK << " - dodanie nowej książki" << endl;
-    cout << ADD_MAGAZINE << " - dodanie nową gazete" << endl;
-    cout << PRINT_BOOKS << " - wyświetl dostępne książki" << endl;
-    cout << PRINT_MAGAZINE << " - wyświetl dostępne gazety" << endl;
+    for(int i = 0; i < option.getOptionsSize(); i++){
+      cout << option.toString(i) << endl;
+    }
   }
 
   void addBook(){

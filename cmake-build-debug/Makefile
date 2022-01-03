@@ -177,6 +177,30 @@ src/pl/sqtx/liblary/app/main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/librarySystem.dir/build.make CMakeFiles/librarySystem.dir/src/pl/sqtx/liblary/app/main.cpp.s
 .PHONY : src/pl/sqtx/liblary/app/main.cpp.s
 
+src/pl/sqtx/liblary/app/option.o: src/pl/sqtx/liblary/app/option.cpp.o
+.PHONY : src/pl/sqtx/liblary/app/option.o
+
+# target to build an object file
+src/pl/sqtx/liblary/app/option.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/librarySystem.dir/build.make CMakeFiles/librarySystem.dir/src/pl/sqtx/liblary/app/option.cpp.o
+.PHONY : src/pl/sqtx/liblary/app/option.cpp.o
+
+src/pl/sqtx/liblary/app/option.i: src/pl/sqtx/liblary/app/option.cpp.i
+.PHONY : src/pl/sqtx/liblary/app/option.i
+
+# target to preprocess a source file
+src/pl/sqtx/liblary/app/option.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/librarySystem.dir/build.make CMakeFiles/librarySystem.dir/src/pl/sqtx/liblary/app/option.cpp.i
+.PHONY : src/pl/sqtx/liblary/app/option.cpp.i
+
+src/pl/sqtx/liblary/app/option.s: src/pl/sqtx/liblary/app/option.cpp.s
+.PHONY : src/pl/sqtx/liblary/app/option.s
+
+# target to generate assembly for a file
+src/pl/sqtx/liblary/app/option.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/librarySystem.dir/build.make CMakeFiles/librarySystem.dir/src/pl/sqtx/liblary/app/option.cpp.s
+.PHONY : src/pl/sqtx/liblary/app/option.cpp.s
+
 src/pl/sqtx/liblary/io/dataReader.o: src/pl/sqtx/liblary/io/dataReader.cpp.o
 .PHONY : src/pl/sqtx/liblary/io/dataReader.o
 
@@ -312,6 +336,9 @@ help:
 	@echo "... src/pl/sqtx/liblary/app/main.o"
 	@echo "... src/pl/sqtx/liblary/app/main.i"
 	@echo "... src/pl/sqtx/liblary/app/main.s"
+	@echo "... src/pl/sqtx/liblary/app/option.o"
+	@echo "... src/pl/sqtx/liblary/app/option.i"
+	@echo "... src/pl/sqtx/liblary/app/option.s"
 	@echo "... src/pl/sqtx/liblary/io/dataReader.o"
 	@echo "... src/pl/sqtx/liblary/io/dataReader.i"
 	@echo "... src/pl/sqtx/liblary/io/dataReader.s"

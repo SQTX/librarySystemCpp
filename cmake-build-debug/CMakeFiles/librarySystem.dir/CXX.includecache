@@ -9,14 +9,26 @@
 /Users/sqtx/Documents/Programowanie/C++/Projekty/librarySystem/src/pl/sqtx/liblary/app/libraryControl.cpp
 ../io/dataReader.cpp
 /Users/sqtx/Documents/Programowanie/C++/Projekty/librarySystem/src/pl/sqtx/liblary/io/dataReader.cpp
-../model/library.cpp
-/Users/sqtx/Documents/Programowanie/C++/Projekty/librarySystem/src/pl/sqtx/liblary/model/library.cpp
+../include/library_h.h
+/Users/sqtx/Documents/Programowanie/C++/Projekty/librarySystem/src/pl/sqtx/liblary/include/library_h.h
+option.cpp
+/Users/sqtx/Documents/Programowanie/C++/Projekty/librarySystem/src/pl/sqtx/liblary/app/option.cpp
 
 /Users/sqtx/Documents/Programowanie/C++/Projekty/librarySystem/src/pl/sqtx/liblary/app/main.cpp
 libraryControl.cpp
 /Users/sqtx/Documents/Programowanie/C++/Projekty/librarySystem/src/pl/sqtx/liblary/app/libraryControl.cpp
 ../include/main_h.h
 /Users/sqtx/Documents/Programowanie/C++/Projekty/librarySystem/src/pl/sqtx/liblary/include/main_h.h
+
+/Users/sqtx/Documents/Programowanie/C++/Projekty/librarySystem/src/pl/sqtx/liblary/app/option.cpp
+map
+-
+../include/main_h.h
+/Users/sqtx/Documents/Programowanie/C++/Projekty/librarySystem/src/pl/sqtx/liblary/include/main_h.h
+
+/Users/sqtx/Documents/Programowanie/C++/Projekty/librarySystem/src/pl/sqtx/liblary/include/library_h.h
+../model/library.cpp
+/Users/sqtx/Documents/Programowanie/C++/Projekty/librarySystem/src/pl/sqtx/liblary/model/library.cpp
 
 /Users/sqtx/Documents/Programowanie/C++/Projekty/librarySystem/src/pl/sqtx/liblary/include/main_h.h
 iostream
