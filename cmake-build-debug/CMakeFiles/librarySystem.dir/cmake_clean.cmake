@@ -2,6 +2,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/librarySystem.dir/src/pl/sqtx/liblary/app/libraryControl.cpp.o"
   "CMakeFiles/librarySystem.dir/src/pl/sqtx/liblary/app/main.cpp.o"
   "CMakeFiles/librarySystem.dir/src/pl/sqtx/liblary/app/option.cpp.o"
+  "CMakeFiles/librarySystem.dir/src/pl/sqtx/liblary/exception/noSuchOptionException.cpp.o"
+  "CMakeFiles/librarySystem.dir/src/pl/sqtx/liblary/io/consolePrinter.cpp.o"
   "CMakeFiles/librarySystem.dir/src/pl/sqtx/liblary/io/dataReader.cpp.o"
   "CMakeFiles/librarySystem.dir/src/pl/sqtx/liblary/model/book.cpp.o"
   "CMakeFiles/librarySystem.dir/src/pl/sqtx/liblary/model/library.cpp.o"

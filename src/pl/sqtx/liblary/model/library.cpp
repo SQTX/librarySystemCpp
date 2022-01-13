@@ -5,8 +5,6 @@
 #include "../include/main_h.h"
 #include "../include/publication_h.h"
 #include "../include/publicationType_h.h"
-#include <vector>
-#include <memory>
 
 typedef shared_ptr<Publication> PublicationPtr;
 class Library{
@@ -16,50 +14,26 @@ private:
   int publicationsNumber = 0;
 
 public:
+  const vector<PublicationPtr> &getPublications() const {
+    return publications;
+  }
+
 //  Add new book to lab
   void addBook(PublicationPtr book){
-    if(publicationsNumber < maxPublications){
-      publications.push_back(book);
-      publicationsNumber++;
-    }else{
-      cout << "Maksymalna liczba książek została osiągnięta" << endl;
-    }
+    addPublication(book);
   }
   //  Add new magazine to lab
   void addMagazine(PublicationPtr magazine){
-    if(publicationsNumber < maxPublications){
-      publications.push_back(magazine);
-      publicationsNumber++;
+    addPublication(magazine);
+  }
+
+private:
+  void addPublication(PublicationPtr publication){
+    if(publicationsNumber >= maxPublications) {
+      throw out_of_range("Przekroczono dozwolony limit publikacji.");
     }else{
-      cout << "Maksymalna liczba gazet została osiągnięta" << endl;
-    }
-  }
-//  Print informations about all books in lab
-  void printBooks(){
-    int countBooks = 0;
-    for(int i =0; i < publicationsNumber; i++){
-      PublicationPtr ptr = publications[i];
-      if(dynamic_cast<Book*>(ptr.get())){
-        cout << ptr->toString() << endl;
-        countBooks++;
-      }
-    }
-    if(countBooks == 0){
-      cout << "Brak ksiazek w bibliotece" << endl;
-    }
-  }
-  //  Print informations about all magazines in lab
-  void printMagazines(){
-    int countMagazine = 0;
-    for(int i =0; i < publicationsNumber; i++){
-      PublicationPtr ptr = publications[i];
-      if(dynamic_cast<Magazine*>(ptr.get())){
-        cout << ptr->toString() << endl;
-        countMagazine++;
-      }
-    }
-    if(countMagazine == 0){
-      cout << "Brak gazet w bibliotece" << endl;
+      publications.push_back(publication);
+      publicationsNumber++;
     }
   }
 };

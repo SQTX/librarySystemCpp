@@ -87,6 +87,12 @@
 		<Unit filename="/Users/sqtx/Documents/Programowanie/C++/Projekty/librarySystem/src/pl/sqtx/liblary/app/option.cpp">
 			<Option target="librarySystem"/>
 		</Unit>
+		<Unit filename="/Users/sqtx/Documents/Programowanie/C++/Projekty/librarySystem/src/pl/sqtx/liblary/exception/noSuchOptionException.cpp">
+			<Option target="librarySystem"/>
+		</Unit>
+		<Unit filename="/Users/sqtx/Documents/Programowanie/C++/Projekty/librarySystem/src/pl/sqtx/liblary/io/consolePrinter.cpp">
+			<Option target="librarySystem"/>
+		</Unit>
 		<Unit filename="/Users/sqtx/Documents/Programowanie/C++/Projekty/librarySystem/src/pl/sqtx/liblary/io/dataReader.cpp">
 			<Option target="librarySystem"/>
 		</Unit>

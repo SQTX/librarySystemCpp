@@ -1,7 +1,6 @@
 //
 // Created by Jakub Sitarczyk on 02/01/2022.
 //
-#include <map>
 #include "../include/main_h.h"
 
 class Option{

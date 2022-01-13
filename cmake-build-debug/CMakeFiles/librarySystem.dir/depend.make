@@ -4,10 +4,14 @@
 CMakeFiles/librarySystem.dir/src/pl/sqtx/liblary/app/libraryControl.cpp.o: \
  ../src/pl/sqtx/liblary/app/libraryControl.cpp \
  ../src/pl/sqtx/liblary/app/option.cpp \
+ ../src/pl/sqtx/liblary/exception/noSuchOptionException.cpp \
+ ../src/pl/sqtx/liblary/include/consolePriner_h.h \
+ ../src/pl/sqtx/liblary/include/exception_h.h \
  ../src/pl/sqtx/liblary/include/library_h.h \
  ../src/pl/sqtx/liblary/include/main_h.h \
  ../src/pl/sqtx/liblary/include/publicationType_h.h \
  ../src/pl/sqtx/liblary/include/publication_h.h \
+ ../src/pl/sqtx/liblary/io/consolePrinter.cpp \
  ../src/pl/sqtx/liblary/io/dataReader.cpp \
  ../src/pl/sqtx/liblary/model/book.cpp \
  ../src/pl/sqtx/liblary/model/library.cpp \
@@ -17,10 +21,14 @@ CMakeFiles/librarySystem.dir/src/pl/sqtx/liblary/app/main.cpp.o: \
  ../src/pl/sqtx/liblary/app/libraryControl.cpp \
  ../src/pl/sqtx/liblary/app/main.cpp \
  ../src/pl/sqtx/liblary/app/option.cpp \
+ ../src/pl/sqtx/liblary/exception/noSuchOptionException.cpp \
+ ../src/pl/sqtx/liblary/include/consolePriner_h.h \
+ ../src/pl/sqtx/liblary/include/exception_h.h \
  ../src/pl/sqtx/liblary/include/library_h.h \
  ../src/pl/sqtx/liblary/include/main_h.h \
  ../src/pl/sqtx/liblary/include/publicationType_h.h \
  ../src/pl/sqtx/liblary/include/publication_h.h \
+ ../src/pl/sqtx/liblary/io/consolePrinter.cpp \
  ../src/pl/sqtx/liblary/io/dataReader.cpp \
  ../src/pl/sqtx/liblary/model/book.cpp \
  ../src/pl/sqtx/liblary/model/library.cpp \
@@ -29,10 +37,23 @@ CMakeFiles/librarySystem.dir/src/pl/sqtx/liblary/app/main.cpp.o: \
 CMakeFiles/librarySystem.dir/src/pl/sqtx/liblary/app/option.cpp.o: \
  ../src/pl/sqtx/liblary/app/option.cpp \
  ../src/pl/sqtx/liblary/include/main_h.h
-CMakeFiles/librarySystem.dir/src/pl/sqtx/liblary/io/dataReader.cpp.o: \
+CMakeFiles/librarySystem.dir/src/pl/sqtx/liblary/exception/noSuchOptionException.cpp.o: \
+ ../src/pl/sqtx/liblary/exception/noSuchOptionException.cpp \
+ ../src/pl/sqtx/liblary/include/main_h.h
+CMakeFiles/librarySystem.dir/src/pl/sqtx/liblary/io/consolePrinter.cpp.o: \
  ../src/pl/sqtx/liblary/include/main_h.h \
  ../src/pl/sqtx/liblary/include/publicationType_h.h \
  ../src/pl/sqtx/liblary/include/publication_h.h \
+ ../src/pl/sqtx/liblary/io/consolePrinter.cpp \
+ ../src/pl/sqtx/liblary/model/book.cpp \
+ ../src/pl/sqtx/liblary/model/magazine.cpp \
+ ../src/pl/sqtx/liblary/model/publication.cpp
+CMakeFiles/librarySystem.dir/src/pl/sqtx/liblary/io/dataReader.cpp.o: \
+ ../src/pl/sqtx/liblary/include/consolePriner_h.h \
+ ../src/pl/sqtx/liblary/include/main_h.h \
+ ../src/pl/sqtx/liblary/include/publicationType_h.h \
+ ../src/pl/sqtx/liblary/include/publication_h.h \
+ ../src/pl/sqtx/liblary/io/consolePrinter.cpp \
  ../src/pl/sqtx/liblary/io/dataReader.cpp \
  ../src/pl/sqtx/liblary/model/book.cpp \
  ../src/pl/sqtx/liblary/model/magazine.cpp \

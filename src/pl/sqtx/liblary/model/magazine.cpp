@@ -55,8 +55,8 @@ public:
     return !(rhs == *this);
   }
 //  Function ****************************************************************************************
-  string toString() { //Printer
-    string info = getTitle() + "; " + to_string(day) + to_string(month) + "; "+ to_string(getReleaseDate()) + "; "
+  string toString() override { //Printer
+    string info = getTitle() + "; " + to_string(day) + " ; " + to_string(month) + "; "+ to_string(getReleaseDate()) + "; "
         + language + "; " + getPublisher();
     return info;
   }

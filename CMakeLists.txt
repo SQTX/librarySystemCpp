@@ -10,8 +10,11 @@ add_executable(librarySystem
         ${standardPath}/app/main.cpp
         ${standardPath}/app/libraryControl.cpp
         ${standardPath}/app/option.cpp
+#        exception
+        ${standardPath}/exception/noSuchOptionException.cpp
 #        io
         ${standardPath}/io/dataReader.cpp
+        ${standardPath}/io/consolePrinter.cpp
 #        model
         ${standardPath}/model/book.cpp
         ${standardPath}/model/magazine.cpp

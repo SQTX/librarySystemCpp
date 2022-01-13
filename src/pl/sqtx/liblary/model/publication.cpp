@@ -3,7 +3,6 @@
 //
 //Headers
 #include "../include/main_h.h"
-//TODO IOstream useless
 class Publication{
 protected:
   string title;

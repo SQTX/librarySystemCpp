@@ -50,7 +50,7 @@ public:
     return !(rhs == *this);
   }
 //    Function *****************************************************************************************
-    string toString(){ //Printer
+    string toString() override{ //Printer
       string info = getTitle() + "; " + author + "; " + to_string(getReleaseDate()) + "; " + to_string(pages) +
           "; " + getPublisher();
       if(isbn != ""){

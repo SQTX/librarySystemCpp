@@ -201,6 +201,54 @@ src/pl/sqtx/liblary/app/option.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/librarySystem.dir/build.make CMakeFiles/librarySystem.dir/src/pl/sqtx/liblary/app/option.cpp.s
 .PHONY : src/pl/sqtx/liblary/app/option.cpp.s
 
+src/pl/sqtx/liblary/exception/noSuchOptionException.o: src/pl/sqtx/liblary/exception/noSuchOptionException.cpp.o
+.PHONY : src/pl/sqtx/liblary/exception/noSuchOptionException.o
+
+# target to build an object file
+src/pl/sqtx/liblary/exception/noSuchOptionException.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/librarySystem.dir/build.make CMakeFiles/librarySystem.dir/src/pl/sqtx/liblary/exception/noSuchOptionException.cpp.o
+.PHONY : src/pl/sqtx/liblary/exception/noSuchOptionException.cpp.o
+
+src/pl/sqtx/liblary/exception/noSuchOptionException.i: src/pl/sqtx/liblary/exception/noSuchOptionException.cpp.i
+.PHONY : src/pl/sqtx/liblary/exception/noSuchOptionException.i
+
+# target to preprocess a source file
+src/pl/sqtx/liblary/exception/noSuchOptionException.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/librarySystem.dir/build.make CMakeFiles/librarySystem.dir/src/pl/sqtx/liblary/exception/noSuchOptionException.cpp.i
+.PHONY : src/pl/sqtx/liblary/exception/noSuchOptionException.cpp.i
+
+src/pl/sqtx/liblary/exception/noSuchOptionException.s: src/pl/sqtx/liblary/exception/noSuchOptionException.cpp.s
+.PHONY : src/pl/sqtx/liblary/exception/noSuchOptionException.s
+
+# target to generate assembly for a file
+src/pl/sqtx/liblary/exception/noSuchOptionException.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/librarySystem.dir/build.make CMakeFiles/librarySystem.dir/src/pl/sqtx/liblary/exception/noSuchOptionException.cpp.s
+.PHONY : src/pl/sqtx/liblary/exception/noSuchOptionException.cpp.s
+
+src/pl/sqtx/liblary/io/consolePrinter.o: src/pl/sqtx/liblary/io/consolePrinter.cpp.o
+.PHONY : src/pl/sqtx/liblary/io/consolePrinter.o
+
+# target to build an object file
+src/pl/sqtx/liblary/io/consolePrinter.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/librarySystem.dir/build.make CMakeFiles/librarySystem.dir/src/pl/sqtx/liblary/io/consolePrinter.cpp.o
+.PHONY : src/pl/sqtx/liblary/io/consolePrinter.cpp.o
+
+src/pl/sqtx/liblary/io/consolePrinter.i: src/pl/sqtx/liblary/io/consolePrinter.cpp.i
+.PHONY : src/pl/sqtx/liblary/io/consolePrinter.i
+
+# target to preprocess a source file
+src/pl/sqtx/liblary/io/consolePrinter.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/librarySystem.dir/build.make CMakeFiles/librarySystem.dir/src/pl/sqtx/liblary/io/consolePrinter.cpp.i
+.PHONY : src/pl/sqtx/liblary/io/consolePrinter.cpp.i
+
+src/pl/sqtx/liblary/io/consolePrinter.s: src/pl/sqtx/liblary/io/consolePrinter.cpp.s
+.PHONY : src/pl/sqtx/liblary/io/consolePrinter.s
+
+# target to generate assembly for a file
+src/pl/sqtx/liblary/io/consolePrinter.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/librarySystem.dir/build.make CMakeFiles/librarySystem.dir/src/pl/sqtx/liblary/io/consolePrinter.cpp.s
+.PHONY : src/pl/sqtx/liblary/io/consolePrinter.cpp.s
+
 src/pl/sqtx/liblary/io/dataReader.o: src/pl/sqtx/liblary/io/dataReader.cpp.o
 .PHONY : src/pl/sqtx/liblary/io/dataReader.o
 
@@ -339,6 +387,12 @@ help:
 	@echo "... src/pl/sqtx/liblary/app/option.o"
 	@echo "... src/pl/sqtx/liblary/app/option.i"
 	@echo "... src/pl/sqtx/liblary/app/option.s"
+	@echo "... src/pl/sqtx/liblary/exception/noSuchOptionException.o"
+	@echo "... src/pl/sqtx/liblary/exception/noSuchOptionException.i"
+	@echo "... src/pl/sqtx/liblary/exception/noSuchOptionException.s"
+	@echo "... src/pl/sqtx/liblary/io/consolePrinter.o"
+	@echo "... src/pl/sqtx/liblary/io/consolePrinter.i"
+	@echo "... src/pl/sqtx/liblary/io/consolePrinter.s"
 	@echo "... src/pl/sqtx/liblary/io/dataReader.o"
 	@echo "... src/pl/sqtx/liblary/io/dataReader.i"
 	@echo "... src/pl/sqtx/liblary/io/dataReader.s"

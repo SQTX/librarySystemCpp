@@ -3,34 +3,42 @@
 //
 //Headers
 #include "../include/main_h.h"
+#include "../include/consolePriner_h.h"
 #include "../include/publicationType_h.h"
 
 class DataReader {
+  ConsolePrinter cslPrinter;
 public:
   //  Get int number
   int getInt(){
-    int number;
+    int number = -1;
     cin >> number;
-    return number;
+      if(cin.good()){
+        return number;
+      }else{
+        cin.clear();
+        cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        throw invalid_argument("Podana wartość nie jest liczba");
+      }
   }
 //  Get informations about new book
   Book readAndCreateBook() {
-    cout << "Tytuł: ";
+    cslPrinter.printLine("Tytuł: ");
     string title;
     cin >> title;
-    cout << "Autor: ";
+    cslPrinter.printLine("Autor: ");
     string author;
     cin >> author;
-    cout << "Wydawnictwo: ";
+    cslPrinter.printLine("Wydawnictwo: ");
     string publisher;
     cin >> publisher;
-    cout << "ISBN: ";
+    cslPrinter.printLine("ISBN: ");
     string isbn;
     cin >> isbn;
-    cout << "Rok wydania: ";
+    cslPrinter.printLine("Rok wydania: ");
     int releaseDate;
     cin >> releaseDate;
-    cout << "Ilość stron: ";
+    cslPrinter.printLine("Ilość stron: ");
     int pages;
     cin >> pages;
 
@@ -38,22 +46,22 @@ public:
   }
   //  Get informations about new book
   Magazine readAndCreateMagazine() {
-    cout << "Tytuł: ";
+    cslPrinter.printLine("Tytuł: ");
     string title;
     cin >> title;
-    cout << "Dzien: ";
+    cslPrinter.printLine("Dzien: ");
     int day;
     cin >> day;
-    cout << "Miesiac: ";
+    cslPrinter.printLine("Miesiac: ");
     int month;
     cin >> month;
-    cout << "Rok wydania: ";
+    cslPrinter.printLine("Rok wydania: ");
     int releaseDate;
     cin >> releaseDate;
-    cout << "Jezyk: ";
+    cslPrinter.printLine("Jezyk: ");
     string language;
     cin >> language;
-    cout << "Wydawnictwo: ";
+    cslPrinter.printLine("Wydawnictwo: ");
     string publisher;
     cin >> publisher;
 
