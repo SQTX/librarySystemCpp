@@ -17,7 +17,6 @@ public:
   const vector<PublicationPtr> &getPublications() const {
     return publications;
   }
-
 //  Add new book to lab
   void addBook(PublicationPtr book){
     addPublication(book);

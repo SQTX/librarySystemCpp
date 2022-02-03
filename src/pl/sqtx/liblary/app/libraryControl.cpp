@@ -1,7 +1,6 @@
 //
 // Created by Jakub Sitarczyk on 09/12/2021.
 //
-#include "option.cpp"
 #include "../io/dataReader.cpp"
 //Headers
 #include "../include/main_h.h"
@@ -23,8 +22,7 @@ public:
     Option option;
     int choice;
     do{
-        choice = getChoice(option);
-//        choice = dataReader.getInt();
+        choice = getChoice();
           switch(choice) {
             case option.ADD_BOOK:
               addBook();
@@ -48,12 +46,13 @@ public:
   }
 
 private:
-  int getChoice(Option option) {
+  int getChoice() {
+    Option option;
     ConsolePrinter cslPrinter;
     int choice = 0;
     bool choiceRight = false;
     do {
-      printOptions(option);
+      printOptions();
       try {
         choice = dataReader.getInt();
         if (choice >= 0 && choice < option.END) {
@@ -73,7 +72,8 @@ private:
     return choice;
   }
 
-  void printOptions(Option option){
+  void printOptions(){
+    Option option;
     cslPrinter.printLine("Wybierz opcję: ");
     for(int i = 0; i < option.getOptionsSize(); i++){
       cslPrinter.printLine(option.toString(i));
@@ -119,4 +119,38 @@ private:
   void exit(){
     cslPrinter.printLine("Koniec programu");
   }
+
+private:
+  class Option{
+  public:
+//  Options
+    enum option {
+      EXIT = 0,
+      ADD_BOOK,
+      ADD_MAGAZINE,
+      PRINT_BOOKS,
+      PRINT_MAGAZINES,
+      END
+    };
+    int optionsSize = option::END;
+//  Key-Descriptions
+    map <unsigned int, const string> MyMap{
+        {EXIT, "wyjście z programu"},
+        {ADD_BOOK, "dodanie nowej książki"},
+        {ADD_MAGAZINE, "dodanie nową gazete"},
+        {PRINT_BOOKS, "wyświetl dostępne książki"},
+        {PRINT_MAGAZINES, "wyświetl dostępne gazety"},
+    };
+    int getOptionsSize() const {
+      return optionsSize;
+    }
+
+    const map<unsigned int, const string> &getMyMap() const {
+      return MyMap;
+    }
+
+    string toString(int value){
+      return to_string(value) + " - " + MyMap[value];
+    }
+  };
 };

@@ -9,7 +9,6 @@ add_executable(librarySystem
 #        app file
         ${standardPath}/app/main.cpp
         ${standardPath}/app/libraryControl.cpp
-        ${standardPath}/app/option.cpp
 #        exception
         ${standardPath}/exception/noSuchOptionException.cpp
 #        io
