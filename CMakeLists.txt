@@ -12,9 +12,14 @@ add_executable(librarySystem
         ${standardPath}/app/option.cpp
 #        exception
         ${standardPath}/exception/noSuchOptionException.cpp
+        ${standardPath}/exception/dataImportException.cpp
+        ${standardPath}/exception/dataExportException.cpp
 #        io
         ${standardPath}/io/dataReader.cpp
         ${standardPath}/io/consolePrinter.cpp
+#        io/file
+        ${standardPath}/io/file/fileManager.cpp
+        ${standardPath}/io/file/serializableFileManager.cpp
 #        model
         ${standardPath}/model/book.cpp
         ${standardPath}/model/magazine.cpp
