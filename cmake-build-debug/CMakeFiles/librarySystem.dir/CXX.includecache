@@ -23,6 +23,8 @@ option.cpp
 /Users/sqtx/Documents/Programowanie/C++/Projekty/librarySystem/src/pl/sqtx/liblary/include/publicationType_h.h
 ../include/publication_h.h
 /Users/sqtx/Documents/Programowanie/C++/Projekty/librarySystem/src/pl/sqtx/liblary/include/publication_h.h
+../include/fileManagers_h.h
+/Users/sqtx/Documents/Programowanie/C++/Projekty/librarySystem/src/pl/sqtx/liblary/include/fileManagers_h.h
 
 /Users/sqtx/Documents/Programowanie/C++/Projekty/librarySystem/src/pl/sqtx/liblary/app/main.cpp
 libraryControl.cpp
@@ -33,6 +35,14 @@ libraryControl.cpp
 /Users/sqtx/Documents/Programowanie/C++/Projekty/librarySystem/src/pl/sqtx/liblary/include/consolePriner_h.h
 
 /Users/sqtx/Documents/Programowanie/C++/Projekty/librarySystem/src/pl/sqtx/liblary/app/option.cpp
+../include/main_h.h
+/Users/sqtx/Documents/Programowanie/C++/Projekty/librarySystem/src/pl/sqtx/liblary/include/main_h.h
+
+/Users/sqtx/Documents/Programowanie/C++/Projekty/librarySystem/src/pl/sqtx/liblary/exception/dataExportException.cpp
+../include/main_h.h
+/Users/sqtx/Documents/Programowanie/C++/Projekty/librarySystem/src/pl/sqtx/liblary/include/main_h.h
+
+/Users/sqtx/Documents/Programowanie/C++/Projekty/librarySystem/src/pl/sqtx/liblary/exception/dataImportException.cpp
 ../include/main_h.h
 /Users/sqtx/Documents/Programowanie/C++/Projekty/librarySystem/src/pl/sqtx/liblary/include/main_h.h
 
@@ -47,6 +57,14 @@ libraryControl.cpp
 /Users/sqtx/Documents/Programowanie/C++/Projekty/librarySystem/src/pl/sqtx/liblary/include/exception_h.h
 ../exception/noSuchOptionException.cpp
 /Users/sqtx/Documents/Programowanie/C++/Projekty/librarySystem/src/pl/sqtx/liblary/exception/noSuchOptionException.cpp
+../exception/dataExportException.cpp
+/Users/sqtx/Documents/Programowanie/C++/Projekty/librarySystem/src/pl/sqtx/liblary/exception/dataExportException.cpp
+../exception/dataImportException.cpp
+/Users/sqtx/Documents/Programowanie/C++/Projekty/librarySystem/src/pl/sqtx/liblary/exception/dataImportException.cpp
+
+/Users/sqtx/Documents/Programowanie/C++/Projekty/librarySystem/src/pl/sqtx/liblary/include/fileManagers_h.h
+../io/file/serializableFileManager.cpp
+/Users/sqtx/Documents/Programowanie/C++/Projekty/librarySystem/src/pl/sqtx/liblary/io/file/serializableFileManager.cpp
 
 /Users/sqtx/Documents/Programowanie/C++/Projekty/librarySystem/src/pl/sqtx/liblary/include/library_h.h
 ../model/library.cpp
@@ -89,6 +107,22 @@ iostream
 /Users/sqtx/Documents/Programowanie/C++/Projekty/librarySystem/src/pl/sqtx/liblary/include/consolePriner_h.h
 ../include/publicationType_h.h
 /Users/sqtx/Documents/Programowanie/C++/Projekty/librarySystem/src/pl/sqtx/liblary/include/publicationType_h.h
+
+/Users/sqtx/Documents/Programowanie/C++/Projekty/librarySystem/src/pl/sqtx/liblary/io/file/fileManager.cpp
+../../include/main_h.h
+/Users/sqtx/Documents/Programowanie/C++/Projekty/librarySystem/src/pl/sqtx/liblary/include/main_h.h
+
+/Users/sqtx/Documents/Programowanie/C++/Projekty/librarySystem/src/pl/sqtx/liblary/io/file/serializableFileManager.cpp
+../../include/main_h.h
+/Users/sqtx/Documents/Programowanie/C++/Projekty/librarySystem/src/pl/sqtx/liblary/include/main_h.h
+../../include/exception_h.h
+/Users/sqtx/Documents/Programowanie/C++/Projekty/librarySystem/src/pl/sqtx/liblary/include/exception_h.h
+../../include/consolePriner_h.h
+/Users/sqtx/Documents/Programowanie/C++/Projekty/librarySystem/src/pl/sqtx/liblary/include/consolePriner_h.h
+fileManager.cpp
+/Users/sqtx/Documents/Programowanie/C++/Projekty/librarySystem/src/pl/sqtx/liblary/io/file/fileManager.cpp
+fstream
+-
 
 /Users/sqtx/Documents/Programowanie/C++/Projekty/librarySystem/src/pl/sqtx/liblary/model/book.cpp
 ../include/publication_h.h

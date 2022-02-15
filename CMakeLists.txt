@@ -6,7 +6,7 @@ set(standardPath src/pl/sqtx/liblary)
 
 #add_executable(librarySystem src/pl/sqtx/liblary/app/main.cpp src/pl/sqtx/liblary/model/book.cpp)
 add_executable(librarySystem
-#        app file
+#        app
         ${standardPath}/app/main.cpp
         ${standardPath}/app/libraryControl.cpp
         ${standardPath}/app/option.cpp
@@ -17,9 +17,9 @@ add_executable(librarySystem
 #        io
         ${standardPath}/io/dataReader.cpp
         ${standardPath}/io/consolePrinter.cpp
-#        io/file
-        ${standardPath}/io/file/fileManager.cpp
-        ${standardPath}/io/file/serializableFileManager.cpp
+    #        file
+            ${standardPath}/io/file/fileManager.cpp
+            ${standardPath}/io/file/serializableFileManager.cpp
 #        model
         ${standardPath}/model/book.cpp
         ${standardPath}/model/magazine.cpp

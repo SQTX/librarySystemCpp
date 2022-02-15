@@ -10,16 +10,19 @@
 #include "../include/exception_h.h"
 #include "../include/publicationType_h.h"
 #include "../include/publication_h.h"
+#include "../include/fileManagers_h.h"
 
 class LibraryControl{
 private:
   DataReader dataReader;  //dataReader.cpp
   Library library;  //library.cpp
   ConsolePrinter cslPrinter;
+  SerializableFileManager srlFileManager;
 
 public:
 //  Main method
   void controlLoop(){
+    srlFileManager.importData();
     Option option;
     int choice;
     do{

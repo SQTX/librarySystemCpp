@@ -5,7 +5,7 @@
 
 class DataImportException : exception{
 public:
-  static const string what(string message) {
-    return message;
+  const char* what() {
+    return "Blad importu pliku.";
   }
 };
