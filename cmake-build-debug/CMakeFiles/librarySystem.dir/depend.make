@@ -83,6 +83,7 @@ CMakeFiles/librarySystem.dir/src/pl/sqtx/liblary/io/file/serializableFileManager
  ../src/pl/sqtx/liblary/exception/noSuchOptionException.cpp \
  ../src/pl/sqtx/liblary/include/consolePriner_h.h \
  ../src/pl/sqtx/liblary/include/exception_h.h \
+ ../src/pl/sqtx/liblary/include/library_h.h \
  ../src/pl/sqtx/liblary/include/main_h.h \
  ../src/pl/sqtx/liblary/include/publicationType_h.h \
  ../src/pl/sqtx/liblary/include/publication_h.h \
@@ -90,6 +91,7 @@ CMakeFiles/librarySystem.dir/src/pl/sqtx/liblary/io/file/serializableFileManager
  ../src/pl/sqtx/liblary/io/file/fileManager.cpp \
  ../src/pl/sqtx/liblary/io/file/serializableFileManager.cpp \
  ../src/pl/sqtx/liblary/model/book.cpp \
+ ../src/pl/sqtx/liblary/model/library.cpp \
  ../src/pl/sqtx/liblary/model/magazine.cpp \
  ../src/pl/sqtx/liblary/model/publication.cpp
 CMakeFiles/librarySystem.dir/src/pl/sqtx/liblary/model/book.cpp.o: \
@@ -98,9 +100,11 @@ CMakeFiles/librarySystem.dir/src/pl/sqtx/liblary/model/book.cpp.o: \
  ../src/pl/sqtx/liblary/model/book.cpp \
  ../src/pl/sqtx/liblary/model/publication.cpp
 CMakeFiles/librarySystem.dir/src/pl/sqtx/liblary/model/library.cpp.o: \
+ ../src/pl/sqtx/liblary/include/consolePriner_h.h \
  ../src/pl/sqtx/liblary/include/main_h.h \
  ../src/pl/sqtx/liblary/include/publicationType_h.h \
  ../src/pl/sqtx/liblary/include/publication_h.h \
+ ../src/pl/sqtx/liblary/io/consolePrinter.cpp \
  ../src/pl/sqtx/liblary/model/book.cpp \
  ../src/pl/sqtx/liblary/model/library.cpp \
  ../src/pl/sqtx/liblary/model/magazine.cpp \

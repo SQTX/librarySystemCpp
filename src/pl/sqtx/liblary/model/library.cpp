@@ -4,6 +4,7 @@
 //Headers
 #include "../include/main_h.h"
 #include "../include/publication_h.h"
+#include "../include/consolePriner_h.h"
 #include "../include/publicationType_h.h"
 
 typedef shared_ptr<Publication> PublicationPtr;
@@ -16,6 +17,10 @@ private:
 public:
   const vector<PublicationPtr> &getPublications() const {
     return publications;
+  }
+
+  void setPublications(const vector<PublicationPtr> &publications) {
+    Library::publications = publications;
   }
 
 //  Add new book to lab
@@ -32,8 +37,10 @@ private:
     if(publicationsNumber >= maxPublications) {
       throw out_of_range("Przekroczono dozwolony limit publikacji.");
     }else{
+      ConsolePrinter printer;
       publications.push_back(publication);
       publicationsNumber++;
+      printer.printLine("Liczba Publikacji: " + to_string(publicationsNumber));
     }
   }
 };
