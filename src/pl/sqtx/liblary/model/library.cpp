@@ -19,10 +19,6 @@ public:
     return publications;
   }
 
-  void setPublications(const vector<PublicationPtr> &publications) {
-    Library::publications = publications;
-  }
-
 //  Add new book to lab
   void addBook(PublicationPtr book){
     addPublication(book);
@@ -37,10 +33,8 @@ private:
     if(publicationsNumber >= maxPublications) {
       throw out_of_range("Przekroczono dozwolony limit publikacji.");
     }else{
-      ConsolePrinter printer;
       publications.push_back(publication);
       publicationsNumber++;
-      printer.printLine("Liczba Publikacji: " + to_string(publicationsNumber));
     }
   }
 };

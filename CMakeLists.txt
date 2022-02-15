@@ -18,7 +18,6 @@ add_executable(librarySystem
         ${standardPath}/io/dataReader.cpp
         ${standardPath}/io/consolePrinter.cpp
     #        file
-            ${standardPath}/io/file/fileManager.cpp
             ${standardPath}/io/file/serializableFileManager.cpp
 #        model
         ${standardPath}/model/book.cpp

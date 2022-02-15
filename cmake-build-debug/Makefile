@@ -321,30 +321,6 @@ src/pl/sqtx/liblary/io/dataReader.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/librarySystem.dir/build.make CMakeFiles/librarySystem.dir/src/pl/sqtx/liblary/io/dataReader.cpp.s
 .PHONY : src/pl/sqtx/liblary/io/dataReader.cpp.s
 
-src/pl/sqtx/liblary/io/file/fileManager.o: src/pl/sqtx/liblary/io/file/fileManager.cpp.o
-.PHONY : src/pl/sqtx/liblary/io/file/fileManager.o
-
-# target to build an object file
-src/pl/sqtx/liblary/io/file/fileManager.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/librarySystem.dir/build.make CMakeFiles/librarySystem.dir/src/pl/sqtx/liblary/io/file/fileManager.cpp.o
-.PHONY : src/pl/sqtx/liblary/io/file/fileManager.cpp.o
-
-src/pl/sqtx/liblary/io/file/fileManager.i: src/pl/sqtx/liblary/io/file/fileManager.cpp.i
-.PHONY : src/pl/sqtx/liblary/io/file/fileManager.i
-
-# target to preprocess a source file
-src/pl/sqtx/liblary/io/file/fileManager.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/librarySystem.dir/build.make CMakeFiles/librarySystem.dir/src/pl/sqtx/liblary/io/file/fileManager.cpp.i
-.PHONY : src/pl/sqtx/liblary/io/file/fileManager.cpp.i
-
-src/pl/sqtx/liblary/io/file/fileManager.s: src/pl/sqtx/liblary/io/file/fileManager.cpp.s
-.PHONY : src/pl/sqtx/liblary/io/file/fileManager.s
-
-# target to generate assembly for a file
-src/pl/sqtx/liblary/io/file/fileManager.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/librarySystem.dir/build.make CMakeFiles/librarySystem.dir/src/pl/sqtx/liblary/io/file/fileManager.cpp.s
-.PHONY : src/pl/sqtx/liblary/io/file/fileManager.cpp.s
-
 src/pl/sqtx/liblary/io/file/serializableFileManager.o: src/pl/sqtx/liblary/io/file/serializableFileManager.cpp.o
 .PHONY : src/pl/sqtx/liblary/io/file/serializableFileManager.o
 
@@ -498,9 +474,6 @@ help:
 	@echo "... src/pl/sqtx/liblary/io/dataReader.o"
 	@echo "... src/pl/sqtx/liblary/io/dataReader.i"
 	@echo "... src/pl/sqtx/liblary/io/dataReader.s"
-	@echo "... src/pl/sqtx/liblary/io/file/fileManager.o"
-	@echo "... src/pl/sqtx/liblary/io/file/fileManager.i"
-	@echo "... src/pl/sqtx/liblary/io/file/fileManager.s"
 	@echo "... src/pl/sqtx/liblary/io/file/serializableFileManager.o"
 	@echo "... src/pl/sqtx/liblary/io/file/serializableFileManager.i"
 	@echo "... src/pl/sqtx/liblary/io/file/serializableFileManager.s"

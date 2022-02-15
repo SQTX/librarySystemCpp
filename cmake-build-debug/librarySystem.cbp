@@ -102,9 +102,6 @@
 		<Unit filename="/Users/sqtx/Documents/Programowanie/C++/Projekty/librarySystem/src/pl/sqtx/liblary/io/dataReader.cpp">
 			<Option target="librarySystem"/>
 		</Unit>
-		<Unit filename="/Users/sqtx/Documents/Programowanie/C++/Projekty/librarySystem/src/pl/sqtx/liblary/io/file/fileManager.cpp">
-			<Option target="librarySystem"/>
-		</Unit>
 		<Unit filename="/Users/sqtx/Documents/Programowanie/C++/Projekty/librarySystem/src/pl/sqtx/liblary/io/file/serializableFileManager.cpp">
 			<Option target="librarySystem"/>
 		</Unit>

@@ -108,10 +108,6 @@ iostream
 ../include/publicationType_h.h
 /Users/sqtx/Documents/Programowanie/C++/Projekty/librarySystem/src/pl/sqtx/liblary/include/publicationType_h.h
 
-/Users/sqtx/Documents/Programowanie/C++/Projekty/librarySystem/src/pl/sqtx/liblary/io/file/fileManager.cpp
-../../include/main_h.h
-/Users/sqtx/Documents/Programowanie/C++/Projekty/librarySystem/src/pl/sqtx/liblary/include/main_h.h
-
 /Users/sqtx/Documents/Programowanie/C++/Projekty/librarySystem/src/pl/sqtx/liblary/io/file/serializableFileManager.cpp
 ../../include/main_h.h
 /Users/sqtx/Documents/Programowanie/C++/Projekty/librarySystem/src/pl/sqtx/liblary/include/main_h.h
@@ -123,8 +119,6 @@ iostream
 /Users/sqtx/Documents/Programowanie/C++/Projekty/librarySystem/src/pl/sqtx/liblary/include/consolePriner_h.h
 ../../include/publicationType_h.h
 /Users/sqtx/Documents/Programowanie/C++/Projekty/librarySystem/src/pl/sqtx/liblary/include/publicationType_h.h
-fileManager.cpp
-/Users/sqtx/Documents/Programowanie/C++/Projekty/librarySystem/src/pl/sqtx/liblary/io/file/fileManager.cpp
 cstdio
 -
 fstream

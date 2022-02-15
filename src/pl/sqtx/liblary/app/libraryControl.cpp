@@ -17,11 +17,11 @@ private:
   DataReader dataReader;  //dataReader.cpp
   ConsolePrinter cslPrinter;
   SerializableFileManager srlFileManager;
+  Library library;  //library.cpp
 public:
 
 //  Main method
   void controlLoop(){
-    Library library;  //library.cpp
     srlFileManager.importData(&library);
     Option option;
     int choice;
@@ -30,16 +30,16 @@ public:
 //        choice = dataReader.getInt();
           switch(choice) {
             case option.ADD_BOOK:
-              addBook(library);
+              addBook();
               break;
             case option.ADD_MAGAZINE:
-              addMagazine(library);
+              addMagazine();
               break;
             case option.PRINT_BOOKS:
-              printBooks(library);
+              printBooks();
               break;
             case option.PRINT_MAGAZINES:
-              printMagazines(library);
+              printMagazines();
               break;
             case option.EXIT:
               exit();
@@ -83,7 +83,7 @@ private:
     }
   }
 
-  void addBook(Library library){
+  void addBook(){
     try{
       PublicationPtr book = make_shared<Book>(dataReader.readAndCreateBook());
       library.addBook(book);
@@ -96,7 +96,7 @@ private:
     }
   }
 
-  void addMagazine(Library library){
+  void addMagazine(){
     try{
       PublicationPtr magazine = make_shared<Magazine>(dataReader.readAndCreateMagazine());
       library.addMagazine(magazine);
@@ -109,12 +109,12 @@ private:
     }
   }
 
-  void printBooks(Library library){
+  void printBooks(){
     vector<PublicationPtr> publications = library.getPublications();
     cslPrinter.printBooks(publications);
   }
 
-  void printMagazines(Library library){
+  void printMagazines(){
     vector<PublicationPtr> publications = library.getPublications();
     cslPrinter.printMagazines(publications);
   }

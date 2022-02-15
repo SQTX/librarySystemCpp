@@ -16,7 +16,6 @@ CMakeFiles/librarySystem.dir/src/pl/sqtx/liblary/app/libraryControl.cpp.o
  /Users/sqtx/Documents/Programowanie/C++/Projekty/librarySystem/src/pl/sqtx/liblary/include/publication_h.h
  /Users/sqtx/Documents/Programowanie/C++/Projekty/librarySystem/src/pl/sqtx/liblary/io/consolePrinter.cpp
  /Users/sqtx/Documents/Programowanie/C++/Projekty/librarySystem/src/pl/sqtx/liblary/io/dataReader.cpp
- /Users/sqtx/Documents/Programowanie/C++/Projekty/librarySystem/src/pl/sqtx/liblary/io/file/fileManager.cpp
  /Users/sqtx/Documents/Programowanie/C++/Projekty/librarySystem/src/pl/sqtx/liblary/io/file/serializableFileManager.cpp
  /Users/sqtx/Documents/Programowanie/C++/Projekty/librarySystem/src/pl/sqtx/liblary/model/book.cpp
  /Users/sqtx/Documents/Programowanie/C++/Projekty/librarySystem/src/pl/sqtx/liblary/model/library.cpp
@@ -38,7 +37,6 @@ CMakeFiles/librarySystem.dir/src/pl/sqtx/liblary/app/main.cpp.o
  /Users/sqtx/Documents/Programowanie/C++/Projekty/librarySystem/src/pl/sqtx/liblary/include/publication_h.h
  /Users/sqtx/Documents/Programowanie/C++/Projekty/librarySystem/src/pl/sqtx/liblary/io/consolePrinter.cpp
  /Users/sqtx/Documents/Programowanie/C++/Projekty/librarySystem/src/pl/sqtx/liblary/io/dataReader.cpp
- /Users/sqtx/Documents/Programowanie/C++/Projekty/librarySystem/src/pl/sqtx/liblary/io/file/fileManager.cpp
  /Users/sqtx/Documents/Programowanie/C++/Projekty/librarySystem/src/pl/sqtx/liblary/io/file/serializableFileManager.cpp
  /Users/sqtx/Documents/Programowanie/C++/Projekty/librarySystem/src/pl/sqtx/liblary/model/book.cpp
  /Users/sqtx/Documents/Programowanie/C++/Projekty/librarySystem/src/pl/sqtx/liblary/model/library.cpp
@@ -74,9 +72,6 @@ CMakeFiles/librarySystem.dir/src/pl/sqtx/liblary/io/dataReader.cpp.o
  /Users/sqtx/Documents/Programowanie/C++/Projekty/librarySystem/src/pl/sqtx/liblary/model/book.cpp
  /Users/sqtx/Documents/Programowanie/C++/Projekty/librarySystem/src/pl/sqtx/liblary/model/magazine.cpp
  /Users/sqtx/Documents/Programowanie/C++/Projekty/librarySystem/src/pl/sqtx/liblary/model/publication.cpp
-CMakeFiles/librarySystem.dir/src/pl/sqtx/liblary/io/file/fileManager.cpp.o
- /Users/sqtx/Documents/Programowanie/C++/Projekty/librarySystem/src/pl/sqtx/liblary/include/main_h.h
- /Users/sqtx/Documents/Programowanie/C++/Projekty/librarySystem/src/pl/sqtx/liblary/io/file/fileManager.cpp
 CMakeFiles/librarySystem.dir/src/pl/sqtx/liblary/io/file/serializableFileManager.cpp.o
  /Users/sqtx/Documents/Programowanie/C++/Projekty/librarySystem/src/pl/sqtx/liblary/exception/dataExportException.cpp
  /Users/sqtx/Documents/Programowanie/C++/Projekty/librarySystem/src/pl/sqtx/liblary/exception/dataImportException.cpp
@@ -88,7 +83,6 @@ CMakeFiles/librarySystem.dir/src/pl/sqtx/liblary/io/file/serializableFileManager
  /Users/sqtx/Documents/Programowanie/C++/Projekty/librarySystem/src/pl/sqtx/liblary/include/publicationType_h.h
  /Users/sqtx/Documents/Programowanie/C++/Projekty/librarySystem/src/pl/sqtx/liblary/include/publication_h.h
  /Users/sqtx/Documents/Programowanie/C++/Projekty/librarySystem/src/pl/sqtx/liblary/io/consolePrinter.cpp
- /Users/sqtx/Documents/Programowanie/C++/Projekty/librarySystem/src/pl/sqtx/liblary/io/file/fileManager.cpp
  /Users/sqtx/Documents/Programowanie/C++/Projekty/librarySystem/src/pl/sqtx/liblary/io/file/serializableFileManager.cpp
  /Users/sqtx/Documents/Programowanie/C++/Projekty/librarySystem/src/pl/sqtx/liblary/model/book.cpp
  /Users/sqtx/Documents/Programowanie/C++/Projekty/librarySystem/src/pl/sqtx/liblary/model/library.cpp
