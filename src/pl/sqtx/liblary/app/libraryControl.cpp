@@ -10,7 +10,7 @@
 #include "../include/exception_h.h"
 #include "../include/publicationType_h.h"
 #include "../include/publication_h.h"
-#include "../include/fileManagers_h.h"
+#include "../io/file/serializableFileManager.cpp"
 
 class LibraryControl{
 private:

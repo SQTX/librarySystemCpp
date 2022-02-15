@@ -6,8 +6,6 @@
 #include "../../include/library_h.h"
 #include "../../include/consolePriner_h.h"
 #include "../../include/publicationType_h.h"
-//#include "../../include/fileManagers_h.h"
-//#include "fileManager.cpp"
 #include <cstdio>
 #include <fstream>
 
