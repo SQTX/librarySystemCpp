@@ -120,6 +120,7 @@ private:
   }
 
   void exit(){
+    srlFileManager.exportData(&library);
     cslPrinter.printLine("Koniec programu");
   }
 };

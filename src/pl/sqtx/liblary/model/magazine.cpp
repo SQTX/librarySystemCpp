@@ -56,8 +56,13 @@ public:
   }
 //  Function ****************************************************************************************
   string toString() override { //Printer
-    string info = getTitle() + "; " + to_string(day) + " ; " + to_string(month) + "; "+ to_string(getReleaseDate()) + "; "
+    string info = getTitle() + "; " + to_string(day) + "; " + to_string(month) + "; "+ to_string(getReleaseDate()) + "; "
         + language + "; " + getPublisher();
+    return info;
+  }
+  string toSave() override { //Printer
+    string info = getTitle() + ";" + to_string(day) + ";" + to_string(month) + ";"+ to_string(getReleaseDate()) +
+        ";" + language + ";" + getPublisher();
     return info;
   }
 };

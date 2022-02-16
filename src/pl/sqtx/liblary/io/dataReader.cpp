@@ -25,13 +25,14 @@ public:
   Book readAndCreateBook() {
     cslPrinter.printLine("Tytuł: ");
     string title;
-    cin >> title;
+    cin.ignore(1);
+    getline(cin, title);
     cslPrinter.printLine("Autor: ");
     string author;
-    cin >> author;
+    getline(cin, author);
     cslPrinter.printLine("Wydawnictwo: ");
     string publisher;
-    cin >> publisher;
+    getline(cin, publisher);
     cslPrinter.printLine("ISBN: ");
     string isbn;
     cin >> isbn;
@@ -48,7 +49,8 @@ public:
   Magazine readAndCreateMagazine() {
     cslPrinter.printLine("Tytuł: ");
     string title;
-    cin >> title;
+    cin.ignore(1);
+    getline(cin, title);
     cslPrinter.printLine("Dzien: ");
     int day;
     cin >> day;
@@ -59,11 +61,12 @@ public:
     int releaseDate;
     cin >> releaseDate;
     cslPrinter.printLine("Jezyk: ");
+    cin.ignore(1);
     string language;
-    cin >> language;
+    getline(cin, language);
     cslPrinter.printLine("Wydawnictwo: ");
     string publisher;
-    cin >> publisher;
+    getline(cin, publisher);
 
     return Magazine(title, day, month, releaseDate, language, publisher);
   }

@@ -13,17 +13,23 @@ class SerializableFileManager /*: public FileManager*/{
   const short MAX_CHAR = 50;
   ConsolePrinter cslPrinter;
   fstream dataFile;
+private:
+  string addHyphen(string txt){
+    string hyphen = ";";
+    txt.append(hyphen);
+    return txt;
+  }
 public:
-  void importData(Library *library) /*override*/{
-    try{
+  void importData(Library *library) {
+    try {
       DataImportException err;
 
       dataFile.open("../src/pl/sqtx/liblary/data/dataBase.txt", ios::in);
-      if(dataFile.is_open()){
+      if (dataFile.is_open()) {
         int publicationData;
         dataFile >> publicationData;
         dataFile.ignore(1);
-        for(int i = 0; i < publicationData; i++){
+        for (int i = 0; i < publicationData; i++) {
           //Book;Tytuł;Autor;Wydawca;ISBN;dataWydania;liczbaStron
 //          Get type
           char c_type[MAX_CHAR];
@@ -32,7 +38,7 @@ public:
 
 //          If type
           string type(c_type);
-          if(type == "Book"){
+          if (type == "Book") {
 //            Standard types
             int releaseDate = 0;
             int pages = 0;
@@ -48,24 +54,24 @@ public:
             string author(c_author);
             dataFile.ignore(1);
 
-            char c_publisher[MAX_CHAR];
-            dataFile.get(c_publisher, MAX_CHAR, ';');
-            string publisher(c_publisher);
-            dataFile.ignore(1);
-
-            char c_isbn[MAX_CHAR];
-            dataFile.get(c_isbn, MAX_CHAR, ';');
-            string isbn (c_isbn);
-            dataFile.ignore(1);
-
             char c_releaseDate[MAX_CHAR];
             dataFile.get(c_releaseDate, MAX_CHAR, ';');
             sscanf(c_releaseDate, "%d", &releaseDate);
             dataFile.ignore(1);
 
             char c_pages[MAX_CHAR];
-            dataFile.get(c_pages, MAX_CHAR, '\n');
+            dataFile.get(c_pages, MAX_CHAR, ';');
             sscanf(c_pages, "%d", &pages);//Last element
+            dataFile.ignore(1);
+
+            char c_publisher[MAX_CHAR];
+            dataFile.get(c_publisher, MAX_CHAR, ';');
+            string publisher(c_publisher);
+            dataFile.ignore(1);
+
+            char c_isbn[MAX_CHAR];
+            dataFile.get(c_isbn, MAX_CHAR, '\n');
+            string isbn(c_isbn);
             dataFile.ignore(1);
 
 //            Create object
@@ -73,7 +79,7 @@ public:
             PublicationPtr book = make_shared<Book>(bookObj);
             library->addBook(book);
 
-          }else if (type == "Magazine"){
+          } else if (type == "Magazine") {
 //            Standard types
             int day = 0;
             int month = 0;
@@ -114,25 +120,67 @@ public:
             Magazine magazineObj(title, day, month, releaseDate, language, publisher);
             PublicationPtr magazine = make_shared<Magazine>(magazineObj);
             library->addMagazine(magazine);
-          }else{
+          } else {
             cslPrinter.printLine("Nieznany typ publikacji.");
           }
         }
         cslPrinter.printLine("Baza danych została pomyślnie zainportowana.");
         dataFile.close();
-      }else{  //Plik nieistnieje, próba stworzenia nowego
+      } else {  //Plik nieistnieje, próba stworzenia nowego
         dataFile.open("../src/pl/sqtx/liblary/data/dataBase.txt", ios::out);
         cslPrinter.printLine("Brak bazy danych.");
-        if(dataFile.is_open()){
+        if (dataFile.is_open()) {
           cslPrinter.printLine("Zainicjalizowano nową baze danych.");
           dataFile.close();
-        }else{
+        } else {
           cslPrinter.printLine("Stworzenie nowej bazy danych jest niemożliwe.");
           throw err;
         }
       }
-    }catch(DataImportException err) {
+    } catch (DataImportException err) {
       string message = err.what();
+      cslPrinter.printLine(message);
+    }
+  }
+//EXPORT========================================================================================================
+  void exportData(Library *library) {
+    try {
+      DataExportException err;
+      dataFile.open("../src/pl/sqtx/liblary/data/dataBase.txt", ios::out);
+
+      if (dataFile.is_open()) {
+        vector<PublicationPtr> publications = library->getPublications();
+//        Get baze size
+        int publicationsNum = publications.size();
+        if(publicationsNum <= 0){
+          dataFile << '0';
+          dataFile.close();
+        }else{
+          dataFile << publicationsNum;
+          for(int i = 0; i < publicationsNum; i++){
+            string saveLine;
+            PublicationPtr ptr = publications[i];
+//          Publication type
+            if(dynamic_cast<Book*>(ptr.get())){
+              saveLine = "\nBook";
+              saveLine = addHyphen(saveLine);
+              saveLine.append(ptr->toSave());
+            }else if(dynamic_cast<Magazine*>(ptr.get())){
+              saveLine = "\nMagazine";
+              saveLine = addHyphen(saveLine);
+              saveLine.append(ptr->toSave());
+            }
+            dataFile << saveLine;
+          }
+          if((dataFile.rdstate() ^ fstream::eofbit) == 0){
+            dataFile.close();
+            cslPrinter.printLine("Zapis zakończony powodzeniem.");
+          }
+        }
+      }
+    } catch (DataExportException err) {
+      string message = err.what();
+      cslPrinter.printLine("Błąd zapisy.");
       cslPrinter.printLine(message);
     }
   }

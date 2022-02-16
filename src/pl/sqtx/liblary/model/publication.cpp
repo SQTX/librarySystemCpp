@@ -55,4 +55,5 @@ public:
   }
 //  Method ****************************************************************************************
   virtual string toString(){}  //Virtual method
+  virtual string toSave(){}  //Virtual method
 };
