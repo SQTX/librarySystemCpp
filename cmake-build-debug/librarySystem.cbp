@@ -84,6 +84,12 @@
 		<Unit filename="/Users/sqtx/Documents/Programowanie/C++/Projekty/librarySystem/src/pl/sqtx/liblary/app/main.cpp">
 			<Option target="librarySystem"/>
 		</Unit>
+		<Unit filename="/Users/sqtx/Documents/Programowanie/C++/Projekty/librarySystem/src/pl/sqtx/liblary/exception/dataExportException.cpp">
+			<Option target="librarySystem"/>
+		</Unit>
+		<Unit filename="/Users/sqtx/Documents/Programowanie/C++/Projekty/librarySystem/src/pl/sqtx/liblary/exception/dataImportException.cpp">
+			<Option target="librarySystem"/>
+		</Unit>
 		<Unit filename="/Users/sqtx/Documents/Programowanie/C++/Projekty/librarySystem/src/pl/sqtx/liblary/exception/noSuchOptionException.cpp">
 			<Option target="librarySystem"/>
 		</Unit>
@@ -91,6 +97,9 @@
 			<Option target="librarySystem"/>
 		</Unit>
 		<Unit filename="/Users/sqtx/Documents/Programowanie/C++/Projekty/librarySystem/src/pl/sqtx/liblary/io/dataReader.cpp">
+			<Option target="librarySystem"/>
+		</Unit>
+		<Unit filename="/Users/sqtx/Documents/Programowanie/C++/Projekty/librarySystem/src/pl/sqtx/liblary/io/file/serializableFileManager.cpp">
 			<Option target="librarySystem"/>
 		</Unit>
 		<Unit filename="/Users/sqtx/Documents/Programowanie/C++/Projekty/librarySystem/src/pl/sqtx/liblary/model/book.cpp">

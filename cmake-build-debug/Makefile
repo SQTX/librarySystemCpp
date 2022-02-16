@@ -177,6 +177,54 @@ src/pl/sqtx/liblary/app/main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/librarySystem.dir/build.make CMakeFiles/librarySystem.dir/src/pl/sqtx/liblary/app/main.cpp.s
 .PHONY : src/pl/sqtx/liblary/app/main.cpp.s
 
+src/pl/sqtx/liblary/exception/dataExportException.o: src/pl/sqtx/liblary/exception/dataExportException.cpp.o
+.PHONY : src/pl/sqtx/liblary/exception/dataExportException.o
+
+# target to build an object file
+src/pl/sqtx/liblary/exception/dataExportException.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/librarySystem.dir/build.make CMakeFiles/librarySystem.dir/src/pl/sqtx/liblary/exception/dataExportException.cpp.o
+.PHONY : src/pl/sqtx/liblary/exception/dataExportException.cpp.o
+
+src/pl/sqtx/liblary/exception/dataExportException.i: src/pl/sqtx/liblary/exception/dataExportException.cpp.i
+.PHONY : src/pl/sqtx/liblary/exception/dataExportException.i
+
+# target to preprocess a source file
+src/pl/sqtx/liblary/exception/dataExportException.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/librarySystem.dir/build.make CMakeFiles/librarySystem.dir/src/pl/sqtx/liblary/exception/dataExportException.cpp.i
+.PHONY : src/pl/sqtx/liblary/exception/dataExportException.cpp.i
+
+src/pl/sqtx/liblary/exception/dataExportException.s: src/pl/sqtx/liblary/exception/dataExportException.cpp.s
+.PHONY : src/pl/sqtx/liblary/exception/dataExportException.s
+
+# target to generate assembly for a file
+src/pl/sqtx/liblary/exception/dataExportException.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/librarySystem.dir/build.make CMakeFiles/librarySystem.dir/src/pl/sqtx/liblary/exception/dataExportException.cpp.s
+.PHONY : src/pl/sqtx/liblary/exception/dataExportException.cpp.s
+
+src/pl/sqtx/liblary/exception/dataImportException.o: src/pl/sqtx/liblary/exception/dataImportException.cpp.o
+.PHONY : src/pl/sqtx/liblary/exception/dataImportException.o
+
+# target to build an object file
+src/pl/sqtx/liblary/exception/dataImportException.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/librarySystem.dir/build.make CMakeFiles/librarySystem.dir/src/pl/sqtx/liblary/exception/dataImportException.cpp.o
+.PHONY : src/pl/sqtx/liblary/exception/dataImportException.cpp.o
+
+src/pl/sqtx/liblary/exception/dataImportException.i: src/pl/sqtx/liblary/exception/dataImportException.cpp.i
+.PHONY : src/pl/sqtx/liblary/exception/dataImportException.i
+
+# target to preprocess a source file
+src/pl/sqtx/liblary/exception/dataImportException.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/librarySystem.dir/build.make CMakeFiles/librarySystem.dir/src/pl/sqtx/liblary/exception/dataImportException.cpp.i
+.PHONY : src/pl/sqtx/liblary/exception/dataImportException.cpp.i
+
+src/pl/sqtx/liblary/exception/dataImportException.s: src/pl/sqtx/liblary/exception/dataImportException.cpp.s
+.PHONY : src/pl/sqtx/liblary/exception/dataImportException.s
+
+# target to generate assembly for a file
+src/pl/sqtx/liblary/exception/dataImportException.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/librarySystem.dir/build.make CMakeFiles/librarySystem.dir/src/pl/sqtx/liblary/exception/dataImportException.cpp.s
+.PHONY : src/pl/sqtx/liblary/exception/dataImportException.cpp.s
+
 src/pl/sqtx/liblary/exception/noSuchOptionException.o: src/pl/sqtx/liblary/exception/noSuchOptionException.cpp.o
 .PHONY : src/pl/sqtx/liblary/exception/noSuchOptionException.o
 
@@ -248,6 +296,30 @@ src/pl/sqtx/liblary/io/dataReader.s: src/pl/sqtx/liblary/io/dataReader.cpp.s
 src/pl/sqtx/liblary/io/dataReader.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/librarySystem.dir/build.make CMakeFiles/librarySystem.dir/src/pl/sqtx/liblary/io/dataReader.cpp.s
 .PHONY : src/pl/sqtx/liblary/io/dataReader.cpp.s
+
+src/pl/sqtx/liblary/io/file/serializableFileManager.o: src/pl/sqtx/liblary/io/file/serializableFileManager.cpp.o
+.PHONY : src/pl/sqtx/liblary/io/file/serializableFileManager.o
+
+# target to build an object file
+src/pl/sqtx/liblary/io/file/serializableFileManager.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/librarySystem.dir/build.make CMakeFiles/librarySystem.dir/src/pl/sqtx/liblary/io/file/serializableFileManager.cpp.o
+.PHONY : src/pl/sqtx/liblary/io/file/serializableFileManager.cpp.o
+
+src/pl/sqtx/liblary/io/file/serializableFileManager.i: src/pl/sqtx/liblary/io/file/serializableFileManager.cpp.i
+.PHONY : src/pl/sqtx/liblary/io/file/serializableFileManager.i
+
+# target to preprocess a source file
+src/pl/sqtx/liblary/io/file/serializableFileManager.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/librarySystem.dir/build.make CMakeFiles/librarySystem.dir/src/pl/sqtx/liblary/io/file/serializableFileManager.cpp.i
+.PHONY : src/pl/sqtx/liblary/io/file/serializableFileManager.cpp.i
+
+src/pl/sqtx/liblary/io/file/serializableFileManager.s: src/pl/sqtx/liblary/io/file/serializableFileManager.cpp.s
+.PHONY : src/pl/sqtx/liblary/io/file/serializableFileManager.s
+
+# target to generate assembly for a file
+src/pl/sqtx/liblary/io/file/serializableFileManager.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/librarySystem.dir/build.make CMakeFiles/librarySystem.dir/src/pl/sqtx/liblary/io/file/serializableFileManager.cpp.s
+.PHONY : src/pl/sqtx/liblary/io/file/serializableFileManager.cpp.s
 
 src/pl/sqtx/liblary/model/book.o: src/pl/sqtx/liblary/model/book.cpp.o
 .PHONY : src/pl/sqtx/liblary/model/book.o
@@ -360,6 +432,12 @@ help:
 	@echo "... src/pl/sqtx/liblary/app/main.o"
 	@echo "... src/pl/sqtx/liblary/app/main.i"
 	@echo "... src/pl/sqtx/liblary/app/main.s"
+	@echo "... src/pl/sqtx/liblary/exception/dataExportException.o"
+	@echo "... src/pl/sqtx/liblary/exception/dataExportException.i"
+	@echo "... src/pl/sqtx/liblary/exception/dataExportException.s"
+	@echo "... src/pl/sqtx/liblary/exception/dataImportException.o"
+	@echo "... src/pl/sqtx/liblary/exception/dataImportException.i"
+	@echo "... src/pl/sqtx/liblary/exception/dataImportException.s"
 	@echo "... src/pl/sqtx/liblary/exception/noSuchOptionException.o"
 	@echo "... src/pl/sqtx/liblary/exception/noSuchOptionException.i"
 	@echo "... src/pl/sqtx/liblary/exception/noSuchOptionException.s"
@@ -369,6 +447,9 @@ help:
 	@echo "... src/pl/sqtx/liblary/io/dataReader.o"
 	@echo "... src/pl/sqtx/liblary/io/dataReader.i"
 	@echo "... src/pl/sqtx/liblary/io/dataReader.s"
+	@echo "... src/pl/sqtx/liblary/io/file/serializableFileManager.o"
+	@echo "... src/pl/sqtx/liblary/io/file/serializableFileManager.i"
+	@echo "... src/pl/sqtx/liblary/io/file/serializableFileManager.s"
 	@echo "... src/pl/sqtx/liblary/model/book.o"
 	@echo "... src/pl/sqtx/liblary/model/book.i"
 	@echo "... src/pl/sqtx/liblary/model/book.s"

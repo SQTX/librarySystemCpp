@@ -9,16 +9,19 @@
 #include "../include/exception_h.h"
 #include "../include/publicationType_h.h"
 #include "../include/publication_h.h"
+#include "../io/file/serializableFileManager.cpp"
 
 class LibraryControl{
 private:
   DataReader dataReader;  //dataReader.cpp
-  Library library;  //library.cpp
   ConsolePrinter cslPrinter;
-
+  SerializableFileManager srlFileManager;
+  Library library;  //library.cpp
 public:
+
 //  Main method
   void controlLoop(){
+    srlFileManager.importData(&library);
     Option option;
     int choice;
     do{
@@ -117,6 +120,7 @@ private:
   }
 
   void exit(){
+    srlFileManager.exportData(&library);
     cslPrinter.printLine("Koniec programu");
   }
 

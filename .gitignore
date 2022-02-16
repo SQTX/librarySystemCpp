@@ -1,3 +1,4 @@
+dataBase.txt
 #MacOS------------------------------------------------------------------------------------
 # General
 .DS_Store
@@ -137,3 +138,6 @@ fabric.properties
 *.exe
 *.out
 *.app
+
+#My
+dataBase.txt

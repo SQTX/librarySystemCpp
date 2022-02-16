@@ -4,6 +4,7 @@
 //Headers
 #include "../include/main_h.h"
 #include "../include/publication_h.h"
+#include "../include/consolePriner_h.h"
 #include "../include/publicationType_h.h"
 
 typedef shared_ptr<Publication> PublicationPtr;

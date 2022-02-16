@@ -58,5 +58,13 @@ public:
       }
       return info;
     }
+    string toSave() override{ //Printer
+      string info = getTitle() + ";" + author + ";" + to_string(getReleaseDate()) + ";" + to_string(pages) +
+          ";" + getPublisher();
+      if(isbn != ""){
+        info.append(";" + isbn);
+      }
+      return info;
+    }
 };
 
