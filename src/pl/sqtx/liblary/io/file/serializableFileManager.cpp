@@ -172,7 +172,7 @@ public:
             }
             dataFile << saveLine;
           }
-          if((dataFile.rdstate() ^ fstream::eofbit) == 0){
+          if(((dataFile.rdstate() ^ fstream::eofbit) == 0) || fstream::eofbit == 2){
             dataFile.close();
             cslPrinter.printLine("Zapis zakończony powodzeniem.");
           }

@@ -39,6 +39,12 @@ public:
             case option.PRINT_MAGAZINES:
               printMagazines();
               break;
+            case option.REMOVE_BOOK:
+              removeBook();
+              break;
+            case option.REMOVE_MAGAZINE:
+              removeMagazine();
+              break;
             case option.EXIT:
               exit();
               break;
@@ -119,9 +125,33 @@ private:
     cslPrinter.printMagazines(publications);
   }
 
+  void removeBook() {
+    try{
+      PublicationPtr book = make_shared<Book>(dataReader.readAndCreateBook());
+      library.removeBook(book);
+      cslPrinter.printLine("Książka została usinięta z bazy danych.");
+    }catch(invalid_argument err){
+      string message = err.what();
+      message.append("");
+      cslPrinter.printLine(message);
+    }
+  }
+
+  void removeMagazine() {
+    try{
+      PublicationPtr magazine = make_shared<Magazine>(dataReader.readAndCreateMagazine());
+      library.removeMagazine(magazine);
+      cslPrinter.printLine("Gazeta została usinięta z bazy danych.");
+    }catch(invalid_argument err){
+      string message = err.what();
+      message.append("");
+      cslPrinter.printLine(message);
+    }
+  }
+
   void exit(){
     srlFileManager.exportData(&library);
-    cslPrinter.printLine("Koniec programu");
+    cslPrinter.printLine("Koniec programu.");
   }
 
 private:
@@ -134,6 +164,8 @@ private:
       ADD_MAGAZINE,
       PRINT_BOOKS,
       PRINT_MAGAZINES,
+      REMOVE_BOOK,
+      REMOVE_MAGAZINE,
       END
     };
     int optionsSize = option::END;
@@ -144,6 +176,8 @@ private:
         {ADD_MAGAZINE, "dodanie nową gazete"},
         {PRINT_BOOKS, "wyświetl dostępne książki"},
         {PRINT_MAGAZINES, "wyświetl dostępne gazety"},
+        {REMOVE_BOOK, "usuń książkę"},
+        {REMOVE_MAGAZINE, "usuń gazetę"},
     };
     int getOptionsSize() const {
       return optionsSize;

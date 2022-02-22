@@ -50,21 +50,21 @@ public:
     return !(rhs == *this);
   }
 //    Function *****************************************************************************************
-    string toString() override{ //Printer
-      string info = getTitle() + "; " + author + "; " + to_string(getReleaseDate()) + "; " + to_string(pages) +
-          "; " + getPublisher();
-      if(isbn != ""){
-        info.append("; " + isbn);
-      }
-      return info;
+  string toString() override{ //Printer
+    string info = getTitle() + "; " + author + "; " + to_string(getReleaseDate()) + "; " + to_string(pages) +
+        "; " + getPublisher();
+    if(isbn != ""){
+      info.append("; " + isbn);
     }
-    string toSave() override{ //Printer
-      string info = getTitle() + ";" + author + ";" + to_string(getReleaseDate()) + ";" + to_string(pages) +
-          ";" + getPublisher();
-      if(isbn != ""){
-        info.append(";" + isbn);
-      }
-      return info;
+    return info;
+  }
+  string toSave() override{ //Printer
+    string info = getTitle() + ";" + author + ";" + to_string(getReleaseDate()) + ";" + to_string(pages) +
+        ";" + getPublisher();
+    if(isbn != ""){
+      info.append(";" + isbn);
     }
+    return info;
+  }
 };
 
