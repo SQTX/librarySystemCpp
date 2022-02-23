@@ -1,7 +1,7 @@
 //
 // Created by Jakub Sitarczyk on 09/12/2021.
 //
-//Headers
+/*Headers*/
 #include "../include/main_h.h"
 #include "../include/consolePriner_h.h"
 #include "../include/publicationType_h.h"
@@ -9,7 +9,7 @@
 class DataReader {
   ConsolePrinter cslPrinter;
 public:
-  //  Get int number
+  //  Get int-type number from user
   int getInt(){
     int number = -1;
     cin >> number;
@@ -21,7 +21,8 @@ public:
         throw invalid_argument("Podana wartość nie jest liczba");
       }
   }
-//  Get informations about new book
+
+//  Get informations about new book and create it
   Book readAndCreateBook() {
     cslPrinter.printLine("Tytuł: ");
     string title;
@@ -45,7 +46,8 @@ public:
 
     return Book(title, author, releaseDate, pages, publisher, isbn);
   }
-  //  Get informations about new book
+
+  //  Get informations about new magazine and create it
   Magazine readAndCreateMagazine() {
     cslPrinter.printLine("Tytuł: ");
     string title;

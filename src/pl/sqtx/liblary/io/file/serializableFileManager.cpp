@@ -1,43 +1,53 @@
 //
 // Created by Jakub Sitarczyk on 15/02/2022.
 //
+/*Libraries*/
+#include <cstdio>
+#include <fstream>
+//Headers
 #include "../../include/main_h.h"
 #include "../../include/exception_h.h"
 #include "../../include/library_h.h"
 #include "../../include/consolePriner_h.h"
 #include "../../include/publicationType_h.h"
-#include <cstdio>
-#include <fstream>
 
-class SerializableFileManager /*: public FileManager*/{
+class SerializableFileManager {
   const short MAX_CHAR = 50;
   ConsolePrinter cslPrinter;
   fstream dataFile;
+
 private:
+//  Add symbol between text
   string addHyphen(string txt){
     string hyphen = ";";
     txt.append(hyphen);
     return txt;
   }
+
+//  IMPORT========================================================================================================
 public:
   void importData(Library *library) {
     try {
       DataImportException err;
 
-      dataFile.open("../src/pl/sqtx/liblary/data/dataBase.txt", ios::in);
+      dataFile.open("../src/pl/sqtx/liblary/data/dataBase.txt", ios::in); //Open data_file
+
       if (dataFile.is_open()) {
-        int publicationData;
-        dataFile >> publicationData;
+        int publicationDataSize;
+        dataFile >> publicationDataSize;  //Data size
         dataFile.ignore(1);
-        for (int i = 0; i < publicationData; i++) {
-          //Book;Tytuł;Autor;Wydawca;ISBN;dataWydania;liczbaStron
-//          Get type
+
+        for (int i = 0; i < publicationDataSize; i++) {
+//          Get publication type
           char c_type[MAX_CHAR];
           dataFile.get(c_type, MAX_CHAR, ';');
           dataFile.ignore(1);
 
-//          If type
+//          Checking types and division
           string type(c_type);
+//          If Book
+//          Save standard:
+//          Book;Title;Author;ReleaseData;Pages;Publisher;ISBN
           if (type == "Book") {
 //            Standard types
             int releaseDate = 0;
@@ -74,11 +84,14 @@ public:
             string isbn(c_isbn);
             dataFile.ignore(1);
 
-//            Create object
+//            Create object and add it to lib
             Book bookObj(title, author, releaseDate, pages, publisher, isbn);
             PublicationPtr book = make_shared<Book>(bookObj);
             library->addBook(book);
 
+//           If Magazine
+//           Save standard:
+//           Book;Title;Day;Month;ReleaseData;Language;Publisher
           } else if (type == "Magazine") {
 //            Standard types
             int day = 0;
@@ -116,17 +129,21 @@ public:
             string publisher(c_publisher);
             dataFile.ignore(1);
 
-//            Create object
+//            Create object and add it to lib
             Magazine magazineObj(title, day, month, releaseDate, language, publisher);
             PublicationPtr magazine = make_shared<Magazine>(magazineObj);
             library->addMagazine(magazine);
+
           } else {
             cslPrinter.printLine("Nieznany typ publikacji.");
           }
         }
+//        Succesfulle import
         cslPrinter.printLine("Baza danych została pomyślnie zainportowana.");
         dataFile.close();
-      } else {  //Plik nieistnieje, próba stworzenia nowego
+
+      } else {
+//        If the database file doesn't exist, it tries to create a new one
         dataFile.open("../src/pl/sqtx/liblary/data/dataBase.txt", ios::out);
         cslPrinter.printLine("Brak bazy danych.");
         if (dataFile.is_open()) {
@@ -142,16 +159,20 @@ public:
       cslPrinter.printLine(message);
     }
   }
+
 //EXPORT========================================================================================================
   void exportData(Library *library) {
     try {
       DataExportException err;
-      dataFile.open("../src/pl/sqtx/liblary/data/dataBase.txt", ios::out);
+      dataFile.open("../src/pl/sqtx/liblary/data/dataBase.txt", ios::out);  //Open data_file
 
       if (dataFile.is_open()) {
+//        Get vector from lib
         vector<PublicationPtr> publications = library->getPublications();
-//        Get baze size
+
+//        Get database size
         int publicationsNum = publications.size();
+//        Empty library
         if(publicationsNum <= 0){
           dataFile << '0';
           dataFile.close();
@@ -160,7 +181,8 @@ public:
           for(int i = 0; i < publicationsNum; i++){
             string saveLine;
             PublicationPtr ptr = publications[i];
-//          Publication type
+
+//            Division into types
             if(dynamic_cast<Book*>(ptr.get())){
               saveLine = "\nBook";
               saveLine = addHyphen(saveLine);
@@ -170,7 +192,7 @@ public:
               saveLine = addHyphen(saveLine);
               saveLine.append(ptr->toSave());
             }
-            dataFile << saveLine;
+            dataFile << saveLine; //Export data
           }
           if(((dataFile.rdstate() ^ fstream::eofbit) == 0) || fstream::eofbit == 2){
             dataFile.close();

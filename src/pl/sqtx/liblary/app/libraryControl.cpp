@@ -1,6 +1,7 @@
 //
 // Created by Jakub Sitarczyk on 09/12/2021.
 //
+/*Files*/
 #include "../io/dataReader.cpp"
 //Headers
 #include "../include/main_h.h"
@@ -14,14 +15,13 @@
 class LibraryControl{
 private:
   DataReader dataReader;  //dataReader.cpp
-  ConsolePrinter cslPrinter;
-  SerializableFileManager srlFileManager;
+  ConsolePrinter cslPrinter;  //consolePrinter.cpp
+  SerializableFileManager srlFileManager; //serializableFileManager.cpp
   Library library;  //library.cpp
 public:
-
 //  Main method
   void controlLoop(){
-    srlFileManager.importData(&library);
+    srlFileManager.importData(&library);  //Import data
     Option option;
     int choice;
     do{
@@ -81,6 +81,7 @@ private:
     return choice;
   }
 
+//  Print all options in numbered list
   void printOptions(){
     Option option;
     cslPrinter.printLine("Wybierz opcję: ");
@@ -89,6 +90,7 @@ private:
     }
   }
 
+//  Add publications
   void addBook(){
     try{
       PublicationPtr book = make_shared<Book>(dataReader.readAndCreateBook());
@@ -115,6 +117,7 @@ private:
     }
   }
 
+//  Print publications
   void printBooks(){
     vector<PublicationPtr> publications = library.getPublications();
     cslPrinter.printBooks(publications);
@@ -125,6 +128,7 @@ private:
     cslPrinter.printMagazines(publications);
   }
 
+//  Remove publications
   void removeBook() {
     try{
       PublicationPtr book = make_shared<Book>(dataReader.readAndCreateBook());
@@ -149,15 +153,17 @@ private:
     }
   }
 
+//  Exit
   void exit(){
     srlFileManager.exportData(&library);
     cslPrinter.printLine("Koniec programu.");
   }
 
+//  Class Options =====================================================================================================
 private:
   class Option{
   public:
-//  Options
+//  All options and his number
     enum option {
       EXIT = 0,
       ADD_BOOK,
@@ -166,10 +172,10 @@ private:
       PRINT_MAGAZINES,
       REMOVE_BOOK,
       REMOVE_MAGAZINE,
-      END
+      END //Last element (Enum_size = END-1)
     };
     int optionsSize = option::END;
-//  Key-Descriptions
+//  Key(enum-number)-Descriptions
     map <unsigned int, const string> MyMap{
         {EXIT, "wyjście z programu"},
         {ADD_BOOK, "dodanie nowej książki"},
@@ -179,14 +185,18 @@ private:
         {REMOVE_BOOK, "usuń książkę"},
         {REMOVE_MAGAZINE, "usuń gazetę"},
     };
+
+//    Return enum option size
     int getOptionsSize() const {
       return optionsSize;
     }
 
+//    Return option map
     const map<unsigned int, const string> &getMyMap() const {
       return MyMap;
     }
 
+//    Return oneline text ready to print
     string toString(int value){
       return to_string(value) + " - " + MyMap[value];
     }

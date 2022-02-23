@@ -1,19 +1,22 @@
 //
 // Created by Jakub Sitarczyk on 09/12/2021.
 //
-//Headers
+/*Headers*/
 #include "../include/main_h.h"
 #include "../include/publication_h.h"
 #include "../include/consolePriner_h.h"
 #include "../include/publicationType_h.h"
 
 typedef shared_ptr<Publication> PublicationPtr;
+
 class Library {
 private:
-  vector<PublicationPtr> publications;
-  static const int maxPublications = 1000;
-  int publicationsNumber = 0;
+//  Main data
+  vector<PublicationPtr> publications;  //Main vector
+  static const int maxPublications = 1000;  //Publications limit
+  int publicationsNumber = 0; //Number of publications
 
+//  Vector getter
 public:
   const vector<PublicationPtr> &getPublications() const {
     return publications;
@@ -29,6 +32,7 @@ public:
     addPublication(magazine);
   }
 
+//  Add new publication to lib - MAIN function
 private:
   void addPublication(PublicationPtr publication) {
     if (publicationsNumber >= maxPublications) {
@@ -39,15 +43,18 @@ private:
     }
   }
 
+//  Remove book from lab
 public:
-//  Delete functions
   void removeBook(PublicationPtr book) {
     removePublication(book);
   }
 
+//  Remove magazine from lab
   void removeMagazine(PublicationPtr magazine) {
     removePublication(magazine);
   }
+
+//  Remove publication from lab - MAIN function
 private:
   void removePublication(PublicationPtr publication) {
     if (dynamic_cast<Book *>(publication.get()) || dynamic_cast<Magazine *>(publication.get())) {

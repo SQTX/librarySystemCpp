@@ -1,26 +1,30 @@
 //
 // Created by Jakub Sitarczyk on 02/12/2021.
 //
-//Headers
+/*Headers*/
 #include "../include/publication_h.h"
 
 using namespace std;
-class Book : public Publication{ //Book class
+//*********************************************************************************************************************
+class Book : public Publication{
 private:
     string author;
     int pages;
     string isbn;
+
 public:
-//    Constructors  ****************************************************************************************
+//    Constructors  ---------------------------------------------------------------------
     Book(string title = "", string author = "", int releaseDate = 0, int pages = 0, string publisher = "",
          string isbn = "") : Publication(title, releaseDate, publisher) /*constructor inheritance*/ {
       this->author = author;
       this->pages = pages;
       this->isbn = isbn;
     }
-//    Destructors  ****************************************************************************************
+
+//    Destructors  ---------------------------------------------------------------------
   virtual ~Book() {}
-//  Getter and Setter *****************************************************************************************
+
+//  Getter and Setter  ---------------------------------------------------------------------
     const string &getAuthor() const {
       return author;
     }
@@ -39,7 +43,8 @@ public:
     void setIsbn(const string &isbn) {
       Book::isbn = isbn;
     }
-  //  Equals ****************************************************************************************
+
+  //  Equals  ---------------------------------------------------------------------
   bool operator==(const Book &rhs) const {
     return static_cast<const Publication &>(*this) == static_cast<const Publication &>(rhs) &&
            author == rhs.author &&
@@ -49,8 +54,10 @@ public:
   bool operator!=(const Book &rhs) const {
     return !(rhs == *this);
   }
-//    Function *****************************************************************************************
-  string toString() override{ //Printer
+
+//    Methods  ---------------------------------------------------------------------
+//  Create string-line with the information about Book object
+  string toString() override{
     string info = getTitle() + "; " + author + "; " + to_string(getReleaseDate()) + "; " + to_string(pages) +
         "; " + getPublisher();
     if(isbn != ""){
@@ -58,7 +65,9 @@ public:
     }
     return info;
   }
-  string toSave() override{ //Printer
+
+//  Create string-line with the information arranged for data export
+  string toSave() override{
     string info = getTitle() + ";" + author + ";" + to_string(getReleaseDate()) + ";" + to_string(pages) +
         ";" + getPublisher();
     if(isbn != ""){

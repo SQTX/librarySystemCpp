@@ -1,8 +1,9 @@
 //
 // Created by Jakub Sitarczyk on 16/12/2021.
 //
-//Headers
+/*Headers*/
 #include "../include/main_h.h"
+
 class Publication{
 protected:
   string title;
@@ -10,17 +11,17 @@ protected:
   string publisher;
 
 public:
-//  Constructor
+//  Constructor  ---------------------------------------------------------------------
   Publication(string title = "", int releaseDate = 0, string publisher = ""){
     this -> title = title;
     this -> releaseDate = releaseDate;
     this -> publisher = publisher;
   }
-//  Destructor
-  virtual ~Publication() {
 
-  }
-//  Getter and Setter
+//  Destructor  ---------------------------------------------------------------------
+  virtual ~Publication() {}
+
+//  Getter and Setter  ---------------------------------------------------------------------
   string getTitle() const {
     return title;
   }
@@ -44,7 +45,8 @@ public:
   void setPublisher(const string &publisher) {
     Publication::publisher = publisher;
   }
-//  Equals ****************************************************************************************
+
+//  Equals  ---------------------------------------------------------------------
   bool operator==(const Publication &rhs) const {
     return title == rhs.title &&
            releaseDate == rhs.releaseDate &&
@@ -53,7 +55,9 @@ public:
   bool operator!=(const Publication &rhs) const {
     return !(rhs == *this);
   }
-//  Method ****************************************************************************************
-  virtual string toString(){}  //Virtual method
-  virtual string toSave(){}  //Virtual method
+
+//  Methods   ---------------------------------------------------------------------
+//Virtual method
+  virtual string toString(){}
+  virtual string toSave(){}
 };
