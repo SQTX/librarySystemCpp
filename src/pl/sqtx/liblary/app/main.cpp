@@ -7,7 +7,7 @@
 #include "../include/main_h.h"  //All libs and namespace
 #include "../include/consolePriner_h.h"
 
-static const string appName = "Biblioteka v1.91";  //App version
+static const string appName = "Biblioteka v2.0";  //App version
 int main() {
   ConsolePrinter cslPrinter;
   cslPrinter.printLine(appName);
