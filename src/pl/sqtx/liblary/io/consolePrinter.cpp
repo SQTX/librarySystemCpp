@@ -16,7 +16,7 @@ class ConsolePrinter{
   sortByTitle sort;   //Sorting by WHAT <---- choose options
 public:
   //  Print all books from database -----------------------------------------------------------------------------
-  void printBooks(vector<PublicationPtr> publications){
+  void printBooks(vector<PublicationPtr> &publications){
     int countBooks = 0;
     vector<PublicationPtr> sortedPublications;
     for(int i =0; i < publications.size(); i++){
@@ -38,7 +38,7 @@ public:
   }
 
   //  Print all magazines from database ------------------------------------------------------------------------
-  void printMagazines(vector<PublicationPtr> publications){
+  void printMagazines(vector<PublicationPtr> &publications){
     vector<PublicationPtr> sortedPublications;
     int countMagazine = 0;
     for(int i =0; i < publications.size(); i++){

@@ -9,6 +9,8 @@
 #include <vector>
 #include <memory>
 #include <map>
+//#include <algorithm>
+//#include <cctype>
 //Namespaces
 using namespace std;
 #endif //LIBRARYSYSTEM_MAIN_H_H

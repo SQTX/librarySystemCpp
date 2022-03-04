@@ -18,7 +18,7 @@ public:
       }else{
         cin.clear();
         cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-        throw invalid_argument("Podana wartość nie jest liczba");
+        throw invalid_argument("Podana wartość nie jest liczbą");
       }
   }
 
@@ -37,13 +37,22 @@ public:
     cslPrinter.printLine("ISBN: ");
     string isbn;
     cin >> isbn;
+    cin.ignore();
     cslPrinter.printLine("Rok wydania: ");
     int releaseDate;
     cin >> releaseDate;
+    cin.ignore();
     cslPrinter.printLine("Ilość stron: ");
     int pages;
     cin >> pages;
-
+    cin.ignore();
+//    If inavalid value
+    if(!cin.good()){
+      cin.clear();
+      cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+      throw invalid_argument("Podana wartość nie jest liczbą");
+    }
+    cin.clear();
     return Book(title, author, releaseDate, pages, publisher, isbn);
   }
 
@@ -56,12 +65,15 @@ public:
     cslPrinter.printLine("Dzien: ");
     int day;
     cin >> day;
+    cin.ignore();
     cslPrinter.printLine("Miesiac: ");
     int month;
     cin >> month;
+    cin.ignore();
     cslPrinter.printLine("Rok wydania: ");
     int releaseDate;
     cin >> releaseDate;
+//    cin.ignore();
     cslPrinter.printLine("Jezyk: ");
     cin.ignore(1);
     string language;
@@ -69,7 +81,13 @@ public:
     cslPrinter.printLine("Wydawnictwo: ");
     string publisher;
     getline(cin, publisher);
-
+//    IF inavalid value
+    if(!cin.good()){
+      cin.clear();
+      cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+      throw invalid_argument("Podana wartość nie jest liczbą");
+    }
+    cin.clear();
     return Magazine(title, day, month, releaseDate, language, publisher);
   }
 };
