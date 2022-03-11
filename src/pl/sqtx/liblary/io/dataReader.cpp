@@ -1,16 +1,12 @@
 //
 // Created by Jakub Sitarczyk on 09/12/2021.
 //
-/*Headers*/
-#include "../include/main_h.h"
-#include "../include/consolePriner_h.h"
-#include "../include/publicationType_h.h"
 
-class DataReader {
-  ConsolePrinter cslPrinter;
-public:
-  //  Get int-type number from user
-  int getInt(){
+#include "dataReader.h"
+
+using namespace std;
+
+  int dataReader::getInt(){
     int number = -1;
     cin >> number;
       if(cin.good()){
@@ -23,7 +19,7 @@ public:
   }
 
 //  Get informations about new book and create it
-  Book readAndCreateBook() {
+  Book dataReader::readAndCreateBook() {
     cslPrinter.printLine("Tytuł: ");
     string title;
     cin.ignore(1);
@@ -57,7 +53,7 @@ public:
   }
 
   //  Get informations about new magazine and create it
-  Magazine readAndCreateMagazine() {
+  Magazine dataReader::readAndCreateMagazine() {
     cslPrinter.printLine("Tytuł: ");
     string title;
     cin.ignore(1);
@@ -90,4 +86,3 @@ public:
     cin.clear();
     return Magazine(title, day, month, releaseDate, language, publisher);
   }
-};

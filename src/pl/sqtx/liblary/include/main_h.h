@@ -4,6 +4,7 @@
 
 #ifndef LIBRARYSYSTEM_MAIN_H_H
 #define LIBRARYSYSTEM_MAIN_H_H
+
 //Libraries
 #include <string>
 #include <vector>
@@ -11,6 +12,5 @@
 #include <map>
 //#include <algorithm>
 //#include <cctype>
-//Namespaces
-using namespace std;
+
 #endif //LIBRARYSYSTEM_MAIN_H_H

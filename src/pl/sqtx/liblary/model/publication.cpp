@@ -1,63 +1,58 @@
 //
 // Created by Jakub Sitarczyk on 16/12/2021.
 //
-/*Headers*/
-#include "../include/main_h.h"
 
-class Publication{
-protected:
-  string title;
-  int releaseDate;
-  string publisher;
+#include "publication.h"
 
-public:
+using namespace std;
+
 //  Constructor  ---------------------------------------------------------------------
-  Publication(string title = "", int releaseDate = 0, string publisher = ""){
-    this -> title = title;
-    this -> releaseDate = releaseDate;
-    this -> publisher = publisher;
-  }
+Publication::Publication(const string &title, int releaseDate, const string &publisher) {
+  this->title = title;
+  this->releaseDate = releaseDate;
+  this->publisher = publisher;
+}
 
 //  Destructor  ---------------------------------------------------------------------
-  virtual ~Publication() {}
+Publication::~Publication() {}
 
 //  Getter and Setter  ---------------------------------------------------------------------
-  string getTitle() const {
-    return title;
-  }
+string Publication::getTitle() const {
+  return title;
+}
 
-  void setTitle(const string &title) {
-    Publication::title = title;
-  }
+void Publication::setTitle(const string &title) {
+  Publication::title = title;
+}
 
-  int getReleaseDate() const {
-    return releaseDate;
-  }
+int Publication::getReleaseDate() const {
+  return releaseDate;
+}
 
-  void setReleaseDate(int releaseDate) {
-    Publication::releaseDate = releaseDate;
-  }
+void Publication::setReleaseDate(int releaseDate) {
+  Publication::releaseDate = releaseDate;
+}
 
-  string getPublisher() const {
-    return publisher;
-  }
+string Publication::getPublisher() const {
+  return publisher;
+}
 
-  void setPublisher(const string &publisher) {
-    Publication::publisher = publisher;
-  }
+void Publication::setPublisher(const string &publisher) {
+  Publication::publisher = publisher;
+}
 
 //  Equals  ---------------------------------------------------------------------
-  bool operator==(const Publication &rhs) const {
-    return title == rhs.title &&
-           releaseDate == rhs.releaseDate &&
-           publisher == rhs.publisher;
-  }
-  bool operator!=(const Publication &rhs) const {
-    return !(rhs == *this);
-  }
+bool Publication::operator==(const Publication &rhs) const {
+  return title == rhs.title &&
+         releaseDate == rhs.releaseDate &&
+         publisher == rhs.publisher;
+}
+
+bool Publication::operator!=(const Publication &rhs) const {
+  return !(rhs == *this);
+}
 
 //  Methods   ---------------------------------------------------------------------
 //Virtual method
-  virtual string toString(){}
-  virtual string toSave(){}
-};
+string Publication::toString(){};
+string Publication::toSave(){};

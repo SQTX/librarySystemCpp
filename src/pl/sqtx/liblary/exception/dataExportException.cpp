@@ -4,7 +4,7 @@
 /*Headers*/
 #include "../include/main_h.h"
 
-class DataExportException : exception{
+class DataExportException : public std::exception{
 public:
   const char* what() {
     return "Blad eksportu pliku.";

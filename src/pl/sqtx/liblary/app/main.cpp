@@ -2,16 +2,16 @@
 // Created by Jakub Sitarczyk on 02/12/2021.
 //
 /*Files*/
-#include "libraryControl.cpp"
+#include "libraryControl.h"
 //Headers
 #include "../include/main_h.h"  //All libs and namespace
 #include "../include/consolePriner_h.h"
 
-static const string appName = "Biblioteka v2.1";  //App version
+static const std::string appName = "Biblioteka v2.2";  //App version
 int main() {
-  ConsolePrinter cslPrinter;
+  consolePrinter cslPrinter;
   cslPrinter.printLine(appName);
-  LibraryControl libraryControl;
+  libraryControl libraryControl;
   libraryControl.controlLoop(); //Main app
 
   return 0;

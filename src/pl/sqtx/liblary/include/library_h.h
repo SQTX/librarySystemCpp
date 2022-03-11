@@ -4,5 +4,7 @@
 
 #ifndef LIBRARYSYSTEM_LIBRARY_H_H
 #define LIBRARYSYSTEM_LIBRARY_H_H
-#include "../model/library.cpp"
+
+#include "../model/library.h"
+
 #endif //LIBRARYSYSTEM_LIBRARY_H_H

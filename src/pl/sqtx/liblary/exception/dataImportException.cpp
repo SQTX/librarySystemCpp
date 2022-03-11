@@ -4,7 +4,7 @@
 /*Headers*/
 #include "../include/main_h.h"
 
-class DataImportException : exception{
+class DataImportException : public std::exception{
 public:
   const char* what() {
     return "Blad importu pliku.";

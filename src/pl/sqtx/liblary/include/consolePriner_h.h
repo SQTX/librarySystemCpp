@@ -4,5 +4,7 @@
 
 #ifndef LIBRARYSYSTEM_CONSOLEPRINER_H_H
 #define LIBRARYSYSTEM_CONSOLEPRINER_H_H
-#include "../io/consolePrinter.cpp"
+
+#include "../io/consolePrinter.h"
+
 #endif //LIBRARYSYSTEM_CONSOLEPRINER_H_H

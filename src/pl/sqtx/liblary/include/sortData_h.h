@@ -4,6 +4,8 @@
 
 #ifndef LIBRARYSYSTEM_SORTDATA_H_H
 #define LIBRARYSYSTEM_SORTDATA_H_H
-#include "../model/sortData/sortByTitle.cpp"
-#include "../model/sortData/sortByDate.cpp"
+
+#include "../model/sortData/sortByTitle.h"
+#include "../model/sortData/sortByDate.h"
+
 #endif //LIBRARYSYSTEM_SORTDATA_H_H

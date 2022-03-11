@@ -4,6 +4,8 @@
 
 #ifndef LIBRARYSYSTEM_PUBLICATIONTYPE_H_H
 #define LIBRARYSYSTEM_PUBLICATIONTYPE_H_H
-#include "../model/book.cpp"
-#include "../model/magazine.cpp"
+
+#include "../model/book.h"
+#include "../model/magazine.h"
+
 #endif //LIBRARYSYSTEM_PUBLICATIONTYPE_H_H
