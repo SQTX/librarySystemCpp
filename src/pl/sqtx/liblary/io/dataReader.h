@@ -9,6 +9,7 @@
 #include "../include/main_h.h"
 #include "../include/consolePriner_h.h"
 #include "../include/publicationType_h.h"
+#include "../model/user.h"
 
 class dataReader {
   consolePrinter cslPrinter;
@@ -21,6 +22,10 @@ public:
 
   //  Get informations about new magazine and create it
   Magazine readAndCreateMagazine();
+
+//  User functions
+//  Get informations about new user and create it
+  User readAndCreateUser();
 };
 
 #endif //LIBRARYSYSTEM_DATAREADER_H
