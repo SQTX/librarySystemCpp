@@ -23,6 +23,7 @@ add_executable(librarySystem
         ${standardPath}/model/magazine.cpp
         ${standardPath}/model/publication.cpp
         ${standardPath}/model/library.cpp
+        ${standardPath}/model/user.cpp
 #           sortData
             ${standardPath}/model/sortData/sortByTitle.cpp
             ${standardPath}/model/sortData/sortByDate.cpp
