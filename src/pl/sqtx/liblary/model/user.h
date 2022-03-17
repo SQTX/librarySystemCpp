@@ -29,11 +29,13 @@ public:
   const std::string &getPesel() const;
 
   void setPesel(const std::string &pesel);
-//  Equals  ---------------------------------------------------------------------
+
+//  Equals
   bool operator==(const User &rhs) const;
 
   bool operator!=(const User &rhs) const;
-//  Method  ---------------------------------------------------------------------
+
+//  Method
   std::string toString();
   std::string toSave();
 };

@@ -32,6 +32,12 @@ void libraryControl::controlLoop() {
       case option.REMOVE_MAGAZINE:
         removeMagazine();
         break;
+      case option.ADD_USER:
+        addUser();
+        break;
+      case option.PRINT_USERS:
+        printUsers();
+        break;
       case option.EXIT:
         exit();
         break;
@@ -137,6 +143,24 @@ void libraryControl::removeMagazine() {
     message.append("");
     cslPrinter.printLine(message);
   }
+}
+
+void libraryControl::addUser() {
+  try {
+    User user = dataReader.readAndCreateUser();
+    libraryUser.addUser(user);
+  } catch (invalid_argument err) {
+    string message = err.what();
+    message.append(", użytkownik nie został dodany.");
+    cslPrinter.printLine(message);
+  } catch (out_of_range err) {
+    cslPrinter.printLine("Przekroczono dozwolony limit użytkowników.");
+  }
+}
+
+void libraryControl::printUsers() {
+  vector<User> users = libraryUser.getUsers();
+  cslPrinter.printUsers(users);
 }
 
 void libraryControl::exit() {

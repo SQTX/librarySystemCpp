@@ -4,23 +4,28 @@
 
 #include "user.h"
 
-User::User(const std::string &firstName, const std::string &lastName, const std::string &pesel) {
+using namespace std;
+
+//Constructor
+User::User(const string &firstName, const string &lastName, const string &pesel) {
   this->firstName = firstName;
-  this->lastName = firstName;
-  this->pesel = firstName;
+  this->lastName = lastName;
+  this->pesel = pesel;
 }
 
+//Destructor
 User::~User() {}
 
-const std::string &User::getFirstName() const {
+//Getters and setters
+const string &User::getFirstName() const {
   return firstName;
 }
 
-void User::setFirstName(const std::string &firstName) {
+void User::setFirstName(const string &firstName) {
   User::firstName = firstName;
 }
 
-const std::string &User::getLastName() const {
+const string &User::getLastName() const {
   return lastName;
 }
 
@@ -32,10 +37,11 @@ const std::string &User::getPesel() const {
   return pesel;
 }
 
-void User::setPesel(const std::string &pesel) {
+void User::setPesel(const string &pesel) {
   User::pesel = pesel;
 }
 
+//Equals
 bool User::operator==(const User &rhs) const {
   return firstName == rhs.firstName &&
          lastName == rhs.lastName &&
@@ -46,10 +52,11 @@ bool User::operator!=(const User &rhs) const {
   return !(rhs == *this);
 }
 
-std::string User::toString(){
+//Methods
+string User::toString() {
   return firstName + "; " + lastName + "; " + pesel;
 }
 
-std::string User::toSave(){
+string User::toSave() {
   return firstName + ";" + lastName + ";" + pesel;
 }

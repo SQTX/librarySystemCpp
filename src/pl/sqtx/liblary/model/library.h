@@ -7,8 +7,8 @@
 
 /*Headers*/
 #include "../include/main_h.h"
-#include "publication.h"
 #include "../include/consolePriner_h.h"
+#include "publication.h"
 #include "../include/publicationType_h.h"
 
 typedef std::shared_ptr<Publication> PublicationPtr;
@@ -20,8 +20,8 @@ private:
   static const int maxPublications = 1000;  //Publications limit
   int publicationsNumber = 0; //Number of publications
 
-//  Vector getter
 public:
+//  Vector getter
   const std::vector<PublicationPtr> &getPublications() const;
 
 //  Add new book to lab

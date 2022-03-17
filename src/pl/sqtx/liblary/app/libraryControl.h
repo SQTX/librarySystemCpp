@@ -12,8 +12,10 @@
 #include "../include/consolePriner_h.h"
 #include "../include/library_h.h"
 #include "../include/exception_h.h"
-#include "../include/publicationType_h.h"
 #include "../model/publication.h"
+#include "../include/publicationType_h.h"
+#include "../model/user.h"
+#include "../model/libraryUser.h"
 #include "../io/file/serializableFileManager.h"  //Import/Export data
 
 class libraryControl {
@@ -22,8 +24,9 @@ private:
   consolePrinter cslPrinter;  //consolePrinter.cpp
   serializableFileManager srlFileManager; //serializableFileManager.cpp
   library library;  //library.cpp
+  libraryUser libraryUser;  //libraryUser.cpp
 public:
-//  Main method
+//  Main function
   void controlLoop();
 
 private:
@@ -47,11 +50,16 @@ private:
 
   void removeMagazine();
 
+//  users functions
+  void addUser();
+
+  void printUsers();
+
 //  Exit
   void exit();
 };
 //  Class Options =====================================================================================================
-namespace options{
+namespace options {
   class Option {
   public:
 //  All options and his number
@@ -63,6 +71,8 @@ namespace options{
       PRINT_MAGAZINES,
       REMOVE_BOOK,
       REMOVE_MAGAZINE,
+      ADD_USER,
+      PRINT_USERS,
       END //Last element (Enum_size = END-1)
     };
     int optionsSize = option::END;
@@ -75,6 +85,8 @@ namespace options{
         {PRINT_MAGAZINES, "wyświetl dostępne gazety"},
         {REMOVE_BOOK,     "usuń książkę"},
         {REMOVE_MAGAZINE, "usuń gazetę"},
+        {ADD_USER,        "dodaj użytkownika"},
+        {PRINT_USERS,     "wyświetl dostępnych użytkowników"},
     };
 
 //    Return enum option size

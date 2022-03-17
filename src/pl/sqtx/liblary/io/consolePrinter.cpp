@@ -6,7 +6,10 @@
 
 using namespace std;
 
-//  Print all books from database -----------------------------------------------------------------------------
+void consolePrinter::printLine(string txt) {
+  cout << txt << endl;
+}
+
 void consolePrinter::printBooks(vector<PublicationPtr> &publications) {
   int countBooks = 0;
   vector<PublicationPtr> sortedPublications;
@@ -24,11 +27,10 @@ void consolePrinter::printBooks(vector<PublicationPtr> &publications) {
     cout << publication->toString() << endl;
 
   if (countBooks == 0) {
-    printLine("Brak ksiazek w bibliotece");
+    printLine("Brak ksiażek w bibliotece");
   }
 }
 
-//  Print all magazines from database ------------------------------------------------------------------------
 void consolePrinter::printMagazines(vector<PublicationPtr> &publications) {
   vector<PublicationPtr> sortedPublications;
   int countMagazine = 0;
@@ -49,7 +51,22 @@ void consolePrinter::printMagazines(vector<PublicationPtr> &publications) {
   }
 }
 
-//  Print text ------------------------------------------------------------------------------------------
-void consolePrinter::printLine(string txt) {
-  cout << txt << endl;
+void consolePrinter::printUsers(vector<User> &users) {
+  int countBooks = 0;
+//  vector<PublicationPtr> sortedPublications;
+  for (int i = 0; i < users.size(); i++) {
+    cout << users[i].toString() << endl;
+    countBooks++;
+  }
+/*//    Sort
+  sort.getSort(sortedPublications);
+//    Print
+  for (auto &publication: sortedPublications)
+    cout << publication->toString() << endl;*/
+
+  if (countBooks == 0) {
+    printLine("Brak użytkowników w bazie.");
+  }
 }
+
+

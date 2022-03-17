@@ -20,6 +20,9 @@ void serializableFileManager::importData(library *library) {
     dataFile.open("../src/pl/sqtx/liblary/data/dataBase.txt", ios::in); //Open data_file
 
     if (dataFile.is_open()) {
+      dataFile.ignore(numeric_limits<streamsize>::max(), '\n');
+
+//      Save publications data ****************************************
       int publicationDataSize;
       dataFile >> publicationDataSize;  //Data size
       dataFile.ignore(1);
@@ -152,6 +155,9 @@ void serializableFileManager::exportData(library *library) {
     dataFile.open("../src/pl/sqtx/liblary/data/dataBase.txt", ios::out);  //Open data_file
 
     if (dataFile.is_open()) {
+
+//      Save publications data ****************************************
+      dataFile << "[Publications]\n";
 //        Get vector from lib
       vector<PublicationPtr> publications = library->getPublications();
 
