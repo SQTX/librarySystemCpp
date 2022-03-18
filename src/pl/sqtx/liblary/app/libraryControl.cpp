@@ -8,7 +8,7 @@ using namespace std;
 
 //  Main method
 void libraryControl::controlLoop() {
-  srlFileManager.importData(&library);  //Import data
+  srlFileManager.importData(&library, &libraryUser);  //Import data
   options::Option option;
   int choice;
   do {
@@ -164,7 +164,7 @@ void libraryControl::printUsers() {
 }
 
 void libraryControl::exit() {
-  srlFileManager.exportData(&library);
+  srlFileManager.exportData(&library, &libraryUser);
   cslPrinter.printLine("Koniec programu.");
 }
 

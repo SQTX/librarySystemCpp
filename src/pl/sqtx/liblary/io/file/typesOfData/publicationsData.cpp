@@ -6,46 +6,41 @@
 
 using namespace std;
 
-//Add hyphen in txt
-string publicationsData::addHyphen(string txt) {
-  string hyphen = ";";
-  txt.append(hyphen);
-  return txt;
-}
-
 //Import publications function
 void publicationsData::importPublications(library *library, const char MAX_CHAR,
-                                          fstream *dataFile) {
+                                          fstream *dataFile, int *position) {
+  int actualPosition = *position; //Get actual position of file cursor
+
   try {
-    DataImportException err;
+    DataImportException err;  //Create error
 
     dataFile->open("../src/pl/sqtx/liblary/data/dataBase.txt", ios::in); //Open data_file
 
+//    File opens good ******************************************
     if (dataFile->is_open()) {
-      dataFile->ignore(numeric_limits<streamsize>::max(), '\n');
+      dataFile->seekg(actualPosition);  //Set actualy position of file cursor
 
-//      Save publications data ****************************************
+      dataFile->ignore(numeric_limits<streamsize>::max(), '\n');  //Ignore first line - [Publications]
+
+//      Lets save
       int publicationDataSize;
-
-      *dataFile >> publicationDataSize;  //Data size
+      *dataFile >> publicationDataSize; //Get publications number
       dataFile->ignore(1);
 
+//      Create all object form database
       for (int i = 0; i < publicationDataSize; i++) {
-//          Get Publication type
+//        Get Publication type [book/magazine]
         char c_type[MAX_CHAR];
         dataFile->get(c_type, MAX_CHAR, ';');
         dataFile->ignore(1);
 
-//          Checking types and division
+//        Checking types
         string type(c_type);
-//          If Book
-//          Save standard: Book;Title;Author;ReleaseData;Pages;Publisher;ISBN
+//        Book ----------------------------------
         if (type == "Book") {
-//            Standard types
-          int releaseDate = 0;
-          int pages = 0;
+//          Save standard: Book;Title;Author;ReleaseData;Pages;Publisher;ISBN
 
-//            Import all data
+//          Get data from file and create new obejct of them
           char c_title[MAX_CHAR];
           dataFile->get(c_title, MAX_CHAR, ';');
           string title(c_title);
@@ -56,11 +51,13 @@ void publicationsData::importPublications(library *library, const char MAX_CHAR,
           string author(c_author);
           dataFile->ignore(1);
 
+          int releaseDate = 0;
           char c_releaseDate[MAX_CHAR];
           dataFile->get(c_releaseDate, MAX_CHAR, ';');
           sscanf(c_releaseDate, "%d", &releaseDate);
           dataFile->ignore(1);
 
+          int pages = 0;
           char c_pages[MAX_CHAR];
           dataFile->get(c_pages, MAX_CHAR, ';');
           sscanf(c_pages, "%d", &pages);//Last element
@@ -76,35 +73,34 @@ void publicationsData::importPublications(library *library, const char MAX_CHAR,
           string isbn(c_isbn);
           dataFile->ignore(1);
 
-//            Create object and add it to lib
+//          Create object and add it to library vector
           Book bookObj(title, author, releaseDate, pages, publisher, isbn);
           PublicationPtr book = make_shared<Book>(bookObj);
           library->addBook(book);
 
-//           If Magazine
-//           Save standard: Book;Title;Day;Month;ReleaseData;Language;Publisher
+//        Magazine ----------------------------------
         } else if (type == "Magazine") {
-//            Standard types
-          int day = 0;
-          int month = 0;
-          int releaseDate = 0;
+//          Save standard: Book;Title;Day;Month;ReleaseData;Language;Publisher
 
-//            Import all data
+//          Get data from file and create new obejct of them
           char c_title[MAX_CHAR];
           dataFile->get(c_title, MAX_CHAR, ';');
           string title(c_title);
           dataFile->ignore(1);
 
+          int day = 0;
           char c_day[MAX_CHAR];
           dataFile->get(c_day, MAX_CHAR, ';');
           sscanf(c_day, "%d", &day);
           dataFile->ignore(1);
 
+          int month = 0;
           char c_month[MAX_CHAR];
           dataFile->get(c_month, MAX_CHAR, ';');
           sscanf(c_month, "%d", &month);
           dataFile->ignore(1);
 
+          int releaseDate = 0;
           char c_releaseDate[MAX_CHAR];
           dataFile->get(c_releaseDate, MAX_CHAR, ';');
           sscanf(c_releaseDate, "%d", &releaseDate);
@@ -120,21 +116,26 @@ void publicationsData::importPublications(library *library, const char MAX_CHAR,
           string publisher(c_publisher);
           dataFile->ignore(1);
 
-//            Create object and add it to lib
+//          Create object and add it to library vector
           Magazine magazineObj(title, day, month, releaseDate, language, publisher);
           PublicationPtr magazine = make_shared<Magazine>(magazineObj);
           library->addMagazine(magazine);
 
+//        Noname type ----------------------------------
         } else {
           cslPrinter.printLine("Nieznany typ publikacji.");
         }
       }
-//        Succesfulle import
-      cslPrinter.printLine("Baza danych została pomyślnie zainportowana.");
+//      Succesfulle import ******************************************
+      actualPosition = dataFile->tellg(); //Get actualy position of file cursor
+      *position = actualPosition;
+//      Close file and print message
       dataFile->close();
+      cslPrinter.printLine("Baza danych publikacji została pomyślnie zainportowana.");
 
+//      File opens fail ******************************************
     } else {
-//        If the database file doesn't exist, it tries to create a new one
+//      If the database file doesn't exist, it tries to create a new one
       dataFile->open("../src/pl/sqtx/liblary/data/dataBase.txt", ios::out);
       cslPrinter.printLine("Brak bazy danych.");
       if (dataFile->is_open()) {
@@ -153,43 +154,47 @@ void publicationsData::importPublications(library *library, const char MAX_CHAR,
 
 //Export publications function
 void publicationsData::exportPublications(library *library, const char MAX_CHAR,
-                                         fstream *dataFile) {
+                                         fstream *dataFile, int *position) {
+  int actualPosition = *position; //Get actual position of file cursor
+
   try {
     DataExportException err;
-    dataFile->open("../src/pl/sqtx/liblary/data/dataBase.txt", ios::out);  //Open data_file
+    dataFile->open("../src/pl/sqtx/liblary/data/dataBase.txt", ios::out);  //Open database
 
+//    File opens good ******************************************
     if (dataFile->is_open()) {
+      dataFile->seekp(actualPosition);
 
-//      Save publications data ****************************************
-      *dataFile << "[Publications]\n";
-//        Get vector from lib
-      vector<PublicationPtr> publications = library->getPublications();
+      *dataFile << "[Publications]\n";  //Set sepparator
 
-//        Get database size
-      int publicationsNum = publications.size();
-//        Empty library
+//      Get data from library.cpp
+      vector<PublicationPtr> publications = library->getPublications(); //Get vector
+      int publicationsNum = publications.size();  //Get database size
+
+//      Lets export
       if (publicationsNum <= 0) {
         *dataFile << '0';
         dataFile->close();
       } else {
-        *dataFile << publicationsNum;
+        *dataFile << publicationsNum; //Set publications number
+
         for (int i = 0; i < publicationsNum; i++) {
           string saveLine;
           PublicationPtr ptr = publications[i];
 
-//            Division into types
+//          Division into types
           if (dynamic_cast<Book *>(ptr.get())) {
-            saveLine = "\nBook";
-            saveLine = addHyphen(saveLine);
+            saveLine = "\nBook;";
             saveLine.append(ptr->toSave());
           } else if (dynamic_cast<Magazine *>(ptr.get())) {
-            saveLine = "\nMagazine";
-            saveLine = addHyphen(saveLine);
+            saveLine = "\nMagazine;";
             saveLine.append(ptr->toSave());
           }
           *dataFile << saveLine; //Export data
         }
         if (((dataFile->rdstate() ^ fstream::eofbit) == 0) || fstream::eofbit == 2) {
+          actualPosition = dataFile->tellp(); //Get actualy position of file cursor
+          *position = actualPosition;
           dataFile->close();
           cslPrinter.printLine("Zapis zakończony powodzeniem.");
         }

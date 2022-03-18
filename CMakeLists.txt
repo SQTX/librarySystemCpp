@@ -20,6 +20,7 @@ add_executable(librarySystem
             ${standardPath}/io/file/serializableFileManager.cpp
 #                typesOfData
                 ${standardPath}/io/file/typesOfData/publicationsData.cpp
+                ${standardPath}/io/file/typesOfData/usersData.cpp
 #        model
         ${standardPath}/model/book.cpp
         ${standardPath}/model/magazine.cpp

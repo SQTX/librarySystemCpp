@@ -12,20 +12,25 @@
 #include "../../include/main_h.h"
 #include "../../include/exception_h.h"
 #include "../../include/library_h.h"
+#include "../../model/libraryUser.h"
 #include "typesOfData/publicationsData.h"
+#include "typesOfData/usersData.h"
+
 
 class serializableFileManager {
 private:
   publicationsData publicationsData;
+  usersData usersData;
   const short MAX_CHAR = 50;  //Max char in string
   std::fstream dataFile;
+  int position = 0;
 
 public:
 //  IMPORT========================================================================================================
-  void importData(library *library);
+  void importData(library *library, libraryUser *libraryUser);
 
 //EXPORT========================================================================================================
-  void exportData(library *library);
+  void exportData(library *library, libraryUser *libraryUser);
 };
 
 #endif //LIBRARYSYSTEM_SERIALIZABLEFILEMANAGER_H

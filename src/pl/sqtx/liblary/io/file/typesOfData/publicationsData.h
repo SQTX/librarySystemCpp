@@ -20,20 +20,16 @@ class publicationsData {
 private:
   consolePrinter cslPrinter;
 
-  /*A function that adds a symbol that separates subsequent publication
-   data.*/
-  std::string addHyphen(std::string txt);
-
 public:
   /*Function that imports publications into the main vector that stores
     publications in the library.cpp class*/
   void importPublications(library *library, const char MAX_CHAR,
-                          std::fstream *dataFile);
+                          std::fstream *dataFile, int *position);
 
   /*Function that export publications from the main vector that stores
     publications in the library.cpp class into dataBase file*/
   void exportPublications(library *library, const char MAX_CHAR,
-                          std::fstream *dataFile);
+                          std::fstream *dataFile, int *position);
 };
 
 #endif //LIBRARYSYSTEM_PUBLICATIONSDATA_H
