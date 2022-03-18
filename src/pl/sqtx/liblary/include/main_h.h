@@ -10,6 +10,11 @@
 #include <vector>
 #include <memory>
 #include <map>
+#include <limits>
+#ifdef _WIN64
+#include <windows.h>
+#elif __APPLE__
+#endif
 //#include <algorithm>
 //#include <cctype>
 

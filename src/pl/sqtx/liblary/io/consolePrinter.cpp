@@ -7,7 +7,11 @@
 using namespace std;
 
 void consolePrinter::printLine(string txt) {
+#ifdef _WIN64
+  cout << tr(txt) << endl;
+#elif __APPLE__
   cout << txt << endl;
+#endif
 }
 
 void consolePrinter::printBooks(vector<PublicationPtr> &publications) {
@@ -55,7 +59,7 @@ void consolePrinter::printUsers(vector<User> &users) {
   int countBooks = 0;
 //  vector<PublicationPtr> sortedPublications;
   for (int i = 0; i < users.size(); i++) {
-    cout << users[i].toString() << endl;
+    printLine(users[i].toString());
     countBooks++;
   }
 /*//    Sort
@@ -67,6 +71,21 @@ void consolePrinter::printUsers(vector<User> &users) {
   if (countBooks == 0) {
     printLine("Brak użytkowników w bazie.");
   }
+}
+
+char *tr(char *str) {
+  static char buff[256];
+  char cp[]="\245\206\251\210\344\242\230\276\253\244\217\250\235\343\340\227\275\215����󜿟��ʣ�ӌ��";
+  if(strlen(str)>=sizeof(buff)) return str;
+  char *bf=buff;
+  while(*str)
+  {
+    char *pos=strchr(cp+18,*str);
+    *(bf++)=pos?*(pos-18):*str;
+    ++str;
+  }
+  *bf=0;
+  return buff;
 }
 
 

@@ -19,6 +19,8 @@ typedef std::shared_ptr<Publication> PublicationPtr;
 
 class consolePrinter{
   sortByTitle sort;   //Sorting by WHAT <---- choose options
+
+  char *tr(char *str);
 public:
 //  Function that prints the passed string in the console
   static void printLine(std::string txt);
