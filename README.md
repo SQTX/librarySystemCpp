@@ -8,6 +8,7 @@
 ---
 ### Instalation
 #### For Windows
+- Download .zip file
 
 #### For Unix (MacOS)
     git clone --recursive https://github.com/SQTX/librarySystemCpp.git
