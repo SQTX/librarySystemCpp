@@ -18,6 +18,8 @@ add_executable(librarySystem
         ${standardPath}/io/consolePrinter.cpp
     #        file
             ${standardPath}/io/file/serializableFileManager.cpp
+#                typesOfData
+                ${standardPath}/io/file/typesOfData/publicationsData.cpp
 #        model
         ${standardPath}/model/book.cpp
         ${standardPath}/model/magazine.cpp

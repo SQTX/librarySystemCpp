@@ -12,17 +12,13 @@
 #include "../../include/main_h.h"
 #include "../../include/exception_h.h"
 #include "../../include/library_h.h"
-#include "../../include/consolePriner_h.h"
-#include "../../include/publicationType_h.h"
+#include "typesOfData/publicationsData.h"
 
 class serializableFileManager {
 private:
-  const short MAX_CHAR = 50;
-  consolePrinter cslPrinter;
+  publicationsData publicationsData;
+  const short MAX_CHAR = 50;  //Max char in string
   std::fstream dataFile;
-
-//  Add symbol between text
-  std::string addHyphen(std::string txt);
 
 public:
 //  IMPORT========================================================================================================
