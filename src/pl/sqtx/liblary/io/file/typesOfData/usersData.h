@@ -24,12 +24,12 @@ private:
 public:
   /*Function that imports user into the main vector that stores
     users in the libraryUser.cpp class*/
-  void importUsers(libraryUser *libraryUser, const char MAX_CHAR,
+  bool importUsers(libraryUser *libraryUser, const char MAX_CHAR,
                           std::fstream *dataFile, int *position);
 
   /*Function that export users from the main vector that stores
     users in the libraryUser.cpp class into dataBase file*/
-  void exportUsers(libraryUser *libraryUser, const char MAX_CHAR,
+  bool exportUsers(libraryUser *libraryUser, const char MAX_CHAR,
                           std::fstream *dataFile, int *position);
 };
 

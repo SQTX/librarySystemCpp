@@ -23,12 +23,12 @@ private:
 public:
   /*Function that imports publications into the main vector that stores
     publications in the library.cpp class*/
-  void importPublications(library *library, const char MAX_CHAR,
+  bool importPublications(library *library, const char MAX_CHAR,
                           std::fstream *dataFile, int *position);
 
   /*Function that export publications from the main vector that stores
     publications in the library.cpp class into dataBase file*/
-  void exportPublications(library *library, const char MAX_CHAR,
+  bool exportPublications(library *library, const char MAX_CHAR,
                           std::fstream *dataFile, int *position);
 };
 

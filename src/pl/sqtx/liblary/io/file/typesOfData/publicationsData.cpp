@@ -7,7 +7,7 @@
 using namespace std;
 
 //Import publications function
-void publicationsData::importPublications(library *library, const char MAX_CHAR,
+bool publicationsData::importPublications(library *library, const char MAX_CHAR,
                                           fstream *dataFile, int *position) {
   int actualPosition = *position; //Get actual position of file cursor
 
@@ -131,20 +131,23 @@ void publicationsData::importPublications(library *library, const char MAX_CHAR,
       *position = actualPosition;
 //      Close file and print message
       dataFile->close();
-      cslPrinter.printLine("Baza danych publikacji została pomyślnie zainportowana.");
+//      cslPrinter.printLine("Baza danych publikacji została pomyślnie zainportowana.");
+      return 1;
 
 //      File opens fail ******************************************
     } else {
 //      If the database file doesn't exist, it tries to create a new one
-      dataFile->open("../src/pl/sqtx/liblary/data/dataBase.txt", ios::out);
       cslPrinter.printLine("Brak bazy danych.");
+      dataFile->open("../src/pl/sqtx/liblary/data/dataBase.txt", ios::out);
       if (dataFile->is_open()) {
         cslPrinter.printLine("Zainicjalizowano nową baze danych.");
         dataFile->close();
+        return 0;
       } else {
         cslPrinter.printLine("Stworzenie nowej bazy danych jest niemożliwe.");
         throw err;
       }
+      return 0;
     }
   } catch (DataImportException err) {
     string message = err.what();
@@ -153,7 +156,7 @@ void publicationsData::importPublications(library *library, const char MAX_CHAR,
 }
 
 //Export publications function
-void publicationsData::exportPublications(library *library, const char MAX_CHAR,
+bool publicationsData::exportPublications(library *library, const char MAX_CHAR,
                                          fstream *dataFile, int *position) {
   int actualPosition = *position; //Get actual position of file cursor
 
@@ -175,6 +178,7 @@ void publicationsData::exportPublications(library *library, const char MAX_CHAR,
       if (publicationsNum <= 0) {
         *dataFile << '0';
         dataFile->close();
+        return 1;
       } else {
         *dataFile << publicationsNum; //Set publications number
 
@@ -196,9 +200,12 @@ void publicationsData::exportPublications(library *library, const char MAX_CHAR,
           actualPosition = dataFile->tellp(); //Get actualy position of file cursor
           *position = actualPosition;
           dataFile->close();
-          cslPrinter.printLine("Zapis zakończony powodzeniem.");
+//          cslPrinter.printLine("Zapis zakończony powodzeniem.");
+          return 1;
         }
+        return 0;
       }
+      return 0;
     }
   } catch (DataExportException err) {
     string message = err.what();

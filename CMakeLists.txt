@@ -22,12 +22,14 @@ add_executable(librarySystem
                 ${standardPath}/io/file/typesOfData/publicationsData.cpp
                 ${standardPath}/io/file/typesOfData/usersData.cpp
 #        model
-        ${standardPath}/model/book.cpp
-        ${standardPath}/model/magazine.cpp
-        ${standardPath}/model/publication.cpp
         ${standardPath}/model/library.cpp
-        ${standardPath}/model/user.cpp
         ${standardPath}/model/libraryUser.cpp
+#            publications
+            ${standardPath}/model/publications/publication.cpp
+            ${standardPath}/model/publications/book.cpp
+            ${standardPath}/model/publications/magazine.cpp
+#            users
+            ${standardPath}/model/users/user.cpp
 #           sortData
             ${standardPath}/model/sortData/sortByTitle.cpp
             ${standardPath}/model/sortData/sortByDate.cpp

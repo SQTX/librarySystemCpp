@@ -7,7 +7,7 @@
 using namespace std;
 
 //Import users function
-void usersData::importUsers(libraryUser *libraryUser, const char MAX_CHAR, fstream *dataFile,
+bool usersData::importUsers(libraryUser *libraryUser, const char MAX_CHAR, fstream *dataFile,
                             int *position) {
   int actualPosition = *position; //Get actual position of file cursor
 
@@ -68,16 +68,18 @@ void usersData::importUsers(libraryUser *libraryUser, const char MAX_CHAR, fstre
 //      Succesfulle import
 //      Close file and print message
       dataFile->close();
-      cslPrinter.printLine("Baza danych użytkowników została pomyślnie zainportowana.");
+//      cslPrinter.printLine("Baza danych użytkowników została pomyślnie zainportowana.");
+      return 1;
 
 //      File opens fail ******************************************
     } else {
 //      If the database file doesn't exist, it tries to create a new one
-      dataFile->open("../src/pl/sqtx/liblary/data/dataBase.txt", ios::out);
       cslPrinter.printLine("Brak bazy danych.");
+      dataFile->open("../src/pl/sqtx/liblary/data/dataBase.txt", ios::out);
       if (dataFile->is_open()) {
         cslPrinter.printLine("Zainicjalizowano nową baze danych.");
         dataFile->close();
+        return 0;
       } else {
         cslPrinter.printLine("Stworzenie nowej bazy danych jest niemożliwe.");
         throw err;
@@ -90,7 +92,7 @@ void usersData::importUsers(libraryUser *libraryUser, const char MAX_CHAR, fstre
 }
 
 //Export users function
-void usersData::exportUsers(libraryUser *libraryUser, const char MAX_CHAR, fstream *dataFile,
+bool usersData::exportUsers(libraryUser *libraryUser, const char MAX_CHAR, fstream *dataFile,
                             int *position) {
   int actualPosition = *position; //Get actual position of file cursor
 
@@ -112,6 +114,7 @@ void usersData::exportUsers(libraryUser *libraryUser, const char MAX_CHAR, fstre
       if (usersNum <= 0) {
         *dataFile << '0';
         dataFile->close();
+        return 1;
       } else {
         *dataFile << usersNum; //Set publications number
 
@@ -125,9 +128,12 @@ void usersData::exportUsers(libraryUser *libraryUser, const char MAX_CHAR, fstre
           actualPosition = dataFile->tellp(); //Get actualy position of file cursor
           *position = actualPosition;
           dataFile->close();
-          cslPrinter.printLine("Zapis zakończony powodzeniem.");
+//          cslPrinter.printLine("Zapis zakończony powodzeniem.");
+          return 1;
         }
+        return 0;
       }
+      return 0;
     }
   } catch (DataExportException err) {
     string message = err.what();
