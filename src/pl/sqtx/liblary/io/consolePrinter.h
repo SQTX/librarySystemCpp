@@ -11,8 +11,8 @@
 #include "../include/main_h.h"
 #include "../include/sortData_h.h"
 #include "../include/publicationType_h.h"
-#include "../model/publication.h"
-#include "../model/user.h"
+#include "../model/publications/publication.h"
+#include "../model/users/user.h"
 
 //Defined PublicationPtr
 typedef std::shared_ptr<Publication> PublicationPtr;

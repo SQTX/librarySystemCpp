@@ -5,7 +5,7 @@
 #ifndef LIBRARYSYSTEM_PUBLICATIONTYPE_H_H
 #define LIBRARYSYSTEM_PUBLICATIONTYPE_H_H
 
-#include "../model/book.h"
-#include "../model/magazine.h"
+#include "../model/publications/book.h"
+#include "../model/publications/magazine.h"
 
 #endif //LIBRARYSYSTEM_PUBLICATIONTYPE_H_H

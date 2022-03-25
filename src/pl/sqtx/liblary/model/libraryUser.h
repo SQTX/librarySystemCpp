@@ -7,7 +7,7 @@
 /** Class created to hold the users of this system */
 #include "../include/main_h.h"
 #include "../include/consolePriner_h.h"
-#include "user.h"
+#include "users/user.h"
 
 class libraryUser {
 protected:

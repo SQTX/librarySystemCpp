@@ -8,7 +8,7 @@
 /*Headers*/
 #include "../include/main_h.h"
 #include "../include/consolePriner_h.h"
-#include "publication.h"
+#include "publications/publication.h"
 #include "../include/publicationType_h.h"
 
 typedef std::shared_ptr<Publication> PublicationPtr;

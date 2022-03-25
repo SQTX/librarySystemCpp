@@ -6,7 +6,7 @@
 #define LIBRARYSYSTEM_PUBLICATION_H
 
 /*Headers*/
-#include "../include/main_h.h"
+#include "../../include/main_h.h"
 
 class Publication{
 protected:

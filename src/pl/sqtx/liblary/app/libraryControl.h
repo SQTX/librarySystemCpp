@@ -12,9 +12,9 @@
 #include "../include/consolePriner_h.h"
 #include "../include/library_h.h"
 #include "../include/exception_h.h"
-#include "../model/publication.h"
+#include "../model/publications/publication.h"
 #include "../include/publicationType_h.h"
-#include "../model/user.h"
+#include "../model/users/user.h"
 #include "../model/libraryUser.h"
 #include "../io/file/serializableFileManager.h"  //Import/Export data
 

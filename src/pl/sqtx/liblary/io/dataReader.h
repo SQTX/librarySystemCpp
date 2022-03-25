@@ -9,7 +9,7 @@
 #include "../include/main_h.h"
 #include "../include/consolePriner_h.h"
 #include "../include/publicationType_h.h"
-#include "../model/user.h"
+#include "../model/users/user.h"
 
 class dataReader {
   consolePrinter cslPrinter;

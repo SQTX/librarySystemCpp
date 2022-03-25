@@ -13,7 +13,7 @@
 #include "../../../include/consolePriner_h.h"
 #include "../../../include/exception_h.h"
 #include "../../../model/libraryUser.h"
-#include "../../../model/user.h"
+#include "../../../model/users/user.h"
 
 /*Functions saving and downloading users from the database*/
 class usersData {
