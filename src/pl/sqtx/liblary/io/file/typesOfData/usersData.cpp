@@ -68,7 +68,6 @@ bool usersData::importUsers(libraryUser *libraryUser, const char MAX_CHAR, fstre
 //      Succesfulle import
 //      Close file and print message
       dataFile->close();
-//      cslPrinter.printLine("Baza danych użytkowników została pomyślnie zainportowana.");
       return 1;
 
 //      File opens fail ******************************************
@@ -77,11 +76,11 @@ bool usersData::importUsers(libraryUser *libraryUser, const char MAX_CHAR, fstre
       cslPrinter.printLine("Brak bazy danych.");
       dataFile->open("../src/pl/sqtx/liblary/data/dataBase.txt", ios::out);
       if (dataFile->is_open()) {
-        cslPrinter.printLine("Zainicjalizowano nową baze danych.");
+        cslPrinter.printLine("Zainicjalizowano nowa baze danych.");
         dataFile->close();
         return 0;
       } else {
-        cslPrinter.printLine("Stworzenie nowej bazy danych jest niemożliwe.");
+        cslPrinter.printLine("Stworzenie nowej bazy danych jest niemozliwe.");
         throw err;
       }
     }
@@ -128,7 +127,6 @@ bool usersData::exportUsers(libraryUser *libraryUser, const char MAX_CHAR, fstre
           actualPosition = dataFile->tellp(); //Get actualy position of file cursor
           *position = actualPosition;
           dataFile->close();
-//          cslPrinter.printLine("Zapis zakończony powodzeniem.");
           return 1;
         }
         return 0;
@@ -137,7 +135,7 @@ bool usersData::exportUsers(libraryUser *libraryUser, const char MAX_CHAR, fstre
     }
   } catch (DataExportException err) {
     string message = err.what();
-    cslPrinter.printLine("Błąd zapisy.");
+    cslPrinter.printLine("Blad zapisu.");
     cslPrinter.printLine(message);
   }
 }

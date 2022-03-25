@@ -42,7 +42,7 @@ void libraryControl::controlLoop() {
         exit();
         break;
       default:
-        cslPrinter.printLine("Nie ma takiej opcji, wprowadź ponownie: ");
+        cslPrinter.printLine("Nie ma takiej opcji, wprowadz ponownie: ");
     }
   } while (choice != option.EXIT);
 }
@@ -76,7 +76,7 @@ int libraryControl::getChoice() {
 //  Print all options in numbered list
 void libraryControl::printOptions() {
   options::Option option;
-  cslPrinter.printLine("Wybierz opcję: ");
+  cslPrinter.printLine("Wybierz opcje: ");
   for (int i = 0; i < option.getOptionsSize(); i++) {
     cslPrinter.printLine(option.toString(i));
   }
@@ -125,7 +125,7 @@ void libraryControl::removeBook() {
   try {
     PublicationPtr book = make_shared<Book>(dataReader.readAndCreateBook());
     library.removeBook(book);
-    cslPrinter.printLine("Książka została usinięta z bazy danych.");
+    cslPrinter.printLine("Ksiazka została usunieta z bazy danych.");
   } catch (invalid_argument err) {
     string message = err.what();
     message.append("");
@@ -137,7 +137,7 @@ void libraryControl::removeMagazine() {
   try {
     PublicationPtr magazine = make_shared<Magazine>(dataReader.readAndCreateMagazine());
     library.removeMagazine(magazine);
-    cslPrinter.printLine("Gazeta została usinięta z bazy danych.");
+    cslPrinter.printLine("Gazeta została usunieta z bazy danych.");
   } catch (invalid_argument err) {
     string message = err.what();
     message.append("");
@@ -151,10 +151,10 @@ void libraryControl::addUser() {
     libraryUser.addUser(user);
   } catch (invalid_argument err) {
     string message = err.what();
-    message.append(", użytkownik nie został dodany.");
+    message.append(", uzytkownik nie został dodany.");
     cslPrinter.printLine(message);
   } catch (out_of_range err) {
-    cslPrinter.printLine("Przekroczono dozwolony limit użytkowników.");
+    cslPrinter.printLine("Przekroczono dozwolony limit uzytkownikow.");
   }
 }
 

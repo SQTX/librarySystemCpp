@@ -9,18 +9,19 @@ using namespace std;
 int dataReader::getInt() {
   int number = -1;
   cin >> number;
+//  cin.ignore();
   if (cin.good()) {
     return number;
   } else {
     cin.clear();
     cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-    throw invalid_argument("Podana wartość nie jest liczbą");
+    throw invalid_argument("Podana wartosc nie jest liczba");
   }
 }
 
 //  Get informations about new book and create it
 Book dataReader::readAndCreateBook() {
-  cslPrinter.printLine("Tytuł: ");
+  cslPrinter.printLine("Tytul: ");
   string title;
   cin.ignore(1);
   getline(cin, title);
@@ -36,40 +37,28 @@ Book dataReader::readAndCreateBook() {
   cin.ignore();
   cslPrinter.printLine("Rok wydania: ");
   int releaseDate;
-  cin >> releaseDate;
-  cin.ignore();
-  cslPrinter.printLine("Ilość stron: ");
+  releaseDate = getInt();
+  cslPrinter.printLine("Ilosc stron: ");
   int pages;
-  cin >> pages;
-  cin.ignore();
-//    If inavalid value
-  if (!cin.good()) {
-    cin.clear();
-    cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-    throw invalid_argument("Podana wartość nie jest liczbą");
-  }
-  cin.clear();
+  pages = getInt();
   return Book(title, author, releaseDate, pages, publisher, isbn);
 }
 
 //  Get informations about new magazine and create it
 Magazine dataReader::readAndCreateMagazine() {
-  cslPrinter.printLine("Tytuł: ");
+  cslPrinter.printLine("Tytul: ");
   string title;
   cin.ignore(1);
   getline(cin, title);
   cslPrinter.printLine("Dzien: ");
   int day;
-  cin >> day;
-  cin.ignore();
+  day = getInt();
   cslPrinter.printLine("Miesiac: ");
   int month;
-  cin >> month;
-  cin.ignore();
+  month = getInt();
   cslPrinter.printLine("Rok wydania: ");
   int releaseDate;
-  cin >> releaseDate;
-//    cin.ignore();
+  releaseDate = getInt();
   cslPrinter.printLine("Jezyk: ");
   cin.ignore(1);
   string language;
@@ -77,12 +66,6 @@ Magazine dataReader::readAndCreateMagazine() {
   cslPrinter.printLine("Wydawnictwo: ");
   string publisher;
   getline(cin, publisher);
-//    IF inavalid value
-  if (!cin.good()) {
-    cin.clear();
-    cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-    throw invalid_argument("Podana wartość nie jest liczbą");
-  }
   cin.clear();
   return Magazine(title, day, month, releaseDate, language, publisher);
 }
@@ -106,7 +89,7 @@ User dataReader::readAndCreateUser(){
   if (!cin.good()) {
     cin.clear();
     cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-    throw invalid_argument("Podana wartość nie jest liczbą");
+    throw invalid_argument("Podana wartosc nie jest liczba");
   }
   cin.clear();
   return User(firstName, lastName, pesel);

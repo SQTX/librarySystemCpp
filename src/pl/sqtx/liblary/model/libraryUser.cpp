@@ -12,7 +12,7 @@ const std::vector<User> &libraryUser::getUsers() const {
 
 void libraryUser::addUser(User user){
   if (usersNumber >= maxUsers) {
-    throw out_of_range("Przekroczono dozwolony limit użytkowników w bazie.");
+    throw out_of_range("Przekroczono dozwolony limit uzytkownikow w bazie.");
   } else {
     users.push_back(user);
     usersNumber++;

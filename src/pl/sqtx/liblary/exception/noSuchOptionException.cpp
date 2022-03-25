@@ -7,6 +7,6 @@
 class NoSuchOptionException : public std::exception{
 public:
   const char* what() {
-    return "Nie istnieje opcja dla wartości ";
+    return "Nie istnieje opcja dla wartosci ";
   }
 };

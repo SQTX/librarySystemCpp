@@ -13,7 +13,7 @@ void serializableFileManager::importData(library *library, libraryUser *libraryU
   position = 0; //Reset
   importPublicationFlag = publicationsData.importPublications(library, MAX_CHAR, &dataFile, &position);
   if(importPublicationFlag) importUserFlag = usersData.importUsers(libraryUser, MAX_CHAR, &dataFile, &position);
-  if(importPublicationFlag && importUserFlag) cslPrinter.printLine("Baza danych publikacji została pomyślnie zainportowana.");
+  if(importPublicationFlag && importUserFlag) cslPrinter.printLine("Baza danych publikacji zostala pomyslnie zainportowana.");
 }
 
 // EXPORT=================================================================
@@ -23,5 +23,5 @@ void serializableFileManager::exportData(library *library, libraryUser *libraryU
   position = 0; //Reset
   exportPublicationFlag = publicationsData.exportPublications(library, MAX_CHAR, &dataFile, &position);
   if(exportPublicationFlag) exportUserFlag = usersData.exportUsers(libraryUser, MAX_CHAR, &dataFile, &position);
-  if(exportPublicationFlag && exportUserFlag) cslPrinter.printLine("Zapis zakończony powodzeniem.");
+  if(exportPublicationFlag && exportUserFlag) cslPrinter.printLine("Zapis zakonczony powodzeniem.");
 }

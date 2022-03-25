@@ -27,7 +27,7 @@ void consolePrinter::printBooks(vector<PublicationPtr> &publications) {
     cout << publication->toString() << endl;
 
   if (countBooks == 0) {
-    printLine("Brak ksiażek w bibliotece");
+    printLine("Brak ksiazek w bibliotece");
   }
 }
 
@@ -65,6 +65,6 @@ void consolePrinter::printUsers(vector<User> &users) {
     cout << publication->toString() << endl;*/
 
   if (countBooks == 0) {
-    printLine("Brak użytkowników w bazie.");
+    printLine("Brak uzytkownikow w bazie.");
   }
 }

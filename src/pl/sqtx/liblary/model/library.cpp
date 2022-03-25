@@ -50,6 +50,6 @@ void library::removePublication(PublicationPtr publication) {
       }
     }
   } else {
-    throw invalid_argument("Publikacja nie została znaleziona i usunięta.");
+    throw invalid_argument("Publikacja nie zostala znaleziona i usunieta.");
   }
 }
