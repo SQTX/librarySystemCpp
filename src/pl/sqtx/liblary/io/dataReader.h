@@ -17,6 +17,10 @@ public:
   //  Get int-type number from user
   int getInt();
 
+  char getChar();
+
+  std::string getTextLine();
+
 //  Get informations about new book and create it
   Book readAndCreateBook();
 

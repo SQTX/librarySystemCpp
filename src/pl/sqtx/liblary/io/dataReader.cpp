@@ -11,11 +11,43 @@ int dataReader::getInt() {
   cin >> number;
 //  cin.ignore();
   if (cin.good()) {
+    cin.clear();
+    cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     return number;
   } else {
     cin.clear();
     cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     throw invalid_argument("Podana wartosc nie jest liczba");
+  }
+}
+
+char dataReader::getChar() {
+  char ch = ' ';
+  cin >> ch;
+//  cin.ignore();
+  if (cin.good()) {
+    cin.clear();
+    cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    return ch;
+  } else {
+    cin.clear();
+    cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    throw invalid_argument("Podana wartosc nie jest pojedynczym znakiem");
+  }
+}
+
+string dataReader::getTextLine() {
+  string txt = "";
+  getline(cin, txt);
+//  cin.ignore();
+  if (cin.good()) {
+    cin.clear();
+    cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    return txt;
+  } else {
+    cin.clear();
+    cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    throw invalid_argument("Podana wartosc jest bledna");
   }
 }
 

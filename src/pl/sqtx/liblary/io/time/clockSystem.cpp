@@ -6,7 +6,7 @@
 
 using namespace std;
 
-string getTime(){
+string clockSystem::getTime(){
   string time;
   chrono::system_clock::time_point now = chrono::system_clock::now();
   time_t tt = chrono::system_clock::to_time_t(now);
@@ -15,7 +15,7 @@ string getTime(){
   return time;
 };
 
-string getDate(){
+string clockSystem::getDate(){
   string date;
   chrono::system_clock::time_point now = chrono::system_clock::now();
   time_t tt = chrono::system_clock::to_time_t(now);
