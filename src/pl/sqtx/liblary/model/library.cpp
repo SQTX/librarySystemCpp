@@ -10,6 +10,11 @@ const vector<PublicationPtr> &library::getPublications() const {
   return publications;
 }
 
+std::vector<PublicationPtr>::iterator &library::getIteratorPublications(){
+  vector<PublicationPtr>::iterator it_publications = publications.begin();
+  return it_publications;
+}
+
 //  Add new book to lab
 void library::addBook(PublicationPtr book) {
   addPublication(book);

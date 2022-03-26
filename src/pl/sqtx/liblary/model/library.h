@@ -24,6 +24,8 @@ public:
 //  Vector getter
   const std::vector<PublicationPtr> &getPublications() const;
 
+  std::vector<PublicationPtr>::iterator &getIteratorPublications();
+
 //  Add new book to lab
   void addBook(PublicationPtr book);
 

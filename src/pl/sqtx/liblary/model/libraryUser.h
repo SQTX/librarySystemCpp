@@ -19,6 +19,8 @@ public:
 //  Getter for vector
   const std::vector<User> &getUsers() const;
 
+  std::vector<User>::iterator &getIteratorUsers();
+
 //  Method that adds a new system user to the vector (database)
   void addUser(User user);
 };
