@@ -38,6 +38,12 @@ void libraryControl::controlLoop() {
       case option.PRINT_USERS:
         printUsers();
         break;
+      case option.BORROW_PUBLICATION:
+        borrowPublication();
+        break;
+      case option.RETURN_PUBLICATION:
+        returnPublication();
+        break;
       case option.EXIT:
         exit();
         break;
@@ -161,6 +167,14 @@ void libraryControl::addUser() {
 void libraryControl::printUsers() {
   vector<User> users = libraryUser.getUsers();
   cslPrinter.printUsers(users);
+}
+
+void libraryControl::borrowPublication() {
+  borrowEngine.borrowPublication(&library, &libraryUser);
+}
+
+void libraryControl::returnPublication() {
+  borrowEngine.returnPublication(&library, &libraryUser);
 }
 
 void libraryControl::exit() {
