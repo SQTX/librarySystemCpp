@@ -58,7 +58,7 @@ bool Book::operator!=(const Book &rhs) const {
 //  Create string-line with the information about Book object
 string Book::toString() {
   string info = getTitle() + "; " + author + "; " + to_string(getReleaseDate()) + "; " + to_string(pages) +
-                "; " + getPublisher();
+                "; " + getPublisher() + "; " + to_string(getNumberOf());
   if (isbn != "") {
     info.append("; " + isbn);
   }
@@ -69,7 +69,7 @@ string Book::toString() {
 //  Create string-line with the information arranged for data export
 string Book::toSave() {
   string info = getTitle() + ";" + author + ";" + to_string(getReleaseDate()) + ";" + to_string(pages) +
-                ";" + getPublisher();
+                ";" + getPublisher() + ";" + to_string(getNumberOf());
   if (isbn != "") {
     info.append(";" + isbn);
   }

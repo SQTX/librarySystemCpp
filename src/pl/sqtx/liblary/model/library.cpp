@@ -30,8 +30,8 @@ void library::addPublication(PublicationPtr publication) {
   if (publicationsNumber >= maxPublications) {
     throw out_of_range("Przekroczono dozwolony limit publikacji.");
   } else {
-    publications.push_back(publication);
-    publicationsNumber++;
+//  Check is it exists
+    checkIsItExistsAdd(publication);
   }
 }
 
@@ -48,13 +48,46 @@ void library::removeMagazine(PublicationPtr magazine) {
 //  Remove Publication from lab - MAIN function
 void library::removePublication(PublicationPtr publication) {
   if (dynamic_cast<Book *>(publication.get()) || dynamic_cast<Magazine *>(publication.get())) {
-    for (int index = 0; index < publications.size(); index++) {
-      if (*(publication.get()) == *(publications[index].get())) {
+    checkIsItExistsRemove(publication);
+  } else {
+    throw invalid_argument("Publikacja nie zostala znaleziona i usunieta.");
+  }
+}
+
+void library::checkIsItExistsAdd(PublicationPtr publication) {
+  if (publicationsNumber == 0) {
+    publications.push_back(publication);
+    publicationsNumber++;
+  } else {
+    bool isItExists = false;
+    for (auto &element: publications) {
+      if (*(publication.get()) == *(element.get())) {
+        int indexOfPublication = element->getNumberOf();
+        element->setNumberOf(++indexOfPublication);
+        publicationsNumber++;
+        isItExists = true;
+        break;
+      }
+    }
+    if(!isItExists) {
+      publications.push_back(publication);
+      publicationsNumber++;
+    }
+  }
+}
+
+void library::checkIsItExistsRemove(PublicationPtr publication) {
+//  Index is better because will be needed to removing publication from vectro
+  for (int index = 0; index < publications.size(); index++) {
+    if (*(publication.get()) == *(publications[index].get())) {
+      int indexOfPublication = publications[index]->getNumberOf();
+      if(indexOfPublication > 1) {
+        publications[index]->setNumberOf(--indexOfPublication);
+        publicationsNumber--;
+      } else if(indexOfPublication == 1){
         publications.erase((publications.begin() + index));
         publicationsNumber--;
       }
     }
-  } else {
-    throw invalid_argument("Publikacja nie zostala znaleziona i usunieta.");
   }
 }

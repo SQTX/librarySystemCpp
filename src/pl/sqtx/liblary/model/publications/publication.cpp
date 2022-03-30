@@ -11,6 +11,7 @@ Publication::Publication(const string &title, int releaseDate, const string &pub
   this->title = title;
   this->releaseDate = releaseDate;
   this->publisher = publisher;
+  this->numberOf = 1;
 }
 
 //  Destructor  ---------------------------------------------------------------------
@@ -41,11 +42,21 @@ void Publication::setPublisher(const string &publisher) {
   Publication::publisher = publisher;
 }
 
+int Publication::getNumberOf() const {
+  return numberOf;
+}
+
+void Publication::setNumberOf(int numberOf) {
+  Publication::numberOf = numberOf;
+};
+
 //  Equals  ---------------------------------------------------------------------
 bool Publication::operator==(const Publication &rhs) const {
   return title == rhs.title &&
          releaseDate == rhs.releaseDate &&
          publisher == rhs.publisher;
+//         publisher == rhs.publisher &&
+//         numberOf == rhs.numberOf;
 }
 
 bool Publication::operator!=(const Publication &rhs) const {
@@ -55,4 +66,4 @@ bool Publication::operator!=(const Publication &rhs) const {
 //  Methods   ---------------------------------------------------------------------
 //Virtual method
 string Publication::toString(){};
-string Publication::toSave(){};
+string Publication::toSave(){}

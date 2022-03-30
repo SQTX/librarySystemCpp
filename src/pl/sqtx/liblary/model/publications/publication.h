@@ -13,6 +13,7 @@ protected:
   std::string title;
   int releaseDate;
   std::string publisher;
+  int numberOf;
 
 public:
 //  Constructor  ---------------------------------------------------------------------
@@ -33,6 +34,10 @@ public:
   std::string getPublisher() const;
 
   void setPublisher(const std::string &publisher);
+
+  int getNumberOf() const;
+
+  void setNumberOf(int numberOf);
 
 //  Equals  ---------------------------------------------------------------------
   bool operator==(const Publication &rhs) const;

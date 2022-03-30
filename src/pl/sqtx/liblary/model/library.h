@@ -46,6 +46,13 @@ public:
 //  Remove Publication from lab - MAIN function
 private:
   void removePublication(PublicationPtr publication);
+
+/*  Function check is it element exists. If:
+  yes - increase numberOf element
+  no - do nothing */
+  void checkIsItExistsAdd(PublicationPtr publication);
+
+  void checkIsItExistsRemove(PublicationPtr publication);
 };
 
 #endif //LIBRARYSYSTEM_LIBRARY_H
