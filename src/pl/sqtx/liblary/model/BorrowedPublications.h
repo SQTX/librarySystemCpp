@@ -13,16 +13,20 @@ typedef std::shared_ptr<Publication> PublicationPtr;
 
 class BorrowedPublications {
 private:
-  PublicationPtr borrPublications;
+  PublicationPtr borrPublication;
   std::string dateOfLoan;
   std::string dateOfReturn;
   bool borrStatus;
+  std::vector<PublicationPtr>::iterator obj_iterator;
 public:
-  BorrowedPublications(const PublicationPtr &borrPublications, const std::string &dateOfLoan);
+  BorrowedPublications(const PublicationPtr &borrPublication, const std::string &dateOfLoan, std::vector<PublicationPtr>::iterator it_borrPub);
 
   virtual ~BorrowedPublications();
 
   void returnPublication(std::string date);
+
+  std::string bookToString();
+  std::string toSave();
 };
 
 #endif //LIBRARYSYSTEM_BORROWEDPUBLICATIONS_H

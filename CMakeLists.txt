@@ -29,7 +29,7 @@ add_executable(librarySystem
 #        model
         ${standardPath}/model/library.cpp
         ${standardPath}/model/libraryUser.cpp
-        ${standardPath}/model/userBorrowHistory.cpp
+        ${standardPath}/model/userLendHistory.cpp
         ${standardPath}/model/borrowedPublications.cpp
 #            publications
             ${standardPath}/model/publications/publication.cpp

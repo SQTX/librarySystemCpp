@@ -84,6 +84,7 @@ bool publicationsData::importPublications(library *library, const char MAX_CHAR,
             Book bookObj(title, author, releaseDate, pages, publisher, isbn);
             PublicationPtr book = make_shared<Book>(bookObj);
             library->addBook(book);
+//            if(numberOf > 1) --publicationDataSize; //The first number in the data history represents the actual number of publications, not the number of data lines
           } while(--numberOf);
 
 //        Magazine --------------------------------------------------------------------------------------------------------
@@ -119,22 +120,23 @@ bool publicationsData::importPublications(library *library, const char MAX_CHAR,
           string language(c_language);
           dataFile->ignore(1);
 
-          int numberOf = 1;
-          char c_numberOf[MAX_CHAR];
-          dataFile->get(c_numberOf, MAX_CHAR, ';');
-          sscanf(c_numberOf, "%d", &numberOf);
-          dataFile->ignore(1);
-
           char c_publisher[MAX_CHAR];
-          dataFile->get(c_publisher, MAX_CHAR, '\n');
+          dataFile->get(c_publisher, MAX_CHAR, ';');
           string publisher(c_publisher);
           dataFile->ignore(1);
 
+          int numberOf = 1;
+          char c_numberOf[MAX_CHAR];
+          dataFile->get(c_numberOf, MAX_CHAR, '\n');
+          sscanf(c_numberOf, "%d", &numberOf);
+          dataFile->ignore(1);
+
+//          Create object and add it to library vector
           do{
-//            Create object and add it to library vector
             Magazine magazineObj(title, day, month, releaseDate, language, publisher);
             PublicationPtr magazine = make_shared<Magazine>(magazineObj);
             library->addMagazine(magazine);
+//            if(numberOf > 1) --publicationDataSize;
           } while(--numberOf);
 
 //        Noname type ----------------------------------

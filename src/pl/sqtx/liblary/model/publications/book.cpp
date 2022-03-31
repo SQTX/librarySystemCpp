@@ -62,8 +62,7 @@ string Book::toString() {
   if (isbn != "") {
     info.append("; " + isbn);
   }
-  return
-      info;
+  return info;
 }
 
 //  Create string-line with the information arranged for data export
@@ -73,6 +72,5 @@ string Book::toSave() {
   if (isbn != "") {
     info.append(";" + isbn);
   }
-  return
-      info;
+  return info;
 }

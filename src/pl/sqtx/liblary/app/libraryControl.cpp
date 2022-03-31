@@ -44,6 +44,9 @@ void libraryControl::controlLoop() {
       case option.RETURN_PUBLICATION:
         returnPublication();
         break;
+      case option.HISTORY_OF_USER:
+        historyOfUser();
+        break;
       case option.EXIT:
         exit();
         break;
@@ -175,6 +178,10 @@ void libraryControl::borrowPublication() {
 
 void libraryControl::returnPublication() {
   borrowEngine.returnPublication(&library, &libraryUser);
+}
+
+void libraryControl::historyOfUser() {
+  borrowEngine.printUserHistory(&libraryUser);
 }
 
 void libraryControl::exit() {

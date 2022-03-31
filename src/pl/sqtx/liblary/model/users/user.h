@@ -6,12 +6,19 @@
 #define LIBRARYSYSTEM_USER_H
 
 #include "../../include/main_h.h"
+#include "../userLendHistory.h"
+#include "../BorrowedPublications.h"
+
+typedef std::shared_ptr<BorrowedPublications> BorrPublicationsPtr;
+typedef std::shared_ptr<Publication> PublicationPtr;
 
 class User{
-protected:
+private:
   std::string firstName;
   std::string lastName;
   std::string pesel;
+  userLendHistory userHistory;
+
 public:
 //  Constructor  ---------------------------------------------------------------------
   User(const std::string &firstName, const std::string &lastName, const std::string &pesel);
@@ -36,8 +43,10 @@ public:
   bool operator!=(const User &rhs) const;
 
 //  Method
+  void lendPublication(BorrowedPublications borrPub);
   std::string toString();
   std::string toSave();
+  std::string getHistoryOfUser();
 };
 
 #endif //LIBRARYSYSTEM_USER_H

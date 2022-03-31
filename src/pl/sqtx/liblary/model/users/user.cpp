@@ -52,11 +52,19 @@ bool User::operator!=(const User &rhs) const {
   return !(rhs == *this);
 }
 
-//Methods
+//Borrow methods
+void User::lendPublication(BorrowedPublications borrPub){
+  userHistory.borrowPub(borrPub);
+}
+
+//To.. methods
 string User::toString() {
   return firstName + "; " + lastName + "; " + pesel;
 }
-
 string User::toSave() {
   return firstName + ";" + lastName + ";" + pesel;
+}
+
+string User::getHistoryOfUser(){
+  return userHistory.getHistory();
 }

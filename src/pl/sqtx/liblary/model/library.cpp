@@ -78,6 +78,8 @@ void library::checkIsItExistsAdd(PublicationPtr publication) {
 
 void library::checkIsItExistsRemove(PublicationPtr publication) {
 //  Index is better because will be needed to removing publication from vectro
+/*TODO: W momecie gdy Pub będzie wypożyczone wystąpi problem z usunięćiem bo ilość może być 0. Zrobić aby usuwało dla
+ * wartości -1, tak bedziemy odróżniać publikację wyporzyczoną od usuniętej bo może być 0 dostępnych a w systemie dalej będą.*/
   for (int index = 0; index < publications.size(); index++) {
     if (*(publication.get()) == *(publications[index].get())) {
       int indexOfPublication = publications[index]->getNumberOf();

@@ -62,9 +62,13 @@ void consolePrinter::printUsers(vector<User> &users) {
   sort.getSort(sortedPublications);
 //    Print
   for (auto &publication: sortedPublications)
-    cout << publication->toString() << endl;*/
+    cout << publication->bookToString() << endl;*/
 
   if (countBooks == 0) {
     printLine("Brak uzytkownikow w bazie.");
   }
+}
+
+void consolePrinter::printUsersHistory(vector<User>::iterator it_user){
+  printLine(it_user->getHistoryOfUser());
 }

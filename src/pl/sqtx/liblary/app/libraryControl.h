@@ -61,6 +61,8 @@ private:
 
   void returnPublication();
 
+  void historyOfUser();
+
 //  Exit
   void exit();
 };
@@ -81,6 +83,7 @@ namespace options {
       PRINT_USERS,
       BORROW_PUBLICATION,
       RETURN_PUBLICATION,
+      HISTORY_OF_USER,
       END //Last element (Enum_size = END-1)
     };
     int optionsSize = option::END;
@@ -97,6 +100,7 @@ namespace options {
         {PRINT_USERS,         "wyswietl dostepnych uzytkownikow"},
         {BORROW_PUBLICATION,  "wypozycz ksiazke"},
         {RETURN_PUBLICATION,  "zwroc ksiazke"},
+        {HISTORY_OF_USER,  "historia wypozyczen uzytkownika"},
     };
 
 //    Return enum option size

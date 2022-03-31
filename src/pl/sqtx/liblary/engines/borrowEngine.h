@@ -28,6 +28,8 @@ public:
   void borrowPublication(library *library, libraryUser *libraryUser);
 
   void returnPublication(library *library, libraryUser *libraryUser);
+
+  void printUserHistory(libraryUser *libraryUser);
 };
 
 #endif //LIBRARYSYSTEM_BORROWENGINE_H

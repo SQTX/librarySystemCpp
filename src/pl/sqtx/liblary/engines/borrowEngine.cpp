@@ -107,14 +107,11 @@ void borrowEngine::borrowPublication(library *library, libraryUser *libraryUser)
 
 
 //  Loan machine
-  BorrowedPublications newBorrowPub(*(it_publications + indexOfPublication), time);
-  it_user->newBorrow(newBorrowPub);
+  BorrowedPublications newBorrowPub(*(it_publications + indexOfPublication), time, (it_publications + indexOfPublication));
+  (it_user + indexOfUser)->lendPublication(newBorrowPub);
 //  Change number of publication
   (it_publications + indexOfPublication)->get()->setNumberOf((it_publications + indexOfPublication)->get()->getNumberOf() - 1);
-//  Assign a loan to the user
-
-
-
+//TODO:  Assign a loan to the user
 
 //  Message
   cslPrinter.printLine("Wybrana publikacja zostala wypozyczona");
@@ -122,4 +119,10 @@ void borrowEngine::borrowPublication(library *library, libraryUser *libraryUser)
 //*******************************************************************************************************************
 void borrowEngine::returnPublication(library *library, libraryUser *libraryUser) {
   cslPrinter.printLine("Zwrot!");
+}
+
+void borrowEngine::printUserHistory(libraryUser *libraryUser){
+  const int indexOfUser = findUser(libraryUser);
+  vector<User>::iterator it_user = libraryUser->getIteratorUsers();
+  cslPrinter.printUsersHistory((it_user + indexOfUser));
 }
