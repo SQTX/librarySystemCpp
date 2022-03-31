@@ -9,10 +9,9 @@ using namespace std;
 int dataReader::getInt() {
   int number = -1;
   cin >> number;
-//  cin.ignore();
+//  cin.ignore();  //Potential ERROR
   if (cin.good()) {
     cin.clear();
-    cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     return number;
   } else {
     cin.clear();
@@ -24,7 +23,7 @@ int dataReader::getInt() {
 char dataReader::getChar() {
   char ch = ' ';
   cin >> ch;
-//  cin.ignore();
+//  cin.ignore();  //Potential ERROR
   if (cin.good()) {
     cin.clear();
     cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
@@ -39,10 +38,9 @@ char dataReader::getChar() {
 string dataReader::getTextLine() {
   string txt = "";
   getline(cin, txt);
-//  cin.ignore();
+//  cin.ignore();  //Potential ERROR
   if (cin.good()) {
     cin.clear();
-    cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     return txt;
   } else {
     cin.clear();
