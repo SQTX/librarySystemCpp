@@ -73,7 +73,7 @@ Magazine dataReader::readAndCreateMagazine() {
 //  User functions
 //  Get informations about new user and create it
 User dataReader::readAndCreateUser(){
-  cslPrinter.printLine("Imię: ");
+  cslPrinter.printLine("Imie: ");
   cin.ignore(1);
   string firstName;
   cin >> firstName;

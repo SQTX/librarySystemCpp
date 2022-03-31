@@ -78,15 +78,15 @@ namespace options {
     int optionsSize = option::END;
 //  Key(enum-number)-Descriptions
     std::map<unsigned int, const std::string> MyMap{
-        {EXIT,            "wyjście z programu"},
-        {ADD_BOOK,        "dodanie nowej książki"},
-        {ADD_MAGAZINE,    "dodanie nową gazete"},
-        {PRINT_BOOKS,     "wyświetl dostępne książki"},
-        {PRINT_MAGAZINES, "wyświetl dostępne gazety"},
-        {REMOVE_BOOK,     "usuń książkę"},
-        {REMOVE_MAGAZINE, "usuń gazetę"},
-        {ADD_USER,        "dodaj użytkownika"},
-        {PRINT_USERS,     "wyświetl dostępnych użytkowników"},
+        {EXIT,            "wyjscie z programu"},
+        {ADD_BOOK,        "dodanie nowej ksiazki"},
+        {ADD_MAGAZINE,    "dodanie nowa gazete"},
+        {PRINT_BOOKS,     "wyswietl dostepne ksiazki"},
+        {PRINT_MAGAZINES, "wyswietl dostepne gazety"},
+        {REMOVE_BOOK,     "usun ksiazke"},
+        {REMOVE_MAGAZINE, "usun gazete"},
+        {ADD_USER,        "dodaj uzytkownika"},
+        {PRINT_USERS,     "wyswietl dostepnych uzytkownikow"},
     };
 
 //    Return enum option size
