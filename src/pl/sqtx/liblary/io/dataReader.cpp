@@ -55,7 +55,7 @@ string dataReader::getTextLine() {
 Book dataReader::readAndCreateBook() {
   cslPrinter.printLine("Tytul: ");
   string title;
-  cin.ignore(1);
+//  cin.ignore(1);
   getline(cin, title);
   cslPrinter.printLine("Autor: ");
   string author;
