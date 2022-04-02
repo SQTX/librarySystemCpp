@@ -23,7 +23,27 @@ public:
 
   virtual ~BorrowedPublications();
 
-  void returnPublication(std::string date);
+  const PublicationPtr &getBorrPublication() const;
+
+  void setBorrPublication(const PublicationPtr &borrPublication);
+
+  const std::string &getDateOfLoan() const;
+
+  void setDateOfLoan(const std::string &dateOfLoan);
+
+  const std::string &getDateOfReturn() const;
+
+  void setDateOfReturn(const std::string &dateOfReturn);
+
+  bool isBorrStatus() const;
+
+  void setBorrStatus(bool borrStatus);
+
+  const std::vector<PublicationPtr, std::allocator<PublicationPtr>>::iterator &getObjIterator() const;
+
+  void setObjIterator(const std::vector<PublicationPtr, std::allocator<PublicationPtr>>::iterator &objIterator);
+
+  bool returnPublication(std::string date);
 
   std::string bookToString();
   std::string toSave();

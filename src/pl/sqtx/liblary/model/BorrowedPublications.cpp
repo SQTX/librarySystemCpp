@@ -16,9 +16,10 @@ BorrowedPublications::BorrowedPublications(const PublicationPtr &borrPublication
 
 BorrowedPublications::~BorrowedPublications() {}
 
-void BorrowedPublications::returnPublication(std::string dayDate){
+bool BorrowedPublications::returnPublication(std::string dayDate){
   BorrowedPublications::dateOfReturn = dayDate;
   BorrowedPublications::borrStatus = false;
+  return true;
 }
 
 //  Create string-line with the information about Book object
@@ -41,4 +42,45 @@ string BorrowedPublications::toSave() {
   string info = borrPublication->getTitle() + ";" + (dynamic_cast<Book *>(borrPublication.get())->getAuthor()) + ";" +
       dateOfLoan + ";" + to_string(borrStatus) + ";" + dateOfReturn;
   return info;
+}
+
+const PublicationPtr &BorrowedPublications::getBorrPublication() const {
+  return borrPublication;
+}
+
+void BorrowedPublications::setBorrPublication(const PublicationPtr &borrPublication) {
+  BorrowedPublications::borrPublication = borrPublication;
+}
+
+const string &BorrowedPublications::getDateOfLoan() const {
+  return dateOfLoan;
+}
+
+void BorrowedPublications::setDateOfLoan(const string &dateOfLoan) {
+  BorrowedPublications::dateOfLoan = dateOfLoan;
+}
+
+const string &BorrowedPublications::getDateOfReturn() const {
+  return dateOfReturn;
+}
+
+void BorrowedPublications::setDateOfReturn(const string &dateOfReturn) {
+  BorrowedPublications::dateOfReturn = dateOfReturn;
+}
+
+bool BorrowedPublications::isBorrStatus() const {
+  return borrStatus;
+}
+
+void BorrowedPublications::setBorrStatus(bool borrStatus) {
+  BorrowedPublications::borrStatus = borrStatus;
+}
+
+const vector<PublicationPtr, std::allocator<PublicationPtr>>::iterator &BorrowedPublications::getObjIterator() const {
+  return obj_iterator;
+}
+
+void BorrowedPublications::setObjIterator(
+    const vector<PublicationPtr, std::allocator<PublicationPtr>>::iterator &objIterator) {
+  obj_iterator = objIterator;
 }

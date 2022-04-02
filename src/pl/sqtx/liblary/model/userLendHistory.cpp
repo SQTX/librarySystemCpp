@@ -6,11 +6,16 @@
 
 using namespace std;
 
-const std::vector<BorrPublicationsPtr> &userLendHistory::getBorrowedPub() const {
+const std::vector<BorrPublicationsPtr> &userLendHistory::getHistoryOfUser() const {
   return historyOfBorrow;
 }
 
-void userLendHistory::borrowPub(BorrowedPublications publication){
+vector<BorrPublicationsPtr>::iterator userLendHistory::getIteratorHistoryOfUser() {
+  vector<BorrPublicationsPtr>::iterator it_historyOfBorrow = historyOfBorrow.begin();
+  return it_historyOfBorrow;
+}
+
+void userLendHistory::borrowPublication(BorrowedPublications publication){
   BorrPublicationsPtr borrPub = make_shared<BorrowedPublications>(publication);
   historyOfBorrow.push_back(borrPub);
 //  Statistic
@@ -18,16 +23,13 @@ void userLendHistory::borrowPub(BorrowedPublications publication){
   currentlyBorrowed++;
 };
 
-//void userLendHistory::returnPublication(BorrowedPublications publication){
-//  for()
-//
-//
-//  currentlyBorrowed--;
-//  returedNumb++;
-//};
+void userLendHistory::returnPublication(){
+  currentlyBorrowed--;
+  returedNumb++;
+};
 
 string userLendHistory::getHistory(){
-  string info = to_string(allBorrNumb) + "; " + to_string(allBorrNumb) + "; " + to_string(allBorrNumb);
+  string info = to_string(allBorrNumb) + "; " + to_string(currentlyBorrowed) + "; " + to_string(returedNumb);
   for(int i = 0; i < historyOfBorrow.size(); ++i) {
     info.append('\n' + historyOfBorrow.at(i)->bookToString());
   }

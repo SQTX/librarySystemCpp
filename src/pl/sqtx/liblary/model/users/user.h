@@ -37,6 +37,8 @@ public:
 
   void setPesel(const std::string &pesel);
 
+  const userLendHistory &getUserHistory() const;
+
 //  Equals
   bool operator==(const User &rhs) const;
 
@@ -44,9 +46,12 @@ public:
 
 //  Method
   void lendPublication(BorrowedPublications borrPub);
+  void returnPublication();
   std::string toString();
   std::string toSave();
-  std::string getHistoryOfUser();
+  std::string getStringHistoryOfUser();
+
+
 };
 
 #endif //LIBRARYSYSTEM_USER_H

@@ -24,6 +24,8 @@ private:
   int findUser(libraryUser *libraryUser);
 
   int findPublication(library *library);
+
+  int findBorrowedPublication(userLendHistory *history, std::string time);
 public:
   void borrowPublication(library *library, libraryUser *libraryUser);
 

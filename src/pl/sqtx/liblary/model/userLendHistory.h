@@ -17,11 +17,12 @@ private:
   unsigned int currentlyBorrowed = 0;
   unsigned int returedNumb = 0;
 public:
-  const std::vector<BorrPublicationsPtr> &getBorrowedPub() const;
+  const std::vector<BorrPublicationsPtr> &getHistoryOfUser() const;
+  std::vector<BorrPublicationsPtr>::iterator getIteratorHistoryOfUser();
 
-  void borrowPub(BorrowedPublications publication);
+  void borrowPublication(BorrowedPublications publication);
 
-//  void returnPub(BorrPublicationsPtr publication);
+  void returnPublication();
 
   std::string getHistory();
 };

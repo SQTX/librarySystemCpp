@@ -70,5 +70,5 @@ void consolePrinter::printUsers(vector<User> &users) {
 }
 
 void consolePrinter::printUsersHistory(vector<User>::iterator it_user){
-  printLine(it_user->getHistoryOfUser());
+  printLine(it_user->getStringHistoryOfUser());
 }

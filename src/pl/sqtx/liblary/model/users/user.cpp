@@ -41,6 +41,10 @@ void User::setPesel(const string &pesel) {
   User::pesel = pesel;
 }
 
+const userLendHistory &User::getUserHistory() const {
+  return userHistory;
+}
+
 //Equals
 bool User::operator==(const User &rhs) const {
   return firstName == rhs.firstName &&
@@ -54,7 +58,11 @@ bool User::operator!=(const User &rhs) const {
 
 //Borrow methods
 void User::lendPublication(BorrowedPublications borrPub){
-  userHistory.borrowPub(borrPub);
+  userHistory.borrowPublication(borrPub);
+}
+
+void User::returnPublication(){
+  userHistory.returnPublication();
 }
 
 //To.. methods
@@ -65,6 +73,6 @@ string User::toSave() {
   return firstName + ";" + lastName + ";" + pesel;
 }
 
-string User::getHistoryOfUser(){
+string User::getStringHistoryOfUser(){
   return userHistory.getHistory();
 }
