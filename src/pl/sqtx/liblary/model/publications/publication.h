@@ -13,37 +13,44 @@ protected:
   std::string title;
   int releaseDate;
   std::string publisher;
-  int numberOf;
+//  Loan System
+  std::string dateOfLoan;
+  std::string dateOfReturn;
+  bool isLoan;
 
 public:
 //  Constructor  ---------------------------------------------------------------------
   Publication(const std::string &title, int releaseDate, const std::string &publisher);
-
 //  Destructor  ---------------------------------------------------------------------
   virtual ~Publication();
-
 //  Getter and Setter  ---------------------------------------------------------------------
   std::string getTitle() const;
-
   void setTitle(const std::string &title);
 
   int getReleaseDate() const;
-
   void setReleaseDate(int releaseDate);
 
   std::string getPublisher() const;
-
   void setPublisher(const std::string &publisher);
 
-  int getNumberOf() const;
+//  Loan System ********************************************
+  std::string getDateOfLoan() const;
+  void setDateOfLoan(const std::string &dateOfLoan);
 
-  void setNumberOf(int numberOf);
+  std::string getDateOfReturn() const;
+  void setDateOfReturn(const std::string &dateOfReturn);
+
+  bool getIsLoan() const;
+  void setIsLoan(bool borrStatus);
 
 //  Equals  ---------------------------------------------------------------------
   bool operator==(const Publication &rhs) const;
   bool operator!=(const Publication &rhs) const;
 
 //  Methods   ---------------------------------------------------------------------
+  std::string loanStatusToString();
+  std::string loanStatusToSave();
+
 //Virtual method
   virtual std::string toString();
   virtual std::string toSave();

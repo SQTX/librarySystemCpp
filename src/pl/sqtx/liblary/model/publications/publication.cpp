@@ -11,17 +11,19 @@ Publication::Publication(const string &title, int releaseDate, const string &pub
   this->title = title;
   this->releaseDate = releaseDate;
   this->publisher = publisher;
-  this->numberOf = 1;
+//  Loan System
+  this->dateOfLoan = "";
+  this->dateOfReturn = "";
+  this->isLoan = false;
 }
 
-//  Destructor  ---------------------------------------------------------------------
+//Destructor  ---------------------------------------------------------------------
 Publication::~Publication() {}
 
-//  Getter and Setter  ---------------------------------------------------------------------
+//Getter and Setter  ---------------------------------------------------------------------
 string Publication::getTitle() const {
   return title;
 }
-
 void Publication::setTitle(const string &title) {
   Publication::title = title;
 }
@@ -29,7 +31,6 @@ void Publication::setTitle(const string &title) {
 int Publication::getReleaseDate() const {
   return releaseDate;
 }
-
 void Publication::setReleaseDate(int releaseDate) {
   Publication::releaseDate = releaseDate;
 }
@@ -37,33 +38,53 @@ void Publication::setReleaseDate(int releaseDate) {
 string Publication::getPublisher() const {
   return publisher;
 }
-
 void Publication::setPublisher(const string &publisher) {
   Publication::publisher = publisher;
 }
 
-int Publication::getNumberOf() const {
-  return numberOf;
+//  Loan System ********************************************
+string Publication::getDateOfLoan() const {
+  return dateOfLoan;
+}
+void Publication::setDateOfLoan(const string &dateOfLoan) {
+  Publication::dateOfLoan = dateOfLoan;
 }
 
-void Publication::setNumberOf(int numberOf) {
-  Publication::numberOf = numberOf;
-};
+string Publication::getDateOfReturn() const {
+  return dateOfReturn;
+}
+void Publication::setDateOfReturn(const string &dateOfReturn) {
+  Publication::dateOfReturn = dateOfReturn;
+}
 
-//  Equals  ---------------------------------------------------------------------
+bool Publication::getIsLoan() const {
+  return isLoan;
+}
+void Publication::setIsLoan(bool borrStatus) {
+  Publication::isLoan = borrStatus;
+}
+
+//Equals  ---------------------------------------------------------------------
 bool Publication::operator==(const Publication &rhs) const {
   return title == rhs.title &&
          releaseDate == rhs.releaseDate &&
          publisher == rhs.publisher;
-//         publisher == rhs.publisher &&
-//         numberOf == rhs.numberOf;
 }
 
 bool Publication::operator!=(const Publication &rhs) const {
   return !(rhs == *this);
 }
 
-//  Methods   ---------------------------------------------------------------------
-//Virtual method
+//Other methods   ---------------------------------------------------------------------
+string loanStatusToString(){
+  string info;
+  info.append()
+  = borrPublication->getTitle() + ";" + (dynamic_cast<Book *>(borrPublication.get())->getAuthor()) + ";" +
+                dateOfLoan + ";" + to_string(borrStatus) + ";" + dateOfReturn;
+  return info;
+}
+string loanStatusToSave();
+
+//Virtual methods:
 string Publication::toString(){};
 string Publication::toSave(){}

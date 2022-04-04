@@ -20,36 +20,33 @@ private:
   userLendHistory userHistory;
 
 public:
-//  Constructor  ---------------------------------------------------------------------
+//  Constructor ---------------------------------------------------------------------
   User(const std::string &firstName, const std::string &lastName, const std::string &pesel);
 //  Destructor  ---------------------------------------------------------------------
   virtual ~User();
-//  Getter and setter
+//  Getter and setter ---------------------------------------------------------------------
   const std::string &getFirstName() const;
-
   void setFirstName(const std::string &firstName);
 
   const std::string &getLastName() const;
-
   void setLastName(const std::string &lastName);
 
   const std::string &getPesel() const;
-
   void setPesel(const std::string &pesel);
 
   const userLendHistory &getUserHistory() const;
 
-//  Equals
+//  Equals ---------------------------------------------------------------------
   bool operator==(const User &rhs) const;
 
   bool operator!=(const User &rhs) const;
 
-//  Method
+//  Method ---------------------------------------------------------------------
   void lendPublication(BorrowedPublications borrPub);
   void returnPublication();
   std::string toString();
   std::string toSave();
-  std::string getStringHistoryOfUser();
+  std::string getHistoryText();
 
 
 };
