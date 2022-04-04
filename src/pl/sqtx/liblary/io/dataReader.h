@@ -5,30 +5,34 @@
 #ifndef LIBRARYSYSTEM_DATAREADER_H
 #define LIBRARYSYSTEM_DATAREADER_H
 
-/*Headers*/
 #include "../include/main_h.h"
 #include "../include/consolePriner_h.h"
 #include "../include/publicationType_h.h"
-#include "../model/users/user.h"
+#include "../model/users/Person.h"
+#include "../model/users/User.h"
 
 class dataReader {
+private:
   consolePrinter cslPrinter;
 public:
-  //  Get int-type number from user
+//  Get from user ****************************************************
+//  Get int num
   int getInt();
-
+//  Get char
   char getChar();
-
+//  Get all line of text
   std::string getTextLine();
 
+//  For publications *************************************************
 //  Get informations about new book and create it
   Book readAndCreateBook();
-
-  //  Get informations about new magazine and create it
+//  Get informations about new magazine and create it
   Magazine readAndCreateMagazine();
 
-//  User functions
-//  Get informations about new user and create it
+// For person ******************************************************
+// Get informations about new person and create it
+  Person readAndCreatePerson();
+//  Create new user
   User readAndCreateUser();
 };
 

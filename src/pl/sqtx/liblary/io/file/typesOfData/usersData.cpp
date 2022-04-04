@@ -36,9 +36,9 @@ bool usersData::importUsers(libraryUser *libraryUser, const char MAX_CHAR, fstre
 
 //        Checking types
         string type(c_type);
-//        User ----------------------------------
-        if (type == "User") {
-//          Save standard: User;FirstName;LastName;Pesel
+//        Person ----------------------------------
+        if (type == "Person") {
+//          Save standard: Person;FirstName;LastName;Pesel
 
 //          Get data from file and create new obejct of them
           char c_firstName[MAX_CHAR];
@@ -57,7 +57,7 @@ bool usersData::importUsers(libraryUser *libraryUser, const char MAX_CHAR, fstre
           dataFile->ignore(1);
 
 //          Create object and add it to libraryUser vector
-          User user(firstName, lastName, pesel);
+          Person user(firstName, lastName, pesel);
           libraryUser->addUser(user);
 
 //        Noname type ----------------------------------
@@ -106,7 +106,7 @@ bool usersData::exportUsers(libraryUser *libraryUser, const char MAX_CHAR, fstre
       *dataFile << "\n[Users]\n";  //Set sepparator
 
 //      Get data from libraryUser.cpp
-      vector<User> users = libraryUser->getUsers(); //Get vector
+      vector<User> users = libraryUser->getUsersVector(); //Get vector
       int usersNum = users.size();  //Get database size
 
 //      Lets export
@@ -119,7 +119,7 @@ bool usersData::exportUsers(libraryUser *libraryUser, const char MAX_CHAR, fstre
 
         for (int i = 0; i < usersNum; i++) {
           string saveLine;
-          saveLine = "\nUser;";
+          saveLine = "\nPerson;";
           saveLine.append(users[i].toSave());
           *dataFile << saveLine; //Export data
         }

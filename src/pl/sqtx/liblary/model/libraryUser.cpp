@@ -6,15 +6,18 @@
 
 using namespace std;
 
-const std::vector<User> &libraryUser::getUsers() const {
+//Get vector
+const std::vector<User> &libraryUser::getUsersVector() const {
   return users;
 }
 
+//Get iterator
 std::vector<User>::iterator &libraryUser::getIteratorUsers(){
   vector<User>::iterator it_users = users.begin();
   return it_users;
 }
 
+//Add new user to base
 void libraryUser::addUser(User user){
   if (usersNumber >= maxUsers) {
     throw out_of_range("Przekroczono dozwolony limit uzytkownikow w bazie.");
@@ -22,4 +25,4 @@ void libraryUser::addUser(User user){
     users.push_back(user);
     usersNumber++;
   }
-};
+}

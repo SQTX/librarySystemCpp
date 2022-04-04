@@ -8,7 +8,7 @@ using namespace std;
 
 //  Main method
 void libraryControl::controlLoop() {
-  srlFileManager.importData(&library, &libraryUser);  //Import data
+//  srlFileManager.importData(&library, &libraryUser);  //Import data
   options::Option option;
   int choice;
   do {
@@ -168,24 +168,24 @@ void libraryControl::addUser() {
 }
 
 void libraryControl::printUsers() {
-  vector<User> users = libraryUser.getUsers();
+  vector<User> users = libraryUser.getUsersVector();
   cslPrinter.printUsers(users);
 }
 
 void libraryControl::borrowPublication() {
-  borrowEngine.borrowPublication(&library, &libraryUser);
+//  borrowEngine.borrowPublication(&library, &libraryUser);
 }
 
 void libraryControl::returnPublication() {
-  borrowEngine.returnPublication(&library, &libraryUser);
+//  borrowEngine.returnPublication(&library, &libraryUser);
 }
 
 void libraryControl::historyOfUser() {
-  borrowEngine.printUserHistory(&libraryUser);
+//  borrowEngine.printUserHistory(&libraryUser);
 }
 
 void libraryControl::exit() {
-  srlFileManager.exportData(&library, &libraryUser);
+//  srlFileManager.exportData(&library, &libraryUser);
   cslPrinter.printLine("Koniec programu.");
 }
 

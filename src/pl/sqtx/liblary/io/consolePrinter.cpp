@@ -1,7 +1,6 @@
 //
 // Created by Jakub Sitarczyk on 03/01/2022.
 //
-
 #include "consolePrinter.h"
 
 using namespace std;
@@ -53,22 +52,11 @@ void consolePrinter::printMagazines(vector<PublicationPtr> &publications) {
 
 void consolePrinter::printUsers(vector<User> &users) {
   int countBooks = 0;
-//  vector<PublicationPtr> sortedPublications;
   for (int i = 0; i < users.size(); i++) {
     printLine(users[i].toString());
     countBooks++;
   }
-/*//    Sort
-  sort.getSort(sortedPublications);
-//    Print
-  for (auto &publication: sortedPublications)
-    cout << publication->bookToString() << endl;*/
-
   if (countBooks == 0) {
     printLine("Brak uzytkownikow w bazie.");
   }
-}
-
-void consolePrinter::printUsersHistory(vector<User>::iterator it_user){
-  printLine(it_user->getStringHistoryOfUser());
 }

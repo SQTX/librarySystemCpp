@@ -29,14 +29,13 @@ add_executable(librarySystem
 #        model
         ${standardPath}/model/library.cpp
         ${standardPath}/model/libraryUser.cpp
-        ${standardPath}/model/userLendHistory.cpp
-        ${standardPath}/model/borrowedPublications.cpp
 #            publications
             ${standardPath}/model/publications/publication.cpp
             ${standardPath}/model/publications/book.cpp
             ${standardPath}/model/publications/magazine.cpp
 #            users
-            ${standardPath}/model/users/user.cpp
+            ${standardPath}/model/users/Person.cpp
+            ${standardPath}/model/users/User.cpp
 #           sortData
             ${standardPath}/model/sortData/sortByTitle.cpp
             ${standardPath}/model/sortData/sortByDate.cpp

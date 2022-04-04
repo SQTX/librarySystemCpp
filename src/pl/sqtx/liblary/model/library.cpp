@@ -62,8 +62,8 @@ void library::checkIsItExistsAdd(PublicationPtr publication) {
     bool isItExists = false;
     for (auto &element: publications) {
       if (*(publication.get()) == *(element.get())) {
-        int indexOfPublication = element->getNumberOf();
-        element->setNumberOf(++indexOfPublication);
+//        int indexOfPublication = element->getNumberOf();
+//        element->setNumberOf(++indexOfPublication);
         publicationsNumber++;
         isItExists = true;
         break;
@@ -82,14 +82,14 @@ void library::checkIsItExistsRemove(PublicationPtr publication) {
  * wartości -1, tak bedziemy odróżniać publikację wyporzyczoną od usuniętej bo może być 0 dostępnych a w systemie dalej będą.*/
   for (int index = 0; index < publications.size(); index++) {
     if (*(publication.get()) == *(publications[index].get())) {
-      int indexOfPublication = publications[index]->getNumberOf();
-      if(indexOfPublication > 1) {
-        publications[index]->setNumberOf(--indexOfPublication);
+//      int indexOfPublication = publications[index]->getNumberOf();
+//      if(indexOfPublication > 1) {
+//        publications[index]->setNumberOf(--indexOfPublication);
         publicationsNumber--;
-      } else if(indexOfPublication == 1){
+//      } else if(indexOfPublication == 1){
         publications.erase((publications.begin() + index));
         publicationsNumber--;
-      }
+//      }
     }
   }
 }

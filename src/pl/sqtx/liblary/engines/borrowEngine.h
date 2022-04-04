@@ -9,8 +9,7 @@
 #include "../include/consolePriner_h.h"
 #include "../io/dataReader.h"
 #include "../include/publicationType_h.h"
-#include "../model/BorrowedPublications.h"
-#include "../model/users/user.h"
+#include "../model/users/Person.h"
 #include "../model/library.h"
 #include "../model/libraryUser.h"
 
@@ -25,7 +24,7 @@ private:
 
   int findPublication(library *library);
 
-  int findBorrowedPublication(userLendHistory *history, std::string time);
+  int findBorrowedPublication(User *history, std::string time);
 public:
   void borrowPublication(library *library, libraryUser *libraryUser);
 

@@ -58,13 +58,13 @@ bool Magazine::operator!=(const Magazine &rhs) const {
 //  Create string-line with the information about Book object
 string Magazine::toString() { //Printer
   string info = getTitle() + "; " + to_string(day) + "; " + to_string(month) + "; " + to_string(getReleaseDate()) + "; "
-                + language + "; " + getPublisher() + "; " + to_string(getNumberOf());
+                + language + "; " + getPublisher();
   return info;
 }
 
 //  Create string-line with the information arranged for data export
 string Magazine::toSave() { //Printer
   string info = getTitle() + ";" + to_string(day) + ";" + to_string(month) + ";" + to_string(getReleaseDate()) +
-                ";" + language + ";" + getPublisher() + ";" + to_string(getNumberOf());
+                ";" + language + ";" + getPublisher();
   return info;
 }

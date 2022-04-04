@@ -16,29 +16,29 @@ string getTimeAndDate() {
   timeNdate.append(clock.getTime());
   return timeNdate;
 }
-#include "iostream"
+
 int borrowEngine::findUser(libraryUser *libraryUser) {
-//  Create wanted user
+/*//  Create wanted user
   cslPrinter.printLine("Podaj dane uzytkownika");
-  User wanted = dataReader.readAndCreateUser();
+  Person wanted = dataReader.readAndCreateUser();
 
 //  Searching
-  vector<User>::iterator it_wantedUser = libraryUser->getIteratorUsers();
+  vector<Person>::iterator it_wantedUser = libraryUser->getIteratorUsers();
 
   cout << wanted.getFirstName() << endl;
   cout << wanted.getLastName() << endl;
   cout << wanted.getPesel() << endl;
-  for (int i = 0; i < libraryUser->getUsers().size(); i++) {
+  for (int i = 0; i < libraryUser->getUsersVector().size(); i++) {
     if (wanted.getFirstName() == (it_wantedUser + i)->getFirstName() &&
       wanted.getLastName() == (it_wantedUser + i)->getPesel() &&
       wanted.getPesel() == (it_wantedUser + i)->getPesel()) return i;
   }
   return -1;
-  //TODO błąd: podany użytkownik nie istnieje w bazie danych
+  //TODO błąd: podany użytkownik nie istnieje w bazie danych*/
 }
 //------------------------------------------------------------------------------------------------------------------
 int borrowEngine::findPublication(library *library) {
-  vector<PublicationPtr>::iterator it_publications = library->getIteratorPublications();
+  /*vector<PublicationPtr>::iterator it_publications = library->getIteratorPublications();
 
   //  Choose wanted type and get data
   cslPrinter.printLine("Wybierz typ publikacji:\n[K] - Ksiazka\n[G] - Gazeta");
@@ -92,11 +92,11 @@ int borrowEngine::findPublication(library *library) {
       cslPrinter.printLine("Podany przez ciebie typ publikacji nie istnieje.");
       return -1;
       break;
-  };
+  };*/
 };
 
-int borrowEngine::findBorrowedPublication(userLendHistory *history, string time) {
-  vector<BorrPublicationsPtr>::iterator it_userLendHistory = history->getIteratorHistoryOfUser();
+int borrowEngine::findBorrowedPublication(User *history, string time) {
+ /* vector<BorrPublicationsPtr>::iterator it_userLendHistory = history->getIteratorHistoryOfUser();
 
   //  Choose wanted type and get data
   cslPrinter.printLine("Wybierz typ publikacji:\n[K] - Ksiazka\n[G] - Gazeta");
@@ -155,18 +155,18 @@ int borrowEngine::findBorrowedPublication(userLendHistory *history, string time)
       cslPrinter.printLine("Podany przez ciebie typ publikacji nie istnieje.");
       return -1;
       break;
-  };
+  };*/
 };
 
 //#include <iostream>
 //Lend ****************************************************************************************************************
 void borrowEngine::borrowPublication(library *library, libraryUser *libraryUser) {
-//  Get actual time
+/*//  Get actual time
   string time = getTimeAndDate();
 
 //  Search user
   const int indexOfUser = findUser(libraryUser);
-  vector<User>::iterator it_user = libraryUser->getIteratorUsers();
+  vector<Person>::iterator it_user = libraryUser->getIteratorUsers();
 //  Search Publication
   const int indexOfPublication = findPublication(library);
   vector<PublicationPtr>::iterator it_publications = library->getIteratorPublications();
@@ -178,19 +178,19 @@ void borrowEngine::borrowPublication(library *library, libraryUser *libraryUser)
   (it_publications + indexOfPublication)->get()->setNumberOf((it_publications + indexOfPublication)->get()->getNumberOf() - 1);
 
 //  Message
-  cslPrinter.printLine("Wybrana publikacja zostala wypozyczona");
+  cslPrinter.printLine("Wybrana publikacja zostala wypozyczona");*/
 };
 
 //RETURN **************************************************************************************************************
 void borrowEngine::returnPublication(library *library, libraryUser *libraryUser) {
-//  Get actual time
+/*//  Get actual time
   string time = getTimeAndDate();
 
 //  Search user
   const int indexOfUser = findUser(libraryUser);
-  vector<User>::iterator it_user = libraryUser->getIteratorUsers();
+  vector<Person>::iterator it_user = libraryUser->getIteratorUsers();
 //  Get user history
-  userLendHistory userHistory = (it_user + indexOfUser)->getUserHistory();
+  User userHistory = (it_user + indexOfUser)->getUserHistory();
 //  Search Borrowed Publication
   const int returnOkey = findBorrowedPublication(&userHistory, time);
 //  Change statistic
@@ -199,11 +199,11 @@ void borrowEngine::returnPublication(library *library, libraryUser *libraryUser)
 //  Message
   if(returnOkey){
     cslPrinter.printLine("Wybrana publikacja zostala zwrocona");
-  }
+  }*/
 }
 
 void borrowEngine::printUserHistory(libraryUser *libraryUser){
-  const int indexOfUser = findUser(libraryUser);
-  vector<User>::iterator it_user = libraryUser->getIteratorUsers();
-  cslPrinter.printUsersHistory((it_user + indexOfUser));
+/*  const int indexOfUser = findUser(libraryUser);
+  vector<Person>::iterator it_user = libraryUser->getIteratorUsers();
+  cslPrinter.printUsersHistory((it_user + indexOfUser));*/
 }

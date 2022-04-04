@@ -5,7 +5,6 @@
 #ifndef LIBRARYSYSTEM_LIBRARYCONTROL_H
 #define LIBRARYSYSTEM_LIBRARYCONTROL_H
 
-//Headers
 #include "../include/main_h.h"
 #include "../engines/borrowEngine.h"
 #include "../io/dataReader.h"
@@ -14,7 +13,8 @@
 #include "../include/exception_h.h"
 #include "../model/publications/publication.h"
 #include "../include/publicationType_h.h"
-#include "../model/users/user.h"
+#include "../model/users/Person.h"
+#include "../model/users/User.h"
 #include "../model/libraryUser.h"
 #include "../io/file/serializableFileManager.h"  //Import/Export data
 

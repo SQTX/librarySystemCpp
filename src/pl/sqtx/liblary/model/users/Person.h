@@ -2,28 +2,22 @@
 // Created by Jakub Sitarczyk on 15/03/2022.
 //
 
-#ifndef LIBRARYSYSTEM_USER_H
-#define LIBRARYSYSTEM_USER_H
+#ifndef LIBRARYSYSTEM_PERSON_H
+#define LIBRARYSYSTEM_PERSON_H
 
 #include "../../include/main_h.h"
-#include "../userLendHistory.h"
-#include "../BorrowedPublications.h"
 
-typedef std::shared_ptr<BorrowedPublications> BorrPublicationsPtr;
-typedef std::shared_ptr<Publication> PublicationPtr;
-
-class User{
+class Person{
 private:
   std::string firstName;
   std::string lastName;
   std::string pesel;
-  userLendHistory userHistory;
 
 public:
 //  Constructor ---------------------------------------------------------------------
-  User(const std::string &firstName, const std::string &lastName, const std::string &pesel);
+  Person(const std::string &firstName, const std::string &lastName, const std::string &pesel);
 //  Destructor  ---------------------------------------------------------------------
-  virtual ~User();
+  virtual ~Person();
 //  Getter and setter ---------------------------------------------------------------------
   const std::string &getFirstName() const;
   void setFirstName(const std::string &firstName);
@@ -34,21 +28,13 @@ public:
   const std::string &getPesel() const;
   void setPesel(const std::string &pesel);
 
-  const userLendHistory &getUserHistory() const;
-
 //  Equals ---------------------------------------------------------------------
-  bool operator==(const User &rhs) const;
-
-  bool operator!=(const User &rhs) const;
+  bool operator==(const Person &rhs) const;
+  bool operator!=(const Person &rhs) const;
 
 //  Method ---------------------------------------------------------------------
-  void lendPublication(BorrowedPublications borrPub);
-  void returnPublication();
   std::string toString();
   std::string toSave();
-  std::string getHistoryText();
-
-
 };
 
-#endif //LIBRARYSYSTEM_USER_H
+#endif //LIBRARYSYSTEM_PERSON_H

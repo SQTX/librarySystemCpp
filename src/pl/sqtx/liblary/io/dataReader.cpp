@@ -1,7 +1,6 @@
 //
 // Created by Jakub Sitarczyk on 09/12/2021.
 //
-
 #include "dataReader.h"
 
 using namespace std;
@@ -19,7 +18,6 @@ int dataReader::getInt() {
     throw invalid_argument("Podana wartosc nie jest liczba");
   }
 }
-
 char dataReader::getChar() {
   char ch = ' ';
   cin >> ch;
@@ -34,7 +32,6 @@ char dataReader::getChar() {
     throw invalid_argument("Podana wartosc nie jest pojedynczym znakiem");
   }
 }
-
 string dataReader::getTextLine() {
   string txt = "";
   getline(cin, txt);
@@ -49,7 +46,7 @@ string dataReader::getTextLine() {
   }
 }
 
-//  Get informations about new book and create it
+//For publications ******************************************************
 Book dataReader::readAndCreateBook() {
   cslPrinter.printLine("Tytul: ");
   string title;
@@ -73,8 +70,6 @@ Book dataReader::readAndCreateBook() {
   pages = getInt();
   return Book(title, author, releaseDate, pages, publisher, isbn);
 }
-
-//  Get informations about new magazine and create it
 Magazine dataReader::readAndCreateMagazine() {
   cslPrinter.printLine("Tytul: ");
   string title;
@@ -100,9 +95,8 @@ Magazine dataReader::readAndCreateMagazine() {
   return Magazine(title, day, month, releaseDate, language, publisher);
 }
 
-//  User functions
-//  Get informations about new user and create it
-User dataReader::readAndCreateUser(){
+//For person ******************************************************
+Person dataReader::readAndCreatePerson(){
   cslPrinter.printLine("Imię: ");
   cin.ignore(1);
   string firstName;
@@ -122,5 +116,8 @@ User dataReader::readAndCreateUser(){
     throw invalid_argument("Podana wartosc nie jest liczba");
   }
   cin.clear();
-  return User(firstName, lastName, pesel);
-};
+  return Person(firstName, lastName, pesel);
+}
+User dataReader::readAndCreateUser() {
+  return User(readAndCreatePerson());
+}

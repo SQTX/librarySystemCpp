@@ -2,77 +2,60 @@
 // Created by Jakub Sitarczyk on 15/03/2022.
 //
 
-#include "user.h"
+#include "Person.h"
 
 using namespace std;
 
 //Constructor
-User::User(const string &firstName, const string &lastName, const string &pesel) {
+Person::Person(const string &firstName, const string &lastName, const string &pesel) {
   this->firstName = firstName;
   this->lastName = lastName;
   this->pesel = pesel;
 }
 
 //Destructor
-User::~User() {}
+Person::~Person() {}
 
 //Getters and setters
-const string &User::getFirstName() const {
+const string &Person::getFirstName() const {
   return firstName;
 }
 
-void User::setFirstName(const string &firstName) {
-  User::firstName = firstName;
+void Person::setFirstName(const string &firstName) {
+  Person::firstName = firstName;
 }
 
-const string &User::getLastName() const {
+const string &Person::getLastName() const {
   return lastName;
 }
 
-void User::setLastName(const std::string &lastName) {
-  User::lastName = lastName;
+void Person::setLastName(const std::string &lastName) {
+  Person::lastName = lastName;
 }
 
-const std::string &User::getPesel() const {
+const std::string &Person::getPesel() const {
   return pesel;
 }
 
-void User::setPesel(const string &pesel) {
-  User::pesel = pesel;
-}
-
-const userLendHistory &User::getUserHistory() const {
-  return userHistory;
+void Person::setPesel(const string &pesel) {
+  Person::pesel = pesel;
 }
 
 //Equals
-bool User::operator==(const User &rhs) const {
+bool Person::operator==(const Person &rhs) const {
   return firstName == rhs.firstName &&
          lastName == rhs.lastName &&
          pesel == rhs.pesel;
 }
-
-bool User::operator!=(const User &rhs) const {
+bool Person::operator!=(const Person &rhs) const {
   return !(rhs == *this);
 }
 
-//Borrow methods
-void User::lendPublication(BorrowedPublications borrPub){
-  userHistory.borrowPublication(borrPub);
-}
-
-void User::returnPublication(){
-  userHistory.returnPublication();
-}
-
-//To.. methods
-string User::toString() {
+//Other methods
+string Person::toString() {
   return firstName + "; " + lastName + "; " + pesel;
 }
-string User::toSave() {
-  return firstName + ";" + lastName + ";" + pesel;
-}
 
-string User::getStringHistoryOfUser(){
-  return userHistory.getHistory();
+string Person::toSave() {
+  return firstName + ";" + lastName + ";" + pesel;
 }
