@@ -13,9 +13,6 @@ protected:
   std::string title;
   int releaseDate;
   std::string publisher;
-//  Loan System
-  std::string dateOfLoan;
-  std::string dateOfReturn;
   bool isLoan;
 
 public:
@@ -33,13 +30,6 @@ public:
   std::string getPublisher() const;
   void setPublisher(const std::string &publisher);
 
-//  Loan System ********************************************
-  std::string getDateOfLoan() const;
-  void setDateOfLoan(const std::string &dateOfLoan);
-
-  std::string getDateOfReturn() const;
-  void setDateOfReturn(const std::string &dateOfReturn);
-
   bool getIsLoan() const;
   void setIsLoan(bool borrStatus);
 
@@ -48,9 +38,6 @@ public:
   bool operator!=(const Publication &rhs) const;
 
 //  Methods   ---------------------------------------------------------------------
-  std::string loanStatusToString();
-  std::string loanStatusToSave();
-
 //Virtual method
   virtual std::string toString();
   virtual std::string toSave();

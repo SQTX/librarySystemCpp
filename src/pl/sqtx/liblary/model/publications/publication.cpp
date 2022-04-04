@@ -11,9 +11,6 @@ Publication::Publication(const string &title, int releaseDate, const string &pub
   this->title = title;
   this->releaseDate = releaseDate;
   this->publisher = publisher;
-//  Loan System
-  this->dateOfLoan = "";
-  this->dateOfReturn = "";
   this->isLoan = false;
 }
 
@@ -42,21 +39,6 @@ void Publication::setPublisher(const string &publisher) {
   Publication::publisher = publisher;
 }
 
-//  Loan System ********************************************
-string Publication::getDateOfLoan() const {
-  return dateOfLoan;
-}
-void Publication::setDateOfLoan(const string &dateOfLoan) {
-  Publication::dateOfLoan = dateOfLoan;
-}
-
-string Publication::getDateOfReturn() const {
-  return dateOfReturn;
-}
-void Publication::setDateOfReturn(const string &dateOfReturn) {
-  Publication::dateOfReturn = dateOfReturn;
-}
-
 bool Publication::getIsLoan() const {
   return isLoan;
 }
@@ -76,15 +58,7 @@ bool Publication::operator!=(const Publication &rhs) const {
 }
 
 //Other methods   ---------------------------------------------------------------------
-string loanStatusToString(){
-  string info;
-  info.append()
-  = borrPublication->getTitle() + ";" + (dynamic_cast<Book *>(borrPublication.get())->getAuthor()) + ";" +
-                dateOfLoan + ";" + to_string(borrStatus) + ";" + dateOfReturn;
-  return info;
-}
-string loanStatusToSave();
-
 //Virtual methods:
+//TODO last: Dd sprawdzenia
 string Publication::toString(){};
 string Publication::toSave(){}
