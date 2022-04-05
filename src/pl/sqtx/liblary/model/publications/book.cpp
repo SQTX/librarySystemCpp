@@ -21,7 +21,6 @@ Book::~Book() {}
 const string &Book::getAuthor() const {
   return author;
 }
-
 void Book::setAuthor(const string &author) {
   Book::author = author;
 }
@@ -29,7 +28,6 @@ void Book::setAuthor(const string &author) {
 int Book::getPages() const {
   return pages;
 }
-
 void Book::setPages(int pages) {
   Book::pages = pages;
 }
@@ -37,7 +35,6 @@ void Book::setPages(int pages) {
 const string &Book::getIsbn() const {
   return isbn;
 }
-
 void Book::setIsbn(const string &isbn) {
   Book::isbn = isbn;
 }
@@ -58,19 +55,16 @@ bool Book::operator!=(const Book &rhs) const {
 //  Create string-line with the information about Book object
 string Book::toString() {
   string info = getTitle() + "; " + author + "; " + to_string(getReleaseDate()) + "; " + to_string(pages) +
-                "; " + getPublisher();
-  if (isbn != "") {
-    info.append("; " + isbn);
-  }
+                "; " + getPublisher() + "; " + isbn + "; ";
+  getIsLoan() ? info.append("niedostepna") : info.append("dostepna");
   return info;
 }
 
 //  Create string-line with the information arranged for data export
 string Book::toSave() {
   string info = getTitle() + ";" + author + ";" + to_string(getReleaseDate()) + ";" + to_string(pages) +
-                ";" + getPublisher();
-  if (isbn != "") {
-    info.append(";" + isbn);
-  }
+                ";" + getPublisher() + ";" + isbn + ";" + to_string(getIsLoan() ? 0 : 1) + ";";
+  if(isLoan) info.append(currentlyOwns);
+  else info.append("0");
   return info;
 }

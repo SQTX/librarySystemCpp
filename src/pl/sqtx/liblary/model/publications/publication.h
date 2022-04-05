@@ -14,6 +14,7 @@ protected:
   int releaseDate;
   std::string publisher;
   bool isLoan;
+  std::string currentlyOwns;
 
 public:
 //  Constructor  ---------------------------------------------------------------------
@@ -32,6 +33,10 @@ public:
 
   bool getIsLoan() const;
   void setIsLoan(bool borrStatus);
+
+  const std::string &getCurrentlyOwns() const;
+
+  void setCurrentlyOwns(const std::string &currentlyOwns);
 
 //  Equals  ---------------------------------------------------------------------
   bool operator==(const Publication &rhs) const;

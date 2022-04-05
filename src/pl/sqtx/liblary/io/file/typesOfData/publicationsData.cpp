@@ -1,7 +1,6 @@
 //
 // Created by Jakub Sitarczyk on 17/03/2022.
 //
-
 #include "publicationsData.h"
 
 using namespace std;
@@ -38,7 +37,7 @@ bool publicationsData::importPublications(library *library, const char MAX_CHAR,
         string type(c_type);
 //        Book --------------------------------------------------------------------------------------------------------
         if (type == "Book") {
-//          Save standard: Book;Title;Author;ReleaseData;Pages;Publisher;ISBN;NumberOf
+//          Save standard: Book;Title;Author;ReleaseData;Pages;Publisher;ISBN;isLoan;currentlyOwner
 
 //          Get data from file and create new obejct of them
           char c_title[MAX_CHAR];
@@ -68,24 +67,35 @@ bool publicationsData::importPublications(library *library, const char MAX_CHAR,
           string publisher(c_publisher);
           dataFile->ignore(1);
 
-          int numberOf = 1;
-          char c_numberOf[MAX_CHAR];
-          dataFile->get(c_numberOf, MAX_CHAR, ';');
-          sscanf(c_numberOf, "%d", &numberOf);
-          dataFile->ignore(1);
-
           char c_isbn[MAX_CHAR];
-          dataFile->get(c_isbn, MAX_CHAR, '\n');
+          dataFile->get(c_isbn, MAX_CHAR, ';');
           string isbn(c_isbn);
           dataFile->ignore(1);
 
-          do{
-//            Create object and add it to library vector
-            Book bookObj(title, author, releaseDate, pages, publisher, isbn);
-            PublicationPtr book = make_shared<Book>(bookObj);
-            library->addBook(book);
-//            if(numberOf > 1) --publicationDataSize; //The first number in the data history represents the actual number of publications, not the number of data lines
-          } while(--numberOf);
+          bool isLoan;
+          char c_isLoan[MAX_CHAR];
+          dataFile->get(c_isLoan, MAX_CHAR, ';');
+          int flag;
+          sscanf(c_isLoan, "%d", &flag);
+          if (flag == 1) {
+            isLoan = true;
+          } else {
+            isLoan = false;
+          }
+          dataFile->ignore(1);
+
+          char c_currentlyOwner[MAX_CHAR];
+          dataFile->get(c_currentlyOwner, MAX_CHAR, '\n');
+          string currentlyOwner(c_currentlyOwner);
+          dataFile->ignore(1);
+
+//          Create object and add it to library vector
+          Book bookObj(title, author, releaseDate, pages, publisher, isbn);
+          bookObj.setIsLoan(isLoan);
+          bookObj.setCurrentlyOwns(currentlyOwner);
+          PublicationPtr book = make_shared<Book>(bookObj);
+//          book.get()->setIsLoan(isLoan);
+          library->addBook(book);
 
 //        Magazine --------------------------------------------------------------------------------------------------------
         } else if (type == "Magazine") {
@@ -125,19 +135,30 @@ bool publicationsData::importPublications(library *library, const char MAX_CHAR,
           string publisher(c_publisher);
           dataFile->ignore(1);
 
-          int numberOf = 1;
-          char c_numberOf[MAX_CHAR];
-          dataFile->get(c_numberOf, MAX_CHAR, '\n');
-          sscanf(c_numberOf, "%d", &numberOf);
+          bool isLoan;
+          char c_isLoan[MAX_CHAR];
+          dataFile->get(c_isLoan, MAX_CHAR, ';');
+          cout << c_isLoan << endl;
+          int flag;
+          sscanf(c_isLoan, "%d", &flag);
+          if (flag == 1) {
+            isLoan = true;
+          } else {
+            isLoan = false;
+          }
+          dataFile->ignore(1);
+
+          char c_currentlyOwner[MAX_CHAR];
+          dataFile->get(c_currentlyOwner, MAX_CHAR, '\n');
+          string currentlyOwner(c_currentlyOwner);
           dataFile->ignore(1);
 
 //          Create object and add it to library vector
-          do{
-            Magazine magazineObj(title, day, month, releaseDate, language, publisher);
-            PublicationPtr magazine = make_shared<Magazine>(magazineObj);
-            library->addMagazine(magazine);
-//            if(numberOf > 1) --publicationDataSize;
-          } while(--numberOf);
+          Magazine magazineObj(title, day, month, releaseDate, language, publisher);
+          magazineObj.setIsLoan(isLoan);
+          magazineObj.setCurrentlyOwns(currentlyOwner);
+          PublicationPtr magazine = make_shared<Magazine>(magazineObj);
+          library->addMagazine(magazine);
 
 //        Noname type ----------------------------------
         } else {
@@ -174,7 +195,7 @@ bool publicationsData::importPublications(library *library, const char MAX_CHAR,
 
 //Export publications function ****************************************************************************************
 bool publicationsData::exportPublications(library *library, const char MAX_CHAR,
-                                         fstream *dataFile, int *position) {
+                                          fstream *dataFile, int *position) {
   int actualPosition = *position; //Get actual position of file cursor
 
   try {

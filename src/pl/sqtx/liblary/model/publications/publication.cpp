@@ -12,6 +12,7 @@ Publication::Publication(const string &title, int releaseDate, const string &pub
   this->releaseDate = releaseDate;
   this->publisher = publisher;
   this->isLoan = false;
+  this->currentlyOwns = "";
 }
 
 //Destructor  ---------------------------------------------------------------------
@@ -44,6 +45,13 @@ bool Publication::getIsLoan() const {
 }
 void Publication::setIsLoan(bool borrStatus) {
   Publication::isLoan = borrStatus;
+}
+
+const string &Publication::getCurrentlyOwns() const {
+  return currentlyOwns;
+}
+void Publication::setCurrentlyOwns(const string &currentlyOwns) {
+  Publication::currentlyOwns = currentlyOwns;
 }
 
 //Equals  ---------------------------------------------------------------------
