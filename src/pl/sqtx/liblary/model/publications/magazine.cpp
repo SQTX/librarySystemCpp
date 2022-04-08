@@ -65,3 +65,8 @@ string Magazine::toSave() { //Printer
   else info.append("0");
   return info;
 }
+
+string Magazine::createSecondPart(){
+  string secondPart = to_string(day) + "; " + to_string(day) + "; " + to_string(getReleaseDate());
+  return secondPart;
+}

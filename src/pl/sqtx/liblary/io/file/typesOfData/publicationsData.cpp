@@ -35,6 +35,7 @@ bool publicationsData::importPublications(library *library, const char MAX_CHAR,
 
 //        Checking types
         string type(c_type);
+//        cout << type << endl;
 //        Book --------------------------------------------------------------------------------------------------------
         if (type == "Book") {
 //          Save standard: Book;Title;Author;ReleaseData;Pages;Publisher;ISBN;isLoan;currentlyOwner
@@ -138,7 +139,6 @@ bool publicationsData::importPublications(library *library, const char MAX_CHAR,
           bool isLoan;
           char c_isLoan[MAX_CHAR];
           dataFile->get(c_isLoan, MAX_CHAR, ';');
-          cout << c_isLoan << endl;
           int flag;
           sscanf(c_isLoan, "%d", &flag);
           if (flag == 1) {

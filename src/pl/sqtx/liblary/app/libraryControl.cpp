@@ -8,7 +8,7 @@ using namespace std;
 
 //  Main method
 void libraryControl::controlLoop() {
-//  srlFileManager.importData(&library, &libraryUser);  //Import data
+  srlFileManager.importData(&library, &libraryUser);  //Import data
   options::Option option;
   int choice;
   do {
@@ -173,11 +173,11 @@ void libraryControl::printUsers() {
 }
 
 void libraryControl::borrowPublication() {
-//  borrowEngine.borrowPublication(&library, &libraryUser);
+  borrowEngine.borrowPublication(&library, &libraryUser);
 }
 
 void libraryControl::returnPublication() {
-//  borrowEngine.returnPublication(&library, &libraryUser);
+  borrowEngine.returnPublication(&library, &libraryUser);
 }
 
 void libraryControl::historyOfUser() {

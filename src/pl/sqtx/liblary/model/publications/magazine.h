@@ -46,6 +46,8 @@ public:
 
 //  Create string-line with the information arranged for data export
   std::string toSave() override;
+
+  std::string createSecondPart();
 };
 
 #endif //LIBRARYSYSTEM_MAGAZINE_H

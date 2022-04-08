@@ -9,17 +9,18 @@
 #include "Person.h"
 #include "../../include/publicationType_h.h"
 #include "../../model/publications/publication.h"
+#include "../../model/publications/HistoryElement.h"
 
 typedef std::shared_ptr<Publication> PublicationPtr;
 
 class User {
 private:
   Person person;
-  std::vector<PublicationPtr> lendPublications;
-  std::vector<std::string> userHistory;
+  std::vector<PublicationPtr> borrowedPublications;
+  std::vector<HistoryElement> userHistory;
   unsigned int allLoanNumb = 0;
   unsigned int currentlyLoan = 0;
-  unsigned int returedNumb = 0;
+  unsigned int returnedNumb = 0;
 public:
 //  Constructor ---------------------------------------------------------------------------------------------------
   User(const Person &person);
@@ -35,14 +36,15 @@ public:
   unsigned int getCurrentlyLoan() const;
   void setCurrentlyLoan(unsigned int currentlyLoan);
 
-  unsigned int getReturedNumb() const;
-  void setReturedNumb(unsigned int returedNumb);
+  unsigned int getReturnedNumb() const;
+  void setReturnedNumb(unsigned int returnedNumb);
 //  Other methods ---------------------------------------------------------------------------------------------------
   std::string toString();
-  std::string toSave();
+  std::string toSavePersonalData();
+  std::string toSaveHistory();
+  void lendPublication(PublicationPtr publication, HistoryElement historyElement);
+  void returnPublication(std::string title, std::string secondPart, std::string time);
 //  std::string historyToString();
-//  void borrowPublication(PublicationPtr publication);
-//  void returnPublication();
 
 /*  const std::vector<PublicationPtr> &getHistoryOfUser() const;
   std::vector<PublicationPtr>::iterator getIteratorHistoryOfUser();

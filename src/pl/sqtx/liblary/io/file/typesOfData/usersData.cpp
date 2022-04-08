@@ -36,8 +36,9 @@ bool usersData::importUsers(libraryUser *libraryUser, const char MAX_CHAR, fstre
 
 //        Checking types
         string type(c_type);
+//        cout << type << endl;
 //        Person ----------------------------------
-        if (type == "Person") {
+        if (type == "User") {
 //          Save standard: Person;FirstName;LastName;Pesel
 
 //          Get data from file and create new obejct of them
@@ -56,8 +57,29 @@ bool usersData::importUsers(libraryUser *libraryUser, const char MAX_CHAR, fstre
           string pesel(c_pesel);
           dataFile->ignore(1);
 
+          int allLoanNumb = 0;
+          char c_allLoanNumb[MAX_CHAR];
+          dataFile->get(c_allLoanNumb, MAX_CHAR, ';');
+          sscanf(c_allLoanNumb, "%d", &allLoanNumb);//Last element
+          dataFile->ignore(1);
+
+          int currentlyLoan = 0;
+          char c_currentlyLoan[MAX_CHAR];
+          dataFile->get(c_currentlyLoan, MAX_CHAR, ';');
+          sscanf(c_currentlyLoan, "%d", &currentlyLoan);//Last element
+          dataFile->ignore(1);
+
+          int returnedNumb = 0;
+          char c_returnedNumb[MAX_CHAR];
+          dataFile->get(c_returnedNumb, MAX_CHAR, '\n');
+          sscanf(c_returnedNumb, "%d", &returnedNumb);//Last element
+          dataFile->ignore(1);
+
 //          Create object and add it to libraryUser vector
-          Person user(firstName, lastName, pesel);
+          User user(Person(firstName, lastName, pesel));
+          user.setAllLoanNumb(allLoanNumb);
+          user.setCurrentlyLoan(currentlyLoan);
+          user.setReturnedNumb(returnedNumb);
           libraryUser->addUser(user);
 
 //        Noname type ----------------------------------
@@ -120,7 +142,7 @@ bool usersData::exportUsers(libraryUser *libraryUser, const char MAX_CHAR, fstre
         for (int i = 0; i < usersNum; i++) {
           string saveLine;
           saveLine = "\nPerson;";
-          saveLine.append(users[i].toSave());
+//          saveLine.append(users[i].toSave());
           *dataFile << saveLine; //Export data
         }
         if (((dataFile->rdstate() ^ fstream::eofbit) == 0) || fstream::eofbit == 2) {
