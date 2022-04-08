@@ -33,6 +33,8 @@ public:
 
 //  Function that prints all users from database
   void printUsers(std::vector<User> &users);
+
+  void printUserHistory(std::vector<User>::iterator users);
 };
 
 #endif //LIBRARYSYSTEM_CONSOLEPRINTER_H

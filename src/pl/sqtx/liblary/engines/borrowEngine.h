@@ -24,7 +24,6 @@ private:
 
   int findPublication(library *library);
 
-  void findBorrowedPublication(std::string *title, std::string *secondPart);
 public:
   void borrowPublication(library *library, libraryUser *libraryUser);
 

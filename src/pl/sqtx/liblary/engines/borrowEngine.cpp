@@ -29,9 +29,6 @@ int borrowEngine::findUser(libraryUser *libraryUser) {
         wanted.getPerson().getLastName() == (it_users + i)->getPerson().getLastName() &&
         wanted.getPerson().getPesel() == (it_users + i)->getPerson().getPesel())
       return i;
-    else {
-      cout << "nie" << endl;
-    }
   }
   return -1;
   //TODO błąd: podany użytkownik nie istnieje w bazie danych
@@ -103,50 +100,12 @@ int borrowEngine::findPublication(library *library) {
   };
 };
 
-void borrowEngine::findBorrowedPublication(string *title, string *secondPart) {
-  cslPrinter.printLine("Wybierz typ publikacji:\n[K] - Ksiazka\n[G] - Gazeta");
-  char choice = tolower(dataReader.getChar());
-
-  switch (choice) {
-    case 'k':
-    case 'K': {
-//      Get data
-      cslPrinter.printLine("Tytul ksiazki:");
-      *title = dataReader.getTextLine();
-      cslPrinter.printLine("Autor ksiazki:");
-      *secondPart = dataReader.getTextLine();
-      break;
-    }
-    case 'g':
-    case 'G': {
-//      Get data
-      cslPrinter.printLine("Tytul gazety:");
-      *title = dataReader.getTextLine();
-      cslPrinter.printLine("Dzien publikacji:");
-      int searchingDay = dataReader.getInt();
-      cslPrinter.printLine("Miesiac publikacji:");
-      int searchingMonth = dataReader.getInt();
-      cslPrinter.printLine("Rok publikacji:");
-      int searchingYear = dataReader.getInt();
-
-      *secondPart = to_string(searchingDay) + "; " + to_string(searchingMonth) + "; " + to_string(searchingYear);
-      break;
-    }
-    default:
-      cslPrinter.printLine("Podany przez ciebie typ publikacji nie istnieje.");
-      break;
-  }
-};
-
 //Lend ****************************************************************************************************************
 void borrowEngine::borrowPublication(library *library, libraryUser *libraryUser) {
   string time = getTimeAndDate(); //Create actual date and time
 
   const int indexOfUser = findUser(libraryUser);  //Search index of wanted user
   vector<User>::iterator it_user = libraryUser->getIteratorUsers(); //Get iterator form data-base
-  cout << (it_user + indexOfUser)->getPerson().getFirstName() << endl;
-  cout << (it_user + indexOfUser)->getPerson().getPesel() << endl;
-
 
   const int indexOfPublication = findPublication(library);  //Search index of publications
   vector<PublicationPtr>::iterator it_publications = library->getIteratorPublications();  //Get iterator form data-base
@@ -157,10 +116,7 @@ void borrowEngine::borrowPublication(library *library, libraryUser *libraryUser)
   if (dynamic_cast<Book *>((it_publications + indexOfPublication)->get())) {
     secondPart = dynamic_cast<Book *>((it_publications + indexOfPublication)->get())->getAuthor();
   } else if (dynamic_cast<Magazine *>((it_publications + indexOfPublication)->get())) {
-    secondPart = dynamic_cast<Magazine *>((it_publications + indexOfPublication)->get())->getDay() + "; ";
-    secondPart.append(dynamic_cast<Magazine *>((it_publications + indexOfPublication)->get())->getMonth() + "; ");
-    secondPart.append(
-        dynamic_cast<Magazine *>((it_publications + indexOfPublication)->get())->getReleaseDate() + "; ");
+    secondPart = dynamic_cast<Magazine *>((it_publications + indexOfPublication)->get())->createSecondPart();
   } else secondPart = "Error";
 
   HistoryElement historyElement((it_publications + indexOfPublication)->get()->getTitle(), secondPart,
@@ -188,7 +144,6 @@ void borrowEngine::returnPublication(library *library, libraryUser *libraryUser)
   string title, secondPart;
   title = (it_publications + indexOfPublication)->get()->getTitle();
 
-  //TODO: Potęcjalnie nowa metoda dla obiektu Magazine PILNE
 //  Checking type of publication and assigns it secondPart value
   if (dynamic_cast<Book *>((it_publications + indexOfPublication)->get())) {
     secondPart = dynamic_cast<Book *>((it_publications + indexOfPublication)->get())->getAuthor();
@@ -196,7 +151,6 @@ void borrowEngine::returnPublication(library *library, libraryUser *libraryUser)
     secondPart = dynamic_cast<Magazine *>((it_publications + indexOfPublication)->get())->createSecondPart();
   } else secondPart = "Error";
 
-//  findBorrowedPublication(&title, &secondPart);
   (it_user + indexOfUser)->returnPublication(title, secondPart, time);
 
   //  Changing in Publication object
@@ -207,7 +161,8 @@ void borrowEngine::returnPublication(library *library, libraryUser *libraryUser)
 }
 
 void borrowEngine::printUserHistory(libraryUser *libraryUser) {
-/*  const int indexOfUser = findUser(libraryUser);
-  vector<Person>::iterator it_user = libraryUser->getIteratorUsers();
-  cslPrinter.printUsersHistory((it_user + indexOfUser));*/
-} //TODO: Przenieść do consolePrinter.cpp
+  const int indexOfUser = findUser(libraryUser);  //Search index of wanted user
+  vector<User>::iterator it_user = libraryUser->getIteratorUsers(); //Get iterator form data-base
+
+  cslPrinter.printUserHistory((it_user + indexOfUser));
+}

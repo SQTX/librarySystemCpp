@@ -6,6 +6,7 @@
 
 HistoryElement::HistoryElement(const std::string &elemTitle, const std::string &elemSecondPart, const std::string &elemLoanDate) {
   this->elemTitle = elemTitle;
+  this->elemSecondPart = elemSecondPart;
   this->elemLoanDate = elemLoanDate;
   this->elemReturnDate = "0";
 }

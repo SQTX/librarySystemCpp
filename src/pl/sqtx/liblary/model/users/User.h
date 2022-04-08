@@ -30,6 +30,8 @@ public:
   const Person &getPerson() const;
   void setPerson(const Person &person);
 
+  const std::vector<HistoryElement> &getUserHistory() const;
+
   unsigned int getAllLoanNumb() const;
   void setAllLoanNumb(unsigned int allLoanNumb);
 
@@ -44,11 +46,6 @@ public:
   std::string toSaveHistory();
   void lendPublication(PublicationPtr publication, HistoryElement historyElement);
   void returnPublication(std::string title, std::string secondPart, std::string time);
-//  std::string historyToString();
-
-/*  const std::vector<PublicationPtr> &getHistoryOfUser() const;
-  std::vector<PublicationPtr>::iterator getIteratorHistoryOfUser();
-  std::string getHistory();*/
 };
 
 #endif //LIBRARYSYSTEM_USER_H

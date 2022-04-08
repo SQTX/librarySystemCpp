@@ -181,7 +181,7 @@ void libraryControl::returnPublication() {
 }
 
 void libraryControl::historyOfUser() {
-//  borrowEngine.printUserHistory(&libraryUser);
+  borrowEngine.printUserHistory(&libraryUser);
 }
 
 void libraryControl::exit() {

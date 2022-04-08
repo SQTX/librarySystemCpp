@@ -23,6 +23,10 @@ void User::setPerson(const Person &person) {
   User::person = person;
 }
 
+const vector<HistoryElement> &User::getUserHistory() const {
+  return userHistory;
+}
+
 unsigned int User::getAllLoanNumb() const {
   return allLoanNumb;
 }
@@ -43,6 +47,7 @@ unsigned int User::getReturnedNumb() const {
 void User::setReturnedNumb(unsigned int returnedNumb) {
   User::returnedNumb = returnedNumb;
 }
+
 //Other methods
 string User::toString(){
   string info;
@@ -99,27 +104,3 @@ void User::returnPublication(std::string title, std::string secondPart, std::str
   currentlyLoan--;
   returnedNumb++;
 }
-
-
-
-//string historyToString()
-
-/*const std::vector<PublicationPtr> &User::getHistoryOfUser() const {
-  return userHistory;
-}
-
-vector<PublicationPtr>::iterator User::getIteratorHistoryOfUser() {
-  vector<PublicationPtr>::iterator it_historyOfBorrow = historyOfBorrow.begin();
-  return it_historyOfBorrow;
-}
-
-
-string User::getHistory(){
-  string info = to_string(allBorrNumb) + "; " + to_string(currentlyBorrowed) + "; " + to_string(returnedNumb);
-  for(int i = 0; i < historyOfBorrow.size(); ++i) {
-    info.append('\n' + historyOfBorrow.at(i)->bookToString());
-  }
-  return info;
-}*/
-
-

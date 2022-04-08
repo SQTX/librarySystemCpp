@@ -60,3 +60,30 @@ void consolePrinter::printUsers(vector<User> &users) {
     printLine("Brak uzytkownikow w bazie.");
   }
 }
+
+void consolePrinter::printUserHistory(vector<User>::iterator user){
+  string statistic = "Liczba wszystkich wypozyczen: " + to_string(user->getAllLoanNumb());
+  statistic.append("\nLiczba aktualnie posiadanych: " + to_string(user->getCurrentlyLoan()));
+  statistic.append("\nLiczba zwrotow: " + to_string(user->getReturnedNumb()));
+  cout << statistic << endl;
+  cout << "------------------------------------------" << endl;
+
+  if(user->getAllLoanNumb() != 0){
+    vector<HistoryElement> userHistory = user->getUserHistory();
+    for(auto &historyElement : userHistory){
+      if(historyElement.getElemReturnDate() == "0"){
+        cout << historyElement.getElemTitle() + "; " + historyElement.getElemSecondPart() + "; " + historyElement.getElemLoanDate() << endl;
+      }
+    }
+    for(auto &historyElement : userHistory){
+      if(historyElement.getElemReturnDate() != "0"){
+        cout << historyElement.getElemTitle() + "; " + historyElement.getElemSecondPart() + "; " +
+                historyElement.getElemLoanDate() + "; " + historyElement.getElemReturnDate() << endl;
+      }
+    }
+  } else {
+    cout << "Historia uzytkownika jest pusta" << endl;
+  }
+
+
+}
