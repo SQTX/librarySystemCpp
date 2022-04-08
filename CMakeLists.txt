@@ -33,6 +33,7 @@ add_executable(librarySystem
             ${standardPath}/model/publications/publication.cpp
             ${standardPath}/model/publications/book.cpp
             ${standardPath}/model/publications/magazine.cpp
+            ${standardPath}/model/publications/HistoryElement.cpp
 #            users
             ${standardPath}/model/users/Person.cpp
             ${standardPath}/model/users/User.cpp

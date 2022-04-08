@@ -10,7 +10,9 @@
 
 class clockSystem {
 public:
+//  Get actual time
   std::string getTime();
+//  Get actual date
   std::string getDate();
 };
 
