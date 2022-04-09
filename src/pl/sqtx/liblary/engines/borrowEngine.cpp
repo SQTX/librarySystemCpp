@@ -11,7 +11,7 @@ string getTimeAndDate() {
   string timeNdate;
   clockSystem clock;
   timeNdate.append(clock.getDate());
-  timeNdate.append(" | ");
+  timeNdate.append("|");
   timeNdate.append(clock.getTime());
   return timeNdate;
 }
@@ -120,7 +120,7 @@ void borrowEngine::borrowPublication(library *library, libraryUser *libraryUser)
   } else secondPart = "Error";
 
   HistoryElement historyElement((it_publications + indexOfPublication)->get()->getTitle(), secondPart,
-                                time); //Create history element
+                                time, std::string()); //Create history element
 
   (it_user + indexOfUser)->lendPublication(*(it_publications + indexOfPublication),
                                            historyElement);  //Send data to User

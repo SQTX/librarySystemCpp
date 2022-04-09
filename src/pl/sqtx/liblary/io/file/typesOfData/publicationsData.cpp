@@ -6,8 +6,8 @@
 using namespace std;
 
 //Import publications function ****************************************************************************************
-bool publicationsData::importPublications(library *library, const char MAX_CHAR,
-                                          fstream *dataFile, int *position) {
+bool publicationsData::importPublications(library *library, const char MAX_CHAR, fstream *dataFile, int *position,
+                                          libraryUser *libraryUser) {
   int actualPosition = *position; //Get actual position of file cursor
 
   try {
@@ -23,7 +23,7 @@ bool publicationsData::importPublications(library *library, const char MAX_CHAR,
 
 //      Lets save
       int publicationDataSize;
-      *dataFile >> publicationDataSize; //Get publications number
+      *dataFile >> publicationDataSize; //Get publications numberl;
       dataFile->ignore(1);
 
 //      Create all object form database
@@ -33,10 +33,12 @@ bool publicationsData::importPublications(library *library, const char MAX_CHAR,
         dataFile->get(c_type, MAX_CHAR, ';');
         dataFile->ignore(1);
 
+
 //        Checking types
         string type(c_type);
 //        cout << type << endl;
 //        Book --------------------------------------------------------------------------------------------------------
+        string currOwner = "0";
         if (type == "Book") {
 //          Save standard: Book;Title;Author;ReleaseData;Pages;Publisher;ISBN;isLoan;currentlyOwner
 
@@ -88,6 +90,7 @@ bool publicationsData::importPublications(library *library, const char MAX_CHAR,
           char c_currentlyOwner[MAX_CHAR];
           dataFile->get(c_currentlyOwner, MAX_CHAR, '\n');
           string currentlyOwner(c_currentlyOwner);
+          currOwner = currentlyOwner;
           dataFile->ignore(1);
 
 //          Create object and add it to library vector
@@ -97,6 +100,14 @@ bool publicationsData::importPublications(library *library, const char MAX_CHAR,
           PublicationPtr book = make_shared<Book>(bookObj);
 //          book.get()->setIsLoan(isLoan);
           library->addBook(book);
+
+          if(currentlyOwner != "0"){
+            for(int i = 0; i < libraryUser->getUsersVector().size(); i++){
+              if((libraryUser->getIteratorUsers()+i)->getPerson().getPesel() == currentlyOwner) {
+                (libraryUser->getIteratorUsers()+i)->addBorrowedPublications(book);
+              }
+            }
+          }
 
 //        Magazine --------------------------------------------------------------------------------------------------------
         } else if (type == "Magazine") {
@@ -151,6 +162,7 @@ bool publicationsData::importPublications(library *library, const char MAX_CHAR,
           char c_currentlyOwner[MAX_CHAR];
           dataFile->get(c_currentlyOwner, MAX_CHAR, '\n');
           string currentlyOwner(c_currentlyOwner);
+          currOwner = currentlyOwner;
           dataFile->ignore(1);
 
 //          Create object and add it to library vector
@@ -160,6 +172,13 @@ bool publicationsData::importPublications(library *library, const char MAX_CHAR,
           PublicationPtr magazine = make_shared<Magazine>(magazineObj);
           library->addMagazine(magazine);
 
+          if(currentlyOwner != "0"){
+            for(int i = 0; i < libraryUser->getUsersVector().size(); i++){
+              if((libraryUser->getIteratorUsers()+i)->getPerson().getPesel() == currentlyOwner) {
+                (libraryUser->getIteratorUsers()+i)->addBorrowedPublications(magazine);
+              }
+            }
+          }
 //        Noname type ----------------------------------
         } else {
           cslPrinter.printLine("Nieznany typ publikacji.");
@@ -194,19 +213,18 @@ bool publicationsData::importPublications(library *library, const char MAX_CHAR,
 }
 
 //Export publications function ****************************************************************************************
-bool publicationsData::exportPublications(library *library, const char MAX_CHAR,
-                                          fstream *dataFile, int *position) {
+bool publicationsData::exportPublications(library *library, const char MAX_CHAR, fstream *dataFile, int *position) {
   int actualPosition = *position; //Get actual position of file cursor
 
   try {
     DataExportException err;
-    dataFile->open("../src/pl/sqtx/liblary/data/dataBase.txt", ios::out);  //Open database
+    dataFile->open("../src/pl/sqtx/liblary/data/dataBase.txt", ios::out | ios::app);  //Open database
 
 //    File opens good =========================================================================================
     if (dataFile->is_open()) {
       dataFile->seekp(actualPosition);
 
-      *dataFile << "[Publications]\n";  //Set sepparator
+      *dataFile << "\n[Publications]\n";  //Set sepparator
 
 //      Get data from library.cpp
       vector<PublicationPtr> publications = library->getPublications(); //Get vector
@@ -215,6 +233,8 @@ bool publicationsData::exportPublications(library *library, const char MAX_CHAR,
 //      Lets export
       if (publicationsNum <= 0) {
         *dataFile << '0';
+        actualPosition = dataFile->tellp(); //Get actualy position of file cursor
+        *position = actualPosition;
         dataFile->close();
         return 1;
       } else {

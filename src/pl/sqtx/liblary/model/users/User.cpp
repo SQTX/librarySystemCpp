@@ -56,20 +56,17 @@ string User::toString(){
   return info;
 }
 
-string User::toSavePersonalData(){
+string User::toSave(){
   string info;
-  info.append(person.getFirstName() + ";" + person.getLastName() + ";" + person.getPesel() + ";" +
+  info.append("\nUser;" + person.getFirstName() + ";" + person.getLastName() + ";" + person.getPesel() + ";" +
               to_string(allLoanNumb) + ";" + to_string(currentlyLoan) + ";" + to_string(returnedNumb));
   return info;
 }
 
-string User::toSaveHistory(){
+string User::toSaveUserHistory(int i){
   string info;
-  info.append(to_string(userHistory.size()));
-  for(auto &hisElement : userHistory){
-    info.append(hisElement.getElemTitle() + ";" + hisElement.getElemSecondPart() + ";" + hisElement.getElemLoanDate() + ";" +
-                hisElement.getElemReturnDate() + ";" + "\n");
-  }
+  info.append(userHistory[i].getElemTitle() + ";" + userHistory[i].getElemSecondPart() + ";" +
+    userHistory[i].getElemLoanDate() + ";" + userHistory[i].getElemReturnDate());
   return info;
 }
 
@@ -103,4 +100,12 @@ void User::returnPublication(std::string title, std::string secondPart, std::str
   //  Statistic
   currentlyLoan--;
   returnedNumb++;
+}
+
+void User::addBorrowedPublications(PublicationPtr publication){
+  borrowedPublications.push_back(publication);
+}
+
+void User::addHistoryElement(HistoryElement historyElement){
+  userHistory.push_back(historyElement);
 }

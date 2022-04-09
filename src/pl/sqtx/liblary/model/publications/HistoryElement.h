@@ -16,7 +16,8 @@ private:
   std::string elemReturnDate;
 public:
 //  Constructor ------------------------------------------------------------------------------------------
-  HistoryElement(const std::string &elemTitle, const std::string &elemSecondPart, const std::string &elemLoanDate);
+  HistoryElement(const std::string &elemTitle, const std::string &elemSecondPart, const std::string &elemLoanDate,
+                 const std::string &elemReturnDate);
 //  Destructor ------------------------------------------------------------------------------------------
   virtual ~HistoryElement();
 //  Getters and setters ----------------------------------------------------------------------------------

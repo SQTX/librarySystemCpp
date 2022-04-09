@@ -185,7 +185,7 @@ void libraryControl::historyOfUser() {
 }
 
 void libraryControl::exit() {
-//  srlFileManager.exportData(&library, &libraryUser);
+  srlFileManager.exportData(&library, &libraryUser);
   cslPrinter.printLine("Koniec programu.");
 }
 

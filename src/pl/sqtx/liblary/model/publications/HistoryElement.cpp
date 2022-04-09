@@ -4,11 +4,12 @@
 
 #include "HistoryElement.h"
 
-HistoryElement::HistoryElement(const std::string &elemTitle, const std::string &elemSecondPart, const std::string &elemLoanDate) {
+HistoryElement::HistoryElement(const std::string &elemTitle, const std::string &elemSecondPart,
+                               const std::string &elemLoanDate, const std::string &elemReturnDate = "0") {
   this->elemTitle = elemTitle;
   this->elemSecondPart = elemSecondPart;
   this->elemLoanDate = elemLoanDate;
-  this->elemReturnDate = "0";
+  this->elemReturnDate = elemReturnDate;
 }
 
 HistoryElement::~HistoryElement() {

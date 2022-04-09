@@ -31,7 +31,9 @@ void library::addPublication(PublicationPtr publication) {
     throw out_of_range("Przekroczono dozwolony limit publikacji.");
   } else {
 //  Check is it exists
-    checkIsItExistsAdd(publication);
+//    checkIsItExistsAdd(publication);
+    publications.push_back(publication);
+    publicationsNumber++;
   }
 }
 
@@ -48,48 +50,54 @@ void library::removeMagazine(PublicationPtr magazine) {
 //  Remove Publication from lab - MAIN function
 void library::removePublication(PublicationPtr publication) {
   if (dynamic_cast<Book *>(publication.get()) || dynamic_cast<Magazine *>(publication.get())) {
-    checkIsItExistsRemove(publication);
+//    checkIsItExistsRemove(publication);
+    for (int index = 0; index < publications.size(); index++) {
+      if (*(publication.get()) == *(publications[index].get())) {
+        publications.erase((publications.begin() + index));
+        publicationsNumber--;
+      }
+    }
   } else {
     throw invalid_argument("Publikacja nie zostala znaleziona i usunieta.");
   }
 }
 
-void library::checkIsItExistsAdd(PublicationPtr publication) {
-  if (publicationsNumber == 0) {
-    publications.push_back(publication);
-    publicationsNumber++;
-  } else {
-    bool isItExists = false;
-    for (auto &element: publications) {
-      if (*(publication.get()) == *(element.get())) {
-//        int indexOfPublication = element->getNumberOf();
-//        element->setNumberOf(++indexOfPublication);
-        publicationsNumber++;
-        isItExists = true;
-        break;
-      }
-    }
-    if(!isItExists) {
-      publications.push_back(publication);
-      publicationsNumber++;
-    }
-  }
-}
-
-void library::checkIsItExistsRemove(PublicationPtr publication) {
-//  Index is better because will be needed to removing publication from vectro
-/*TODO: W momecie gdy Pub będzie wypożyczone wystąpi problem z usunięćiem bo ilość może być 0. Zrobić aby usuwało dla
- * wartości -1, tak bedziemy odróżniać publikację wyporzyczoną od usuniętej bo może być 0 dostępnych a w systemie dalej będą.*/
-  for (int index = 0; index < publications.size(); index++) {
-    if (*(publication.get()) == *(publications[index].get())) {
-//      int indexOfPublication = publications[index]->getNumberOf();
-//      if(indexOfPublication > 1) {
-//        publications[index]->setNumberOf(--indexOfPublication);
-        publicationsNumber--;
-//      } else if(indexOfPublication == 1){
-        publications.erase((publications.begin() + index));
-        publicationsNumber--;
+//void library::checkIsItExistsAdd(PublicationPtr publication) {
+//  if (publicationsNumber == 0) {
+//    publications.push_back(publication);
+//    publicationsNumber++;
+//  } else {
+//    bool isItExists = false;
+//    for (auto &element: publications) {
+//      if (*(publication.get()) == *(element.get())) {
+////        int indexOfPublication = element->getNumberOf();
+////        element->setNumberOf(++indexOfPublication);
+//        publicationsNumber++;
+//        isItExists = true;
+//        break;
 //      }
-    }
-  }
-}
+//    }
+//    if(!isItExists) {
+//      publications.push_back(publication);
+//      publicationsNumber++;
+//    }
+//  }
+//}
+//
+//void library::checkIsItExistsRemove(PublicationPtr publication) {
+////  Index is better because will be needed to removing publication from vectro
+///*TODO: W momecie gdy Pub będzie wypożyczone wystąpi problem z usunięćiem bo ilość może być 0. Zrobić aby usuwało dla
+// * wartości -1, tak bedziemy odróżniać publikację wyporzyczoną od usuniętej bo może być 0 dostępnych a w systemie dalej będą.*/
+//  for (int index = 0; index < publications.size(); index++) {
+//    if (*(publication.get()) == *(publications[index].get())) {
+////      int indexOfPublication = publications[index]->getNumberOf();
+////      if(indexOfPublication > 1) {
+////        publications[index]->setNumberOf(--indexOfPublication);
+//        publicationsNumber--;
+////      } else if(indexOfPublication == 1){
+//        publications.erase((publications.begin() + index));
+//        publicationsNumber--;
+////      }
+//    }
+//  }
+//}

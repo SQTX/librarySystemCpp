@@ -63,7 +63,7 @@ string Book::toString() {
 //  Create string-line with the information arranged for data export
 string Book::toSave() {
   string info = getTitle() + ";" + author + ";" + to_string(getReleaseDate()) + ";" + to_string(pages) +
-                ";" + getPublisher() + ";" + isbn + ";" + to_string(getIsLoan() ? 0 : 1) + ";";
+                ";" + getPublisher() + ";" + isbn + ";" + to_string(getIsLoan() ? 1 : 0) + ";";
   if(isLoan) info.append(currentlyOwns);
   else info.append("0");
   return info;

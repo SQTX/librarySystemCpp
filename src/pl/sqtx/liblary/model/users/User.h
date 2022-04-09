@@ -42,10 +42,12 @@ public:
   void setReturnedNumb(unsigned int returnedNumb);
 //  Other methods ---------------------------------------------------------------------------------------------------
   std::string toString();
-  std::string toSavePersonalData();
-  std::string toSaveHistory();
+  std::string toSave();
+  std::string toSaveUserHistory(int i);
   void lendPublication(PublicationPtr publication, HistoryElement historyElement);
   void returnPublication(std::string title, std::string secondPart, std::string time);
+  void addBorrowedPublications(PublicationPtr publication);
+  void addHistoryElement(HistoryElement historyElement);
 };
 
 #endif //LIBRARYSYSTEM_USER_H

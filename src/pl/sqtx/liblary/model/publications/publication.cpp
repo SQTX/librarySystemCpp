@@ -12,7 +12,7 @@ Publication::Publication(const string &title, int releaseDate, const string &pub
   this->releaseDate = releaseDate;
   this->publisher = publisher;
   this->isLoan = false;
-  this->currentlyOwns = "";
+  this->currentlyOwns = "0";
 }
 
 //Destructor  ---------------------------------------------------------------------

@@ -7,8 +7,7 @@
 using namespace std;
 
 //Import users function
-bool usersData::importUsers(libraryUser *libraryUser, const char MAX_CHAR, fstream *dataFile,
-                            int *position) {
+bool usersData::importUsers(libraryUser *libraryUser, const char MAX_CHAR, fstream *dataFile, int *position) {
   int actualPosition = *position; //Get actual position of file cursor
 
   try {
@@ -20,7 +19,7 @@ bool usersData::importUsers(libraryUser *libraryUser, const char MAX_CHAR, fstre
     if (dataFile->is_open()) {
       dataFile->seekg(actualPosition);  //Set actualy position of file cursor
 
-      dataFile->ignore(numeric_limits<streamsize>::max(), '\n');  //Ignore first line
+      dataFile->ignore(numeric_limits<streamsize>::max(), '\n');  //Ignore first line - [User]
 
 //      Lets save
       int userDataSize;
@@ -36,10 +35,10 @@ bool usersData::importUsers(libraryUser *libraryUser, const char MAX_CHAR, fstre
 
 //        Checking types
         string type(c_type);
-//        cout << type << endl;
+//        cout << "TYP: " << type << endl;
 //        Person ----------------------------------
         if (type == "User") {
-//          Save standard: Person;FirstName;LastName;Pesel
+//          Save standard: Person;FirstName;LastName;Pesel;all;currently;returns
 
 //          Get data from file and create new obejct of them
           char c_firstName[MAX_CHAR];
@@ -52,7 +51,7 @@ bool usersData::importUsers(libraryUser *libraryUser, const char MAX_CHAR, fstre
           string lastName(c_lastName);
           dataFile->ignore(1);
 
-          char c_pesel[MAX_PESEL_CHAR];
+          char c_pesel[MAX_PESEL_CHAR+1];
           dataFile->get(c_pesel, MAX_PESEL_CHAR + 1, ';');
           string pesel(c_pesel);
           dataFile->ignore(1);
@@ -80,14 +79,51 @@ bool usersData::importUsers(libraryUser *libraryUser, const char MAX_CHAR, fstre
           user.setAllLoanNumb(allLoanNumb);
           user.setCurrentlyLoan(currentlyLoan);
           user.setReturnedNumb(returnedNumb);
+
+//          --- Get history of user ---
+          dataFile->ignore(numeric_limits<streamsize>::max(), '\n');
+
+//        Get history of this user
+          if(allLoanNumb != 0){
+            for (int j = 0; j < allLoanNumb; j++) {
+//          Save standard: Title;SecondPart;LoanDate;ReturnDate
+              char c_hisElemTitle[MAX_CHAR];
+              dataFile->get(c_hisElemTitle,MAX_CHAR, ';');
+              string hisElemTitle(c_hisElemTitle);
+              dataFile->ignore(1);
+
+              char c_hisElemSecondPart[MAX_CHAR];
+              dataFile->get(c_hisElemSecondPart,MAX_CHAR, ';');
+              string hisElemSecondPart(c_hisElemSecondPart);
+              dataFile->ignore(1);
+
+              char c_hisElemLoanDate[MAX_CHAR];
+              dataFile->get(c_hisElemLoanDate,MAX_CHAR, ';');
+              string hisElemLoanDate(c_hisElemLoanDate);
+              dataFile->ignore(1);
+
+              char c_hisElemReturnDate[MAX_CHAR];
+              dataFile->get(c_hisElemReturnDate,MAX_CHAR, '\n');
+              string hisElemReturnDate(c_hisElemReturnDate);
+              dataFile->ignore(1);
+
+              cout << hisElemReturnDate << endl;
+//            Create history element
+              HistoryElement historyElement(hisElemTitle, hisElemSecondPart, hisElemLoanDate, hisElemReturnDate);
+              user.addHistoryElement(historyElement);
+            }
+          }
+//          Set this user in base-data
           libraryUser->addUser(user);
 
 //        Noname type ----------------------------------
         } else {
-          cslPrinter.printLine("Nieznany typ publikacji.");
+          cslPrinter.printLine("Nieznany status osoby.");
         }
       }
 //      Succesfulle import
+      actualPosition = dataFile->tellg(); //Get actualy position of file cursor
+      *position = actualPosition;
 //      Close file and print message
       dataFile->close();
       return 1;
@@ -113,38 +149,44 @@ bool usersData::importUsers(libraryUser *libraryUser, const char MAX_CHAR, fstre
 }
 
 //Export users function
-bool usersData::exportUsers(libraryUser *libraryUser, const char MAX_CHAR, fstream *dataFile,
-                            int *position) {
+bool usersData::exportUsers(libraryUser *libraryUser, const char MAX_CHAR, fstream *dataFile, int *position) {
   int actualPosition = *position; //Get actual position of file cursor
 
   try {
     DataExportException err;
-    dataFile->open("../src/pl/sqtx/liblary/data/dataBase.txt", ios::out | ios::app);  //Open database
+    dataFile->open("../src/pl/sqtx/liblary/data/dataBase.txt", ios::out);  //Open database
 
 //    File opens good ******************************************
     if (dataFile->is_open()) {
       dataFile->seekp(actualPosition);
 
-      *dataFile << "\n[Users]\n";  //Set sepparator
+      *dataFile << "[Users]\n";  //Set sepparator
 
 //      Get data from libraryUser.cpp
       vector<User> users = libraryUser->getUsersVector(); //Get vector
       int usersNum = users.size();  //Get database size
-
 //      Lets export
       if (usersNum <= 0) {
         *dataFile << '0';
+        actualPosition = dataFile->tellp(); //Get actualy position of file cursor
+        *position = actualPosition;
         dataFile->close();
         return 1;
       } else {
         *dataFile << usersNum; //Set publications number
 
         for (int i = 0; i < usersNum; i++) {
-          string saveLine;
-          saveLine = "\nPerson;";
-//          saveLine.append(users[i].toSave());
-          *dataFile << saveLine; //Export data
+          *dataFile << users[i].toSave(); //Export data
+          *dataFile << "\n*History*";
+          if(users[i].getAllLoanNumb() != 0){
+            for(int j = 0; j < users[i].getUserHistory().size(); j++){
+              string textLine;
+              textLine.append('\n' + users[i].toSaveUserHistory(j));
+              *dataFile << textLine;
+            }
+          }
         }
+
         if (((dataFile->rdstate() ^ fstream::eofbit) == 0) || fstream::eofbit == 2) {
           actualPosition = dataFile->tellp(); //Get actualy position of file cursor
           *position = actualPosition;

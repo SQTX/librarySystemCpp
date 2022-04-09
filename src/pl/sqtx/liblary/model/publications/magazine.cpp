@@ -60,7 +60,7 @@ string Magazine::toString() { //Printer
 //  Create string-line with the information arranged for data export
 string Magazine::toSave() { //Printer
   string info = getTitle() + ";" + to_string(day) + ";" + to_string(month) + ";" + to_string(getReleaseDate()) +
-                ";" + language + ";" + getPublisher() + ";" + to_string(getIsLoan() ? 0 : 1) + ";";
+                ";" + language + ";" + getPublisher() + ";" + to_string(getIsLoan() ? 1 : 0) + ";";
   if(isLoan) info.append(currentlyOwns);
   else info.append("0");
   return info;
