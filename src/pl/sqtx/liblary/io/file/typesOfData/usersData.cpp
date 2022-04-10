@@ -35,7 +35,7 @@ bool usersData::importUsers(libraryUser *libraryUser, const char MAX_CHAR, fstre
 
 //        Checking types
         string type(c_type);
-//        cout << "TYP: " << type << endl;
+//        cout << type << endl;
 //        Person ----------------------------------
         if (type == "User") {
 //          Save standard: Person;FirstName;LastName;Pesel;all;currently;returns
@@ -79,10 +79,8 @@ bool usersData::importUsers(libraryUser *libraryUser, const char MAX_CHAR, fstre
           user.setAllLoanNumb(allLoanNumb);
           user.setCurrentlyLoan(currentlyLoan);
           user.setReturnedNumb(returnedNumb);
-
 //          --- Get history of user ---
           dataFile->ignore(numeric_limits<streamsize>::max(), '\n');
-
 //        Get history of this user
           if(allLoanNumb != 0){
             for (int j = 0; j < allLoanNumb; j++) {
@@ -107,7 +105,6 @@ bool usersData::importUsers(libraryUser *libraryUser, const char MAX_CHAR, fstre
               string hisElemReturnDate(c_hisElemReturnDate);
               dataFile->ignore(1);
 
-              cout << hisElemReturnDate << endl;
 //            Create history element
               HistoryElement historyElement(hisElemTitle, hisElemSecondPart, hisElemLoanDate, hisElemReturnDate);
               user.addHistoryElement(historyElement);

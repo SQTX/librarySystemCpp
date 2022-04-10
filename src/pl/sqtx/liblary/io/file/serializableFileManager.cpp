@@ -10,7 +10,6 @@ using namespace std;
 //Publications
 void serializableFileManager::importData(library *library, libraryUser *libraryUser) {
   bool importPublicationFlag = false, importUserFlag = false;
-  position = 0; //Reset
   importUserFlag = usersData.importUsers(libraryUser, MAX_CHAR, &dataFile, &position);
   if(importUserFlag) importPublicationFlag = publicationsData.importPublications(library, MAX_CHAR, &dataFile, &position, libraryUser);
   if(importUserFlag && importPublicationFlag) cslPrinter.printLine("Baza danych publikacji zostala pomyslnie zainportowana.");

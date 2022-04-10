@@ -24,7 +24,7 @@ private:
   consolePrinter cslPrinter;
   const short MAX_CHAR = 50;  //Max char in string
   std::fstream dataFile;
-  int position = 0;
+  int position = 0; //Reset
 
 public:
 //  IMPORT========================================================================================================

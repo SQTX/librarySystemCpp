@@ -90,7 +90,6 @@ bool publicationsData::importPublications(library *library, const char MAX_CHAR,
           char c_currentlyOwner[MAX_CHAR];
           dataFile->get(c_currentlyOwner, MAX_CHAR, '\n');
           string currentlyOwner(c_currentlyOwner);
-          currOwner = currentlyOwner;
           dataFile->ignore(1);
 
 //          Create object and add it to library vector

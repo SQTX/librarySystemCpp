@@ -120,7 +120,7 @@ void borrowEngine::borrowPublication(library *library, libraryUser *libraryUser)
   } else secondPart = "Error";
 
   HistoryElement historyElement((it_publications + indexOfPublication)->get()->getTitle(), secondPart,
-                                time, std::string()); //Create history element
+                                time, "0"); //Create history element
 
   (it_user + indexOfUser)->lendPublication(*(it_publications + indexOfPublication),
                                            historyElement);  //Send data to User
