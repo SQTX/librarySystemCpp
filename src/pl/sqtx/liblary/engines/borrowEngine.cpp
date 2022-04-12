@@ -35,8 +35,10 @@ int borrowEngine::findUser(libraryUser *libraryUser) {
 }
 
 //------------------------------------------------------------------------------------------------------------------
-int borrowEngine::findPublication(library *library) {
+int borrowEngine::findPublication(library *library, bool loanStatus, string userPesel) {
   PublicationNotExistException err;
+  PublicationAvailabilityException availableErr;
+  bool availablePublicationFlag = false;
   int flagInt = 0;
   vector<PublicationPtr>::iterator it_publications = library->getIteratorPublications();
 
@@ -60,9 +62,20 @@ int borrowEngine::findPublication(library *library) {
           if (dynamic_cast<Book *>(ptr.get())) {
             string title = ptr.get()->getTitle();
             string author = dynamic_cast<Book *>(ptr.get())->getAuthor(); //Potencjalnie dobrze
-            if (searchingTitle == title && searchingAuthor == author) return i;
-          };
+            bool loan = ptr.get()->getIsLoan();
+            if (searchingTitle == title && searchingAuthor == author) {
+              if (loan == loanStatus && loanStatus == false) {
+                return i;
+              } else if (loan == loanStatus && loanStatus == true) {
+                string pesel = ptr->getCurrentlyOwns();
+                if (pesel == userPesel) return i;
+              } else {
+                availablePublicationFlag = true;
+              }
+            }
+          }
         }
+        if (availablePublicationFlag) throw availableErr;
         throw err;
       }
       case 'g':
@@ -85,11 +98,21 @@ int borrowEngine::findPublication(library *library) {
             int day = dynamic_cast<Magazine *>(ptr.get())->getDay(); //Potencjalnie dobrze
             int month = dynamic_cast<Magazine *>(ptr.get())->getMonth(); //Potencjalnie dobrze
             int year = ptr->getReleaseDate(); //Potencjalnie dobrze
+            bool loan = ptr.get()->getIsLoan();
             if (searchingTitle == title && searchingDay == day &&
-                searchingMonth == month && searchingYear == year)
-              return i;
+                searchingMonth == month && searchingYear == year) {
+              if (loan == loanStatus && loanStatus == false) {
+                return i;
+              } else if (loan == loanStatus && loanStatus == true) {
+                string pesel = ptr->getCurrentlyOwns();
+                if (pesel == userPesel) return i;
+              } else {
+                availablePublicationFlag = true;
+              }
+            }
           }
         }
+        if (availablePublicationFlag) throw availableErr;
         throw err;
       }
       default:
@@ -108,10 +131,10 @@ void borrowEngine::borrowPublication(library *library, libraryUser *libraryUser)
   const int indexOfUser = findUser(libraryUser);  //Search index of wanted user
   vector<User>::iterator it_user = libraryUser->getIteratorUsers(); //Get iterator form data-base
 
-  const int indexOfPublication = findPublication(library);  //Search index of publications
+  const int indexOfPublication = findPublication(library, false, "0");  //Search index of publications
   vector<PublicationPtr>::iterator it_publications = library->getIteratorPublications();  //Get iterator form data-base
 
-//  --- Create history element ---
+  //    --- Create history element ---
 //  Checking type of publication and assigns it secondPart value
   string secondPart;
   if (dynamic_cast<Book *>((it_publications + indexOfPublication)->get())) {
@@ -138,8 +161,9 @@ void borrowEngine::returnPublication(library *library, libraryUser *libraryUser)
 
   const int indexOfUser = findUser(libraryUser);  //Search index of wanted user
   vector<User>::iterator it_user = libraryUser->getIteratorUsers(); //Get iterator form data-base
+  string userPesel = (it_user + indexOfUser)->getPerson().getPesel();
 
-  const int indexOfPublication = findPublication(library);  //Search index of publications
+  const int indexOfPublication = findPublication(library, true, userPesel);  //Search index of publications
   vector<PublicationPtr>::iterator it_publications = library->getIteratorPublications();  //Get iterator form data-base
 
   string title, secondPart;

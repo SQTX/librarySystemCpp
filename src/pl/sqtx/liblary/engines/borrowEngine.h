@@ -22,7 +22,7 @@ private:
 
   int findUser(libraryUser *libraryUser);
 
-  int findPublication(library *library);
+  int findPublication(library *library, bool loanStatus, std::string userPesel);
 
 public:
   void borrowPublication(library *library, libraryUser *libraryUser);

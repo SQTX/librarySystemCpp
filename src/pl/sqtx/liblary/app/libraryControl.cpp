@@ -181,6 +181,10 @@ void libraryControl::borrowPublication() {
     string mess = err.what();
     mess.append(", wiec nie zostala wypozyczona.");
     cslPrinter.printLine(mess);
+  } catch (PublicationAvailabilityException err){
+    string mess = err.what();
+    mess.append("jest niedostepna.");
+    cslPrinter.printLine(mess);
   }
 }
 
@@ -192,6 +196,10 @@ void libraryControl::returnPublication() {
   } catch (PublicationNotExistException err){
     string mess = err.what();
     mess.append(", wiec nie zostala zwrocona.");
+    cslPrinter.printLine(mess);
+  } catch (PublicationAvailabilityException err){
+    string mess = err.what();
+    mess.append("zastala juz zwrocona.");
     cslPrinter.printLine(mess);
   }
 }
