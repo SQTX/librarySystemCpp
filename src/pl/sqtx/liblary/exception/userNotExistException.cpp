@@ -1,0 +1,11 @@
+//
+// Created by Jakub Sitarczyk on 12/04/2022.
+//
+#include "../include/main_h.h"
+
+class UserNotExistException : public std::exception{
+public:
+  const char* what() {
+    return "Uzytkownik o podanych danych nie istnieje.";
+  }
+};

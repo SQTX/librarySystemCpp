@@ -8,5 +8,7 @@
 #include "../exception/noSuchOptionException.cpp"
 #include "../exception/dataExportException.cpp"
 #include "../exception/dataImportException.cpp"
+#include "../exception/userNotExistException.cpp"
+#include "../exception/publicationNotExistException.cpp"
 
 #endif //LIBRARYSYSTEM_EXCEPTION_H_H

@@ -173,15 +173,35 @@ void libraryControl::printUsers() {
 }
 
 void libraryControl::borrowPublication() {
-  borrowEngine.borrowPublication(&library, &libraryUser);
+  try{
+    borrowEngine.borrowPublication(&library, &libraryUser);
+  } catch (UserNotExistException err){
+    cslPrinter.printLine(err.what());
+  } catch (PublicationNotExistException err){
+    string mess = err.what();
+    mess.append(", wiec nie zostala wypozyczona.");
+    cslPrinter.printLine(mess);
+  }
 }
 
 void libraryControl::returnPublication() {
-  borrowEngine.returnPublication(&library, &libraryUser);
+  try{
+    borrowEngine.returnPublication(&library, &libraryUser);
+  } catch (UserNotExistException err){
+    cslPrinter.printLine(err.what());
+  } catch (PublicationNotExistException err){
+    string mess = err.what();
+    mess.append(", wiec nie zostala zwrocona.");
+    cslPrinter.printLine(mess);
+  }
 }
 
 void libraryControl::historyOfUser() {
-  borrowEngine.printUserHistory(&libraryUser);
+  try{
+    borrowEngine.printUserHistory(&libraryUser);
+  } catch (UserNotExistException err){
+    cslPrinter.printLine(err.what());
+  }
 }
 
 void libraryControl::exit() {

@@ -2,6 +2,7 @@
 // Created by Jakub Sitarczyk on 25/03/2022.
 //
 #include "borrowEngine.h"
+#include "../include/exception_h.h"
 #include "../io/time/clockSystem.h"
 
 using namespace std;
@@ -17,11 +18,11 @@ string getTimeAndDate() {
 }
 
 int borrowEngine::findUser(libraryUser *libraryUser) {
-//  Create wanted user
+  UserNotExistException err;
+//  --- Create wanted user ---
   cslPrinter.printLine("Podaj dane uzytkownika");
   User wanted = dataReader.readAndCreateUser();
-
-//  Searching
+//  --- Searching ---
   vector<User>::iterator it_users = libraryUser->getIteratorUsers();
 
   for (int i = 0; i < libraryUser->getUsersVector().size(); i++) {
@@ -30,74 +31,74 @@ int borrowEngine::findUser(libraryUser *libraryUser) {
         wanted.getPerson().getPesel() == (it_users + i)->getPerson().getPesel())
       return i;
   }
-  return -1;
-  //TODO błąd: podany użytkownik nie istnieje w bazie danych
+  throw err;
 }
 
 //------------------------------------------------------------------------------------------------------------------
 int borrowEngine::findPublication(library *library) {
+  PublicationNotExistException err;
+  int flagInt = 0;
   vector<PublicationPtr>::iterator it_publications = library->getIteratorPublications();
 
-  //  Choose wanted type and get data
-  cslPrinter.printLine("Wybierz typ publikacji:\n[K] - Ksiazka\n[G] - Gazeta");
-  char choice = tolower(dataReader.getChar());
+  do {
+    //  Choose wanted type and get data
+    cslPrinter.printLine("Wybierz typ publikacji:\n[K] - Ksiazka\n[G] - Gazeta");
+    char choice = tolower(dataReader.getChar());
 
-  switch (choice) {
-    case 'k':
-    case 'K': {
-      //TODO: Potęcjalny search engine to będzie
+    switch (choice) {
+      case 'k':
+      case 'K': {
 //      Get data
-      cslPrinter.printLine("Tytul ksiazki:");
-      string searchingTitle = dataReader.getTextLine();
-      cslPrinter.printLine("Autor ksiazki:");
-      string searchingAuthor = dataReader.getTextLine();
+        cslPrinter.printLine("Tytul ksiazki:");
+        string searchingTitle = dataReader.getTextLine();
+        cslPrinter.printLine("Autor ksiazki:");
+        string searchingAuthor = dataReader.getTextLine();
 //      Searching
-      for (int i = 0; i < library->getPublications().size(); i++) {
-        PublicationPtr ptr = *(it_publications + i);
-        //Checking if the Publication is a Book
-        if (dynamic_cast<Book *>(ptr.get())) {
-          string title = ptr.get()->getTitle();
-          string author = dynamic_cast<Book *>(ptr.get())->getAuthor(); //Potencjalnie dobrze
-          if (searchingTitle == title && searchingAuthor == author) return i;
-        };
+        for (int i = 0; i < library->getPublications().size(); i++) {
+          PublicationPtr ptr = *(it_publications + i);
+          //Checking if the Publication is a Book
+          if (dynamic_cast<Book *>(ptr.get())) {
+            string title = ptr.get()->getTitle();
+            string author = dynamic_cast<Book *>(ptr.get())->getAuthor(); //Potencjalnie dobrze
+            if (searchingTitle == title && searchingAuthor == author) return i;
+          };
+        }
+        throw err;
       }
-      return -1; //If not exist
-      break;
-    }
-    case 'g':
-    case 'G': {
+      case 'g':
+      case 'G': {
 //      Get data
-      cslPrinter.printLine("Tytul gazety:");
-      string searchingTitle = dataReader.getTextLine();
-      cslPrinter.printLine("Dzien publikacji:");
-      int searchingDay = dataReader.getInt();
-      cslPrinter.printLine("Miesiac publikacji:");
-      int searchingMonth = dataReader.getInt();
-      cslPrinter.printLine("Rok publikacji:");
-      int searchingYear = dataReader.getInt();
+        cslPrinter.printLine("Tytul gazety:");
+        string searchingTitle = dataReader.getTextLine();
+        cslPrinter.printLine("Dzien publikacji:");
+        int searchingDay = dataReader.getInt();
+        cslPrinter.printLine("Miesiac publikacji:");
+        int searchingMonth = dataReader.getInt();
+        cslPrinter.printLine("Rok publikacji:");
+        int searchingYear = dataReader.getInt();
 //      Searching
-      for (int i = 0; i < library->getPublications().size(); i++) {
-        PublicationPtr ptr = *(it_publications + i);
-        if (dynamic_cast<Magazine *>(ptr.get())) { //Checking if the Publication is a Book
-          string title = ptr.get()->getTitle();
-          int day = dynamic_cast<Magazine *>(ptr.get())->getDay(); //Potencjalnie dobrze
-          int month = dynamic_cast<Magazine *>(ptr.get())->getMonth(); //Potencjalnie dobrze
-          int year = ptr->getReleaseDate(); //Potencjalnie dobrze
-          if (searchingTitle == title && searchingDay == day &&
-              searchingMonth == month && searchingYear == year) {
-
-            return i;
+        for (int i = 0; i < library->getPublications().size(); i++) {
+          PublicationPtr ptr = *(it_publications + i);
+//        --- Checking if the Publication is a Book ---
+          if (dynamic_cast<Magazine *>(ptr.get())) {
+            string title = ptr.get()->getTitle();
+            int day = dynamic_cast<Magazine *>(ptr.get())->getDay(); //Potencjalnie dobrze
+            int month = dynamic_cast<Magazine *>(ptr.get())->getMonth(); //Potencjalnie dobrze
+            int year = ptr->getReleaseDate(); //Potencjalnie dobrze
+            if (searchingTitle == title && searchingDay == day &&
+                searchingMonth == month && searchingYear == year)
+              return i;
           }
-        };
+        }
+        throw err;
       }
-      return -1; //If not exist
-      break;
-    }
-    default:
-      cslPrinter.printLine("Podany przez ciebie typ publikacji nie istnieje.");
-      return -1;
-      break;
-  };
+      default:
+        cslPrinter.printLine("Podany przez ciebie typ publikacji nie istnieje.");
+        flagInt = -1;
+        cin.clear();
+        break;
+    };
+  } while (flagInt < 0);
 };
 
 //Lend ****************************************************************************************************************
@@ -111,20 +112,20 @@ void borrowEngine::borrowPublication(library *library, libraryUser *libraryUser)
   vector<PublicationPtr>::iterator it_publications = library->getIteratorPublications();  //Get iterator form data-base
 
 //  --- Create history element ---
-  string secondPart;
 //  Checking type of publication and assigns it secondPart value
+  string secondPart;
   if (dynamic_cast<Book *>((it_publications + indexOfPublication)->get())) {
     secondPart = dynamic_cast<Book *>((it_publications + indexOfPublication)->get())->getAuthor();
   } else if (dynamic_cast<Magazine *>((it_publications + indexOfPublication)->get())) {
     secondPart = dynamic_cast<Magazine *>((it_publications + indexOfPublication)->get())->createSecondPart();
-  } else secondPart = "Error";
+  } else secondPart = "Error second part borrowEngine.cpp";
 
   HistoryElement historyElement((it_publications + indexOfPublication)->get()->getTitle(), secondPart,
                                 time, "0"); //Create history element
 
   (it_user + indexOfUser)->lendPublication(*(it_publications + indexOfPublication),
                                            historyElement);  //Send data to User
-//  Changing in Publication object
+//  --- Changing in Publication object ---
   (it_publications + indexOfPublication)->get()->setCurrentlyOwns((it_user + indexOfUser)->getPerson().getPesel());
   (it_publications + indexOfPublication)->get()->setIsLoan(true);
 

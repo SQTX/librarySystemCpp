@@ -16,6 +16,8 @@ add_executable(librarySystem
         ${standardPath}/exception/noSuchOptionException.cpp
         ${standardPath}/exception/dataImportException.cpp
         ${standardPath}/exception/dataExportException.cpp
+        ${standardPath}/exception/userNotExistException.cpp
+        ${standardPath}/exception/publicationNotExistException.cpp
 #        io
         ${standardPath}/io/dataReader.cpp
         ${standardPath}/io/consolePrinter.cpp
