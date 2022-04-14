@@ -9,9 +9,9 @@ add_executable(librarySystem
 #        app
         ${standardPath}/app/main.cpp
         ${standardPath}/app/libraryControl.cpp
-#        engines
-        ${standardPath}/engines/borrowEngine.cpp
-#        ${standardPath}/engines/searchEngine.cpp
+#        engine
+        ${standardPath}/engine/borrowEngine.cpp
+#        ${standardPath}/engine/searchEngine.cpp
 #        exception
         ${standardPath}/exception/noSuchOptionException.cpp
         ${standardPath}/exception/dataImportException.cpp

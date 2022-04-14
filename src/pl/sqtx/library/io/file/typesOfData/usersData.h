@@ -8,7 +8,7 @@
 #include <cstdio>
 #include <fstream>
 #include "../../../include/main_h.h"
-#include "../io/consolePrinter.h"
+#include "../../consolePrinter.h"
 #include "../../../include/exception_h.h"
 #include "../../../model/libraryUser.h"
 #include "../../../model/users/Person.h"
