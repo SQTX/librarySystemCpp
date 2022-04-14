@@ -2,9 +2,9 @@ cmake_minimum_required(VERSION 3.20)
 project(librarySystem)
 
 set(CMAKE_CXX_STANDARD 14)
-set(standardPath src/pl/sqtx/liblary)
+set(standardPath src/pl/sqtx/library)
 
-#add_executable(librarySystem src/pl/sqtx/liblary/app/main.cpp src/pl/sqtx/liblary/model/book.cpp)
+#add_executable(librarySystem src/pl/sqtx/library/app/main.cpp src/pl/sqtx/library/model/book.cpp)
 add_executable(librarySystem
 #        app
         ${standardPath}/app/main.cpp
