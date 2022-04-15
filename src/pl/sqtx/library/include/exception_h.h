@@ -12,5 +12,6 @@
 #include "../exception/userNotExistException.cpp"
 #include "../exception/publicationNotExistException.cpp"
 #include "../exception/publicationAvailabilityException.cpp"
+#include "../exception/wrongDataException.cpp"
 
 #endif //LIBRARYSYSTEM_EXCEPTION_H_H

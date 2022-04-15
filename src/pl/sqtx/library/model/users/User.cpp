@@ -7,8 +7,8 @@ using namespace std;
 
 //Constructor
 //TODO: każda liczba powinna móc być przypisana w konstruktorze ale mieć wartości defultowe
-User::User(const Person &person) : person(person) {
-  this->person = person;
+User::User(const string &firstName, const string &lastName, const string &pesel) : Person(firstName, lastName, pesel) {
+//  this->person = person;
   this->allLoanNumb = 0;
   this->currentlyLoan = 0;
   this->returnedNumb = 0;
@@ -16,12 +16,13 @@ User::User(const Person &person) : person(person) {
 //Destructor
 User::~User() {}
 //Getters and setters
-const Person &User::getPerson() const {
+
+/*const Person &User::getPerson() const {
   return person;
 }
 void User::setPerson(const Person &person) {
   User::person = person;
-}
+}*/
 
 const vector<HistoryElement> &User::getUserHistory() const {
   return userHistory;
@@ -51,15 +52,19 @@ void User::setReturnedNumb(unsigned int returnedNumb) {
 //Other methods
 string User::toString(){
   string info;
-  info.append(person.getFirstName() + "; " + person.getLastName() + "; " + person.getPesel() + "; " +
+  info.append(getFirstName() + "; " + getLastName() + "; " + getPesel() + "; " +
     to_string(allLoanNumb) + "; " + to_string(currentlyLoan) + "; " + to_string(returnedNumb));
+//  info.append(person.getFirstName() + "; " + person.getLastName() + "; " + person.getPesel() + "; " +
+//    to_string(allLoanNumb) + "; " + to_string(currentlyLoan) + "; " + to_string(returnedNumb));
   return info;
 }
 
 string User::toSave(){
   string info;
-  info.append("\nUser;" + person.getFirstName() + ";" + person.getLastName() + ";" + person.getPesel() + ";" +
+  info.append("\nUser;" + getFirstName() + ";" + getLastName() + ";" + getPesel() + ";" +
               to_string(allLoanNumb) + ";" + to_string(currentlyLoan) + ";" + to_string(returnedNumb));
+//  info.append("\nUser;" + person.getFirstName() + ";" + person.getLastName() + ";" + person.getPesel() + ";" +
+//              to_string(allLoanNumb) + ";" + to_string(currentlyLoan) + ";" + to_string(returnedNumb));
   return info;
 }
 

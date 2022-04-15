@@ -110,6 +110,12 @@ Person dataReader::readAndCreatePerson(){
   string pesel;
   cin >> pesel;
 
+  if(pesel.size()>11){
+    wrongDataException err;
+    cslPrinter.printLine("Pesel musi skladac sie z 11 cyfr.");
+    throw err;
+  }
+
   if (!cin.good()) {
     cin.clear();
     cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
@@ -119,5 +125,6 @@ Person dataReader::readAndCreatePerson(){
   return Person(firstName, lastName, pesel);
 }
 User dataReader::readAndCreateUser() {
-  return User(readAndCreatePerson());
+  Person newPerson = readAndCreatePerson();
+  return User(newPerson.getFirstName(), newPerson.getLastName(), newPerson.getPesel());
 }

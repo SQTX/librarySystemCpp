@@ -157,6 +157,8 @@ void libraryControl::addUser() {
     cslPrinter.printLine(message);
   } catch (out_of_range err) {
     cslPrinter.printLine("Przekroczono dozwolony limit uzytkownikow.");
+  } catch (wrongDataException err) {
+    cslPrinter.printLine(err.what());
   }
 }
 //--- Print users ---

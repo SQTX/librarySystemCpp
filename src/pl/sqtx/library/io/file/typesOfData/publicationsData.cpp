@@ -102,7 +102,7 @@ bool publicationsData::importPublications(library *library, const char MAX_CHAR,
 
           if(currentlyOwner != "0"){
             for(int i = 0; i < libraryUser->getUsersVector().size(); i++){
-              if((libraryUser->getIteratorUsers()+i)->getPerson().getPesel() == currentlyOwner) {
+              if((libraryUser->getIteratorUsers()+i)->getPesel() == currentlyOwner) {
                 (libraryUser->getIteratorUsers()+i)->addBorrowedPublications(book);
               }
             }
@@ -173,7 +173,7 @@ bool publicationsData::importPublications(library *library, const char MAX_CHAR,
 
           if(currentlyOwner != "0"){
             for(int i = 0; i < libraryUser->getUsersVector().size(); i++){
-              if((libraryUser->getIteratorUsers()+i)->getPerson().getPesel() == currentlyOwner) {
+              if((libraryUser->getIteratorUsers()+i)->getPesel() == currentlyOwner) {
                 (libraryUser->getIteratorUsers()+i)->addBorrowedPublications(magazine);
               }
             }

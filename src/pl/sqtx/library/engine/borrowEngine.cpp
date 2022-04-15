@@ -26,9 +26,9 @@ int borrowEngine::findUser(libraryUser *libraryUser) {
   vector<User>::iterator it_users = libraryUser->getIteratorUsers();
 
   for (int i = 0; i < libraryUser->getUsersVector().size(); i++) {
-    if (wanted.getPerson().getFirstName() == (it_users + i)->getPerson().getFirstName() &&
-        wanted.getPerson().getLastName() == (it_users + i)->getPerson().getLastName() &&
-        wanted.getPerson().getPesel() == (it_users + i)->getPerson().getPesel())
+    if (wanted.getFirstName() == (it_users + i)->getFirstName() &&
+        wanted.getLastName() == (it_users + i)->getLastName() &&
+        wanted.getPesel() == (it_users + i)->getPesel())
       return i;
   }
   throw err;
@@ -149,7 +149,7 @@ void borrowEngine::borrowPublication(library *library, libraryUser *libraryUser)
   (it_user + indexOfUser)->lendPublication(*(it_publications + indexOfPublication),
                                            historyElement);  //Send data to User
 //  --- Changing in Publication object ---
-  (it_publications + indexOfPublication)->get()->setCurrentlyOwns((it_user + indexOfUser)->getPerson().getPesel());
+  (it_publications + indexOfPublication)->get()->setCurrentlyOwns((it_user + indexOfUser)->getPesel());
   (it_publications + indexOfPublication)->get()->setIsLoan(true);
 
   cslPrinter.printLine("Wybrana publikacja zostala wypozyczona"); //Completed message
@@ -161,7 +161,7 @@ void borrowEngine::returnPublication(library *library, libraryUser *libraryUser)
 
   const int indexOfUser = findUser(libraryUser);  //Search index of wanted user
   vector<User>::iterator it_user = libraryUser->getIteratorUsers(); //Get iterator form data-base
-  string userPesel = (it_user + indexOfUser)->getPerson().getPesel();
+  string userPesel = (it_user + indexOfUser)->getPesel();
 
   const int indexOfPublication = findPublication(library, true, userPesel);  //Search index of publications
   vector<PublicationPtr>::iterator it_publications = library->getIteratorPublications();  //Get iterator form data-base

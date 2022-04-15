@@ -13,9 +13,10 @@
 
 typedef std::shared_ptr<Publication> PublicationPtr;
 
-class User {
+//TODO: Potęcjalne dziedziczenie "class User : public Person{}"
+class User : public Person{
 private:
-  Person person;
+//  Person person;
   std::vector<PublicationPtr> borrowedPublications;
   std::vector<HistoryElement> userHistory;
   unsigned int allLoanNumb = 0;
@@ -23,12 +24,12 @@ private:
   unsigned int returnedNumb = 0;
 public:
 //  Constructor ---------------------------------------------------------------------------------------------------
-  User(const Person &person);
+  User(const std::string &firstName, const std::string &lastName, const std::string &pesel);
 //  Destructor ---------------------------------------------------------------------------------------------------
   virtual ~User();
 //  Getters and setters ------------------------------------------------------------------------------------------
-  const Person &getPerson() const;
-  void setPerson(const Person &person);
+//  const Person &getPerson() const;
+//  void setPerson(const Person &person);
 
   const std::vector<HistoryElement> &getUserHistory() const;
 

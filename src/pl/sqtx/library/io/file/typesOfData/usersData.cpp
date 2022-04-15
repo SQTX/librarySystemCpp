@@ -75,7 +75,7 @@ bool usersData::importUsers(libraryUser *libraryUser, const char MAX_CHAR, fstre
           dataFile->ignore(1);
 
 //          Create object and add it to libraryUser vector
-          User user(Person(firstName, lastName, pesel));
+          User user(firstName, lastName, pesel);
           user.setAllLoanNumb(allLoanNumb);
           user.setCurrentlyLoan(currentlyLoan);
           user.setReturnedNumb(returnedNumb);
