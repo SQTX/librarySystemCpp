@@ -93,8 +93,8 @@ namespace options {
         {REMOVE_MAGAZINE,     "usun gazete"},
         {ADD_USER,            "dodaj uzytkownika"},
         {PRINT_USERS,         "wyswietl dostepnych uzytkownikow"},
-        {BORROW_PUBLICATION,  "wypozycz ksiazke"},
-        {RETURN_PUBLICATION,  "zwroc ksiazke"},
+        {BORROW_PUBLICATION,  "wypozycz publikacje"},
+        {RETURN_PUBLICATION,  "zwroc publikacje"},
         {HISTORY_OF_USER,  "historia wypozyczen uzytkownika"},
     };
 

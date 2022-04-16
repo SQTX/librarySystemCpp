@@ -4,9 +4,13 @@
 - Create, store and display two types of publications,
 - Possibility to remove any publication from the system,
 - Create, store and display readers,
+- The possibility of borrowing and returning publications by users,
+- All rentals are documented in the user's history along with the date they were made,
+- User's history can be displayed,
 - The application automatically imports and exports files when the system is turned on and off.
 ---
 ### Instalation
+**Currently, a code compiler is required to use the code!**
 #### For Windows
 - Download .zip file
 
