@@ -33,8 +33,6 @@ int borrowEngine::findUser(libraryUser *libraryUser) {
   }
   throw err;
 }
-
-//------------------------------------------------------------------------------------------------------------------
 int borrowEngine::findPublication(library *library, bool loanStatus, string userPesel) {
   PublicationNotExistException err;
   PublicationAvailabilityException availableErr;
@@ -185,6 +183,7 @@ void borrowEngine::returnPublication(library *library, libraryUser *libraryUser)
   cslPrinter.printLine("Wybrana publikacja zostala zwrocona");
 }
 
+//History of user
 void borrowEngine::printUserHistory(libraryUser *libraryUser) {
   const int indexOfUser = findUser(libraryUser);  //Search index of wanted user
   vector<User>::iterator it_user = libraryUser->getIteratorUsers(); //Get iterator form data-base

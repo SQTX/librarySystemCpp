@@ -29,7 +29,6 @@ private:
 public:
 //  IMPORT========================================================================================================
   void importData(library *library, libraryUser *libraryUser);
-
 //EXPORT========================================================================================================
   void exportData(library *library, libraryUser *libraryUser);
 };

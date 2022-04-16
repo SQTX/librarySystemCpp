@@ -21,38 +21,24 @@ private:
   int publicationsNumber = 0; //Number of publications
 
 public:
-//  Vector getter
+//  --- Getters ---
   const std::vector<PublicationPtr> &getPublications() const;
-
   std::vector<PublicationPtr>::iterator &getIteratorPublications();
 
-//  Add new book to lab
-  void addBook(PublicationPtr book);
+  void addBook(PublicationPtr book);  //Add new book to lab
 
-//  Add new magazine to lab
-  void addMagazine(PublicationPtr magazine);
+  void addMagazine(PublicationPtr magazine);  //Add new magazine to lab
 
-//  Add new Publication to lib - MAIN function
 private:
-  void addPublication(PublicationPtr publication);
+  void addPublication(PublicationPtr publication);  //Add new Publication to lib - MAIN function
 
-//  Remove book from lab
 public:
-  void removeBook(PublicationPtr book);
+  void removeBook(PublicationPtr book); //Remove book from lab
 
-//  Remove magazine from lab
-  void removeMagazine(PublicationPtr magazine);
+  void removeMagazine(PublicationPtr magazine); //Remove magazine from lab
 
-//  Remove Publication from lab - MAIN function
 private:
-  void removePublication(PublicationPtr publication);
-
-/*  Function check is it element exists. If:
-  yes - increase numberOf element
-  no - do nothing */
-  void checkIsItExistsAdd(PublicationPtr publication);
-
-  void checkIsItExistsRemove(PublicationPtr publication);
+  void removePublication(PublicationPtr publication); //Remove Publication from lab - MAIN function
 };
 
 #endif //LIBRARYSYSTEM_LIBRARY_H

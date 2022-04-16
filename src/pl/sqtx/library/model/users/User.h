@@ -13,10 +13,8 @@
 
 typedef std::shared_ptr<Publication> PublicationPtr;
 
-//TODO: Potęcjalne dziedziczenie "class User : public Person{}"
 class User : public Person{
 private:
-//  Person person;
   std::vector<PublicationPtr> borrowedPublications;
   std::vector<HistoryElement> userHistory;
   unsigned int allLoanNumb = 0;
@@ -28,9 +26,6 @@ public:
 //  Destructor ---------------------------------------------------------------------------------------------------
   virtual ~User();
 //  Getters and setters ------------------------------------------------------------------------------------------
-//  const Person &getPerson() const;
-//  void setPerson(const Person &person);
-
   const std::vector<HistoryElement> &getUserHistory() const;
 
   unsigned int getAllLoanNumb() const;
@@ -42,13 +37,16 @@ public:
   unsigned int getReturnedNumb() const;
   void setReturnedNumb(unsigned int returnedNumb);
 //  Other methods ---------------------------------------------------------------------------------------------------
-  std::string toString();
-  std::string toSave();
-  std::string toSaveUserHistory(int i);
-  void lendPublication(PublicationPtr publication, HistoryElement historyElement);
-  void returnPublication(std::string title, std::string secondPart, std::string time);
+  std::string toString(); //Prepare data to printout
+  std::string toSave(); //Perpere data to save
+  std::string toSaveUserHistory(int i); //Perpere history of usert to save
+  /**Functions that push data to a vector.*/
   void addBorrowedPublications(PublicationPtr publication);
   void addHistoryElement(HistoryElement historyElement);
+  /**Saves the loan in the user's history. Updates statistics.*/
+  void lendPublication(PublicationPtr publication, HistoryElement historyElement);
+  /**I assign a return date to user history. Updates statistics.*/
+  void returnPublication(std::string title, std::string secondPart, std::string time);
 };
 
 #endif //LIBRARYSYSTEM_USER_H

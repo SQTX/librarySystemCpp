@@ -11,7 +11,7 @@ class HistoryElement {
 private:
   //TODO: Potęcjalnie może pojawić się tu jesszcze typ publikacji
   std::string elemTitle;
-  std::string elemSecondPart; //Author for book/Date of publication for magazine
+  std::string elemSecondPart; //Author of book/Date of publication for magazine
   std::string elemLoanDate;
   std::string elemReturnDate;
 public:

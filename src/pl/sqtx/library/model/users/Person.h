@@ -33,8 +33,8 @@ public:
   bool operator!=(const Person &rhs) const;
 
 //  Method ---------------------------------------------------------------------
-  std::string toString();
-  std::string toSave();
+  std::string toString(); //Prepere data to printout
+  std::string toSave(); //Prepere data to save
 };
 
 #endif //LIBRARYSYSTEM_PERSON_H

@@ -5,7 +5,6 @@
 #ifndef LIBRARYSYSTEM_PUBLICATION_H
 #define LIBRARYSYSTEM_PUBLICATION_H
 
-/*Headers*/
 #include "../../include/main_h.h"
 
 class Publication{
@@ -44,8 +43,8 @@ public:
 
 //  Methods   ---------------------------------------------------------------------
 //Virtual method
-  virtual std::string toString();
-  virtual std::string toSave();
+  virtual std::string toString(); //Prepere to printout
+  virtual std::string toSave(); //Prepere to save
 };
 
 #endif //LIBRARYSYSTEM_PUBLICATION_H

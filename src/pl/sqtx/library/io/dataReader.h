@@ -16,24 +16,21 @@ class dataReader {
 private:
   consolePrinter cslPrinter;
 public:
-//  Get from user ****************************************************
-//  Get int num
-  int getInt();
-//  Get char
-  char getChar();
-//  Get all line of text
-  std::string getTextLine();
+//  --- Get data from user ---
+  int getInt(); //Get int num
+  char getChar(); //Get char
+  std::string getTextLine();  //Get all line of text
 
-//  For publications *************************************************
-//  Get informations about new book and create it
+//  --- For publications ---
+  /**Get informations about new book and create it.*/
   Book readAndCreateBook();
-//  Get informations about new magazine and create it
+  /**Get informations about new magazine and create it.*/
   Magazine readAndCreateMagazine();
 
-// For person ******************************************************
-// Get informations about new person and create it
+// --- For person ---
+  /**Get informations about new person and create it.*/
   Person readAndCreatePerson();
-//  Create new user
+  /**Create new user.*/
   User readAndCreateUser();
 };
 

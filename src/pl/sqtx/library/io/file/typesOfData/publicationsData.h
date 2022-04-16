@@ -22,12 +22,12 @@ private:
   consolePrinter cslPrinter;
 
 public:
-  /*Function that imports publications into the main vector that stores
-    publications in the library.cpp class*/
+  /**Function that imports publications into the main vector that stores
+   * publications in the library.cpp class.*/
   bool importPublications(library *library, const char MAX_CHAR, std::fstream *dataFile, int *position, libraryUser *libraryUser);
 
-  /*Function that export publications from the main vector that stores
-    publications in the library.cpp class into dataBase file*/
+  /**Function that export publications from the main vector that stores
+   * publications in the library.cpp class into dataBase file.*/
   bool exportPublications(library *library, const char MAX_CHAR, std::fstream *dataFile, int *position);
 };
 

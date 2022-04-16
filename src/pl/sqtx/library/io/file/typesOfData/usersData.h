@@ -22,12 +22,12 @@ private:
   const unsigned char MAX_PESEL_CHAR = 11;
 
 public:
-  /*Function that imports user into the main vector that stores
-    users in the libraryUser.cpp class*/
+  /**Function that imports user into the main vector that stores
+   * users in the libraryUser.cpp class.*/
   bool importUsers(libraryUser *libraryUser, const char MAX_CHAR, std::fstream *dataFile, int *position);
 
-  /*Function that export users from the main vector that stores
-    users in the libraryUser.cpp class into dataBase file*/
+  /**Function that export users from the main vector that stores
+   * users in the libraryUser.cpp class into dataBase file.*/
   bool exportUsers(libraryUser *libraryUser, const char MAX_CHAR, std::fstream *dataFile, int *position);
 };
 

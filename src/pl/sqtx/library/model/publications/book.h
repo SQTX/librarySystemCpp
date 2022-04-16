@@ -24,27 +24,22 @@ public:
 
 //  Getter and Setter  ---------------------------------------------------------------------
   const std::string &getAuthor() const;
-
   void setAuthor(const std::string &author);
 
   int getPages() const;
-
   void setPages(int pages);
 
   const std::string &getIsbn() const;
-
   void setIsbn(const std::string &isbn);
 
   //  Equals  ---------------------------------------------------------------------
   bool operator==(const Book &rhs) const;
-
   bool operator!=(const Book &rhs) const;
 
 //    Methods  ---------------------------------------------------------------------
-//  Create string-line with the information about Book object
+  /**Create string-line with the information about Book object.*/
   std::string toString() override;
-
-//  Create string-line with the information arranged for data export
+  /**Create string-line with the information arranged for data export.*/
   std::string toSave() override;
 };
 

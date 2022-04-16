@@ -10,10 +10,8 @@
 
 class clockSystem {
 public:
-//  Get actual time
-  std::string getTime();
-//  Get actual date
-  std::string getDate();
+  std::string getTime();  //Get actual time
+  std::string getDate();  //Get actual date
 };
 
 #endif //LIBRARYSYSTEM_CLOCKSYSTEM_H

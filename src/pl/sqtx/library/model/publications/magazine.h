@@ -5,7 +5,6 @@
 #ifndef LIBRARYSYSTEM_MAGAZINE_H
 #define LIBRARYSYSTEM_MAGAZINE_H
 
-/*Headers*/
 #include "publication.h"
 
 //*********************************************************************************************************************
@@ -24,29 +23,24 @@ public:
 
 //  Getter and setter  ---------------------------------------------------------------------
   int getMonth() const;
-
   void setMonth(int month);
 
   int getDay() const;
-
   void setDay(int day);
 
   const std::string &getLanguage() const;
-
   void setLanguage(const std::string &language);
 
 //  Equals  ---------------------------------------------------------------------
   bool operator==(const Magazine &rhs) const;
-
   bool operator!=(const Magazine &rhs) const;
 
 //    Methods  ---------------------------------------------------------------------
-//  Create string-line with the information about Book object
-  std::string toString() override;
-
-//  Create string-line with the information arranged for data export
-  std::string toSave() override;
-
+  /**Create string-line with the information about Magazine object.*/
+  std::string toString() override; //Prepere to printout
+  /**Create string-line with the information arranged for data export.*/
+  std::string toSave() override; //Prepere to save
+  /**Create string-line creates lines containing day, month and year.*/
   std::string createSecondPart();
 };
 

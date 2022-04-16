@@ -15,15 +15,8 @@ User::User(const string &firstName, const string &lastName, const string &pesel)
 };
 //Destructor
 User::~User() {}
+
 //Getters and setters
-
-/*const Person &User::getPerson() const {
-  return person;
-}
-void User::setPerson(const Person &person) {
-  User::person = person;
-}*/
-
 const vector<HistoryElement> &User::getUserHistory() const {
   return userHistory;
 }
@@ -58,21 +51,24 @@ string User::toString(){
 //    to_string(allLoanNumb) + "; " + to_string(currentlyLoan) + "; " + to_string(returnedNumb));
   return info;
 }
-
 string User::toSave(){
   string info;
   info.append("\nUser;" + getFirstName() + ";" + getLastName() + ";" + getPesel() + ";" +
               to_string(allLoanNumb) + ";" + to_string(currentlyLoan) + ";" + to_string(returnedNumb));
-//  info.append("\nUser;" + person.getFirstName() + ";" + person.getLastName() + ";" + person.getPesel() + ";" +
-//              to_string(allLoanNumb) + ";" + to_string(currentlyLoan) + ";" + to_string(returnedNumb));
   return info;
 }
-
 string User::toSaveUserHistory(int i){
   string info;
   info.append(userHistory[i].getElemTitle() + ";" + userHistory[i].getElemSecondPart() + ";" +
     userHistory[i].getElemLoanDate() + ";" + userHistory[i].getElemReturnDate());
   return info;
+}
+
+void User::addBorrowedPublications(PublicationPtr publication){
+  borrowedPublications.push_back(publication);
+}
+void User::addHistoryElement(HistoryElement historyElement){
+  userHistory.push_back(historyElement);
 }
 
 void User::lendPublication(PublicationPtr publication, HistoryElement historyElement){
@@ -82,7 +78,6 @@ void User::lendPublication(PublicationPtr publication, HistoryElement historyEle
   allLoanNumb++;
   currentlyLoan++;
 }
-
 void User::returnPublication(std::string title, std::string secondPart, std::string time){
   for(int i = 0; i < borrowedPublications.size(); i++){
     if(title == borrowedPublications[i]->getTitle()) {
@@ -105,12 +100,4 @@ void User::returnPublication(std::string title, std::string secondPart, std::str
   //  Statistic
   currentlyLoan--;
   returnedNumb++;
-}
-
-void User::addBorrowedPublications(PublicationPtr publication){
-  borrowedPublications.push_back(publication);
-}
-
-void User::addHistoryElement(HistoryElement historyElement){
-  userHistory.push_back(historyElement);
 }
