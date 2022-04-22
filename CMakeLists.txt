@@ -11,7 +11,7 @@ add_executable(librarySystem
         ${standardPath}/app/libraryControl.cpp
 #        engine
         ${standardPath}/engine/borrowEngine.cpp
-#        ${standardPath}/engine/searchEngine.cpp
+        ${standardPath}/engine/searchEngine.cpp
 #        exception
         ${standardPath}/exception/noSuchOptionException.cpp
         ${standardPath}/exception/dataImportException.cpp

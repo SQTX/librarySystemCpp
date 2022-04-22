@@ -47,6 +47,9 @@ void libraryControl::controlLoop() {
       case option.HISTORY_OF_USER:
         historyOfUser();
         break;
+      case option.SEARCH_ENGINE:
+        searchEngi();
+        break;
       case option.EXIT:
         exit();
         break;
@@ -204,6 +207,10 @@ void libraryControl::historyOfUser() {
   } catch (UserNotExistException err){
     cslPrinter.printLine(err.what());
   }
+}
+//--- Search engine ---
+void libraryControl::searchEngi() {
+  searchEngine.searchEng(&library, &libraryUser);
 }
 //--- Exit ---
 void libraryControl::exit() {

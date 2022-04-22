@@ -33,9 +33,9 @@ char dataReader::getChar() {
   }
 }
 string dataReader::getTextLine() {
+  cin.ignore();  //TODO: Potential ERROR
   string txt = "";
   getline(cin, txt);
-//  cin.ignore();  //Potential ERROR
   if (cin.good()) {
     cin.clear();
     return txt;

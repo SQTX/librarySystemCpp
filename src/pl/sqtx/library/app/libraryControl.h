@@ -10,6 +10,7 @@
 #include "../io/consolePrinter.h"
 #include "../io/dataReader.h"
 #include "../engine/borrowEngine.h"
+#include "../engine/searchEngine.h"
 #include "../model/library.h"
 #include "../model/publications/publication.h"
 #include "../include/publicationType_h.h" //Types of publications
@@ -26,6 +27,7 @@ private:
   serializableFileManager srlFileManager; //serializableFileManager.cpp
   library library;  //library.cpp
   libraryUser libraryUser;  //libraryUser.cpp
+  searchEngine searchEngine;  //searchEngine.cpp
 public:
   /**Pętla główna z przełącznikami opcji.*/
   void controlLoop();
@@ -58,8 +60,12 @@ private:
   void returnPublication();
   /**Looks for a given user and displays his history.*/
   void historyOfUser();
+//  --- Search engine ---
+  /**A function that searches data in the database. When it finds any, displays them.*/
+  void searchEngi();
+//  EXIT
   /**A function to end the main loop, import the data, and exit*/
-  void exit();  //Exit
+  void exit();
 };
 //  ===== Subclass Options ===============================================================================================
 namespace options {
@@ -79,6 +85,7 @@ namespace options {
       BORROW_PUBLICATION,
       RETURN_PUBLICATION,
       HISTORY_OF_USER,
+      SEARCH_ENGINE,
       END //Last element (Enum_size = END-1)
     };
     int optionsSize = option::END;
@@ -95,7 +102,8 @@ namespace options {
         {PRINT_USERS,         "wyswietl dostepnych uzytkownikow"},
         {BORROW_PUBLICATION,  "wypozycz publikacje"},
         {RETURN_PUBLICATION,  "zwroc publikacje"},
-        {HISTORY_OF_USER,  "historia wypozyczen uzytkownika"},
+        {HISTORY_OF_USER,     "historia wypozyczen uzytkownika"},
+        {SEARCH_ENGINE,       "wyszukaj"},
     };
 
 //    Return enum option size
