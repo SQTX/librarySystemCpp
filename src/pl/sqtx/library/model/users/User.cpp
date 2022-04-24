@@ -6,7 +6,6 @@
 using namespace std;
 
 //Constructor
-//TODO: każda liczba powinna móc być przypisana w konstruktorze ale mieć wartości defultowe
 User::User(const string &firstName, const string &lastName, const string &pesel) : Person(firstName, lastName, pesel) {
 //  this->person = person;
   this->allLoanNumb = 0;

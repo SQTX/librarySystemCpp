@@ -65,8 +65,8 @@ bool Publication::operator!=(const Publication &rhs) const {
   return !(rhs == *this);
 }
 
-//Other methods   ---------------------------------------------------------------------
+//--- Other methods --------------------------------------------------------------------------
 //Virtual methods:
 //TODO last: Dd sprawdzenia
-string Publication::toString(){};
+string Publication::toString(){}
 string Publication::toSave(){}

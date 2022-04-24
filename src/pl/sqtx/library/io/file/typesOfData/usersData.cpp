@@ -14,6 +14,7 @@ bool usersData::importUsers(libraryUser *libraryUser, const char MAX_CHAR, fstre
     DataImportException err;  //Create error
 
     dataFile->open("../src/pl/sqtx/library/data/dataBase.txt", ios::in); //Open data_file
+    //TODO: Potęcjalny błąd dla windows \ zamiast /
 
 //    File opens good ******************************************
     if (dataFile->is_open()) {
@@ -152,6 +153,7 @@ bool usersData::exportUsers(libraryUser *libraryUser, const char MAX_CHAR, fstre
   try {
     DataExportException err;
     dataFile->open("../src/pl/sqtx/library/data/dataBase.txt", ios::out);  //Open database
+    //TODO: Potęcjalny błąd dla windows \ zamiast /
 
 //    File opens good ******************************************
     if (dataFile->is_open()) {

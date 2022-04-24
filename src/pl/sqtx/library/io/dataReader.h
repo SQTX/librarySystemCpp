@@ -16,6 +16,8 @@ class dataReader {
 private:
   consolePrinter cslPrinter;
 public:
+//  --- Letter transform ---
+  std::string toLowerCase(std::string);  //To lower case
 //  --- Get data from user ---
   int getInt(); //Get int num
   char getChar(); //Get char

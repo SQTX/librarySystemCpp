@@ -16,8 +16,7 @@ class searchEngine {
 private:
   dataReader dataReader;
   consolePrinter cslPrinter;
-
-  std::string toLowerCase(std::string);   //Transform to lower case
+//  --- Find-functions ---
   int findUser(libraryUser *libraryUser, std::string txt, int lastIteratorIndex);  //Find user and return iterator
   int findPublication(library *library, std::string txt, int lastIteratorIndex);   //Find publication and return iterator
 

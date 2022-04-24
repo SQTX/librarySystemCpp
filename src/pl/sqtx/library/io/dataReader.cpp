@@ -5,6 +5,12 @@
 
 using namespace std;
 
+string dataReader::toLowerCase(string txt) {
+//  Convert string to lower case
+  transform(txt.begin(), txt.end(), txt.begin(), ::tolower);
+  return txt;
+}
+
 int dataReader::getInt() {
   int number = -1;
   cin >> number;

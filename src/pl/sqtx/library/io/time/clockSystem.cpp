@@ -4,7 +4,7 @@
 #include "clockSystem.h"
 
 using namespace std;
-
+//TODO: dzień i miesiąc od 1-9 ppowinny być 2-cyfrowe - 03:09:2003
 string clockSystem::getTime(){
   string time;
   chrono::system_clock::time_point now = chrono::system_clock::now();

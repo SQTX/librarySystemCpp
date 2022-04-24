@@ -14,6 +14,7 @@ bool publicationsData::importPublications(library *library, const char MAX_CHAR,
     DataImportException err;  //Create error
 
     dataFile->open("../src/pl/sqtx/library/data/dataBase.txt", ios::in); //Open data_file
+    //TODO: Potęcjalny błąd dla windows \ zamiast /
 
 //    File opens good =========================================================================================
     if (dataFile->is_open()) {
@@ -218,6 +219,7 @@ bool publicationsData::exportPublications(library *library, const char MAX_CHAR,
   try {
     DataExportException err;
     dataFile->open("../src/pl/sqtx/library/data/dataBase.txt", ios::out | ios::app);  //Open database
+    //TODO: Potęcjalny błąd dla windows \ zamiast /
 
 //    File opens good =========================================================================================
     if (dataFile->is_open()) {
