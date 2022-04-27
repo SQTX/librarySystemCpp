@@ -6,15 +6,13 @@
 using namespace std;
 
 string dataReader::toLowerCase(string txt) {
-//  Convert string to lower case
-  transform(txt.begin(), txt.end(), txt.begin(), ::tolower);
+  transform(txt.begin(), txt.end(), txt.begin(), ::tolower); //Convert string to lower case
   return txt;
 }
 
 int dataReader::getInt() {
   int number = -1;
   cin >> number;
-//  cin.ignore();  //Potential ERROR
   if (cin.good()) {
     cin.clear();
     return number;
@@ -27,10 +25,8 @@ int dataReader::getInt() {
 char dataReader::getChar() {
   char ch = ' ';
   cin >> ch;
-//  cin.ignore();  //Potential ERROR
   if (cin.good()) {
     cin.clear();
-    cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     return ch;
   } else {
     cin.clear();
@@ -39,7 +35,6 @@ char dataReader::getChar() {
   }
 }
 string dataReader::getTextLine() {
-  cin.ignore();  //TODO: Potential ERROR
   string txt = "";
   getline(cin, txt);
   if (cin.good()) {

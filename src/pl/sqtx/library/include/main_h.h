@@ -13,6 +13,7 @@
 #include <limits>
 #ifdef _WIN64
 #include <windows.h>
+#include <algorithm>
 #elif __APPLE__
 #endif
 

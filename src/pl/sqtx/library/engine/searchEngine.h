@@ -22,7 +22,7 @@ private:
 
 public:
   /**Get the searched data from the user and send the data to the search functions.*/
-  int searchEng(library *library, libraryUser *libraryUser);
+  void searchEng(library *library, libraryUser *libraryUser);
 };
 
 #endif //LIBRARYSYSTEM_SEARCHENGINE_H

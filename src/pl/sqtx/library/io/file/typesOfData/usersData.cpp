@@ -124,7 +124,7 @@ bool usersData::importUsers(libraryUser *libraryUser, const char MAX_CHAR, fstre
       *position = actualPosition;
 //      Close file and print message
       dataFile->close();
-      return 1;
+      return true;
 
 //      File opens fail ******************************************
     } else {
@@ -134,7 +134,7 @@ bool usersData::importUsers(libraryUser *libraryUser, const char MAX_CHAR, fstre
       if (dataFile->is_open()) {
         cslPrinter.printLine("Zainicjalizowano nowa baze danych.");
         dataFile->close();
-        return 0;
+        return false;
       } else {
         cslPrinter.printLine("Stworzenie nowej bazy danych jest niemozliwe.");
         throw err;
@@ -143,6 +143,7 @@ bool usersData::importUsers(libraryUser *libraryUser, const char MAX_CHAR, fstre
   } catch (DataImportException err) {
     string message = err.what();
     cslPrinter.printLine(message);
+    return false;
   }
 }
 
@@ -190,15 +191,15 @@ bool usersData::exportUsers(libraryUser *libraryUser, const char MAX_CHAR, fstre
           actualPosition = dataFile->tellp(); //Get actualy position of file cursor
           *position = actualPosition;
           dataFile->close();
-          return 1;
+          return true;
         }
-        return 0;
+        return false;
       }
-      return 0;
     }
   } catch (DataExportException err) {
     string message = err.what();
     cslPrinter.printLine("Blad zapisu.");
     cslPrinter.printLine(message);
+    return false;
   }
 }

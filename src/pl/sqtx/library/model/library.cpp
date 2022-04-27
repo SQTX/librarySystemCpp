@@ -11,20 +11,18 @@ const vector<PublicationPtr> &library::getPublications() const {
 }
 
 std::vector<PublicationPtr>::iterator &library::getIteratorPublications(){
-  vector<PublicationPtr>::iterator it_publications = publications.begin();
+  static vector<PublicationPtr>::iterator it_publications = publications.begin();  //TODO: dodanie static dla windows'a
   return it_publications;
 }
-
+//--- ADD ---
 //  Add new book to lab
 void library::addBook(PublicationPtr book) {
   addPublication(book);
 }
-
 //  Add new magazine to lab
 void library::addMagazine(PublicationPtr magazine) {
   addPublication(magazine);
 }
-
 //  Add new Publication to lib - MAIN function
 void library::addPublication(PublicationPtr publication) {
   if (publicationsNumber >= maxPublications) {
@@ -36,17 +34,15 @@ void library::addPublication(PublicationPtr publication) {
     publicationsNumber++;
   }
 }
-
+//--- REMOVE ---
 //  Remove book from lab
 void library::removeBook(PublicationPtr book) {
   removePublication(book);
 }
-
 //  Remove magazine from lab
 void library::removeMagazine(PublicationPtr magazine) {
   removePublication(magazine);
 }
-
 //  Remove Publication from lab - MAIN function
 void library::removePublication(PublicationPtr publication) {
   if (dynamic_cast<Book *>(publication.get()) || dynamic_cast<Magazine *>(publication.get())) {

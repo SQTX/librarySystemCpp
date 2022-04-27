@@ -189,7 +189,7 @@ bool publicationsData::importPublications(library *library, const char MAX_CHAR,
       *position = actualPosition;
 //      Close file and print message
       dataFile->close();
-      return 1;
+      return true;
 
 //      File opens fail ============================================================================================
     } else {
@@ -199,16 +199,16 @@ bool publicationsData::importPublications(library *library, const char MAX_CHAR,
       if (dataFile->is_open()) {
         cslPrinter.printLine("Zainicjalizowano nowa baze danych.");
         dataFile->close();
-        return 0;
+        return false;
       } else {
         cslPrinter.printLine("Stworzenie nowej bazy danych jest niemozliwe.");
         throw err;
       }
-      return 0;
     }
   } catch (DataImportException err) {
     string message = err.what();
     cslPrinter.printLine(message);
+    return false;
   }
 }
 
@@ -259,15 +259,15 @@ bool publicationsData::exportPublications(library *library, const char MAX_CHAR,
           actualPosition = dataFile->tellp(); //Get actualy position of file cursor
           *position = actualPosition;
           dataFile->close();
-          return 1;
+          return true;
         }
-        return 0;
       }
-      return 0;
     }
+    return false;
   } catch (DataExportException err) {
     string message = err.what();
     cslPrinter.printLine("Blad zapisu.");
     cslPrinter.printLine(message);
+    return false;
   }
 }

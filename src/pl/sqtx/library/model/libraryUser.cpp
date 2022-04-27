@@ -7,13 +7,13 @@
 using namespace std;
 
 //Get vector
-const std::vector<User> &libraryUser::getUsersVector() const {
+const vector<User> &libraryUser::getUsersVector() const {
   return users;
 }
 
 //Get iterator
-std::vector<User>::iterator &libraryUser::getIteratorUsers(){
-  vector<User>::iterator it_users = users.begin();
+vector<User>::iterator &libraryUser::getIteratorUsers(){
+  static vector<User>::iterator it_users = users.begin(); //TODO: dodanie static dla windows'a
   return it_users;
 }
 

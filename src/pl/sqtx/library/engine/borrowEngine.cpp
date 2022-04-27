@@ -24,7 +24,6 @@ int borrowEngine::findUser(libraryUser *libraryUser) {
   User wanted = dataReader.readAndCreateUser();
 //  --- Searching ---
   vector<User>::iterator it_users = libraryUser->getIteratorUsers();
-
   for (int i = 0; i < libraryUser->getUsersVector().size(); i++) {
     if (wanted.getFirstName() == (it_users + i)->getFirstName() &&
         wanted.getLastName() == (it_users + i)->getLastName() &&
@@ -120,6 +119,7 @@ int borrowEngine::findPublication(library *library, bool loanStatus, string user
         break;
     };
   } while (flagInt < 0);
+  return -1;
 };
 
 //Lend ****************************************************************************************************************

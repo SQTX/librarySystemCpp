@@ -131,7 +131,7 @@ void libraryControl::removeBook() {
   try {
     PublicationPtr book = make_shared<Book>(dataReader.readAndCreateBook());
     library.removeBook(book);
-    cslPrinter.printLine("Ksiazka została usunieta z bazy danych.");
+    cslPrinter.printLine("Ksiazka zostala usunieta z bazy danych.");
   } catch (invalid_argument err) {
     string message = err.what();
     message.append("");
@@ -142,7 +142,7 @@ void libraryControl::removeMagazine() {
   try {
     PublicationPtr magazine = make_shared<Magazine>(dataReader.readAndCreateMagazine());
     library.removeMagazine(magazine);
-    cslPrinter.printLine("Gazeta została usunieta z bazy danych.");
+    cslPrinter.printLine("Gazeta zostala usunieta z bazy danych.");
   } catch (invalid_argument err) {
     string message = err.what();
     message.append("");
@@ -156,7 +156,7 @@ void libraryControl::addUser() {
     libraryUser.addUser(user);
   } catch (invalid_argument err) {
     string message = err.what();
-    message.append(", uzytkownik nie został dodany.");
+    message.append(", uzytkownik nie zostal dodany.");
     cslPrinter.printLine(message);
   } catch (out_of_range err) {
     cslPrinter.printLine("Przekroczono dozwolony limit uzytkownikow.");

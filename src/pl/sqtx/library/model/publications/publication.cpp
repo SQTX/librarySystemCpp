@@ -68,5 +68,5 @@ bool Publication::operator!=(const Publication &rhs) const {
 //--- Other methods --------------------------------------------------------------------------
 //Virtual methods:
 //TODO last: Dd sprawdzenia
-string Publication::toString(){}
-string Publication::toSave(){}
+string Publication::toString(){return " ";}
+string Publication::toSave(){return " ";}

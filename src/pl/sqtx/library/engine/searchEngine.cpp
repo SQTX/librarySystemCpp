@@ -50,7 +50,8 @@ int searchEngine::findPublication(library *library, std::string txt, int lastIte
 }
 
 //Main Search Function
-int searchEngine::searchEng(library *library, libraryUser *libraryUser) {
+void searchEngine::searchEng(library *library, libraryUser *libraryUser) {
+  cin.ignore();
   cslPrinter.printLine("Poszukiwana fraza:");
   string txt = dataReader.getTextLine();
   vector<User>::iterator it_user = libraryUser->getIteratorUsers();
