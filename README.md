@@ -7,6 +7,7 @@
 - The possibility of borrowing and returning publications by users,
 - All rentals are documented in the user's history along with the date they were made,
 - User's history can be displayed,
+- Working search engine,
 - The application automatically imports and exports files when the system is turned on and off.
 ---
 ### Instalation
