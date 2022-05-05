@@ -39,7 +39,7 @@ int searchEngine::findPublication(library *library, std::string txt, int lastIte
         secondPart = dataReader.toLowerCase(dynamic_cast<Book *>((it_publication + i)->get())->getAuthor());
         isbn = dynamic_cast<Book *>((it_publication + i)->get())->getIsbn();
       } else if (dynamic_cast<Magazine *>((it_publication + i)->get()))
-        secondPart = dynamic_cast<Magazine *>((it_publication + i)->get())->createSecondPart();
+        secondPart = dynamic_cast<Magazine *>((it_publication + i)->get())->createFullDateOfPublication();
       const string publisher = dataReader.toLowerCase((it_publication + i)->get()->getPublisher());
       const string titleNAuthor = title + " " + secondPart;
 

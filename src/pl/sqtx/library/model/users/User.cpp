@@ -58,6 +58,7 @@ string User::toSave(){
 }
 string User::toSaveUserHistory(int i){
   string info;
+  //TODO: getElemSecondPart dla magazynu tworzy spacje i jest bład. Magazayn posiada od teraz getElemSecondPartToSave
   info.append(userHistory[i].getElemTitle() + ";" + userHistory[i].getElemSecondPart() + ";" +
     userHistory[i].getElemLoanDate() + ";" + userHistory[i].getElemReturnDate());
   return info;
@@ -84,7 +85,7 @@ void User::returnPublication(std::string title, std::string secondPart, std::str
       if(dynamic_cast<Book *>(borrowedPublications[i].get())){
         bPSecondPart = dynamic_cast<Book *>(borrowedPublications[i].get())->getAuthor();
       } else if(dynamic_cast<Magazine *>(borrowedPublications[i].get())){
-        bPSecondPart = dynamic_cast<Magazine *>(borrowedPublications[i].get())->createSecondPart();
+        bPSecondPart = dynamic_cast<Magazine *>(borrowedPublications[i].get())->createFullDateOfPublication();
       }
       if(secondPart == bPSecondPart) borrowedPublications.erase(borrowedPublications.begin() + i);
     }

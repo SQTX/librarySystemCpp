@@ -193,9 +193,9 @@ bool usersData::exportUsers(libraryUser *libraryUser, const char MAX_CHAR, fstre
           dataFile->close();
           return true;
         }
-        return false;
       }
     }
+    return false;
   } catch (DataExportException err) {
     string message = err.what();
     cslPrinter.printLine("Blad zapisu.");

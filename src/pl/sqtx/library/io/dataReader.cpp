@@ -27,6 +27,7 @@ char dataReader::getChar() {
   cin >> ch;
   if (cin.good()) {
     cin.clear();
+    cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     return ch;
   } else {
     cin.clear();
@@ -98,7 +99,7 @@ Magazine dataReader::readAndCreateMagazine() {
 
 //For person ******************************************************
 Person dataReader::readAndCreatePerson(){
-  cslPrinter.printLine("Imię: ");
+  cslPrinter.printLine("Imie: ");
   cin.ignore(1);
   string firstName;
   cin >> firstName;

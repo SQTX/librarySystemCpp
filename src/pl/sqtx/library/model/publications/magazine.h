@@ -41,7 +41,7 @@ public:
   /**Create string-line with the information arranged for data export.*/
   std::string toSave() override; //Prepere to save
   /**Create string-line creates lines containing day, month and year.*/
-  std::string createSecondPart();
+  std::string createFullDateOfPublication();
 };
 
 #endif //LIBRARYSYSTEM_MAGAZINE_H

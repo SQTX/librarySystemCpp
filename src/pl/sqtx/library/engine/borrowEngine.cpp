@@ -138,7 +138,7 @@ void borrowEngine::borrowPublication(library *library, libraryUser *libraryUser)
   if (dynamic_cast<Book *>((it_publications + indexOfPublication)->get())) {
     secondPart = dynamic_cast<Book *>((it_publications + indexOfPublication)->get())->getAuthor();
   } else if (dynamic_cast<Magazine *>((it_publications + indexOfPublication)->get())) {
-    secondPart = dynamic_cast<Magazine *>((it_publications + indexOfPublication)->get())->createSecondPart();
+    secondPart = dynamic_cast<Magazine *>((it_publications + indexOfPublication)->get())->createFullDateOfPublication();
   } else secondPart = "Error second part borrowEngine.cpp";
 
   HistoryElement historyElement((it_publications + indexOfPublication)->get()->getTitle(), secondPart,
@@ -171,7 +171,7 @@ void borrowEngine::returnPublication(library *library, libraryUser *libraryUser)
   if (dynamic_cast<Book *>((it_publications + indexOfPublication)->get())) {
     secondPart = dynamic_cast<Book *>((it_publications + indexOfPublication)->get())->getAuthor();
   } else if (dynamic_cast<Magazine *>((it_publications + indexOfPublication)->get())) {
-    secondPart = dynamic_cast<Magazine *>((it_publications + indexOfPublication)->get())->createSecondPart();
+    secondPart = dynamic_cast<Magazine *>((it_publications + indexOfPublication)->get())->createFullDateOfPublication();
   } else secondPart = "Error";
 
   (it_user + indexOfUser)->returnPublication(title, secondPart, time);
