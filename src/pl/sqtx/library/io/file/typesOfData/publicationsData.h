@@ -20,6 +20,9 @@
 class publicationsData {
 private:
   consolePrinter cslPrinter;
+  //  Create errors
+  DataImportException impErr;
+  DataExportException expErr;
 
 public:
   /**Function that imports publications into the main vector that stores

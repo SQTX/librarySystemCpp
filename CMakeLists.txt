@@ -20,6 +20,7 @@ add_executable(librarySystem
         ${standardPath}/exception/publicationNotExistException.cpp
         ${standardPath}/exception/publicationAvailabilityException.cpp
         ${standardPath}/exception/wrongDataException.cpp
+        ${standardPath}/exception/wrongClosingFirstSessionException.cpp
 #        io
         ${standardPath}/io/dataReader.cpp
         ${standardPath}/io/consolePrinter.cpp

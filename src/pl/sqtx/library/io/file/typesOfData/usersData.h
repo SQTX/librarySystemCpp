@@ -19,6 +19,9 @@
 class usersData {
 private:
   consolePrinter cslPrinter;
+//  Create errors
+  DataImportException impErr;
+  DataExportException expErr;
   const unsigned char MAX_PESEL_CHAR = 11;
 
 public:

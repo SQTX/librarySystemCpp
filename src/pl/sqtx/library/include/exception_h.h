@@ -13,5 +13,6 @@
 #include "../exception/publicationNotExistException.cpp"
 #include "../exception/publicationAvailabilityException.cpp"
 #include "../exception/wrongDataException.cpp"
+#include "../exception/wrongClosingFirstSessionException.cpp"
 
 #endif //LIBRARYSYSTEM_EXCEPTION_H_H
