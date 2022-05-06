@@ -5,7 +5,7 @@
 #include "../include/main_h.h"
 #include "../io/consolePrinter.h"
 
-static const std::string appName = "Biblioteka v3.1.1";  //App version
+static const std::string appName = "Biblioteka v3.1.3";  //App version
 int main() {
   consolePrinter cslPrinter;
   cslPrinter.printLine(appName);  //Print version

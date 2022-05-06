@@ -25,8 +25,8 @@ int borrowEngine::findUser(libraryUser *libraryUser) {
 //  --- Searching ---
   vector<User>::iterator it_users = libraryUser->getIteratorUsers();
   for (int i = 0; i < libraryUser->getUsersVector().size(); i++) {
-    if (wanted.getFirstName() == (it_users + i)->getFirstName() &&
-        wanted.getLastName() == (it_users + i)->getLastName() &&
+    if (dataReader.toLowerCase(wanted.getFirstName()) == dataReader.toLowerCase((it_users + i)->getFirstName()) &&
+        dataReader.toLowerCase(wanted.getLastName()) == dataReader.toLowerCase((it_users + i)->getLastName()) &&
         wanted.getPesel() == (it_users + i)->getPesel())
       return i;
   }
@@ -60,7 +60,7 @@ int borrowEngine::findPublication(library *library, bool loanStatus, string user
             string title = ptr.get()->getTitle();
             string author = dynamic_cast<Book *>(ptr.get())->getAuthor(); //Potencjalnie dobrze
             bool loan = ptr.get()->getIsLoan();
-            if (searchingTitle == title && searchingAuthor == author) {
+            if (dataReader.toLowerCase(searchingTitle) == dataReader.toLowerCase(title) && dataReader.toLowerCase(searchingAuthor) == dataReader.toLowerCase(author)) {
               if (loan == loanStatus && loanStatus == false) {
                 return i;
               } else if (loan == loanStatus && loanStatus == true) {
@@ -96,7 +96,7 @@ int borrowEngine::findPublication(library *library, bool loanStatus, string user
             int month = dynamic_cast<Magazine *>(ptr.get())->getMonth(); //Potencjalnie dobrze
             int year = ptr->getReleaseDate(); //Potencjalnie dobrze
             bool loan = ptr.get()->getIsLoan();
-            if (searchingTitle == title && searchingDay == day &&
+            if (dataReader.toLowerCase(searchingTitle) == dataReader.toLowerCase(title) && searchingDay == day &&
                 searchingMonth == month && searchingYear == year) {
               if (loan == loanStatus && loanStatus == false) {
                 return i;
