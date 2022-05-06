@@ -110,7 +110,7 @@ namespace options {
     int getOptionsSize() const;
 
 //    Return option map
-    const std::map<unsigned int, const std::string> &getMyMap() const;
+//    const std::map<unsigned int, const std::string> &getMyMap() const;  //Useless
 
 //    Return one line text ready to print
     std::string toString(int value);

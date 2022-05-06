@@ -52,10 +52,10 @@ bool Person::operator!=(const Person &rhs) const {
 }
 
 //Other methods
-string Person::toString() {
+string Person::toString() const{
   return firstName + "; " + lastName + "; " + pesel;
 }
 
-string Person::toSave() {
+string Person::toSave() const{
   return firstName + ";" + lastName + ";" + pesel;
 }

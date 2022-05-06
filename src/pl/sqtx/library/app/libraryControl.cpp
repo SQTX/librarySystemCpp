@@ -54,14 +54,13 @@ void libraryControl::controlLoop() {
         exit();
         break;
       default:
-        cslPrinter.printLine("Nie ma takiej opcji, wprowadz ponownie: ");
+        consolePrinter::printLine("Nie ma takiej opcji, wprowadz ponownie: ");
     }
   } while (choice != option.EXIT);
 }
 //--- Get choice form user
 int libraryControl::getChoice() {
   options::Option option;
-  consolePrinter cslPrinter;
   int choice = 0;
   bool choiceRight = false;
   do {
@@ -77,9 +76,9 @@ int libraryControl::getChoice() {
     } catch (NoSuchOptionException err) {
       choiceRight = false;
       string message = err.what() + to_string(choice);
-      cslPrinter.printLine(message);
+      consolePrinter::printLine(message);
     } catch (invalid_argument err) {
-      cslPrinter.printLine(err.what());
+      consolePrinter::printLine(err.what());
     }
   } while (!choiceRight);
   return choice;
@@ -87,9 +86,9 @@ int libraryControl::getChoice() {
 //--- Print all options in numbered list ---
 void libraryControl::printOptions() {
   options::Option option;
-  cslPrinter.printLine("Wybierz opcje: ");
+  consolePrinter::printLine("Wybierz opcje: ");
   for (int i = 0; i < option.getOptionsSize(); i++) {
-    cslPrinter.printLine(option.toString(i));
+    consolePrinter::printLine(option.toString(i));
   }
 }
 //--- Add new publication ---
@@ -100,9 +99,9 @@ void libraryControl::addBook() {
   } catch (invalid_argument err) {
     string message = err.what();
     message.append(", publikacja nie zostala dodana.");
-    cslPrinter.printLine(message);
+    consolePrinter::printLine(message);
   } catch (out_of_range err) {
-    cslPrinter.printLine("Przekroczono dozwolony limit publikacji.");
+    consolePrinter::printLine("Przekroczono dozwolony limit publikacji.");
   }
 }
 void libraryControl::addMagazine() {
@@ -112,9 +111,9 @@ void libraryControl::addMagazine() {
   } catch (invalid_argument err) {
     string message = err.what();
     message.append(", publikacja nie zostala dodana.");
-    cslPrinter.printLine(message);
+    consolePrinter::printLine(message);
   } catch (out_of_range err) {
-    cslPrinter.printLine("Przekroczono dozwolony limit publikacji.");
+    consolePrinter::printLine("Przekroczono dozwolony limit publikacji.");
   }
 }
 //--- Print publications
@@ -131,22 +130,22 @@ void libraryControl::removeBook() {
   try {
     PublicationPtr book = make_shared<Book>(dataReader.readAndCreateBook());
     library.removeBook(book);
-    cslPrinter.printLine("Ksiazka zostala usunieta z bazy danych.");
+    consolePrinter::printLine("Ksiazka zostala usunieta z bazy danych.");
   } catch (invalid_argument err) {
     string message = err.what();
     message.append("");
-    cslPrinter.printLine(message);
+    consolePrinter::printLine(message);
   }
 }
 void libraryControl::removeMagazine() {
   try {
     PublicationPtr magazine = make_shared<Magazine>(dataReader.readAndCreateMagazine());
     library.removeMagazine(magazine);
-    cslPrinter.printLine("Gazeta zostala usunieta z bazy danych.");
+    consolePrinter::printLine("Gazeta zostala usunieta z bazy danych.");
   } catch (invalid_argument err) {
     string message = err.what();
     message.append("");
-    cslPrinter.printLine(message);
+    consolePrinter::printLine(message);
   }
 }
 //--- Add new user ---
@@ -157,11 +156,11 @@ void libraryControl::addUser() {
   } catch (invalid_argument err) {
     string message = err.what();
     message.append(", uzytkownik nie zostal dodany.");
-    cslPrinter.printLine(message);
+    consolePrinter::printLine(message);
   } catch (out_of_range err) {
-    cslPrinter.printLine("Przekroczono dozwolony limit uzytkownikow.");
+    consolePrinter::printLine("Przekroczono dozwolony limit uzytkownikow.");
   } catch (wrongDataException err) {
-    cslPrinter.printLine(err.what());
+    consolePrinter::printLine(err.what());
   }
 }
 //--- Print users ---
@@ -174,30 +173,30 @@ void libraryControl::borrowPublication() {
   try{
     borrowEngine.borrowPublication(&library, &libraryUser);
   } catch (UserNotExistException err){
-    cslPrinter.printLine(err.what());
+    consolePrinter::printLine(err.what());
   } catch (PublicationNotExistException err){
     string mess = err.what();
     mess.append(", wiec nie zostala wypozyczona.");
-    cslPrinter.printLine(mess);
+    consolePrinter::printLine(mess);
   } catch (PublicationAvailabilityException err){
     string mess = err.what();
     mess.append("jest niedostepna.");
-    cslPrinter.printLine(mess);
+    consolePrinter::printLine(mess);
   }
 }
 void libraryControl::returnPublication() {
   try{
     borrowEngine.returnPublication(&library, &libraryUser);
   } catch (UserNotExistException err){
-    cslPrinter.printLine(err.what());
+    consolePrinter::printLine(err.what());
   } catch (PublicationNotExistException err){
     string mess = err.what();
     mess.append(", wiec nie zostala zwrocona.");
-    cslPrinter.printLine(mess);
+    consolePrinter::printLine(mess);
   } catch (PublicationAvailabilityException err){
     string mess = err.what();
     mess.append("zastala juz zwrocona.");
-    cslPrinter.printLine(mess);
+    consolePrinter::printLine(mess);
   }
 }
 //--- Print history of user
@@ -205,7 +204,7 @@ void libraryControl::historyOfUser() {
   try{
     borrowEngine.printUserHistory(&libraryUser);
   } catch (UserNotExistException err){
-    cslPrinter.printLine(err.what());
+    consolePrinter::printLine(err.what());
   }
 }
 //--- Search engine ---
@@ -215,7 +214,7 @@ void libraryControl::searchEngi() {
 //--- Exit ---
 void libraryControl::exit() {
   srlFileManager.exportData(&library, &libraryUser);  //Export data
-  cslPrinter.printLine("Koniec programu.");
+  consolePrinter::printLine("Koniec programu.");
 }
 
 //  ====== Class Options ===============================================================================================
@@ -223,9 +222,9 @@ int options::Option::getOptionsSize() const {
   return options::Option::optionsSize;
 }
 
-const map<unsigned int, const string> &options::Option::getMyMap() const {
+/*const map<unsigned int, const string> &options::Option::getMyMap() const {
   return MyMap;
-}
+}*/
 
 string options::Option::toString(int value) {
   return to_string(value) + " - " + MyMap[value];

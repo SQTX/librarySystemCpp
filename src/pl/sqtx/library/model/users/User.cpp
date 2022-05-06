@@ -42,7 +42,7 @@ void User::setReturnedNumb(unsigned int returnedNumb) {
 }
 
 //Other methods
-string User::toString(){
+string User::toString() const{
   string info;
   info.append(getFirstName() + "; " + getLastName() + "; " + getPesel() + "; " +
     to_string(allLoanNumb) + "; " + to_string(currentlyLoan) + "; " + to_string(returnedNumb));
@@ -50,13 +50,13 @@ string User::toString(){
 //    to_string(allLoanNumb) + "; " + to_string(currentlyLoan) + "; " + to_string(returnedNumb));
   return info;
 }
-string User::toSave(){
+string User::toSave() const{
   string info;
   info.append("\nUser;" + getFirstName() + ";" + getLastName() + ";" + getPesel() + ";" +
               to_string(allLoanNumb) + ";" + to_string(currentlyLoan) + ";" + to_string(returnedNumb));
   return info;
 }
-string User::toSaveUserHistory(int i){
+string User::toSaveUserHistory(int i) const{
   string info;
   //TODO: getElemSecondPart dla magazynu tworzy spacje i jest bład. Magazayn posiada od teraz getElemSecondPartToSave
   info.append(userHistory[i].getElemTitle() + ";" + userHistory[i].getElemSecondPart() + ";" +

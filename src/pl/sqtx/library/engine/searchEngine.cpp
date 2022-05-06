@@ -8,7 +8,7 @@ using namespace std;
 
 int searchEngine::findUser(libraryUser *libraryUser, string txt, int lastIteratorIndex) {
   string fromUser = dataReader.toLowerCase(txt);
-  vector<User>::iterator it_users = libraryUser->getIteratorUsers();
+  auto it_users = libraryUser->getIteratorUsers();
 
   ++lastIteratorIndex;
   if (lastIteratorIndex <= libraryUser->getUsersVector().size()) {
@@ -29,7 +29,7 @@ int searchEngine::findUser(libraryUser *libraryUser, string txt, int lastIterato
 
 int searchEngine::findPublication(library *library, std::string txt, int lastIteratorIndex) {
   string fromUser = dataReader.toLowerCase(txt);
-  vector<PublicationPtr>::iterator it_publication = library->getIteratorPublications();
+  auto it_publication = library->getIteratorPublications();
 
   ++lastIteratorIndex;
   if (lastIteratorIndex <= library->getPublications().size()) {
@@ -57,22 +57,22 @@ int searchEngine::findPublication(library *library, std::string txt, int lastIte
 //Main Search Function
 void searchEngine::searchEng(library *library, libraryUser *libraryUser) {
   cin.ignore();
-  cslPrinter.printLine("Poszukiwana fraza:");
+  consolePrinter::printLine("Poszukiwana fraza:");
   string txt = dataReader.getTextLine();
-  vector<User>::iterator it_user = libraryUser->getIteratorUsers();
+  auto it_user = libraryUser->getIteratorUsers();
 
   int wantedIteratorIndex = -1;
-  cslPrinter.printLine("Uzytkownicy:");
+  consolePrinter::printLine("Uzytkownicy:");
   do {
     wantedIteratorIndex = findUser(libraryUser, txt, wantedIteratorIndex);
-    if (wantedIteratorIndex >= 0) cslPrinter.printLine((it_user + wantedIteratorIndex)->toString());
+    if (wantedIteratorIndex >= 0) consolePrinter::printLine((it_user + wantedIteratorIndex)->toString());
   } while (wantedIteratorIndex >= 0);
 
   wantedIteratorIndex = -1;
-  cslPrinter.printLine("Publikacje:");
-  vector<PublicationPtr>::iterator it_publication = library->getIteratorPublications();
+  consolePrinter::printLine("Publikacje:");
+  auto it_publication = library->getIteratorPublications();
   do {
     wantedIteratorIndex = findPublication(library, txt, wantedIteratorIndex);
-    if (wantedIteratorIndex >= 0) cslPrinter.printLine((it_publication + wantedIteratorIndex)->get()->toString());
+    if (wantedIteratorIndex >= 0) consolePrinter::printLine((it_publication + wantedIteratorIndex)->get()->toString());
   } while (wantedIteratorIndex >= 0);
 }

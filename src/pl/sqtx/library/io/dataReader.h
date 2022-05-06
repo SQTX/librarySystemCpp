@@ -13,8 +13,6 @@
 #include "../model/users/User.h"
 
 class dataReader {
-private:
-  consolePrinter cslPrinter;
 public:
 //  --- Letter transform ---
   std::string toLowerCase(std::string);  //To lower case

@@ -37,9 +37,9 @@ public:
   unsigned int getReturnedNumb() const;
   void setReturnedNumb(unsigned int returnedNumb);
 //  Other methods ---------------------------------------------------------------------------------------------------
-  std::string toString(); //Prepare data to printout
-  std::string toSave(); //Perpere data to save
-  std::string toSaveUserHistory(int i); //Perpere history of usert to save
+  std::string toString() const; //Prepare data to printout
+  std::string toSave() const; //Perpere data to save
+  std::string toSaveUserHistory(int i) const; //Perpere history of usert to save
   /**Functions that push data to a vector.*/
   void addBorrowedPublications(PublicationPtr publication);
   void addHistoryElement(HistoryElement historyElement);

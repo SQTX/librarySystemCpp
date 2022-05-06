@@ -50,47 +50,47 @@ string dataReader::getTextLine() {
 
 //For publications ******************************************************
 Book dataReader::readAndCreateBook() {
-  cslPrinter.printLine("Tytul: ");
+  consolePrinter::printLine("Tytul: ");
   string title;
   cin.ignore(1);
   getline(cin, title);
-  cslPrinter.printLine("Autor: ");
+  consolePrinter::printLine("Autor: ");
   string author;
   getline(cin, author);
-  cslPrinter.printLine("Wydawnictwo: ");
+  consolePrinter::printLine("Wydawnictwo: ");
   string publisher;
   getline(cin, publisher);
-  cslPrinter.printLine("ISBN: ");
+  consolePrinter::printLine("ISBN: ");
   string isbn;
   cin >> isbn;
   cin.ignore();
-  cslPrinter.printLine("Rok wydania: ");
+  consolePrinter::printLine("Rok wydania: ");
   int releaseDate;
   releaseDate = getInt();
-  cslPrinter.printLine("Ilosc stron: ");
+  consolePrinter::printLine("Ilosc stron: ");
   int pages;
   pages = getInt();
   return Book(title, author, releaseDate, pages, publisher, isbn);
 }
 Magazine dataReader::readAndCreateMagazine() {
-  cslPrinter.printLine("Tytul: ");
+  consolePrinter::printLine("Tytul: ");
   string title;
   cin.ignore(1);
   getline(cin, title);
-  cslPrinter.printLine("Dzien: ");
+  consolePrinter::printLine("Dzien: ");
   int day;
   day = getInt();
-  cslPrinter.printLine("Miesiac: ");
+  consolePrinter::printLine("Miesiac: ");
   int month;
   month = getInt();
-  cslPrinter.printLine("Rok wydania: ");
+  consolePrinter::printLine("Rok wydania: ");
   int releaseDate;
   releaseDate = getInt();
-  cslPrinter.printLine("Jezyk: ");
+  consolePrinter::printLine("Jezyk: ");
   cin.ignore(1);
   string language;
   getline(cin, language);
-  cslPrinter.printLine("Wydawnictwo: ");
+  consolePrinter::printLine("Wydawnictwo: ");
   string publisher;
   getline(cin, publisher);
   cin.clear();
@@ -99,22 +99,22 @@ Magazine dataReader::readAndCreateMagazine() {
 
 //For person ******************************************************
 Person dataReader::readAndCreatePerson(){
-  cslPrinter.printLine("Imie: ");
+  consolePrinter::printLine("Imie: ");
   cin.ignore(1);
   string firstName;
   cin >> firstName;
-  cslPrinter.printLine("Nazwisko: ");
+  consolePrinter::printLine("Nazwisko: ");
   cin.ignore(1);
   string lastName;
   cin >> lastName;
-  cslPrinter.printLine("PESEL: ");
+  consolePrinter::printLine("PESEL: ");
   cin.ignore(1);
   string pesel;
   cin >> pesel;
 
   if(pesel.size()>11){
     wrongDataException err;
-    cslPrinter.printLine("Pesel musi skladac sie z 11 cyfr.");
+    consolePrinter::printLine("Pesel musi skladac sie z 11 cyfr.");
     throw err;
   }
 

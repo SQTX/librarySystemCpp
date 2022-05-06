@@ -12,9 +12,7 @@ HistoryElement::HistoryElement(const std::string &elemTitle, const std::string &
   this->elemReturnDate = elemReturnDate;
 }
 
-HistoryElement::~HistoryElement() {
-
-}
+HistoryElement::~HistoryElement() {}
 
 const std::string &HistoryElement::getElemTitle() const {
   return elemTitle;
