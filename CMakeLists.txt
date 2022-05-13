@@ -15,7 +15,7 @@ add_executable(librarySystem
 #        exception
         ${standardPath}/exception/noSuchOptionException.cpp
         ${standardPath}/exception/dataImportException.cpp
-        ${standardPath}/exception/dataExportException.cpp
+        ${standardPath}/exception/databaseNotExistException.cpp
         ${standardPath}/exception/userNotExistException.cpp
         ${standardPath}/exception/publicationNotExistException.cpp
         ${standardPath}/exception/publicationAvailabilityException.cpp

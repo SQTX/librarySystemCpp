@@ -9,6 +9,7 @@
 #include "../exception/noSuchOptionException.cpp"
 #include "../exception/dataExportException.cpp"
 #include "../exception/dataImportException.cpp"
+#include "../exception/databaseNotExistException.cpp"
 #include "../exception/userNotExistException.cpp"
 #include "../exception/publicationNotExistException.cpp"
 #include "../exception/publicationAvailabilityException.cpp"

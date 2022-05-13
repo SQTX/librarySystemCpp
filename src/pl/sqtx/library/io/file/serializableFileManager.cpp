@@ -11,12 +11,22 @@ using namespace std;
 void serializableFileManager::importData(library *library, libraryUser *libraryUser) {
   bool importPublicationFlag = false, importUserFlag = false;
   try {
-    DataImportException err;
+    DataImportException impErr;
     importUserFlag = usersData.importUsers(libraryUser, MAX_CHAR, &dataFile, &position);
     if (importUserFlag)
       importPublicationFlag = publicationsData.importPublications(library, MAX_CHAR, &dataFile, &position, libraryUser);
-    if (importUserFlag && importPublicationFlag) cslPrinter.printLine("Baza danych publikacji zostala pomyslnie zainportowana.");
-    else throw err;
+    if (importUserFlag && importPublicationFlag)
+      cslPrinter.printLine("Baza danych publikacji zostala pomyslnie zainportowana.");
+    else throw impErr;
+  } catch (DatabaseNotExistException databaseNotExistException) {
+    cslPrinter.printLine(databaseNotExistException.what());
+    dataFile.open("../src/pl/sqtx/library/data/dataBase.txt", ios::out);
+    if (dataFile.is_open()) {
+      cslPrinter.printLine("Zainicjalizowano nowa baze danych.");
+      dataFile.close();
+    } else {
+      cslPrinter.printLine("Stworzenie nowej bazy danych jest niemozliwe.");
+    }
   } catch (wrongClosingFirstSessionException wrongLastExit) {
     cslPrinter.printLine(wrongLastExit.what());
     dataFile.open("../src/pl/sqtx/library/data/dataBase.txt", ios::out);
@@ -28,8 +38,8 @@ void serializableFileManager::importData(library *library, libraryUser *libraryU
     }
     dataFile.close();
     cslPrinter.printLine("Zainicjalizowano nowa baze danych.");
-  } catch (DataImportException err) {
-    cslPrinter.printLine(err.what());
+  } catch (DataImportException impErr) {
+    cslPrinter.printLine(impErr.what());
   }
 }
 
@@ -43,7 +53,8 @@ void serializableFileManager::exportData(library *library, libraryUser *libraryU
     exportUserFlag = usersData.exportUsers(libraryUser, MAX_CHAR, &dataFile, &position);
     if (exportUserFlag)
       exportPublicationFlag = publicationsData.exportPublications(library, MAX_CHAR, &dataFile, &position);
-    if (exportUserFlag && exportPublicationFlag) cslPrinter.printLine("Zapis zakonczony powodzeniem.");
+    if (exportUserFlag && exportPublicationFlag)
+      cslPrinter.printLine("Zapis zakonczony powodzeniem.");
     else throw err;
   } catch (DataExportException err) {
     string message = err.what();

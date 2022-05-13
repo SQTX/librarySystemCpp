@@ -131,17 +131,9 @@ bool usersData::importUsers(libraryUser *libraryUser, const char MAX_CHAR, fstre
 
 //      File opens fail ******************************************
   } else {
-//      If the database file doesn't exist, it tries to create a new one
-    cslPrinter.printLine("Brak bazy danych.");
-    dataFile->open("../src/pl/sqtx/library/data/dataBase.txt", ios::out);
-    if (dataFile->is_open()) {
-      cslPrinter.printLine("Zainicjalizowano nowa baze danych.");
-      dataFile->close();
-      return false;
-    } else {
-      cslPrinter.printLine("Stworzenie nowej bazy danych jest niemozliwe.");
-      throw impErr;
-    }
+//    If the database file doesn't exist, it tries to create a new one
+    DatabaseNotExistException databaseNotExistException;
+    throw databaseNotExistException;
   }
 }
 
