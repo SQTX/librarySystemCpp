@@ -37,16 +37,22 @@ int searchEngine::findPublication(library *library, std::string txt, int lastIte
 //      Transform user data to the same case
       const string title = dataReader.toLowerCase((it_publication + i)->get()->getTitle());
       string secondPart = "";
+      int authorIndex = -1;
       string isbn = "";
       if (dynamic_cast<Book *>((it_publication + i)->get())) {
         secondPart = dataReader.toLowerCase(dynamic_cast<Book *>((it_publication + i)->get())->getAuthor());
+//        detect single word in author string
+        authorIndex = secondPart.find(fromUser);
         isbn = dynamic_cast<Book *>((it_publication + i)->get())->getIsbn();
       } else if (dynamic_cast<Magazine *>((it_publication + i)->get()))
         secondPart = dynamic_cast<Magazine *>((it_publication + i)->get())->createFullDateOfPublication();
       const string publisher = dataReader.toLowerCase((it_publication + i)->get()->getPublisher());
       const string titleNAuthor = title + " " + secondPart;
 
-      if (fromUser == title || fromUser == secondPart || fromUser == publisher || fromUser == isbn) return i;
+//      detect single word in title string
+      const int wordIndex = title.find(fromUser);
+
+      if (fromUser == title || wordIndex >= 0 || fromUser == secondPart || authorIndex >= 0 || fromUser == publisher || fromUser == isbn) return i;
     }
   } else {
     return -1;

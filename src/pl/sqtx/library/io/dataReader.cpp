@@ -5,6 +5,17 @@
 
 using namespace std;
 
+void dataReader::isbnCheck(string isbn) {
+  if(isbn.size() > 17)throw invalid_argument("Podany numer isbn jest za dlugi");
+  else if (isbn.size() < 1) throw invalid_argument("Podany numer isbn jest za krotki");
+  for(int i = 0; i < isbn.size(); i++){
+    if(!((isbn[i] >= '0' && isbn[i] <= '9') || isbn[i] == '-' || isbn[i] == '_')){
+      cout << isbn[i] << endl;
+      throw invalid_argument("Podany numer isbn zawiera niedopuszczalne znaki");
+    }
+  }
+}
+
 string dataReader::toLowerCase(string txt) {
   transform(txt.begin(), txt.end(), txt.begin(), ::tolower); //Convert string to lower case
   return txt;
@@ -60,10 +71,11 @@ Book dataReader::readAndCreateBook() {
   consolePrinter::printLine("Wydawnictwo: ");
   string publisher;
   getline(cin, publisher);
-  consolePrinter::printLine("ISBN: ");
+  consolePrinter::printLine("ISBN:\n[Dopuszczone znaki: 0-9, -, _]");
   string isbn;
   cin >> isbn;
   cin.ignore();
+  isbnCheck(isbn);  //Check if isbn number is right
   consolePrinter::printLine("Rok wydania: ");
   int releaseDate;
   releaseDate = getInt();

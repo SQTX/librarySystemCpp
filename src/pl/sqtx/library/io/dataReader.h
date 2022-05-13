@@ -13,6 +13,8 @@
 #include "../model/users/User.h"
 
 class dataReader {
+private:
+  void isbnCheck(std::string isbn);
 public:
 //  --- Letter transform ---
   std::string toLowerCase(std::string);  //To lower case
