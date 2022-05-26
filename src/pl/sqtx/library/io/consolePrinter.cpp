@@ -5,6 +5,12 @@
 
 using namespace std;
 
+//Operator
+ostream &operator<<(ostream& COUT, PublicationPtr publication) {
+  COUT << publication->toString();
+  return COUT;
+}
+
 void consolePrinter::printLine(string txt) {
   cout << txt << endl;
 }
@@ -19,12 +25,10 @@ void consolePrinter::printBooks(vector<PublicationPtr> &publications) {
       countBooks++;
     }
   }
-//    Sort
-  sort.getSort(sortedPublications);
-//    Print
+  sort.getSort(sortedPublications); //Sort
   for (auto &publication: sortedPublications)
-    cout << publication->toString() << endl;
-
+    cout << publication << endl;
+//    cout << publication->toString() << endl;
   if (countBooks == 0) {
     printLine("Brak ksiazek w bibliotece");
   }
@@ -40,11 +44,9 @@ void consolePrinter::printMagazines(vector<PublicationPtr> &publications) {
       countMagazine++;
     }
   }
-//    Sort
-  sort.getSort(sortedPublications);
-//    Print
+  sort.getSort(sortedPublications); //Sort
   for (auto &publication: sortedPublications)
-    cout << publication->toString() << endl;
+    cout << publication << endl;
   if (countMagazine == 0) {
     printLine("Brak gazet w bibliotece");
   }

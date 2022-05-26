@@ -91,11 +91,16 @@ void libraryControl::printOptions() {
     consolePrinter::printLine(option.toString(i));
   }
 }
+
+void operator+(library& library, PublicationPtr book) {
+  library.addBook(book);
+}
 //--- Add new publication ---
 void libraryControl::addBook() {
   try {
     PublicationPtr book = make_shared<Book>(dataReader.readAndCreateBook());
-    library.addBook(book);
+//    library.addBook(book);
+    library+book;
   } catch (invalid_argument err) {
     string message = err.what();
     message.append(", publikacja nie zostala dodana.");
