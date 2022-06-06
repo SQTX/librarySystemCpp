@@ -13,7 +13,7 @@
 
 typedef std::shared_ptr<Publication> PublicationPtr;
 
-class User : public Person{
+class User : public virtual Person{
 private:
   std::vector<PublicationPtr> borrowedPublications;
   std::vector<HistoryElement> userHistory;
